@@ -217,8 +217,6 @@ const ja: Dictionary = {
       local: { title: 'Mac の外に出さない', text: 'iSensa はインターネットを使いません。履歴は Mac の中にとどまります。' },
       safe: { title: 'ハードウェアに慎重に', text: 'ファン制御は任意で、何かおかしいと感じたらすぐに macOS に制御を戻します。' },
     },
-    explore: 'GitHub で見る',
-    stats: { stars: 'スター', forks: 'フォーク', issues: '未解決の Issue', release: '最新リリース', none: 'まだありません' },
     links: {
       issues: 'Issue',
       pulls: 'プルリクエスト',

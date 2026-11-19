@@ -4,7 +4,7 @@ const ptBR: Dictionary = {
   meta: {
     title: 'iSensa — Monitor de hardware para macOS',
     description:
-      'iSensa é um app gratuito e de código aberto para Mac que mostra leituras ao vivo de CPU, GPU, memória, temperaturas, bateria, ventoinhas e armazenamento, explica o que significam e indica de onde vem cada número.',
+      'iSensa é um app gratuito e de código aberto para Mac que mostra leituras ao vivo de CPU, GPU, memória, temperaturas, bateria, ventiladores e armazenamento, explica o que significam e indica de onde vem cada número.',
     ogAlt: 'A janela do iSensa mostrando a Visão geral de um MacBook Pro, com gráficos ao vivo de CPU e GPU.',
   },
   nav: {
@@ -39,7 +39,7 @@ const ptBR: Dictionary = {
   overview: {
     eyebrow: 'Visão geral',
     title: 'Uma janela para tudo o que há dentro do seu Mac.',
-    text: 'Processador, placa de vídeo, memória, temperatura, bateria, ventoinhas, armazenamento e rede: tudo num só lugar, explicado de forma simples, numa janela ou direto da barra de menus.',
+    text: 'Processador, placa de vídeo, memória, temperatura, bateria, ventiladores, armazenamento e rede: tudo num só lugar, explicado de forma simples, numa janela ou direto da barra de menus.',
     pillars: {
       native: { title: 'Parece parte do seu Mac', text: 'Tem a cara e o jeito dos apps que já vêm no seu Mac, no modo claro e no escuro.' },
       honest: { title: 'Palavras simples, sem jargão', text: 'Cada número vem com uma frase curta, para você saber quando algo merece atenção.' },
@@ -53,7 +53,7 @@ const ptBR: Dictionary = {
     thermal: 'Temperatura',
     power: 'Energia',
     battery: 'Bateria',
-    fans: 'Ventoinhas',
+    fans: 'Ventiladores',
     network: 'Rede',
     storage: 'Armazenamento',
   },
@@ -71,7 +71,7 @@ const ptBR: Dictionary = {
       realtime: {
         title: 'Ao vivo, sem ruído',
         text: 'Veja num relance quanto o seu Mac está trabalhando agora e o que o está ocupando.',
-        alt: 'A Visão geral: uma frase de resumo, a onda ao vivo de CPU e GPU e blocos de CPU, GPU, memória, temperatura, energia e ventoinhas.',
+        alt: 'A Visão geral: uma frase de resumo, a onda ao vivo de CPU e GPU e blocos de CPU, GPU, memória, temperatura, energia e ventiladores.',
         label: 'Tempo real',
         why: 'Descubra em segundos o que está deixando o Mac lento, sem abrir o Monitor de Atividade.',
       },
@@ -90,10 +90,10 @@ const ptBR: Dictionary = {
         why: 'Entenda como a bateria está envelhecendo e o que o carregador realmente entrega.',
       },
       fans: {
-        title: 'Ventoinhas: acompanhe ou assuma o controle',
-        text: 'Veja a velocidade de cada ventoinha. Em Macs com ventoinhas, você também pode escolher ajustes mais silenciosos ou mais frescos. É opcional e experimental, e devolve o controle ao macOS se algo parecer errado.',
-        alt: 'A tela Ventoinhas com duas ventoinhas em controle automático e a opção de instalar o auxiliar.',
-        label: 'Ventoinhas',
+        title: 'Ventiladores: acompanhe ou assuma o controle',
+        text: 'Veja a velocidade de cada ventilador. Em Macs com ventiladores, você também pode escolher ajustes mais silenciosos ou mais frescos. É opcional e experimental, e devolve o controle ao macOS se algo parecer errado.',
+        alt: 'A tela Ventiladores com dois ventiladores em controle automático e a opção de instalar o auxiliar.',
+        label: 'Ventiladores',
         why: 'Mantenha o Mac silencioso nas chamadas, ou mais frio em renderizações longas, com proteções automáticas.',
       },
       storage: {
@@ -106,7 +106,7 @@ const ptBR: Dictionary = {
       history: {
         title: 'Histórico que encontra padrões',
         text: 'Olhe para trás, da última hora ao último mês. O iSensa mostra o que mudou junto, como a temperatura subindo quando o Mac trabalha pesado.',
-        alt: 'A tela Histórico com 24 horas de gráficos de CPU, GPU, pressão de memória, temperatura e ventoinhas.',
+        alt: 'A tela Histórico com 24 horas de gráficos de CPU, GPU, pressão de memória, temperatura e ventiladores.',
         label: 'Histórico',
         why: 'Veja se a lentidão de ontem foi calor, memória ou disco.',
       },
@@ -136,7 +136,7 @@ const ptBR: Dictionary = {
       'Quando só a barra de menus está visível, o iSensa atualiza menos vezes para economizar energia.',
     ],
     statusAlt: 'O iSensa na barra de menus mostrando o uso e a temperatura da CPU.',
-    popoverAlt: 'O popover do iSensa com leituras de CPU, GPU, temperatura, memória, bateria, energia, ventoinhas e rede.',
+    popoverAlt: 'O popover do iSensa com leituras de CPU, GPU, temperatura, memória, bateria, energia, ventiladores e rede.',
   },
   gallery: {
     eyebrow: 'Galeria',
@@ -155,7 +155,7 @@ const ptBR: Dictionary = {
       battery: 'Bateria',
       thermals: 'Temperaturas',
       sensors: 'Sensores',
-      fans: 'Ventoinhas',
+      fans: 'Ventiladores',
       storage: 'Armazenamento',
       history: 'Histórico',
       popover: 'Popover da barra de menus',
@@ -203,10 +203,10 @@ const ptBR: Dictionary = {
       space: { label: 'Espaço em disco', value: 'Menos de 20 MB' },
       permissions: {
         label: 'Permissões',
-        value: 'Nenhuma para ver as leituras do Mac. Opcionais: notificações para alertas, acesso a pastas para descobrir o que enche o disco e sua senha para ativar o controle das ventoinhas.',
+        value: 'Nenhuma para ver as leituras do Mac. Opcionais: notificações para alertas, acesso a pastas para descobrir o que enche o disco e sua senha para ativar o controle dos ventiladores.',
       },
     },
-    limitations: 'O que o iSensa consegue mostrar depende do seu Mac. O controle das ventoinhas é experimental e só existe em Macs com ventoinhas. Alguns valores são estimativas e aparecem identificados como tal.',
+    limitations: 'O que o iSensa consegue mostrar depende do seu Mac. O controle dos ventiladores é experimental e só existe em Macs com ventiladores. Alguns valores são estimativas e aparecem identificados como tal.',
   },
   openSource: {
     eyebrow: 'Código aberto',
@@ -215,10 +215,8 @@ const ptBR: Dictionary = {
     principles: {
       honest: { title: 'Nada inventado', text: 'Um sensor só ganha nome quando o iSensa tem certeza do que ele é. Estimativas aparecem como estimativas.' },
       local: { title: 'Nada sai do seu Mac', text: 'O iSensa não usa a internet. Seu histórico fica no seu Mac.' },
-      safe: { title: 'Cuidado com o hardware', text: 'O controle das ventoinhas é opcional e devolve o controle ao macOS assim que algo parece errado.' },
+      safe: { title: 'Cuidado com o hardware', text: 'O controle dos ventiladores é opcional e devolve o controle ao macOS assim que algo parece errado.' },
     },
-    explore: 'Explorar no GitHub',
-    stats: { stars: 'Estrelas', forks: 'Forks', issues: 'Issues abertas', release: 'Última versão', none: 'Nenhuma ainda' },
     links: {
       issues: 'Issues',
       pulls: 'Pull requests',
@@ -257,7 +255,7 @@ const ptBR: Dictionary = {
         {
           heading: 'Sobre o iSensa',
           body: [
-            'O iSensa é um aplicativo de código aberto que monitora e diagnostica o hardware de computadores Mac e, em modelos compatíveis, pode controlar a velocidade das ventoinhas. Ele é desenvolvido por colaboradores independentes e publicado em github.com/steinertruthy/isensa.',
+            'O iSensa é um aplicativo de código aberto que monitora e diagnostica o hardware de computadores Mac e, em modelos compatíveis, pode controlar a velocidade dos ventiladores. Ele é desenvolvido por colaboradores independentes e publicado em github.com/steinertruthy/isensa.',
           ],
         },
         {
@@ -279,9 +277,9 @@ const ptBR: Dictionary = {
           ],
         },
         {
-          heading: 'Controle das ventoinhas e componentes privilegiados',
+          heading: 'Controle dos ventiladores e componentes privilegiados',
           body: [
-            'O controle das ventoinhas é experimental. Ele exige instalar um auxiliar que roda com privilégios de administrador, autorizado com a sua senha. O auxiliar valida cada comando, respeita os limites de velocidade informados pelo hardware e devolve as ventoinhas ao controle automático quando o app deixa de responder ou uma leitura falha. Mesmo assim, mudar o comportamento das ventoinhas afeta temperaturas e ruído; use por sua conta e risco e desinstale o auxiliar quando quiser.',
+            'O controle dos ventiladores é experimental. Ele exige instalar um auxiliar que roda com privilégios de administrador, autorizado com a sua senha. O auxiliar valida cada comando, respeita os limites de velocidade informados pelo hardware e devolve os ventiladores ao controle automático quando o app deixa de responder ou uma leitura falha. Mesmo assim, mudar o comportamento dos ventiladores afeta temperaturas e ruído; use por sua conta e risco e desinstale o auxiliar quando quiser.',
           ],
         },
         {

@@ -6097,7 +6097,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para mudar a velocidade das ventoinhas, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele."
+            "value": "Para mudar a velocidade dos ventiladores, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele."
           }
         },
         "es": {
@@ -7547,7 +7547,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura baixa: o macOS está controlando as ventoinhas, que podem parar."
+            "value": "Temperatura baixa: o macOS está controlando os ventiladores, que podem parar."
           }
         },
         "es": {
@@ -11317,7 +11317,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ventoinha %@"
+            "value": "Ventilador %@"
           }
         },
         "es": {
@@ -11375,7 +11375,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle das ventoinhas"
+            "value": "Controle dos ventiladores"
           }
         },
         "es": {
@@ -11433,7 +11433,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Curva das ventoinhas"
+            "value": "Curva dos ventiladores"
           }
         },
         "es": {
@@ -11491,7 +11491,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As curvas das ventoinhas seguem esta leitura"
+            "value": "As curvas dos ventiladores seguem esta leitura"
           }
         },
         "es": {
@@ -11549,7 +11549,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Os limites das ventoinhas não estão disponíveis, então o macOS está controlando as ventoinhas."
+            "value": "Os limites dos ventiladores não estão disponíveis, então o macOS está controlando os ventiladores."
           }
         },
         "es": {
@@ -11607,7 +11607,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ventoinhas"
+            "value": "Ventiladores"
           }
         },
         "es": {
@@ -11665,7 +11665,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As ventoinhas deste Mac param completamente quando não é preciso refrigerar. Esse é o comportamento normal."
+            "value": "Os ventiladores deste Mac param completamente quando não é preciso refrigerar. Esse é o comportamento normal."
           }
         },
         "es": {
@@ -15377,7 +15377,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instale o auxiliar das ventoinhas"
+            "value": "Instale o auxiliar dos ventiladores"
           }
         },
         "es": {
@@ -15783,7 +15783,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Itens que este Mac não tem, como bateria ou ventoinhas, nunca aparecem."
+            "value": "Itens que este Mac não tem, como bateria ou ventiladores, nunca aparecem."
           }
         },
         "es": {
@@ -16015,7 +16015,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mantém as ventoinhas girando e chega à velocidade máxima em %@."
+            "value": "Mantém os ventiladores girando e chega à velocidade máxima em %@."
           }
         },
         "es": {
@@ -16711,7 +16711,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deixar as ventoinhas com o macOS abaixo do primeiro ponto"
+            "value": "Deixar os ventiladores com o macOS abaixo do primeiro ponto"
           }
         },
         "es": {
@@ -16769,7 +16769,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deixa as ventoinhas com o macOS abaixo de %@ e depois acompanha a temperatura."
+            "value": "Deixa os ventiladores com o macOS abaixo de %@ e depois acompanha a temperatura."
           }
         },
         "es": {
@@ -16827,7 +16827,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deixa as ventoinhas com o macOS abaixo de %@ e depois acelera suavemente."
+            "value": "Deixa os ventiladores com o macOS abaixo de %@ e depois acelera suavemente."
           }
         },
         "es": {
@@ -19843,7 +19843,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sem dados das ventoinhas"
+            "value": "Sem dados dos ventiladores"
           }
         },
         "es": {
@@ -20075,7 +20075,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Não há leitura recente de temperatura, então o macOS está controlando as ventoinhas."
+            "value": "Não há leitura recente de temperatura, então o macOS está controlando os ventiladores."
           }
         },
         "es": {
@@ -22743,7 +22743,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "A porcentagem da faixa posiciona a velocidade atual entre o mínimo e o máximo da ventoinha."
+            "value": "A porcentagem da faixa posiciona a velocidade atual entre o mínimo e o máximo do ventilador."
           }
         },
         "es": {
@@ -25817,7 +25817,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Remover o auxiliar das ventoinhas?"
+            "value": "Remover o auxiliar dos ventiladores?"
           }
         },
         "es": {
@@ -26803,7 +26803,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Houve um problema ao devolver as ventoinhas ao automático. Se elas continuarem rápidas, reinicie o Mac."
+            "value": "Houve um problema ao devolver os ventiladores ao automático. Se eles continuarem rápidos, reinicie o Mac."
           }
         },
         "es": {
@@ -26861,7 +26861,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Devolvendo as ventoinhas ao macOS…"
+            "value": "Devolvendo os ventiladores ao macOS…"
           }
         },
         "es": {
@@ -27557,7 +27557,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Veja num relance como está seu Mac: temperaturas, memória, bateria, ventoinhas e mais, explicados em palavras simples."
+            "value": "Veja num relance como está seu Mac: temperaturas, memória, bateria, ventiladores e mais, explicados em palavras simples."
           }
         },
         "es": {
@@ -28601,7 +28601,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar velocidade das ventoinhas como"
+            "value": "Mostrar velocidade dos ventiladores como"
           }
         },
         "es": {
@@ -31327,7 +31327,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Passando as ventoinhas para controle manual…"
+            "value": "Passando os ventiladores para controle manual…"
           }
         },
         "es": {
@@ -31965,7 +31965,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperaturas e ventoinhas atualizam na metade dessa frequência. Intervalos maiores consomem menos energia."
+            "value": "Temperaturas e ventiladores atualizam na metade dessa frequência. Intervalos maiores consomem menos energia."
           }
         },
         "es": {
@@ -32545,7 +32545,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "A curva segue o núcleo mais quente da CPU, com média de alguns segundos para que picos breves não mudem a velocidade das ventoinhas."
+            "value": "A curva segue o núcleo mais quente da CPU, com média de alguns segundos para que picos breves não mudem a velocidade dos ventiladores."
           }
         },
         "es": {
@@ -32719,7 +32719,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlador das ventoinhas não aceitou a mudança, então o macOS continua controlando as ventoinhas."
+            "value": "O controlador dos ventiladores não aceitou a mudança, então o macOS continua controlando os ventiladores."
           }
         },
         "es": {
@@ -32777,7 +32777,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar das ventoinhas não está respondendo"
+            "value": "O auxiliar dos ventiladores não está respondendo"
           }
         },
         "es": {
@@ -32835,7 +32835,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar das ventoinhas precisa de atualização"
+            "value": "O auxiliar dos ventiladores precisa de atualização"
           }
         },
         "es": {
@@ -32893,7 +32893,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As ventoinhas voltam ao automático e o macOS pede sua senha para remover o auxiliar."
+            "value": "Os ventiladores voltam ao automático e o macOS pede sua senha para remover o auxiliar."
           }
         },
         "es": {
@@ -32951,7 +32951,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As ventoinhas aceleraram conforme a temperatura subiu, geralmente a partir de cerca de %@."
+            "value": "Os ventiladores aceleraram conforme a temperatura subiu, geralmente a partir de cerca de %@."
           }
         },
         "es": {
@@ -33009,7 +33009,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As ventoinhas aceleraram conforme a temperatura subiu."
+            "value": "Os ventiladores aceleraram conforme a temperatura subiu."
           }
         },
         "es": {
@@ -33067,7 +33067,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "As ventoinhas ficaram paradas: o Mac se refrigerou sem elas."
+            "value": "Os ventiladores ficaram parados: o Mac se refrigerou sem eles."
           }
         },
         "es": {
@@ -34459,7 +34459,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando as ventoinhas."
+            "value": "Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando os ventiladores."
           }
         },
         "es": {
@@ -38983,7 +38983,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Seu Mac está sob pressão térmica, então o macOS está controlando as ventoinhas."
+            "value": "Seu Mac está sob pressão térmica, então o macOS está controlando os ventiladores."
           }
         },
         "es": {
@@ -39099,7 +39099,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sua curva deixa as ventoinhas com o macOS abaixo de %1$@ e chega à velocidade máxima em %2$@."
+            "value": "Sua curva deixa os ventiladores com o macOS abaixo de %1$@ e chega à velocidade máxima em %2$@."
           }
         },
         "es": {
@@ -39795,7 +39795,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O iSensa está controlando as ventoinhas: %@."
+            "value": "O iSensa está controlando os ventiladores: %@."
           }
         },
         "es": {
@@ -40085,7 +40085,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O iSensa nunca para uma ventoinha nem ultrapassa os limites dela. Se o iSensa for encerrado ou parar de responder, ou se o Mac esquentar demais, as ventoinhas voltam ao automático em até 10 segundos."
+            "value": "O iSensa nunca para um ventilador nem ultrapassa os limites dele. Se o iSensa for encerrado ou parar de responder, ou se o Mac esquentar demais, os ventiladores voltam ao automático em até 10 segundos."
           }
         },
         "es": {
@@ -40955,7 +40955,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O macOS está controlando as ventoinhas."
+            "value": "O macOS está controlando os ventiladores."
           }
         },
         "es": {

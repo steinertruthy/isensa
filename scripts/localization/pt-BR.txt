@@ -82,10 +82,10 @@
 134|Externo
 135|Fahrenheit (°F)
 136|Sinal razoável
-137|Ventoinha %@
-138|Controle das ventoinhas
-139|Ventoinhas
-140|As ventoinhas deste Mac param completamente quando não é preciso refrigerar. Esse é o comportamento normal.
+137|Ventilador %@
+138|Controle dos ventiladores
+139|Ventiladores
+140|Os ventiladores deste Mac param completamente quando não é preciso refrigerar. Esse é o comportamento normal.
 141|Favoritos
 142|Entrando na bateria
 143|Livre
@@ -152,7 +152,7 @@
 228|Rede: %@
 229|Neural Engine
 231|Nenhuma conexão de rede ativa.
-233|Sem dados das ventoinhas
+233|Sem dados dos ventiladores
 235|Nenhum resultado
 236|Nenhum sensor
 237|Ruído
@@ -239,7 +239,7 @@
 391|Sensores de temperatura
 393|Temperatura, memória, armazenamento e bateria estão dentro do esperado.
 394|Temperaturas
-395|Temperaturas e ventoinhas atualizam na metade dessa frequência. Intervalos maiores consomem menos energia.
+395|Temperaturas e ventiladores atualizam na metade dessa frequência. Intervalos maiores consomem menos energia.
 396|Temporariamente indisponível
 399|A bateria está carregando — completa em cerca de %@.
 400|A bateria está carregando.
@@ -385,7 +385,7 @@
 178|Quente
 180|Hora
 182|Na barra de menus
-188|Itens que este Mac não tem, como bateria ou ventoinhas, nunca aparecem.
+188|Itens que este Mac não tem, como bateria ou ventiladores, nunca aparecem.
 189|JSON
 190|Manter histórico por
 191|Guardado neste Mac por %@.
@@ -415,7 +415,7 @@
 258|Abrir Ajustes do Sistema
 262|Pico
 263|Porcentagem da faixa
-264|A porcentagem da faixa posiciona a velocidade atual entre o mínimo e o máximo da ventoinha.
+264|A porcentagem da faixa posiciona a velocidade atual entre o mínimo e o máximo do ventilador.
 265|Desempenho
 268|Período
 269|Permissões
@@ -438,7 +438,7 @@
 317|Rotações por minuto
 320|Aviso de saúde do SSD
 321|O SSD relata um problema
-326|Veja num relance como está seu Mac: temperaturas, memória, bateria, ventoinhas e mais, explicados em palavras simples.
+326|Veja num relance como está seu Mac: temperaturas, memória, bateria, ventiladores e mais, explicados em palavras simples.
 327|Enviar Teste
 328|Enviar notificações
 330|O iSensa também pausa enquanto o Mac repousa e desacelera com a tela desligada. Listas de processos, frequências e detalhes do Wi-Fi só são lidos com uma janela ou o painel da barra de menus aberto.
@@ -457,7 +457,7 @@
 350|Sensores indisponíveis
 354|Compartilhada com a CPU
 355|Mostrar Boas-vindas Novamente
-356|Mostrar velocidade das ventoinhas como
+356|Mostrar velocidade dos ventiladores como
 359|Mostrar no Finder
 360|Mostrar na visão geral
 361|Mostrar sensores que o iSensa não consegue identificar
@@ -517,50 +517,50 @@
 516|Ajustes
 517|Mostrar/Ocultar Barra Lateral
 518|Equilibrado
-519|Para mudar a velocidade das ventoinhas, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele.
-520|Temperatura baixa: o macOS está controlando as ventoinhas, que podem parar.
+519|Para mudar a velocidade dos ventiladores, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele.
+520|Temperatura baixa: o macOS está controlando os ventiladores, que podem parar.
 521|Curva
-522|Curva das ventoinhas
-523|Os limites das ventoinhas não estão disponíveis, então o macOS está controlando as ventoinhas.
+522|Curva dos ventiladores
+523|Os limites dos ventiladores não estão disponíveis, então o macOS está controlando os ventiladores.
 524|Velocidade fixa
 525|Auxiliar
 526|Instalar Novamente…
 527|Instalar Auxiliar…
-528|Instale o auxiliar das ventoinhas
-529|Mantém as ventoinhas girando e chega à velocidade máxima em %@.
-530|Deixa as ventoinhas com o macOS abaixo de %@ e depois acompanha a temperatura.
-531|Deixa as ventoinhas com o macOS abaixo de %@ e depois acelera suavemente.
+528|Instale o auxiliar dos ventiladores
+529|Mantém os ventiladores girando e chega à velocidade máxima em %@.
+530|Deixa os ventiladores com o macOS abaixo de %@ e depois acompanha a temperatura.
+531|Deixa os ventiladores com o macOS abaixo de %@ e depois acelera suavemente.
 532|Modo
 533|Precisa de atualização
-534|Não há leitura recente de temperatura, então o macOS está controlando as ventoinhas.
+534|Não há leitura recente de temperatura, então o macOS está controlando os ventiladores.
 535|Não instalado
 536|Sem resposta
 537|Silencioso
 538|Remover
 539|Remover Auxiliar…
-540|Remover o auxiliar das ventoinhas?
-541|O iSensa está controlando as ventoinhas: %@.
-542|O iSensa nunca para uma ventoinha nem ultrapassa os limites dela. Se o iSensa for encerrado ou parar de responder, ou se o Mac esquentar demais, as ventoinhas voltam ao automático em até 10 segundos.
+540|Remover o auxiliar dos ventiladores?
+541|O iSensa está controlando os ventiladores: %@.
+542|O iSensa nunca para um ventilador nem ultrapassa os limites dele. Se o iSensa for encerrado ou parar de responder, ou se o Mac esquentar demais, os ventiladores voltam ao automático em até 10 segundos.
 543|Velocidade
-544|O auxiliar das ventoinhas não está respondendo
-545|O auxiliar das ventoinhas precisa de atualização
-546|As ventoinhas voltam ao automático e o macOS pede sua senha para remover o auxiliar.
+544|O auxiliar dos ventiladores não está respondendo
+545|O auxiliar dos ventiladores precisa de atualização
+546|Os ventiladores voltam ao automático e o macOS pede sua senha para remover o auxiliar.
 547|Esta cópia do iSensa não é assinada com um Apple Developer ID, por isso o auxiliar é instalado com um pedido de senha em vez dos Ajustes do Sistema. Ao recompilar o iSensa, é preciso atualizar o auxiliar.
-548|Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando as ventoinhas.
+548|Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando os ventiladores.
 549|Atualizar Auxiliar…
-550|Seu Mac está sob pressão térmica, então o macOS está controlando as ventoinhas.
-551|O macOS está controlando as ventoinhas.
-552|O iSensa quer instalar o auxiliar das ventoinhas.
-553|O iSensa quer remover o auxiliar das ventoinhas.
-554|O auxiliar das ventoinhas não respondeu a tempo.
-555|Esta cópia do iSensa está sem o auxiliar das ventoinhas ou sem assinatura de código.
-556|Houve um problema ao devolver as ventoinhas ao automático. Se elas continuarem rápidas, reinicie o Mac.
-557|Passando as ventoinhas para controle manual…
-558|O controlador das ventoinhas não aceitou a mudança, então o macOS continua controlando as ventoinhas.
+550|Seu Mac está sob pressão térmica, então o macOS está controlando os ventiladores.
+551|O macOS está controlando os ventiladores.
+552|O iSensa quer instalar o auxiliar dos ventiladores.
+553|O iSensa quer remover o auxiliar dos ventiladores.
+554|O auxiliar dos ventiladores não respondeu a tempo.
+555|Esta cópia do iSensa está sem o auxiliar dos ventiladores ou sem assinatura de código.
+556|Houve um problema ao devolver os ventiladores ao automático. Se eles continuarem rápidos, reinicie o Mac.
+557|Passando os ventiladores para controle manual…
+558|O controlador dos ventiladores não aceitou a mudança, então o macOS continua controlando os ventiladores.
 559|Não foi possível instalar o auxiliar.
 560|Não foi possível remover o auxiliar.
 561|Tentar Novamente
-562|Devolvendo as ventoinhas ao macOS…
+562|Devolvendo os ventiladores ao macOS…
 563|Mantendo o alvo de %@
 564|Acelerando até %@
 565|Desacelerando até %@
@@ -577,20 +577,20 @@
 576|Momento mais quente: %@ às %@.
 577|Padrões
 578|A CPU chegou a %@ estando quase ociosa. Outra coisa, como a GPU, o carregamento ou um ambiente quente, pode ter contribuído.
-579|As ventoinhas aceleraram conforme a temperatura subiu, geralmente a partir de cerca de %@.
-580|As ventoinhas aceleraram conforme a temperatura subiu.
-581|As ventoinhas ficaram paradas: o Mac se refrigerou sem elas.
-582|A curva segue o núcleo mais quente da CPU, com média de alguns segundos para que picos breves não mudem a velocidade das ventoinhas.
+579|Os ventiladores aceleraram conforme a temperatura subiu, geralmente a partir de cerca de %@.
+580|Os ventiladores aceleraram conforme a temperatura subiu.
+581|Os ventiladores ficaram parados: o Mac se refrigerou sem eles.
+582|A curva segue o núcleo mais quente da CPU, com média de alguns segundos para que picos breves não mudem a velocidade dos ventiladores.
 583|Personalizada
 584|Sua curva chega à velocidade máxima em %@.
-585|Sua curva deixa as ventoinhas com o macOS abaixo de %1$@ e chega à velocidade máxima em %2$@.
+585|Sua curva deixa os ventiladores com o macOS abaixo de %1$@ e chega à velocidade máxima em %2$@.
 586|Arraste os pontos para moldar a curva. A velocidade nunca cai quando a temperatura sobe, e o último ponto é sempre a velocidade máxima.
-587|Deixar as ventoinhas com o macOS abaixo do primeiro ponto
+587|Deixar os ventiladores com o macOS abaixo do primeiro ponto
 588|Ajustar valores
 589|Temperatura do ponto %@
 590|Velocidade do ponto %@
 591|Núcleo mais quente
-592|As curvas das ventoinhas seguem esta leitura
+592|As curvas dos ventiladores seguem esta leitura
 593|%@ em 30 minutos
 594|%@ imagens de disco montadas. Ejetar uma não apaga o arquivo dela.
 595|%1$@: gravando %2$@, lendo %3$@

@@ -1051,7 +1051,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar das ventoinhas não respondeu a tempo."
+            "value": "O auxiliar dos ventiladores não respondeu a tempo."
           }
         },
         "es": {
@@ -1109,7 +1109,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Esta cópia do iSensa está sem o auxiliar das ventoinhas ou sem assinatura de código."
+            "value": "Esta cópia do iSensa está sem o auxiliar dos ventiladores ou sem assinatura de código."
           }
         },
         "es": {
@@ -1457,7 +1457,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O iSensa quer instalar o auxiliar das ventoinhas."
+            "value": "O iSensa quer instalar o auxiliar dos ventiladores."
           }
         },
         "es": {
@@ -1631,7 +1631,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O iSensa quer remover o auxiliar das ventoinhas."
+            "value": "O iSensa quer remover o auxiliar dos ventiladores."
           }
         },
         "es": {

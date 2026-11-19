@@ -20,20 +20,13 @@ interface Strings {
   architectures: Record<'universal' | 'arm64' | 'x86_64', string>;
   latest: string;
   noRelease: string;
-  none: string;
 }
 
-interface Repository {
-  stargazers_count: number;
-  forks_count: number;
-  open_issues_count: number;
-}
-
-const cacheKey = 'isensa.github';
+const cacheKey = 'isensa.releases';
 const cacheAge = 10 * 60 * 1000;
 
 /** Public GitHub data, cached for ten minutes per visitor to stay well within the API's rate limit. */
-async function github(): Promise<{ releases: Release[]; repo: Repository | null }> {
+async function github(): Promise<{ releases: Release[] }> {
   try {
     const cached = JSON.parse(sessionStorage.getItem(cacheKey) ?? 'null');
     if (cached && Date.now() - cached.at < cacheAge) return cached.data;
@@ -41,12 +34,9 @@ async function github(): Promise<{ releases: Release[]; repo: Repository | null 
     // No storage: fetch every time.
   }
   const headers = { Accept: 'application/vnd.github+json' };
-  const [releases, repo] = await Promise.all([
-    fetch(`${repository.api}/releases?per_page=20`, { headers }),
-    fetch(repository.api, { headers }),
-  ]);
+  const releases = await fetch(`${repository.api}/releases?per_page=20`, { headers });
   if (!releases.ok) throw new Error(`GitHub releases: ${releases.status}`);
-  const data = { releases: (await releases.json()) as Release[], repo: repo.ok ? ((await repo.json()) as Repository) : null };
+  const data = { releases: (await releases.json()) as Release[] };
   try {
     sessionStorage.setItem(cacheKey, JSON.stringify({ at: Date.now(), data }));
   } catch {
@@ -58,7 +48,6 @@ async function github(): Promise<{ releases: Release[]; repo: Repository | null 
 export function setUpDownload(): void {
   const panel = document.querySelector<HTMLElement>('[data-download]');
   const footerVersion = document.querySelector<HTMLElement>('[data-footer-version]');
-  const stats = document.querySelector<HTMLElement>('[data-repo-stats]');
   const strings = panel ? (JSON.parse(panel.querySelector('[data-download-strings]')?.textContent ?? '{}') as Strings) : null;
   const onMac = isMacOS(
     (navigator as Navigator & { userAgentData?: { platform?: string } }).userAgentData?.platform ?? navigator.platform,
@@ -72,19 +61,11 @@ export function setUpDownload(): void {
   }
 
   github()
-    .then(({ releases, repo }) => {
+    .then(({ releases }) => {
       const installer = latestInstaller(releases);
       if (panel && strings) showRelease(panel, strings, installer, onMac);
       if (footerVersion) {
         footerVersion.textContent = installer ? fill(footerVersion.dataset.latest ?? '{version}', { version: installer.version }) : footerVersion.textContent;
-      }
-      if (stats && repo) {
-        const number = new Intl.NumberFormat(document.documentElement.lang);
-        stats.querySelector('[data-stat="stars"]')!.textContent = number.format(repo.stargazers_count);
-        stats.querySelector('[data-stat="forks"]')!.textContent = number.format(repo.forks_count);
-        stats.querySelector('[data-stat="issues"]')!.textContent = number.format(repo.open_issues_count);
-        stats.querySelector('[data-stat="release"]')!.textContent = installer ? installer.version : strings?.none ?? '—';
-        stats.hidden = false;
       }
     })
     .catch(() => {

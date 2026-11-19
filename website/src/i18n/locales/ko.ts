@@ -217,8 +217,6 @@ const ko: Dictionary = {
       local: { title: 'Mac 밖으로 나가지 않습니다', text: 'iSensa는 인터넷을 사용하지 않습니다. 기록은 Mac에 남습니다.' },
       safe: { title: '하드웨어를 신중하게', text: '팬 제어는 선택 사항이며, 문제가 보이는 즉시 macOS에 제어를 돌려줍니다.' },
     },
-    explore: 'GitHub에서 살펴보기',
-    stats: { stars: '스타', forks: '포크', issues: '열린 이슈', release: '최신 릴리스', none: '아직 없음' },
     links: {
       issues: '이슈',
       pulls: '풀 리퀘스트',

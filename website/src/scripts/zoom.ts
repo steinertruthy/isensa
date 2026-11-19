@@ -44,6 +44,9 @@ export function setUpZoom(): void {
     stage.replaceChildren();
     if (!picture) return null;
     const copy = picture.cloneNode(true) as HTMLElement;
+    // Without the page's classes: its theme rules would turn the copy into a full-width block and
+    // push the image to the left.
+    copy.removeAttribute('class');
     copy.querySelectorAll('source').forEach((element) => element.setAttribute('sizes', '100vw'));
     const image = copy.querySelector('img');
     if (image) {

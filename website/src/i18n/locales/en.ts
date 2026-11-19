@@ -220,8 +220,6 @@ const en = {
       local: { title: 'Nothing leaves your Mac', text: 'iSensa does not use the internet. Your history stays on your Mac.' },
       safe: { title: 'Careful with hardware', text: 'Fan control is optional and gives control back to macOS the moment anything looks wrong.' },
     },
-    explore: 'Explore on GitHub',
-    stats: { stars: 'Stars', forks: 'Forks', issues: 'Open issues', release: 'Latest release', none: 'None yet' },
     links: {
       issues: 'Issues',
       pulls: 'Pull requests',

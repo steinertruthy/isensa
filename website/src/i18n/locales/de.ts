@@ -217,8 +217,6 @@ const de: Dictionary = {
       local: { title: 'Nichts verlässt deinen Mac', text: 'iSensa nutzt das Internet nicht. Dein Verlauf bleibt auf deinem Mac.' },
       safe: { title: 'Sorgfältig mit Hardware', text: 'Die Lüftersteuerung ist optional und gibt die Kontrolle sofort an macOS zurück, wenn etwas nicht stimmt.' },
     },
-    explore: 'Auf GitHub erkunden',
-    stats: { stars: 'Sterne', forks: 'Forks', issues: 'Offene Issues', release: 'Neueste Version', none: 'Noch keine' },
     links: {
       issues: 'Issues',
       pulls: 'Pull Requests',

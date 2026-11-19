@@ -217,8 +217,6 @@ const es: Dictionary = {
       local: { title: 'Nada sale de tu Mac', text: 'iSensa no usa internet. Tu historial se queda en tu Mac.' },
       safe: { title: 'Cuidado con el hardware', text: 'El control de ventiladores es opcional y devuelve el control a macOS en cuanto algo parece ir mal.' },
     },
-    explore: 'Explorar en GitHub',
-    stats: { stars: 'Estrellas', forks: 'Forks', issues: 'Issues abiertas', release: 'Última versión', none: 'Ninguna todavía' },
     links: {
       issues: 'Issues',
       pulls: 'Pull requests',

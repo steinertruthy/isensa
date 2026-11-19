@@ -217,8 +217,6 @@ const it: Dictionary = {
       local: { title: 'Nulla lascia il tuo Mac', text: 'iSensa non usa internet. La tua cronologia resta sul tuo Mac.' },
       safe: { title: 'Attento all’hardware', text: 'Il controllo delle ventole è facoltativo e restituisce il comando a macOS appena qualcosa non va.' },
     },
-    explore: 'Esplora su GitHub',
-    stats: { stars: 'Stelle', forks: 'Fork', issues: 'Issue aperte', release: 'Ultima versione', none: 'Nessuna per ora' },
     links: {
       issues: 'Issue',
       pulls: 'Pull request',

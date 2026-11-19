@@ -217,8 +217,6 @@ const zhHans: Dictionary = {
       local: { title: '数据不离开你的 Mac', text: 'iSensa 不使用互联网。你的历史记录留在你的 Mac 上。' },
       safe: { title: '审慎对待硬件', text: '风扇控制是可选的，一旦发现异常，就会立即把控制权交还给 macOS。' },
     },
-    explore: '在 GitHub 上探索',
-    stats: { stars: '星标', forks: '复刻', issues: '未解决议题', release: '最新版本', none: '暂无' },
     links: {
       issues: '议题',
       pulls: '拉取请求',
