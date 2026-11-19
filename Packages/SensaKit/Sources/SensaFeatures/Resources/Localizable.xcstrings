@@ -1,0 +1,2606 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "%@ available of %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ disponíveis de %@"
+          }
+        }
+      }
+    },
+    "%@ available on your startup disk.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ disponíveis no disco de inicialização."
+          }
+        }
+      }
+    },
+    "%@ remaining": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ restantes"
+          }
+        }
+      }
+    },
+    "%@, %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %@."
+          }
+        }
+      }
+    },
+    "A few things deserve your attention.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alguns pontos merecem sua atenção."
+          }
+        }
+      }
+    },
+    "About": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre"
+          }
+        }
+      }
+    },
+    "Activity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atividade"
+          }
+        }
+      }
+    },
+    "Adapter": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregador"
+          }
+        }
+      }
+    },
+    "Add to favorites": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar aos favoritos"
+          }
+        }
+      }
+    },
+    "Advanced": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avançado"
+          }
+        }
+      }
+    },
+    "All groups": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os grupos"
+          }
+        }
+      }
+    },
+    "Allow Sensa's helper in System Settings › General › Login Items.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permita o auxiliar do Sensa em Ajustes do Sistema › Geral › Itens de Início."
+          }
+        }
+      }
+    },
+    "Always show technical details": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sempre mostrar detalhes técnicos"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aparência"
+          }
+        }
+      }
+    },
+    "Approval needed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aprovação necessária"
+          }
+        }
+      }
+    },
+    "Approve Sensa in System Settings › General › Login Items.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aprove o Sensa em Ajustes do Sistema › Geral › Itens de Início."
+          }
+        }
+      }
+    },
+    "Apps": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps"
+          }
+        }
+      }
+    },
+    "Apps + wired + compressed, as in Activity Monitor.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps + residente + comprimida, como no Monitor de Atividade."
+          }
+        }
+      }
+    },
+    "Architecture": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquitetura"
+          }
+        }
+      }
+    },
+    "Attention": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atenção"
+          }
+        }
+      }
+    },
+    "Automatic": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automático"
+          }
+        }
+      }
+    },
+    "Available": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disponível"
+          }
+        }
+      }
+    },
+    "Available space includes purgeable space macOS can free automatically, as shown in Finder.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O espaço disponível inclui o espaço removível que o macOS libera automaticamente, como no Finder."
+          }
+        }
+      }
+    },
+    "Average": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média"
+          }
+        }
+      }
+    },
+    "Average number of tasks running or waiting for the CPU.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Número médio de tarefas em execução ou aguardando a CPU."
+          }
+        }
+      }
+    },
+    "Average of identified sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média dos sensores identificados"
+          }
+        }
+      }
+    },
+    "Average of the CPU cluster sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média dos sensores dos núcleos da CPU"
+          }
+        }
+      }
+    },
+    "Average of the GPU sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média dos sensores da GPU"
+          }
+        }
+      }
+    },
+    "Battery": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bateria"
+          }
+        }
+      }
+    },
+    "Battery is low (%@). Connect the charger.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bateria baixa (%@). Conecte o carregador."
+          }
+        }
+      }
+    },
+    "Being drawn from the battery": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sendo consumida da bateria"
+          }
+        }
+      }
+    },
+    "CPU": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU"
+          }
+        }
+      }
+    },
+    "CPU frequency": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequência da CPU"
+          }
+        }
+      }
+    },
+    "CPU temperature": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura da CPU"
+          }
+        }
+      }
+    },
+    "CPU temperature not identified on this model": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura da CPU não identificada neste modelo"
+          }
+        }
+      }
+    },
+    "CPU usage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso da CPU"
+          }
+        }
+      }
+    },
+    "Cached files": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquivos em cache"
+          }
+        }
+      }
+    },
+    "Can be reclaimed instantly when apps need memory.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pode ser liberada imediatamente quando os apps precisam de memória."
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Cellular": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Celular"
+          }
+        }
+      }
+    },
+    "Celsius (°C)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Celsius (°C)"
+          }
+        }
+      }
+    },
+    "Changing fan speeds requires Sensa's privileged helper, which macOS only installs for apps signed with an Apple Developer ID. Monitoring keeps working, and your Mac stays under Apple's automatic control.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alterar a velocidade das ventoinhas exige o auxiliar privilegiado do Sensa, que o macOS só instala em apps assinados com um Apple Developer ID. O monitoramento continua funcionando e seu Mac permanece no controle automático da Apple."
+          }
+        }
+      }
+    },
+    "Charge": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carga"
+          }
+        }
+      }
+    },
+    "Charge cycles": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciclos de carga"
+          }
+        }
+      }
+    },
+    "Charging": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregando"
+          }
+        }
+      }
+    },
+    "Charging limits are managed by macOS. On Apple silicon laptops with recent macOS versions you can set them in System Settings › Battery.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os limites de carregamento são gerenciados pelo macOS. Em notebooks com Apple silicon e versões recentes do macOS, você pode ajustá-los em Ajustes do Sistema › Bateria."
+          }
+        }
+      }
+    },
+    "Chip": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chip"
+          }
+        }
+      }
+    },
+    "Collecting data…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coletando dados…"
+          }
+        }
+      }
+    },
+    "Components": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Componentes"
+          }
+        }
+      }
+    },
+    "Compressed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprimida"
+          }
+        }
+      }
+    },
+    "Connected via %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado via %@."
+          }
+        }
+      }
+    },
+    "Connected, not charging": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado, sem carregar"
+          }
+        }
+      }
+    },
+    "Cooling": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refrigeração"
+          }
+        }
+      }
+    },
+    "Core %@: %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleo %@: %@"
+          }
+        }
+      }
+    },
+    "Cores": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleos"
+          }
+        }
+      }
+    },
+    "Critical": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crítico"
+          }
+        }
+      }
+    },
+    "Critical temperature: macOS is strongly limiting performance.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura crítica: o macOS está limitando fortemente o desempenho."
+          }
+        }
+      }
+    },
+    "Critical — performance strongly limited": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crítico — desempenho fortemente limitado"
+          }
+        }
+      }
+    },
+    "Current": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Corrente"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuro"
+          }
+        }
+      }
+    },
+    "Demo data": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dados de demonstração"
+          }
+        }
+      }
+    },
+    "Derived": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derivado"
+          }
+        }
+      }
+    },
+    "Design capacity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidade original"
+          }
+        }
+      }
+    },
+    "Detected capabilities": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos detectados"
+          }
+        }
+      }
+    },
+    "Disk activity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atividade do disco"
+          }
+        }
+      }
+    },
+    "Download": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download"
+          }
+        }
+      }
+    },
+    "Drag to reorder. With no indicator enabled, Sensa shows only its icon.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arraste para reordenar. Sem indicadores ativos, o Sensa mostra apenas seu ícone."
+          }
+        }
+      }
+    },
+    "Efficiency cores": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleos de eficiência"
+          }
+        }
+      }
+    },
+    "Estimated": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estimado"
+          }
+        }
+      }
+    },
+    "Ethernet": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ethernet"
+          }
+        }
+      }
+    },
+    "Every 2 seconds": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cada 2 segundos"
+          }
+        }
+      }
+    },
+    "Every 5 seconds": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cada 5 segundos"
+          }
+        }
+      }
+    },
+    "Every second": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cada segundo"
+          }
+        }
+      }
+    },
+    "Everything stays on your Mac.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo fica no seu Mac."
+          }
+        }
+      }
+    },
+    "Experimental": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Experimental"
+          }
+        }
+      }
+    },
+    "External": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Externo"
+          }
+        }
+      }
+    },
+    "Fahrenheit (°F)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrenheit (°F)"
+          }
+        }
+      }
+    },
+    "Fan %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ventoinha %@"
+          }
+        }
+      }
+    },
+    "Fan control": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controle das ventoinhas"
+          }
+        }
+      }
+    },
+    "Fan control is locked": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controle das ventoinhas bloqueado"
+          }
+        }
+      }
+    },
+    "Fans": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ventoinhas"
+          }
+        }
+      }
+    },
+    "Fans on this Mac stop completely when cooling is not needed. That is normal behaviour.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As ventoinhas deste Mac param completamente quando não é preciso refrigerar. Esse é o comportamento normal."
+          }
+        }
+      }
+    },
+    "Favorites": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoritos"
+          }
+        }
+      }
+    },
+    "Favorites, sensor names and menu bar choices will be restored to their defaults.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoritos, nomes de sensores e escolhas da barra de menus voltarão ao padrão."
+          }
+        }
+      }
+    },
+    "Flowing into the battery": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entrando na bateria"
+          }
+        }
+      }
+    },
+    "Free": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livre"
+          }
+        }
+      }
+    },
+    "Full charge capacity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidade de carga total"
+          }
+        }
+      }
+    },
+    "Full in %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completa em %@"
+          }
+        }
+      }
+    },
+    "Fully charged": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Totalmente carregada"
+          }
+        }
+      }
+    },
+    "GPU": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPU"
+          }
+        }
+      }
+    },
+    "GPU cores": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleos da GPU"
+          }
+        }
+      }
+    },
+    "GPU usage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso da GPU"
+          }
+        }
+      }
+    },
+    "Gathering information…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coletando informações…"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geral"
+          }
+        }
+      }
+    },
+    "Geometry (tiler)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geometria (tiler)"
+          }
+        }
+      }
+    },
+    "Good afternoon": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde"
+          }
+        }
+      }
+    },
+    "Good evening": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite"
+          }
+        }
+      }
+    },
+    "Good morning": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia"
+          }
+        }
+      }
+    },
+    "Graph": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gráfico"
+          }
+        }
+      }
+    },
+    "Greet me by my first name": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cumprimentar pelo meu nome"
+          }
+        }
+      }
+    },
+    "Greeting": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saudação"
+          }
+        }
+      }
+    },
+    "Group": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grupo"
+          }
+        }
+      }
+    },
+    "Health": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saúde"
+          }
+        }
+      }
+    },
+    "Here is how your Mac is doing this afternoon.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja como seu Mac está nesta tarde."
+          }
+        }
+      }
+    },
+    "Here is how your Mac is doing tonight.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja como seu Mac está nesta noite."
+          }
+        }
+      }
+    },
+    "Here is how your Mac is starting the day.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja como seu Mac está começando o dia."
+          }
+        }
+      }
+    },
+    "Hide Dock icon (menu bar only)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocultar ícone do Dock (somente barra de menus)"
+          }
+        }
+      }
+    },
+    "Hot — macOS is reducing performance": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quente — o macOS está reduzindo o desempenho"
+          }
+        }
+      }
+    },
+    "Identification": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identificação"
+          }
+        }
+      }
+    },
+    "Indicators": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indicadores"
+          }
+        }
+      }
+    },
+    "Inferred, not verified": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inferido, não verificado"
+          }
+        }
+      }
+    },
+    "Installed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instalada"
+          }
+        }
+      }
+    },
+    "Internal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interno"
+          }
+        }
+      }
+    },
+    "Key": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chave"
+          }
+        }
+      }
+    },
+    "Light": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claro"
+          }
+        }
+      }
+    },
+    "Lightly used": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pouco utilizado"
+          }
+        }
+      }
+    },
+    "Load average (1, 5, 15 min)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carga média (1, 5, 15 min)"
+          }
+        }
+      }
+    },
+    "Loopback": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loopback"
+          }
+        }
+      }
+    },
+    "Mac": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac"
+          }
+        }
+      }
+    },
+    "Manual": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manual"
+          }
+        }
+      }
+    },
+    "Max": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máx."
+          }
+        }
+      }
+    },
+    "Maximum capacity relative to when it was new": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidade máxima em relação a quando era nova"
+          }
+        }
+      }
+    },
+    "Memory": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória"
+          }
+        }
+      }
+    },
+    "Memory in use": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória em uso"
+          }
+        }
+      }
+    },
+    "Memory is being managed normally": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A memória está sendo gerenciada normalmente"
+          }
+        }
+      }
+    },
+    "Memory pressure": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressão de memória"
+          }
+        }
+      }
+    },
+    "Memory pressure is critical": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A pressão de memória está crítica"
+          }
+        }
+      }
+    },
+    "Memory pressure is critical. macOS is running low on available memory.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A pressão de memória está crítica. O macOS está com pouca memória disponível."
+          }
+        }
+      }
+    },
+    "Memory pressure is elevated": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A pressão de memória está elevada"
+          }
+        }
+      }
+    },
+    "Memory pressure is elevated. Closing apps you are not using may help.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A pressão de memória está elevada. Fechar apps que você não está usando pode ajudar."
+          }
+        }
+      }
+    },
+    "Memory the system must keep in RAM.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória que o sistema precisa manter na RAM."
+          }
+        }
+      }
+    },
+    "Memory used": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória usada"
+          }
+        }
+      }
+    },
+    "Menu Bar": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barra de Menus"
+          }
+        }
+      }
+    },
+    "Min": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mín."
+          }
+        }
+      }
+    },
+    "Model": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modelo"
+          }
+        }
+      }
+    },
+    "Moderately busy": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em uso moderado"
+          }
+        }
+      }
+    },
+    "Monitoring": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monitoramento"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome"
+          }
+        }
+      }
+    },
+    "Network": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rede"
+          }
+        }
+      }
+    },
+    "No active network connection.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma conexão de rede ativa."
+          }
+        }
+      }
+    },
+    "No fan data": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem dados das ventoinhas"
+          }
+        }
+      }
+    },
+    "No results": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum resultado"
+          }
+        }
+      }
+    },
+    "No sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum sensor"
+          }
+        }
+      }
+    },
+    "Normal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Normal"
+          }
+        }
+      }
+    },
+    "Not checked": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não verificado"
+          }
+        }
+      }
+    },
+    "Not present": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausente"
+          }
+        }
+      }
+    },
+    "Not supported": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não suportado"
+          }
+        }
+      }
+    },
+    "On battery": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na bateria"
+          }
+        }
+      }
+    },
+    "One cycle equals using 100% of the battery's capacity, possibly across several charges.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um ciclo equivale a usar 100% da capacidade da bateria, possivelmente ao longo de várias cargas."
+          }
+        }
+      }
+    },
+    "Open Sensa": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir o Sensa"
+          }
+        }
+      }
+    },
+    "Open at login": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir ao iniciar sessão"
+          }
+        }
+      }
+    },
+    "Original: %@ · %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Original: %@ · %@"
+          }
+        }
+      }
+    },
+    "Other": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Outra"
+          }
+        }
+      }
+    },
+    "Overview": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visão geral"
+          }
+        }
+      }
+    },
+    "Performance / efficiency": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desempenho / eficiência"
+          }
+        }
+      }
+    },
+    "Performance cores": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleos de desempenho"
+          }
+        }
+      }
+    },
+    "Positive while charging, negative while discharging.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Positiva ao carregar, negativa ao descarregar."
+          }
+        }
+      }
+    },
+    "Power": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energia"
+          }
+        }
+      }
+    },
+    "Power adapter": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregador"
+          }
+        }
+      }
+    },
+    "Power adapter: %@ W": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregador: %@ W"
+          }
+        }
+      }
+    },
+    "Power consumption": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consumo de energia"
+          }
+        }
+      }
+    },
+    "Power flow": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fluxo de energia"
+          }
+        }
+      }
+    },
+    "Pressure shows whether macOS has to work hard to free memory. A full memory with low pressure is normal: macOS keeps RAM busy with caches to make your Mac faster.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A pressão indica se o macOS precisa se esforçar para liberar memória. Memória cheia com pressão baixa é normal: o macOS mantém a RAM ocupada com caches para deixar seu Mac mais rápido."
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidade"
+          }
+        }
+      }
+    },
+    "Processes": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Processos"
+          }
+        }
+      }
+    },
+    "Processor": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Processador"
+          }
+        }
+      }
+    },
+    "Quit Sensa": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar o Sensa"
+          }
+        }
+      }
+    },
+    "Range %@ – %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faixa %@ – %@"
+          }
+        }
+      }
+    },
+    "Raw maximum capacity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidade máxima bruta"
+          }
+        }
+      }
+    },
+    "Read": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leitura"
+          }
+        }
+      }
+    },
+    "Read through undocumented interfaces (SMC, HID). Experimental.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lido por interfaces não documentadas (SMC, HID). Experimental."
+          }
+        }
+      }
+    },
+    "Reading sensors…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lendo sensores…"
+          }
+        }
+      }
+    },
+    "Received / sent since boot": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recebido / enviado desde a inicialização"
+          }
+        }
+      }
+    },
+    "Receiving": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recebendo"
+          }
+        }
+      }
+    },
+    "Refresh while visible": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar enquanto visível"
+          }
+        }
+      }
+    },
+    "Remaining charge": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carga restante"
+          }
+        }
+      }
+    },
+    "Remove from favorites": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover dos favoritos"
+          }
+        }
+      }
+    },
+    "Rename sensor": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renomear sensor"
+          }
+        }
+      }
+    },
+    "Rename…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renomear…"
+          }
+        }
+      }
+    },
+    "Rendering": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renderização"
+          }
+        }
+      }
+    },
+    "Requires authorization": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requer autorização"
+          }
+        }
+      }
+    },
+    "Reset": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir"
+          }
+        }
+      }
+    },
+    "Reset all preferences?": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir todas as preferências?"
+          }
+        }
+      }
+    },
+    "Reset all preferences…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir todas as preferências…"
+          }
+        }
+      }
+    },
+    "Restore original": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar original"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar"
+          }
+        }
+      }
+    },
+    "Search sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar sensores"
+          }
+        }
+      }
+    },
+    "See how your Mac is behaving.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja como seu Mac está se comportando."
+          }
+        }
+      }
+    },
+    "Sending": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enviando"
+          }
+        }
+      }
+    },
+    "Sensa": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa"
+          }
+        }
+      }
+    },
+    "Sensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa não envia métricas, identificadores nem quaisquer outros dados a servidores. Não há telemetria oculta. O monitoramento de rede lê apenas contadores de bytes e nunca inspeciona o tráfego."
+          }
+        }
+      }
+    },
+    "Sensa only names sensors after validating them on a Mac model. All raw sensors are still available in Sensors.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa só nomeia sensores depois de validá-los em um modelo de Mac. Todos os sensores brutos continuam disponíveis em Sensores."
+          }
+        }
+      }
+    },
+    "Sensa only reads byte counters. It never inspects your traffic.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa lê apenas contadores de bytes. Ele nunca inspeciona seu tráfego."
+          }
+        }
+      }
+    },
+    "Sensa samples less often when its windows are hidden and on battery power, to save energy.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa coleta dados com menos frequência quando suas janelas estão ocultas e na bateria, para economizar energia."
+          }
+        }
+      }
+    },
+    "Sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensores"
+          }
+        }
+      }
+    },
+    "Sensors appear here as soon as they are read.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os sensores aparecem aqui assim que forem lidos."
+          }
+        }
+      }
+    },
+    "Sensors read": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensores lidos"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes…"
+          }
+        }
+      }
+    },
+    "Shall we check on your Mac?": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos conferir como está seu Mac?"
+          }
+        }
+      }
+    },
+    "Show favorites only": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar apenas favoritos"
+          }
+        }
+      }
+    },
+    "Slightly warm — no impact on performance": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um pouco aquecido — sem impacto no desempenho"
+          }
+        }
+      }
+    },
+    "Source": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonte"
+          }
+        }
+      }
+    },
+    "Speed within the supported range": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade dentro da faixa suportada"
+          }
+        }
+      }
+    },
+    "Spinning under automatic control": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Girando sob controle automático"
+          }
+        }
+      }
+    },
+    "Stopped — no cooling needed right now": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paradas — sem necessidade de refrigeração agora"
+          }
+        }
+      }
+    },
+    "Storage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento"
+          }
+        }
+      }
+    },
+    "Swap used": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swap usado"
+          }
+        }
+      }
+    },
+    "System": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
+          }
+        }
+      }
+    },
+    "Technical details": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detalhes técnicos"
+          }
+        }
+      }
+    },
+    "Temperature": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura"
+          }
+        }
+      }
+    },
+    "Temperature history": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Histórico de temperatura"
+          }
+        }
+      }
+    },
+    "Temperature is within the expected range": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A temperatura está dentro da faixa esperada"
+          }
+        }
+      }
+    },
+    "Temperature sensors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensores de temperatura"
+          }
+        }
+      }
+    },
+    "Temperature, memory, storage and battery are within the expected range.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura, memória, armazenamento e bateria estão dentro do esperado."
+          }
+        }
+      }
+    },
+    "Temperatures": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperaturas"
+          }
+        }
+      }
+    },
+    "Temporarily unavailable": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temporariamente indisponível"
+          }
+        }
+      }
+    },
+    "The battery is charging — full in about %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A bateria está carregando — completa em cerca de %@."
+          }
+        }
+      }
+    },
+    "The battery is charging.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A bateria está carregando."
+          }
+        }
+      }
+    },
+    "The disk “%@” is %@ full.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O disco “%@” está %@ ocupado."
+          }
+        }
+      }
+    },
+    "Thermal pressure": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressão térmica"
+          }
+        }
+      }
+    },
+    "Thermal state": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado térmico"
+          }
+        }
+      }
+    },
+    "This is macOS' own assessment. When it rises to “serious”, macOS reduces performance to keep the Mac within safe temperatures.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta é a avaliação do próprio macOS. Quando chega a “grave”, o macOS reduz o desempenho para manter o Mac em temperaturas seguras."
+          }
+        }
+      }
+    },
+    "Total": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total"
+          }
+        }
+      }
+    },
+    "Total system power draw": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consumo total do sistema"
+          }
+        }
+      }
+    },
+    "Traffic": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tráfego"
+          }
+        }
+      }
+    },
+    "Try another search.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tente outra busca."
+          }
+        }
+      }
+    },
+    "Under manual control": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sob controle manual"
+          }
+        }
+      }
+    },
+    "Unified memory (shared by CPU and GPU)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória unificada (compartilhada por CPU e GPU)"
+          }
+        }
+      }
+    },
+    "Unified memory currently used by the GPU. On Apple silicon the CPU and GPU share the same memory.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória unificada usada pela GPU no momento. No Apple silicon, CPU e GPU compartilham a mesma memória."
+          }
+        }
+      }
+    },
+    "Unknown": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desconhecido"
+          }
+        }
+      }
+    },
+    "Upload": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upload"
+          }
+        }
+      }
+    },
+    "Upload %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upload %@"
+          }
+        }
+      }
+    },
+    "Usage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso"
+          }
+        }
+      }
+    },
+    "Usage history": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Histórico de uso"
+          }
+        }
+      }
+    },
+    "Used": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usado"
+          }
+        }
+      }
+    },
+    "User": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usuário"
+          }
+        }
+      }
+    },
+    "Uses the name of your macOS account. It never leaves your Mac.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa o nome da sua conta do macOS. Ele nunca sai do seu Mac."
+          }
+        }
+      }
+    },
+    "Value": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valor"
+          }
+        }
+      }
+    },
+    "Values from undocumented interfaces (SMC, HID). Min, max and average cover the last two minutes.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valores de interfaces não documentadas (SMC, HID). Mín., máx. e média cobrem os últimos dois minutos."
+          }
+        }
+      }
+    },
+    "Verified on this model": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verificado neste modelo"
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão"
+          }
+        }
+      }
+    },
+    "Voltage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tensão"
+          }
+        }
+      }
+    },
+    "Wi-Fi": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wi-Fi"
+          }
+        }
+      }
+    },
+    "Wi-Fi details": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detalhes do Wi-Fi"
+          }
+        }
+      }
+    },
+    "Wired": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Residente"
+          }
+        }
+      }
+    },
+    "Working hard": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em uso intenso"
+          }
+        }
+      }
+    },
+    "Write": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrita"
+          }
+        }
+      }
+    },
+    "You are using %@ of memory.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você está utilizando %@ de memória."
+          }
+        }
+      }
+    },
+    "You can always reopen Sensa from its menu bar icon.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você sempre pode reabrir o Sensa pelo ícone na barra de menus."
+          }
+        }
+      }
+    },
+    "Your Mac is hot and has reduced performance to protect itself.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac está quente e reduziu o desempenho para se proteger."
+          }
+        }
+      }
+    },
+    "Your Mac is managing resources normally.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac está gerenciando os recursos normalmente."
+          }
+        }
+      }
+    },
+    "Your Mac is ready for another day.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac está pronto para mais um dia."
+          }
+        }
+      }
+    },
+    "Your Mac is running normally.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac está funcionando normalmente."
+          }
+        }
+      }
+    },
+    "Your Mac needs attention.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac precisa de atenção."
+          }
+        }
+      }
+    },
+    "Your startup disk is close to full.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O disco de inicialização está quase cheio."
+          }
+        }
+      }
+    },
+    "available of %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "disponíveis de %@"
+          }
+        }
+      }
+    },
+    "in use": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "em uso"
+          }
+        }
+      }
+    },
+    "macOS": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS"
+          }
+        }
+      }
+    },
+    "macOS did not allow this change: %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O macOS não permitiu esta alteração: %@"
+          }
+        }
+      }
+    },
+    "macOS recommends checking the battery (%@).": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O macOS recomenda verificar a bateria (%@)."
+          }
+        }
+      }
+    }
+  }
+}

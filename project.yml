@@ -1,0 +1,108 @@
+name: Sensa
+options:
+  bundleIdPrefix: app.sensa
+  deploymentTarget:
+    macOS: "14.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    ENABLE_HARDENED_RUNTIME: YES
+    # Ad-hoc signing until a Developer ID team is available (privileged helper and
+    # notarization require it). Set DEVELOPMENT_TEAM and CODE_SIGN_IDENTITY then.
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    DEVELOPMENT_TEAM: ""
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    DEAD_CODE_STRIPPING: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
+
+packages:
+  SensaKit:
+    path: Packages/SensaKit
+
+targets:
+  Sensa:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+    dependencies:
+      - package: SensaKit
+        product: SensaCore
+      - package: SensaKit
+        product: SensaProviders
+      - package: SensaKit
+        product: SensaMonitoring
+      - package: SensaKit
+        product: SensaFeatures
+      - package: SensaKit
+        product: SensaDemo
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Sensa
+        CFBundleName: Sensa
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, pt-BR]
+        LSApplicationCategoryType: public.app-category.utilities
+        LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
+        LSUIElement: true
+        NSHumanReadableCopyright: "© 2026 Sensa"
+        NSPrincipalClass: NSApplication
+    entitlements:
+      path: App/Sensa.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.Sensa
+        PRODUCT_NAME: Sensa
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: NO
+        COMBINE_HIDPI_IMAGES: YES
+    preBuildScripts:
+      - name: SwiftLint
+        basedOnDependencyAnalysis: false
+        script: |
+          export PATH="/opt/homebrew/bin:$PATH"
+          if command -v swiftlint >/dev/null; then
+            swiftlint lint --quiet --config "${SRCROOT}/.swiftlint.yml" "${SRCROOT}/App" "${SRCROOT}/Packages/SensaKit/Sources"
+          else
+            echo "warning: SwiftLint not installed (brew install swiftlint)"
+          fi
+
+  SensaUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: Sensa
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.SensaUITests
+        GENERATE_INFOPLIST_FILE: YES
+        # With ad-hoc signing the XCTest runner cannot load a bundle under library validation.
+        # The app itself keeps the Hardened Runtime.
+        ENABLE_HARDENED_RUNTIME: NO
+        TEST_TARGET_NAME: Sensa
+
+schemes:
+  Sensa:
+    build:
+      targets:
+        Sensa: all
+        SensaUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - SensaUITests

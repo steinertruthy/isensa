@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Not sandboxed: the App Sandbox blocks the SMC user client used for sensors.
+	     Distribution is Developer ID + Hardened Runtime + notarization (see docs/FEASIBILITY.md). -->
+</dict>
+</plist>
