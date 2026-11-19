@@ -107,38 +107,6 @@ private struct AppearanceSettings: View {
     }
 }
 
-private struct MenuBarSettings: View {
-    @Environment(AppSettings.self) private var settings
-
-    var body: some View {
-        @Bindable var settings = settings
-        Form {
-            Section {
-                List {
-                    ForEach($settings.menuBarItems) { $item in
-                        HStack {
-                            Image(systemName: "line.3.horizontal").foregroundStyle(.tertiary).accessibilityHidden(true)
-                            Toggle(isOn: $item.isEnabled) {
-                                Label(MenuBarValues.title(for: item.indicator), systemImage: MenuBarValues.symbol(for: item.indicator))
-                            }
-                            Spacer()
-                            Toggle(tr("Graph"), isOn: $item.showsSparkline).disabled(!item.isEnabled)
-                                .toggleStyle(.checkbox)
-                        }
-                    }
-                    .onMove { settings.menuBarItems.move(fromOffsets: $0, toOffset: $1) }
-                }
-                .frame(minHeight: 240)
-            } header: {
-                Text(tr("Indicators"))
-            } footer: {
-                Text(tr("Drag to reorder. With no indicator enabled, Sensa shows only its icon.")).font(.caption).foregroundStyle(.secondary)
-            }
-        }
-        .formStyle(.grouped)
-    }
-}
-
 private struct PrivacySettings: View {
     var body: some View {
         Form {

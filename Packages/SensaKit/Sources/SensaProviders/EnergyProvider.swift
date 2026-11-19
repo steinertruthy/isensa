@@ -7,6 +7,8 @@ public actor EnergyProvider: MetricProvider {
     public nonisolated let id = "energy"
     public nonisolated let feature = Feature.powerConsumption
     public nonisolated let tier = SamplingTier.medium
+    /// Only shown in the main window and popover.
+    public nonisolated let minimumDemand = Demand.interactive
 
     private var sampler: IOReportSampler?
     private var isSetUp = false

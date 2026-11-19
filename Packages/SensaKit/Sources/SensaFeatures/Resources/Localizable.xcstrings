@@ -802,12 +802,32 @@
         }
       }
     },
+    "Every 10 seconds": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cada 10 segundos"
+          }
+        }
+      }
+    },
     "Every 2 seconds": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "A cada 2 segundos"
+          }
+        }
+      }
+    },
+    "Every 3 seconds": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cada 3 segundos"
           }
         }
       }
@@ -1038,6 +1058,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Energia da GPU"
+          }
+        }
+      }
+    },
+    "GPU temperature": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura da GPU"
           }
         }
       }
@@ -1298,6 +1328,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Chave"
+          }
+        }
+      }
+    },
+    "Layout": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disposição"
           }
         }
       }
@@ -1722,6 +1762,16 @@
         }
       }
     },
+    "One decimal place": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma casa decimal"
+          }
+        }
+      }
+    },
     "Open Sensa": {
       "localizations": {
         "pt-BR": {
@@ -1882,6 +1932,16 @@
         }
       }
     },
+    "Precision": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Precisão"
+          }
+        }
+      }
+    },
     "Pressure shows whether macOS has to work hard to free memory. A full memory with low pressure is normal: macOS keeps RAM busy with caches to make your Mac faster.": {
       "localizations": {
         "pt-BR": {
@@ -1998,6 +2058,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Recebendo"
+          }
+        }
+      }
+    },
+    "Refresh when only the menu bar is visible": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar quando só a barra de menus estiver visível"
           }
         }
       }
@@ -2322,6 +2392,26 @@
         }
       }
     },
+    "Show icons": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar ícones"
+          }
+        }
+      }
+    },
+    "Side by side": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lado a lado"
+          }
+        }
+      }
+    },
     "Signal": {
       "localizations": {
         "pt-BR": {
@@ -2378,6 +2468,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Girando sob controle automático"
+          }
+        }
+      }
+    },
+    "Stacked (compact)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empilhado (compacto)"
+          }
+        }
+      }
+    },
+    "Stacked places two indicators in one column, using about half the width when the menu bar is crowded.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O modo empilhado coloca dois indicadores por coluna, usando cerca de metade da largura quando a barra de menus está cheia."
           }
         }
       }
@@ -2498,6 +2608,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Temperaturas"
+          }
+        }
+      }
+    },
+    "Temperatures and fans refresh at half this rate. Longer intervals use less energy.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperaturas e ventoinhas atualizam na metade dessa frequência. Intervalos maiores consomem menos energia."
           }
         }
       }
@@ -2682,6 +2802,16 @@
         }
       }
     },
+    "Updates": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizações"
+          }
+        }
+      }
+    },
     "Upload": {
       "localizations": {
         "pt-BR": {
@@ -2828,6 +2958,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sinal fraco"
+          }
+        }
+      }
+    },
+    "Whole numbers": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Números inteiros"
           }
         }
       }

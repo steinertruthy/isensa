@@ -34,6 +34,6 @@ final class AppEnvironment {
     }
 
     func samplingPolicy() -> SamplingPolicy {
-        SamplingPolicy(interactiveInterval: settings.refreshInterval, backgroundInterval: max(3, settings.refreshInterval * 2))
+        SamplingPolicy(interactiveInterval: settings.refreshInterval, backgroundInterval: settings.backgroundRefreshInterval)
     }
 }

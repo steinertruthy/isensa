@@ -38,7 +38,11 @@ public struct LiveChart: View {
                 }
                 if series.count == 1 {
                     ForEach(item.points) { point in
-                        AreaMark(x: .value("Time", point.date), y: .value(item.label, point.value))
+                        AreaMark(
+                            x: .value("Time", point.date),
+                            yStart: .value("Baseline", range?.lowerBound ?? 0),
+                            yEnd: .value(item.label, point.value)
+                        )
                             .foregroundStyle(LinearGradient(colors: [item.color.opacity(0.25), item.color.opacity(0.01)], startPoint: .top, endPoint: .bottom))
                             .interpolationMethod(.monotone)
                     }
@@ -61,6 +65,7 @@ public struct LiveChart: View {
             }
         }
         .modifier(OptionalYScale(range: range))
+        .chartPlotStyle { $0.clipped() }
         .accessibilityElement()
         .accessibilityLabel(series.map(\.label).joined(separator: ", "))
         .accessibilityValue(series.compactMap { item in item.points.last.map { "\(item.label): \(format($0.value))" } }.joined(separator: ", "))

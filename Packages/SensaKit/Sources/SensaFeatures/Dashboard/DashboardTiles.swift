@@ -84,7 +84,7 @@ enum DashboardTiles {
         Tile(id: id ?? destination.rawValue, destination: destination, view: AnyView(view))
     }
 
-    static func batterySymbol(_ battery: BatterySnapshot) -> String {
+    nonisolated static func batterySymbol(_ battery: BatterySnapshot) -> String {
         if battery.state == .charging { return "battery.100percent.bolt" }
         return switch battery.charge {
         case ..<0.13: "battery.0percent"

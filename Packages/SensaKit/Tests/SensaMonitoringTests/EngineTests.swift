@@ -21,7 +21,14 @@ private actor StubProvider: MetricProvider {
     private var failuresRemaining: Int
     private(set) var sampleCount = 0
 
-    init(id: String, feature: Feature = .cpuUsage, tier: SamplingTier = .fast, probe: CapabilityState = .available, failures: Int = 0) {
+    nonisolated let minimumDemand: Demand
+    private(set) var preparedDemands: [Demand] = []
+
+    init(
+        id: String, feature: Feature = .cpuUsage, tier: SamplingTier = .fast, probe: CapabilityState = .available,
+        failures: Int = 0, minimumDemand: Demand = .idle
+    ) {
+        self.minimumDemand = minimumDemand
         self.id = id
         self.feature = feature
         self.tier = tier
@@ -30,6 +37,8 @@ private actor StubProvider: MetricProvider {
     }
 
     func probe() async -> CapabilityState { probeResult }
+
+    func prepare(for demand: Demand) async { preparedDemands.append(demand) }
 
     func sample() async throws -> any SnapshotFragment {
         sampleCount += 1
@@ -115,6 +124,21 @@ struct EngineTests {
         await engine.sampleOnce(tier: .slow)
         #expect(await fast.sampleCount == 0)
         #expect(await slow.sampleCount == 1)
+    }
+
+    @Test func interactiveOnlyProvidersPauseInBackground() async {
+        let processes = StubProvider(id: "processes", minimumDemand: .interactive)
+        let cpu = StubProvider(id: "cpu")
+        let engine = MonitoringEngine(providers: [processes, cpu])
+        await engine.probeAll()
+        await engine.setDemand(.background)
+        await engine.sampleOnce(tier: .fast)
+        #expect(await processes.sampleCount == 0)
+        #expect(await cpu.sampleCount == 1)
+        await engine.setDemand(.interactive)
+        await engine.sampleOnce(tier: .fast)
+        #expect(await processes.sampleCount >= 1)
+        #expect(await cpu.preparedDemands == [.background, .interactive])
     }
 
     @Test func runningEngineDeliversData() async throws {

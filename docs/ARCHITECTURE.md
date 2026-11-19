@@ -26,10 +26,23 @@ App (composition root, AppKit lifecycle)
 
 ## Eficiência
 
-* Intervalos por demanda: janela/popover visível → 1 s; só barra de menus → 3 s; tela dormindo → 30 s.
-* Na bateria os intervalos aumentam 1,5×. Suspensão do sistema pausa tudo; ao acordar, re-sonda.
+* Intervalos por demanda: janela/popover visível → 1 s; só barra de menus → 3 s (configurável 2–10 s);
+  tela dormindo → 30 s. Na bateria os intervalos aumentam 1,5×. Suspensão do sistema pausa tudo.
+* Demanda inicial é decidida antes da primeira amostra (abrir direto na barra de menus não amostra a 1 s).
+* Provedores declaram `minimumDemand`: processos, frequências, energia por componente e Wi-Fi só são lidos com
+  janela ou popover visível. `prepare(for:)` permite reduzir detalhe — o provedor de sensores lê só os sensores
+  agregados (~60 chaves em vez de ~275, sem HID) quando apenas a barra de menus está visível.
+* Barra de menus desenhada com AppKit (`StatusItemRenderer`, imagem template com desenho preguiçoso), sem o
+  `ImageRenderer` do SwiftUI; redesenha só quando o `MenuBarLabelModel` muda.
 * `Task.sleep(tolerance:)` permite coalescência de wake-ups.
-* O rótulo da barra de menus só é re-renderizado quando o texto exibido muda.
+
+Medido em Release no Mac15,6 (média de ~60 s):
+
+| Modo | CPU | Memória |
+|---|---|---|
+| Só barra de menus, 3 s | 0,43 % | 17 MB |
+| Só barra de menus, 5 s | 0,30 % | 16 MB |
+| Janela aberta na visão geral, 1 s | ~9,5 % | ~200 MB (otimização prevista na Etapa 6) |
 
 ## Proveniência e honestidade
 

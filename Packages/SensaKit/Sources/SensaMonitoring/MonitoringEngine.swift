@@ -37,6 +37,7 @@ public actor MonitoringEngine {
         guard !isRunning else { return }
         isRunning = true
         await probeAll()
+        await prepareProviders()
         startLoops()
     }
 
@@ -49,11 +50,21 @@ public actor MonitoringEngine {
         await start()
     }
 
-    public func setDemand(_ demand: Demand) {
+    public func setDemand(_ demand: Demand) async {
         guard demand != self.demand else { return }
         let increased = demand > self.demand
         self.demand = demand
+        await prepareProviders()
         restartLoops(sampleImmediately: increased)
+    }
+
+    private func prepareProviders() async {
+        let demand = demand
+        await withTaskGroup(of: Void.self) { group in
+            for provider in providers {
+                group.addTask { await provider.prepare(for: demand) }
+            }
+        }
     }
 
     public func setOnBattery(_ onBattery: Bool) {
@@ -93,7 +104,7 @@ public actor MonitoringEngine {
     /// Samples every usable provider of a tier once. Internal for tests.
     func sampleOnce(tier: SamplingTier) async {
         var due: [any MetricProvider] = []
-        for provider in providers where provider.tier == tier && usable.contains(provider.id) {
+        for provider in providers where provider.tier == tier && usable.contains(provider.id) && provider.minimumDemand <= demand {
             var state = health[provider.id, default: ProviderHealth()]
             if state.shouldSample() { due.append(provider) }
             health[provider.id] = state

@@ -7,9 +7,9 @@ final class SensaUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    private func launch(_ variant: String) -> XCUIApplication {
+    private func launch(_ variant: String, extraArguments: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-SensaDemoMode", variant, "-AppleLanguages", "(en)", "-hidesDockIcon", "NO"]
+        app.launchArguments = ["-SensaDemoMode", variant, "-AppleLanguages", "(en)", "-hidesDockIcon", "NO"] + extraArguments
         app.launch()
         return app
     }
@@ -46,5 +46,15 @@ final class SensaUITests: XCTestCase {
         let header = app.descendants(matching: .any)["screen.header"]
         XCTAssertTrue(header.waitForExistence(timeout: 5))
         XCTAssertTrue(header.label.hasPrefix("Memory"), "Unexpected screen: \(header.label)")
+    }
+
+    func testMenuBarPopoverOpensMainWindow() {
+        // Menu-bar-only mode: no window at launch, popover opened by the launch flag.
+        let app = launch("laptopWithFans", extraArguments: ["-hidesDockIcon", "YES", "-SensaOpenPopover", "YES"])
+        let popover = app.descendants(matching: .any)["menubar.popover"]
+        XCTAssertTrue(popover.waitForExistence(timeout: 10))
+        XCTAssertFalse(app.buttons["tile.cpu"].exists, "No main window in menu-bar-only mode")
+        app.buttons["menubar.open"].click()
+        XCTAssertTrue(app.buttons["tile.cpu"].waitForExistence(timeout: 10))
     }
 }

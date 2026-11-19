@@ -8,6 +8,8 @@ public struct WiFiProvider: MetricProvider {
     public let id = "wifi"
     public let feature = Feature.wifiDetails
     public let tier = SamplingTier.medium
+    /// Only shown in the main window and popover.
+    public let minimumDemand = Demand.interactive
 
     public init() {}
 

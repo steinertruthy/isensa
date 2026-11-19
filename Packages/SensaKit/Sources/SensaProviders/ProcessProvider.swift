@@ -8,6 +8,8 @@ public actor ProcessProvider: MetricProvider {
     public nonisolated let id = "processes"
     public nonisolated let feature = Feature.processes
     public nonisolated let tier = SamplingTier.medium
+    /// Only shown in the main window and popover.
+    public nonisolated let minimumDemand = Demand.interactive
 
     private let limit: Int
     private var previous: (date: Date, counters: [Int32: ProcessCounters])?

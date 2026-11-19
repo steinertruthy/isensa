@@ -48,6 +48,15 @@ struct SeriesSparkline: View {
     var tint: Color = .accentColor
 
     var body: some View {
-        SparklineChart(points: store.series(for: metric).points(), range: range, tint: tint)
+        let points = store.series(for: metric).points()
+        SparklineChart(points: points, range: range ?? Self.paddedRange(points.map(\.value)), tint: tint)
+    }
+
+    /// Without a natural scale, frame the data itself (with a little headroom) instead of
+    /// starting at zero, which would flatten temperature and memory lines.
+    static func paddedRange(_ values: [Double]) -> ClosedRange<Double>? {
+        guard let low = values.min(), let high = values.max() else { return nil }
+        let padding = max((high - low) * 0.25, abs(high) * 0.02, 0.5)
+        return (low - padding)...(high + padding)
     }
 }

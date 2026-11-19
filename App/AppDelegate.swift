@@ -1,4 +1,5 @@
 import AppKit
+import SensaCore
 import SensaFeatures
 import SensaMonitoring
 
@@ -34,11 +35,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 Task { await self?.environment.engine.setOnBattery(onBattery) }
             }
         )
+        if !environment.settings.hidesDockIcon { showMainWindow() }
+        // Decide the initial demand before sampling starts: launching straight into the
+        // menu bar must not sample at window rates until something becomes visible.
+        let initialDemand = currentDemand()
         Task {
             await environment.engine.setPolicy(environment.samplingPolicy())
+            await environment.engine.setDemand(initialDemand)
             await environment.engine.start()
         }
-        if !environment.settings.hidesDockIcon { showMainWindow() }
+        // `-SensaOpenPopover YES` opens the popover at launch (UI tests, screenshots).
+        if UserDefaults.standard.bool(forKey: "SensaOpenPopover") {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.statusItem.showPopover() }
+        }
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -69,14 +78,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Demand & settings
 
     private func updateDemand() {
-        let demand: Demand = if isScreenAsleep {
-            .idle
-        } else if mainWindow.isVisible || statusItem.isPopoverShown {
-            .interactive
-        } else {
-            .background
-        }
+        let demand = currentDemand()
         Task { await environment.engine.setDemand(demand) }
+    }
+
+    private func currentDemand() -> Demand {
+        if isScreenAsleep { return .idle }
+        // A window that is ordered in counts as visible even before occlusion is reported.
+        return mainWindow.isVisible || statusItem.isPopoverShown ? .interactive : .background
     }
 
     /// Re-applies preferences whenever an observed setting changes.

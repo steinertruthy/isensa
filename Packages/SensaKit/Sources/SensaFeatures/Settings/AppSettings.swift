@@ -7,9 +7,17 @@ public enum AppearancePreference: String, CaseIterable, Codable, Sendable {
 
 /// Menu bar indicators the user can show, order and toggle.
 public enum MenuBarIndicator: String, CaseIterable, Codable, Sendable, Identifiable {
-    case cpuUsage, cpuTemperature, gpuUsage, memoryPressure, battery, power, fans, network
+    case cpuUsage, cpuTemperature, gpuUsage, gpuTemperature, memoryUsed, memoryPressure, battery, power, fans, network
 
     public var id: String { rawValue }
+}
+
+/// How indicators share the menu bar.
+public enum MenuBarLayout: String, CaseIterable, Codable, Sendable {
+    /// One row: icon + value side by side.
+    case inline
+    /// Two small rows per column — about half the width, for crowded menu bars.
+    case stacked
 }
 
 public struct MenuBarItemConfiguration: Codable, Hashable, Sendable, Identifiable {
@@ -40,6 +48,12 @@ public final class AppSettings {
     public var temperatureUnit: TemperatureUnitPreference { didSet { save(temperatureUnit.rawValue, .temperatureUnit) } }
     /// Interactive refresh interval in seconds.
     public var refreshInterval: Double { didSet { save(refreshInterval, .refreshInterval) } }
+    /// Refresh interval in seconds while only the menu bar is visible.
+    public var backgroundRefreshInterval: Double { didSet { save(backgroundRefreshInterval, .backgroundRefreshInterval) } }
+    public var menuBarShowsIcons: Bool { didSet { save(menuBarShowsIcons, .menuBarShowsIcons) } }
+    public var menuBarLayout: MenuBarLayout { didSet { save(menuBarLayout.rawValue, .menuBarLayout) } }
+    /// Decimal places for percentages, temperatures and power in the menu bar (0 or 1).
+    public var menuBarDecimals: Int { didSet { save(menuBarDecimals, .menuBarDecimals) } }
     public var greetingUsesName: Bool { didSet { save(greetingUsesName, .greetingUsesName) } }
     public var showsTechnicalDetails: Bool { didSet { save(showsTechnicalDetails, .showsTechnicalDetails) } }
     public var hidesDockIcon: Bool { didSet { save(hidesDockIcon, .hidesDockIcon) } }
@@ -49,6 +63,7 @@ public final class AppSettings {
 
     private enum Key: String {
         case appearance, temperatureUnit, refreshInterval, greetingUsesName, showsTechnicalDetails
+        case backgroundRefreshInterval, menuBarShowsIcons, menuBarLayout, menuBarDecimals
         case hidesDockIcon, menuBarItems, favoriteSensors, sensorNicknames
     }
 
@@ -59,6 +74,12 @@ public final class AppSettings {
             ?? (Locale.current.measurementSystem == .us ? .fahrenheit : .celsius)
         let interval = defaults.double(forKey: Key.refreshInterval.rawValue)
         refreshInterval = interval > 0 ? interval : 1
+        let backgroundInterval = defaults.double(forKey: Key.backgroundRefreshInterval.rawValue)
+        backgroundRefreshInterval = backgroundInterval > 0 ? backgroundInterval : 3
+        // `bool(forKey:)` also parses "YES"/"NO" strings from launch arguments.
+        menuBarShowsIcons = defaults.object(forKey: Key.menuBarShowsIcons.rawValue) == nil || defaults.bool(forKey: Key.menuBarShowsIcons.rawValue)
+        menuBarLayout = defaults.string(forKey: Key.menuBarLayout.rawValue).flatMap(MenuBarLayout.init) ?? .inline
+        menuBarDecimals = min(max(defaults.integer(forKey: Key.menuBarDecimals.rawValue), 0), 1)
         greetingUsesName = defaults.bool(forKey: Key.greetingUsesName.rawValue)
         showsTechnicalDetails = defaults.bool(forKey: Key.showsTechnicalDetails.rawValue)
         hidesDockIcon = defaults.bool(forKey: Key.hidesDockIcon.rawValue)
@@ -79,6 +100,10 @@ public final class AppSettings {
         appearance = .system
         temperatureUnit = Locale.current.measurementSystem == .us ? .fahrenheit : .celsius
         refreshInterval = 1
+        backgroundRefreshInterval = 3
+        menuBarShowsIcons = true
+        menuBarLayout = .inline
+        menuBarDecimals = 0
         greetingUsesName = false
         showsTechnicalDetails = false
         hidesDockIcon = false

@@ -23,6 +23,8 @@ public actor SensorProvider: MetricProvider {
     private var hidIdentities: [String: (sensor: Sensor, aggregate: SensorCatalog.Aggregate?)] = [:]
     private var fanCount = 0
     private var isDiscovered = false
+    /// Full sensor list only while someone can see it; otherwise only headline sensors.
+    private var readsAllSensors = true
 
     public init(profile: HardwareProfile) {
         self.profile = profile
@@ -40,6 +42,10 @@ public actor SensorProvider: MetricProvider {
         return fanCount
     }
 
+    public func prepare(for demand: Demand) async {
+        readsAllSensors = demand == .interactive
+    }
+
     public func sample() async throws -> any SnapshotFragment {
         discover()
         guard smc != nil || hid != nil else { throw ProviderError.interfaceUnavailable("SMC/HID") }
@@ -47,13 +53,13 @@ public actor SensorProvider: MetricProvider {
         var aggregates: [SensorCatalog.Aggregate: [Double]] = [:]
 
         if let smc {
-            for entry in smcSensors {
+            for entry in smcSensors where readsAllSensors || entry.aggregate != nil {
                 guard let value = smc.number(entry.key), Self.isPlausible(value) else { continue }
                 readings.append(SensorReading(sensor: entry.sensor, value: value))
                 if let aggregate = entry.aggregate { aggregates[aggregate, default: []].append(value) }
             }
         }
-        readings += hidReadings()
+        if readsAllSensors { readings += hidReadings() }
 
         let fans = smc.map(readFans) ?? []
         let systemPower = smc?.number("PSTR").flatMap { $0 >= 0 && $0 < 1_000 ? $0 : nil }

@@ -27,6 +27,19 @@ public protocol MetricProvider: Sendable {
 
     /// Takes one sample. Throwing marks the feature temporarily unavailable; the engine retries with backoff.
     func sample() async throws -> any SnapshotFragment
+
+    /// Lowest demand at which sampling this provider is worthwhile. Data only shown in the
+    /// main window or popover (processes, clock speeds…) is skipped while nobody looks at it.
+    var minimumDemand: Demand { get }
+
+    /// Called when demand changes, so a provider can trade detail for energy (e.g. read only
+    /// headline sensors while just the menu bar is visible).
+    func prepare(for demand: Demand) async
+}
+
+public extension MetricProvider {
+    var minimumDemand: Demand { .idle }
+    func prepare(for demand: Demand) async {}
 }
 
 public enum ProviderError: Error, Sendable, Equatable {
