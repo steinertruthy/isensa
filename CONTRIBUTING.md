@@ -37,6 +37,9 @@ type check, lint, tests, build and the build verification.
 
 ## Pull requests
 
+`main` is protected: changes arrive only through pull requests (from a fork), which need one maintainer approval and
+both checks passing, `validate` (app) and `build` (website), before they can be merged.
+
 1. Open an issue first for larger changes, so the approach can be discussed.
 2. Keep each pull request focused, with tests for new behaviour.
 3. Make sure `scripts/ci.sh` (app) or `npm run ci` (website) passes.
