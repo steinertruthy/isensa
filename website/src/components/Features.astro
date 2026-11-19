@@ -51,7 +51,15 @@ const features: { key: Key; screen: string; hue: string; icon: IconName; status:
             </div>
             <div class="media" data-reveal style="--delay: 1">
               <div class="halo" aria-hidden="true"></div>
-              <div class="window shot" data-tilt data-tall={feature.screen.startsWith('settings') ? '' : undefined}>
+              <div
+                class="window shot"
+                data-tilt
+                data-zoom
+                data-zoom-group="features"
+                data-zoom-caption={item.title}
+                aria-label={`${t.gallery.open}: ${item.title}`}
+                data-tall={feature.screen.startsWith('settings') ? '' : undefined}
+              >
                 <Screen name={feature.screen} alt={item.alt} sizes="(min-width: 1024px) 680px, 92vw" widths={[640, 960, 1320, 1920]} />
               </div>
             </div>
@@ -139,6 +147,7 @@ const features: { key: Key; screen: string; hue: string; icon: IconName; status:
     filter: blur(50px);
   }
   .shot {
+    cursor: zoom-in;
     --rx: 0;
     --ry: 0;
     --lean: 0;

@@ -26,7 +26,7 @@ const popover = screen('dark-popover');
       <div class="item">
         <Picture src={statusItem} alt={t.menubar.statusAlt} formats={['avif']} fallbackFormat="webp" widths={[statusItem.width]} sizes={`${statusItem.width / 2}px`} loading="lazy" />
       </div>
-      <div class="popover">
+      <div class="popover" data-zoom data-zoom-caption={t.gallery.items.popover} aria-label={`${t.gallery.open}: ${t.gallery.items.popover}`}>
         <Picture src={popover} alt={t.menubar.popoverAlt} formats={['avif']} fallbackFormat="webp" widths={[308, 616]} sizes="(min-width: 640px) 308px, 80vw" loading="lazy" />
       </div>
     </div>
@@ -108,6 +108,7 @@ const popover = screen('dark-popover');
     height: auto;
   }
   .popover {
+    cursor: zoom-in;
     width: min(100%, 340px);
     border-radius: 18px;
     overflow: hidden;

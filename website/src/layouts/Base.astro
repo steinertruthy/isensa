@@ -7,6 +7,7 @@ import { repoLinks, repository } from '../lib/site';
 import ogSource from '../assets/screens/dark-overview.png';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Zoom from '../components/Zoom.astro';
 
 interface Props {
   locale: Locale;
@@ -101,6 +102,7 @@ const localeScript = isRoot
       <slot />
     </main>
     <Footer locale={locale} page={page} />
+    <Zoom locale={locale} />
     <script>
       import '../scripts/main';
     </script>

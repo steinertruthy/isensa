@@ -118,8 +118,10 @@ const sections = [
   .header[data-scrolled],
   .header[data-open] {
     background: var(--header);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    --frost: saturate(180%) blur(24px);
+    /* The prefixed form first: the minifier keeps the last of the pair, and Chromium needs the standard one. */
+    -webkit-backdrop-filter: var(--frost);
+    backdrop-filter: var(--frost);
     box-shadow: 0 1px 0 var(--line);
   }
   /* Over the always-dark stage, the bar uses the dark palette until it leaves it. */

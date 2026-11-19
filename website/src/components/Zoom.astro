@@ -1,0 +1,136 @@
+---
+/** The page-wide screenshot viewer: any element with data-zoom opens its picture here, grown from where it sits. */
+import { translations, type Locale } from '../i18n';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const t = translations(Astro.props.locale);
+---
+<dialog class="zoom" data-zoom-dialog aria-label={t.gallery.open}>
+  <div class="zoom-stage" data-zoom-stage></div>
+  <p class="caption" data-zoom-caption aria-live="polite"></p>
+  <button class="round close" type="button" data-zoom-close aria-label={t.gallery.close}><Icon name="close" /></button>
+  <button class="round side previous" type="button" data-zoom-previous aria-label={t.gallery.previous}><Icon name="previous" /></button>
+  <button class="round side next" type="button" data-zoom-next aria-label={t.gallery.next}><Icon name="next" /></button>
+</dialog>
+
+<style>
+  .zoom {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: clamp(3.5rem, 6vw, 5rem) clamp(1rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
+    border: 0;
+    background: transparent;
+    color: #f5f5f7;
+    overflow: hidden;
+  }
+  .zoom[open] {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    place-items: center;
+  }
+  .zoom::backdrop {
+    background: rgb(0 0 0 / 0);
+    --frost: blur(0);
+    /* The prefixed form first: the minifier keeps the last of the pair, and Chromium needs the standard one. */
+    -webkit-backdrop-filter: var(--frost);
+    backdrop-filter: var(--frost);
+    transition:
+      background-color 0.4s ease,
+      backdrop-filter 0.4s ease;
+  }
+  .zoom[data-shown]::backdrop {
+    background: rgb(0 0 0 / 0.86);
+    --frost: blur(18px);
+    /* The prefixed form first: the minifier keeps the last of the pair, and Chromium needs the standard one. */
+    -webkit-backdrop-filter: var(--frost);
+    backdrop-filter: var(--frost);
+  }
+  .zoom-stage {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+  }
+  .zoom-stage :global(picture) {
+    display: contents;
+  }
+  .zoom-stage :global(img) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-window);
+    box-shadow: 0 40px 120px -20px rgb(0 0 0 / 0.8), 0 0 0 1px rgb(255 255 255 / 0.12);
+    transform-origin: 0 0;
+    touch-action: pan-y;
+  }
+  .caption {
+    min-height: 1.5em;
+    margin-top: 1rem;
+    color: #a1a1a6;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .round {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.08);
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s var(--ease-spring),
+      background-color 0.2s ease;
+  }
+  .zoom[data-shown] .round,
+  .zoom[data-shown] .caption {
+    opacity: 1;
+  }
+  .round:hover {
+    background: rgb(255 255 255 / 0.16);
+    transform: scale(1.08);
+  }
+  .round :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .close {
+    top: 1rem;
+    right: 1rem;
+  }
+  .side {
+    top: 50%;
+    margin-top: -22px;
+  }
+  .previous {
+    left: 1rem;
+  }
+  .next {
+    right: 1rem;
+  }
+  @media (max-width: 640px) {
+    .side {
+      top: auto;
+      bottom: 1rem;
+      margin-top: 0;
+    }
+  }
+</style>

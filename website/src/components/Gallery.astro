@@ -36,7 +36,7 @@ const items: { key: Item; screen: string }[] = [
     {items.map((item, index) => (
       <li class="slide" data-gallery-slide={index}>
         <figure>
-          <button class="shot window" type="button" data-gallery-open={index} aria-label={`${t.gallery.open}: ${t.gallery.items[item.key]}`}>
+          <button class="shot window" type="button" data-zoom data-zoom-group="gallery" data-zoom-caption={t.gallery.items[item.key]} aria-label={`${t.gallery.open}: ${t.gallery.items[item.key]}`}>
             <Screen name={item.screen} alt={t.gallery.items[item.key]} sizes="(min-width: 1024px) 62vw, 84vw" widths={[640, 960, 1320, 1920]} />
             <span class="zoom" aria-hidden="true"><Icon name="expand" /></span>
           </button>
@@ -52,13 +52,6 @@ const items: { key: Item; screen: string }[] = [
     <button class="round" type="button" data-gallery-next aria-label={t.gallery.next}><Icon name="next" /></button>
   </div>
 
-  <dialog class="lightbox" data-lightbox aria-label={t.gallery.title}>
-    <div class="lightbox-image" data-lightbox-image></div>
-    <p class="lightbox-caption" data-lightbox-caption></p>
-    <button class="round close" type="button" data-lightbox-close aria-label={t.gallery.close}><Icon name="close" /></button>
-    <button class="round side previous" type="button" data-lightbox-previous aria-label={t.gallery.previous}><Icon name="previous" /></button>
-    <button class="round side next" type="button" data-lightbox-next aria-label={t.gallery.next}><Icon name="next" /></button>
-  </dialog>
 </section>
 
 <style>
@@ -186,89 +179,6 @@ const items: { key: Item; screen: string }[] = [
   .round :global(svg) {
     width: 20px;
     height: 20px;
-  }
-  .lightbox {
-    width: 100vw;
-    max-width: none;
-    height: 100dvh;
-    max-height: none;
-    margin: 0;
-    padding: clamp(3.5rem, 6vw, 5rem) clamp(1rem, 6vw, 6rem);
-    border: 0;
-    background: rgb(0 0 0 / 0.9);
-    color: #f5f5f7;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  .lightbox[open] {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
-    place-items: center;
-    animation: fade 0.25s ease;
-  }
-  .lightbox::backdrop {
-    background: transparent;
-  }
-  .lightbox-image {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    min-height: 0;
-  }
-  .lightbox-image :global(picture) {
-    display: contents;
-  }
-  .lightbox-image :global(img) {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: var(--radius-window);
-    animation: pop 0.4s var(--ease-out);
-  }
-  .lightbox-caption {
-    margin-top: 1rem;
-    color: #a1a1a6;
-  }
-  .lightbox .round {
-    position: absolute;
-    background: rgb(255 255 255 / 0.08);
-    border-color: rgb(255 255 255 / 0.16);
-    color: #fff;
-  }
-  .close {
-    top: 1rem;
-    right: 1rem;
-  }
-  .side {
-    top: 50%;
-    margin-top: -22px;
-  }
-  .previous {
-    left: 1rem;
-  }
-  .next {
-    right: 1rem;
-  }
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-  }
-  @keyframes pop {
-    from {
-      opacity: 0;
-      transform: scale(0.96);
-    }
-  }
-  @media (max-width: 640px) {
-    .side {
-      top: auto;
-      bottom: 1rem;
-      margin-top: 0;
-    }
   }
   @media (prefers-reduced-motion: reduce) {
     .slide {
