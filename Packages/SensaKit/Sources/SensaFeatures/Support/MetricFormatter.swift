@@ -67,6 +67,31 @@ public struct MetricFormatter: Sendable {
         value.formatted(.number.locale(locale))
     }
 
+    /// Average time per disk operation: "52 µs", "0.41 ms", "12 ms".
+    public func latency(_ seconds: Double) -> String {
+        let microseconds = seconds * 1e6
+        if microseconds < 1_000 { return "\(microseconds.formatted(.number.precision(.fractionLength(0)).locale(locale))) µs" }
+        let milliseconds = seconds * 1e3
+        return "\(milliseconds.formatted(.number.precision(.fractionLength(milliseconds < 10 ? 2 : 0)).locale(locale))) ms"
+    }
+
+    /// Disk operations per second.
+    public func operations(_ perSecond: Double) -> String {
+        "\(Int(perSecond.rounded()).formatted(.number.locale(locale))) IOPS"
+    }
+
+    /// A whole number of days, spelled out ("12 days").
+    public func days(_ days: Double) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day]
+        formatter.unitsStyle = .full
+        formatter.maximumUnitCount = 1
+        var calendar = Calendar.current
+        calendar.locale = locale
+        formatter.calendar = calendar
+        return formatter.string(from: max(days.rounded(), 1) * 86_400) ?? "\(Int(days))"
+    }
+
     public func duration(minutes: Int) -> String {
         Duration.seconds(minutes * 60).formatted(.units(allowed: [.hours, .minutes], width: .abbreviated))
     }

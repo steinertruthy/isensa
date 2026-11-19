@@ -4,6 +4,7 @@ import SensaCore
 /// Kinds of alert. Raw values are stored in history, so they must never change.
 public enum AlertKind: String, Sendable, CaseIterable, Codable {
     case highTemperature, memoryPressure, lowStorage, lowBattery, batteryCharged, batteryTemperature, ssdHealth, sensorUnavailable
+    case storageFillingFast
 }
 
 /// An alert that just started.
@@ -37,6 +38,8 @@ public struct AlertEngine: Sendable {
     static let fractionHysteresis = 0.03
 
     private var states: [AlertKind: RuleState] = [:]
+    /// Recent free space of the startup disk, oldest first, for `storageFillingFast`.
+    private var recentFreeSpace: [(date: Date, available: UInt64)] = []
 
     public init() {}
 
@@ -45,8 +48,10 @@ public struct AlertEngine: Sendable {
     ) -> [AlertEvent] {
         guard configuration.isEnabled else {
             states.removeAll()
+            recentFreeSpace.removeAll()
             return []
         }
+        rememberFreeSpace(snapshot, now: now)
         return AlertKind.allCases.compactMap { kind in
             let check = condition(kind, snapshot: snapshot, capabilities: capabilities, configuration: configuration)
             return step(kind, check: check, configuration: configuration, now: now)
@@ -90,6 +95,20 @@ public struct AlertEngine: Sendable {
         state.isActive = true
         state.lastFired = now
         return AlertEvent(kind: kind, level: check.level, value: check.value, date: now)
+    }
+
+    private mutating func rememberFreeSpace(_ snapshot: SystemSnapshot, now: Date) {
+        recentFreeSpace.removeAll { now.timeIntervalSince($0.date) > AlertConfiguration.storageGrowthWindow }
+        guard let root = snapshot.storage?.rootVolume else { return }
+        if recentFreeSpace.last?.available != root.availableCapacity || recentFreeSpace.isEmpty {
+            recentFreeSpace.append((now, root.availableCapacity))
+        }
+    }
+
+    /// Free space lost within the window: from the most free seen in it down to now.
+    private var freeSpaceLost: Double? {
+        guard let current = recentFreeSpace.last?.available, let most = recentFreeSpace.map(\.available).max() else { return nil }
+        return Double(most) - Double(current)
     }
 
     // swiftlint:disable:next cyclomatic_complexity
@@ -143,6 +162,10 @@ public struct AlertEngine: Sendable {
                 triggered: temperature >= rule.threshold, recovered: temperature < rule.threshold - Self.temperatureHysteresis / 2,
                 value: temperature, needsSustain: true
             )
+        case .storageFillingFast:
+            let rule = configuration.storageFillingFast
+            guard rule.isEnabled, let lost = freeSpaceLost else { return nil }
+            return Check(triggered: lost >= rule.threshold, recovered: lost < rule.threshold / 2, value: lost)
         case .ssdHealth:
             guard configuration.ssdHealth.isEnabled, let health = snapshot.storage?.ssdHealth else { return nil }
             return Check(triggered: health.reportsCriticalCondition, recovered: !health.reportsCriticalCondition, level: .critical)

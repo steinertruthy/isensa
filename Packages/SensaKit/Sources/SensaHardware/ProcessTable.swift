@@ -9,13 +9,20 @@ public struct ProcessCounters: Sendable, Equatable {
     /// User + system CPU time, nanoseconds.
     public var cpuTime: UInt64
     public var physicalFootprint: UInt64
+    /// Bytes this process has read from and written to storage (Activity Monitor's Disk tab).
+    public var diskBytesRead: UInt64
+    public var diskBytesWritten: UInt64
     // `ri_billed_energy` is not read: on macOS 26 (Mac15,6) it stays 0 for every process.
 
-    public init(pid: Int32, startTime: UInt64, cpuTime: UInt64, physicalFootprint: UInt64) {
+    public init(
+        pid: Int32, startTime: UInt64, cpuTime: UInt64, physicalFootprint: UInt64, diskBytesRead: UInt64 = 0, diskBytesWritten: UInt64 = 0
+    ) {
         self.pid = pid
         self.startTime = startTime
         self.cpuTime = cpuTime
         self.physicalFootprint = physicalFootprint
+        self.diskBytesRead = diskBytesRead
+        self.diskBytesWritten = diskBytesWritten
     }
 }
 
@@ -44,7 +51,9 @@ public enum ProcessTable {
             pid: pid,
             startTime: info.ri_proc_start_abstime,
             cpuTime: machTime.multipliedReportingOverflow(by: UInt64(timebase.numer)).partialValue / UInt64(max(timebase.denom, 1)),
-            physicalFootprint: info.ri_phys_footprint
+            physicalFootprint: info.ri_phys_footprint,
+            diskBytesRead: info.ri_diskio_bytesread,
+            diskBytesWritten: info.ri_diskio_byteswritten
         )
     }
 

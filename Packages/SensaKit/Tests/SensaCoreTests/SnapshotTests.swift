@@ -55,3 +55,43 @@ struct SnapshotTests {
         #expect(map.isUsable(.fans))
     }
 }
+
+@Suite("Storage snapshot")
+struct StorageSnapshotTests {
+    @Test func purgeableIsWhatFinderCountsBeyondTheFreeSpace() {
+        let volume = VolumeInfo(
+            id: "root", name: "Macintosh HD", mountPoint: "/", totalCapacity: 494_384_795_648, availableCapacity: 17_841_303_616,
+            isInternal: true, isRemovable: false, isRoot: true, freeCapacity: 14_618_750_976
+        )
+        #expect(volume.purgeableCapacity == 3_222_552_640)
+        let unknown = VolumeInfo(
+            id: "x", name: "x", mountPoint: "/x", totalCapacity: 10, availableCapacity: 5, isInternal: false, isRemovable: true, isRoot: false
+        )
+        #expect(unknown.purgeableCapacity == nil)
+    }
+
+    @Test func recordsUsedSpaceAndSSDWrites() {
+        let snapshot = StorageSnapshot(
+            timestamp: Date(), volumes: [VolumeInfo(
+                id: "root", name: "HD", mountPoint: "/", totalCapacity: 100, availableCapacity: 40, isInternal: true, isRemovable: false, isRoot: true
+            )],
+            readRate: 1, writeRate: 2,
+            activity: DiskOperations(readOperations: 10, writeOperations: 5, readLatency: nil, writeLatency: nil)
+        )
+        let metrics = Dictionary(uniqueKeysWithValues: snapshot.readings.map { ($0.metric, $0.value) })
+        #expect(metrics[.diskUsed] == 60)
+        #expect(metrics[.diskReadOperations] == 10)
+        #expect(metrics[.ssdWritten] == nil, "Only with SMART data")
+        #expect(HistoryMetrics.recorded.contains(.diskUsed) && HistoryMetrics.recorded.contains(.ssdWritten))
+    }
+
+    @Test func fileVaultFollowsTheDataVolume() {
+        let container = APFSContainerInfo(identifier: "disk3", capacity: 10, freeCapacity: 1, volumes: [
+            .init(id: "s1", name: "Macintosh HD", role: .system, usedCapacity: 1, isFileVaultOn: false),
+            .init(id: "s5", name: "Data", role: .data, usedCapacity: 8, isFileVaultOn: true)
+        ])
+        #expect(container.isFileVaultOn == true)
+        #expect(APFSContainerInfo(identifier: "disk9", capacity: 1, freeCapacity: 1, volumes: []).isFileVaultOn == nil)
+        #expect(APFSContainerInfo.Role(roles: ["VM"]) == .virtualMemory)
+    }
+}

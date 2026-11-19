@@ -15,5 +15,7 @@ public enum MetricUnit: String, Sendable, Codable, Hashable {
     case bytesPerSecond
     case hertz
     case count
+    /// Events per second (disk operations).
+    case perSecond
     case seconds
 }

@@ -38,12 +38,15 @@ public struct SensaServices {
     public var launchAtLogin: LaunchAtLoginControlling?
     /// Present only on Macs with fans.
     public var fanControl: FanControlCoordinator?
+    public var storage: StorageServices
     public var actions: AppActions
 
     public init(
         history: (any HistoryReading)? = nil, alerts: AlertCoordinator? = nil, notifications: NotificationDelivering? = nil,
-        launchAtLogin: LaunchAtLoginControlling? = nil, fanControl: FanControlCoordinator? = nil, actions: AppActions = AppActions()
+        launchAtLogin: LaunchAtLoginControlling? = nil, fanControl: FanControlCoordinator? = nil,
+        storage: StorageServices = StorageServices(), actions: AppActions = AppActions()
     ) {
+        self.storage = storage
         self.history = history
         self.alerts = alerts
         self.notifications = notifications

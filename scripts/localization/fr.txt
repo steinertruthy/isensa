@@ -591,3 +591,152 @@
 590|Vitesse du point %@
 591|Cœur le plus chaud
 592|Les courbes des ventilateurs suivent cette mesure
+593|%@ en 30 minutes
+594|%@ images disque montées. Éjecter une image ne supprime pas son fichier.
+595|%1$@ : écriture %2$@, lecture %3$@
+596|Environ %@
+597|Activité par app
+598|Variation par jour
+599|Impossible d’éjecter %1$@ : %2$@
+600|Démo
+601|Disque
+602|Image disque
+603|Images disque
+604|L’espace disque diminue rapidement
+605|Espace disque en baisse rapide
+606|Éjecter %@
+607|Tout éjecter
+608|Estimation : le rythme récent prolongé en ligne droite. Un gros téléchargement ou un nettoyage la modifie rapidement.
+609|FileVault désactivé
+610|FileVault activé
+611|Inactif
+612|Latence
+613|La latence est le temps moyen que met le disque pour terminer une lecture ou une écriture. Elle augmente quand le disque est le goulot d’étranglement, même si peu de données circulent.
+614|Instantanés locaux
+615|Aucune app ne lit ni n’écrit en ce moment.
+616|Aucun
+617|Pas assez d’espace libre sur ce disque pour le test.
+618|Ne se remplit pas
+619|Opérations
+620|Autres : %@
+621|Purgeable
+622|L’espace purgeable contient des caches, des instantanés locaux et des fichiers iCloud conservés sur ce Mac. macOS le libère de lui-même quand une app a besoin de place : le Finder le compte donc comme disponible.
+623|Lecture…
+624|Récupération
+625|Sensa a besoin de deux jours d’historique pour estimer une tendance.
+626|Les instantanés enregistrent le disque à un instant donné, pour Time Machine ou une mise à jour de macOS. macOS les supprime automatiquement quand l’espace vient à manquer.
+627|Espace
+628|Test de vitesse
+629|L’indexation Spotlight, Time Machine et d’autres services système s’exécutent sous d’autres utilisateurs : leur activité disque n’apparaît que dans les totaux ci-dessus.
+630|Stable
+631|Démarrage et récupération
+632|Structure du disque de démarrage
+633|Fichiers de démarrage
+634|Arrêter
+635|Swap et image de veille
+636|Tester la vitesse
+637|Les données de ce disque sont chiffrées avec votre mot de passe de session.
+638|Le disque de démarrage a perdu %@ d’espace libre au cours des 30 dernières minutes. Stockage › Activité par app montre ce qui écrit.
+639|Le test n’a pas pu se terminer : %@
+640|Time Machine : %@
+641|Tendance
+642|Activez FileVault dans Réglages Système › Confidentialité et sécurité pour chiffrer vos données.
+643|Activez l’historique dans Réglages › Historique pour voir l’évolution de l’espace disque.
+644|Avant que le disque soit plein
+645|Virtuel
+646|Écrit un fichier temporaire de 2 Go sur le disque choisi puis le relit, sans passer par le cache mémoire. Le fichier est supprimé à la fin du test. Chaque test use un peu le SSD : ne le lancez qu’en cas de besoin.
+647|C’est l’écriture qui use un SSD. Apple ne publie pas l’endurance de ses disques : Sensa affiche donc le rythme et l’usure indiquée par le disque lui-même, pas une durée de vie restante.
+648|Écriture…
+649|Écrit sur le SSD par jour
+650|Le disque de démarrage est un conteneur APFS partagé par plusieurs volumes. Ils puisent tous dans le même espace libre : aucun n’a de taille fixe.
+651|Mises à jour de macOS
+652|Mises à jour de macOS : %@
+653|%1$@ fichiers analysés %2$@
+654|%@ dans votre dossier personnel et vos apps
+655|%@ est ouverte. Quittez-la d’abord.
+656|%1$@ éléments placés dans la corbeille, %2$@ libérés
+657|%@ sélectionnés
+658|%1$@ éléments plus petits, %2$@
+659|Actions pour %@
+660|Tout
+661|Analyser
+662|Analyser à nouveau
+663|Analyse… %@ fichiers
+664|Une autre app gère cet élément. Faites le ménage depuis cette app.
+665|Données des apps
+666|Apps non ouvertes depuis 6 mois
+667|Les apps reconstruisent leurs caches au besoin. Les caches des apps ouvertes sont conservés.
+668|Par catégorie
+669|Caches
+670|Impossible de déplacer %1$@ : %2$@
+671|Symboles de débogage des appareils connectés à Xcode. Xcode les retélécharge au besoin.
+672|Supprimez les simulateurs inutilisés dans Xcode › Réglages › Composants, ou exécutez « xcrun simctl delete unavailable » dans Terminal.
+673|Outils de développement
+674|Images disque et paquets d’installation dans Téléchargements et sur le bureau. Une fois l’app installée, son programme d’installation n’est plus utile.
+675|Données Docker
+676|Docker conserve images et volumes dans un seul fichier disque. Libérez-le dans Docker Desktop › Troubleshoot › Clean / Purge data, ou avec « docker system prune ».
+677|Documents et bureau
+678|Téléchargements
+679|Fichiers de plus de 100 Mo dans Téléchargements, inchangés depuis 90 jours. Vérifiez-les avant de les supprimer.
+680|Trouvez les dossiers, fichiers et apps les plus volumineux, et placez dans la corbeille ce dont vous n’avez plus besoin.
+681|Voyez ce qui prend de la place et placez dans la corbeille ce dont vous n’avez plus besoin.
+682|Dossiers
+683|Libérer de l’espace
+684|Libérer de l’espace…
+685|Programmes d’installation déjà utilisés
+686|Les éléments vont dans la corbeille. Vous pouvez les remettre en place tant que vous ne l’avez pas vidée.
+687|Éléments dans la corbeille
+688|Les éléments de la corbeille occupent de l’espace tant que vous ne la videz pas dans le Finder.
+689|Des éléments ont été remis en place. Analysez à nouveau pour mettre à jour les tailles.
+690|Caches volumineux
+691|Gros téléchargements inchangés depuis 90 jours
+692|Fichiers volumineux
+693|Ouverte pour la dernière fois %@
+694|Mail et Messages
+695|Gérez les sauvegardes dans le Finder : sélectionnez l’appareil, puis Gérer les sauvegardes. Supprimez uniquement celles dont vous n’avez plus besoin.
+696|Placer dans la corbeille
+697|Placer dans la corbeille ?
+698|Placer dans la corbeille…
+699|Place l’app et les fichiers qu’elle a laissés dans la corbeille, après votre vérification.
+700|Jamais ouverte, ou non enregistré
+701|Pas d’accès
+702|Aucun fichier de plus de 10 Mo.
+703|Rien d’évident à nettoyer. Les onglets Dossiers et Fichiers volumineux montrent ce qui prend le plus de place.
+704|Ouvrir %@
+705|Ouvrir les réglages de confidentialité
+706|Autres fichiers
+707|Photos, musique et films
+708|Supprimer %@ apps ?
+709|Supprimer %@ ?
+710|Supprimer…
+711|Supprimer une app supprime aussi les fichiers de support qu’elle a laissés dans votre bibliothèque, après votre vérification.
+712|Vérifier…
+713|Sensa ne supprime que des éléments de votre dossier personnel et des apps des dossiers Applications.
+714|Sensa ne lit que les noms et tailles des fichiers de votre dossier personnel et des dossiers Applications. macOS peut demander l’autorisation avant que Sensa examine le bureau, Documents, Téléchargements ou les données d’autres apps.
+715|Afficher
+716|Simulateurs
+717|Certains dossiers sont protégés par macOS : leur taille n’est pas comptée. Pour les inclure, accordez à Sensa l’accès complet au disque dans Réglages Système › Confidentialité et sécurité. Sensa ne lit que les tailles, jamais le contenu.
+718|Suggestions
+719|L’analyse n’a pas pu se terminer : %@
+720|Cette app fait partie de macOS.
+721|Contient des réglages dont dépendent les apps et macOS.
+722|C’est Sensa lui-même.
+723|Cet élément fait partie d’une app. Supprimez plutôt l’app entière.
+724|Corbeille
+725|Annuler
+726|Jusqu’à %@ pourraient être libérés.
+727|Ce qui prend de la place
+728|Fichiers de compilation Xcode
+729|Fichiers de prise en charge des appareils Xcode
+730|Xcode les recrée à la prochaine compilation. La première compilation des projets est plus lente.
+731|modifié le %@
+732|iCloud Drive et les autres dossiers cloud ne sont pas analysés : leurs apps décident quels fichiers restent sur ce Mac.
+733|Sauvegardes d’iPhone et d’iPad
+734|macOS et vos apps dépendent de ce dossier.
+735|Fermer
+736|Utilisée pour la dernière fois %@
+737|Aucune trace d’utilisation
+738|Page
+739|Toujours dans la corbeille.
+740|Sensa veut placer « %@ » dans la corbeille.
+741|Sensa veut remettre « %@ » en place.

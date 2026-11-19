@@ -28,6 +28,8 @@ public struct AlertConfiguration: Codable, Equatable, Sendable {
     public var batteryCharged = Rule(isEnabled: false, threshold: 0.80)
     /// Battery temperature in °C.
     public var batteryTemperature = Rule(isEnabled: true, threshold: 45)
+    /// The startup disk lost at least this much free space (bytes) within `storageGrowthWindow`.
+    public var storageFillingFast = Rule(isEnabled: true, threshold: 10_000_000_000)
     /// The SSD reports a critical condition through SMART.
     public var ssdHealth = Rule(isEnabled: true)
     /// A sensor source becomes temporarily unavailable.
@@ -37,5 +39,28 @@ public struct AlertConfiguration: Codable, Equatable, Sendable {
     /// Minimum time before the same alert can be sent again (seconds).
     public var repeatInterval: Double = 1_800
 
+    /// Window over which `storageFillingFast` measures lost free space (seconds).
+    public static let storageGrowthWindow: TimeInterval = 1_800
+
     public init() {}
+
+    // Decoded field by field so preferences saved by an older version keep their values and
+    // rules added later start from their defaults.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let defaults = AlertConfiguration()
+        func value<T: Decodable>(_ key: CodingKeys, _ fallback: T) -> T { (try? container.decodeIfPresent(T.self, forKey: key)) ?? fallback }
+        isEnabled = value(.isEnabled, defaults.isEnabled)
+        highTemperature = value(.highTemperature, defaults.highTemperature)
+        memoryPressure = value(.memoryPressure, defaults.memoryPressure)
+        lowStorage = value(.lowStorage, defaults.lowStorage)
+        storageFillingFast = value(.storageFillingFast, defaults.storageFillingFast)
+        lowBattery = value(.lowBattery, defaults.lowBattery)
+        batteryCharged = value(.batteryCharged, defaults.batteryCharged)
+        batteryTemperature = value(.batteryTemperature, defaults.batteryTemperature)
+        ssdHealth = value(.ssdHealth, defaults.ssdHealth)
+        sensorUnavailable = value(.sensorUnavailable, defaults.sensorUnavailable)
+        sustainedSeconds = value(.sustainedSeconds, defaults.sustainedSeconds)
+        repeatInterval = value(.repeatInterval, defaults.repeatInterval)
+    }
 }

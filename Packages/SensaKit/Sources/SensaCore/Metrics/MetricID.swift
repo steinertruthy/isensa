@@ -43,6 +43,12 @@ public extension MetricID {
 
     static let diskRead = MetricID("disk.read")
     static let diskWrite = MetricID("disk.write")
+    static let diskReadOperations = MetricID("disk.read.operations")
+    static let diskWriteOperations = MetricID("disk.write.operations")
+    /// Used space of the startup disk, bytes (as Finder counts it).
+    static let diskUsed = MetricID("disk.used")
+    /// Lifetime bytes written to the internal SSD (SMART); its daily growth is the SSD's wear rate.
+    static let ssdWritten = MetricID("disk.ssd.written")
 
     static let networkDownload = MetricID("network.download")
     static let networkUpload = MetricID("network.upload")

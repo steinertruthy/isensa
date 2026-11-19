@@ -591,3 +591,152 @@
 590|Velocidade do ponto %@
 591|Núcleo mais quente
 592|As curvas das ventoinhas seguem esta leitura
+593|%@ em 30 minutos
+594|%@ imagens de disco montadas. Ejetar uma não apaga o arquivo dela.
+595|%1$@: gravando %2$@, lendo %3$@
+596|Cerca de %@
+597|Atividade por app
+598|Variação por dia
+599|Não foi possível ejetar %1$@: %2$@
+600|Demonstração
+601|Disco
+602|Imagem de disco
+603|Imagens de disco
+604|O espaço em disco está diminuindo rápido
+605|Espaço em disco diminuindo rápido
+606|Ejetar %@
+607|Ejetar Todas
+608|Estimativa: o ritmo recente prolongado em linha reta. Um download grande ou uma limpeza muda isso rapidamente.
+609|FileVault desativado
+610|FileVault ativado
+611|Ocioso
+612|Latência
+613|Latência é quanto o disco leva, em média, para concluir uma leitura ou gravação. Ela sobe quando o disco é o gargalo, mesmo com poucos dados sendo transferidos.
+614|Snapshots locais
+615|Nenhum app está lendo ou gravando agora.
+616|Nenhum
+617|Não há espaço livre suficiente neste disco para o teste.
+618|Não está enchendo
+619|Operações
+620|Outros: %@
+621|Purgável
+622|O espaço purgável guarda caches, snapshots locais e arquivos do iCloud mantidos neste Mac. O macOS o libera sozinho quando um app precisa de espaço, por isso o Finder o conta como disponível.
+623|Lendo…
+624|Recuperação
+625|O Sensa precisa de dois dias de histórico para estimar uma tendência.
+626|Snapshots registram o disco em um momento, para o Time Machine ou para uma atualização do macOS. O macOS os apaga automaticamente quando o espaço fica curto.
+627|Espaço
+628|Teste de velocidade
+629|A indexação do Spotlight, o Time Machine e outros serviços do sistema rodam como outros usuários, por isso a atividade de disco deles só aparece nos totais acima.
+630|Estável
+631|Inicialização e recuperação
+632|Estrutura do disco de inicialização
+633|Arquivos de inicialização
+634|Parar
+635|Swap e imagem de repouso
+636|Testar Velocidade
+637|Os dados deste disco são criptografados com sua senha de login.
+638|O disco de inicialização perdeu %@ de espaço livre nos últimos 30 minutos. Armazenamento › Atividade por app mostra o que está gravando.
+639|O teste não pôde terminar: %@
+640|Time Machine: %@
+641|Tendência
+642|Ative o FileVault em Ajustes do Sistema › Privacidade e Segurança para criptografar seus dados.
+643|Ative o histórico em Ajustes › Histórico para ver como o espaço em disco muda com o tempo.
+644|Até o disco encher
+645|Virtual
+646|Grava um arquivo temporário de 2 GB no disco escolhido e o lê de volta, sem passar pelo cache de memória. O arquivo é apagado ao fim do teste. Cada execução desgasta um pouco o SSD, então rode só quando precisar.
+647|É a gravação que desgasta um SSD. A Apple não publica a durabilidade dos seus discos, então o Sensa mostra o ritmo e o desgaste que o próprio disco informa, não uma vida útil restante.
+648|Gravando…
+649|Gravado no SSD por dia
+650|O disco de inicialização é um contêiner APFS compartilhado por vários volumes. Todos usam o mesmo espaço livre, então nenhum tem tamanho fixo.
+651|Atualizações do macOS
+652|Atualizações do macOS: %@
+653|%1$@ arquivos analisados %2$@
+654|%@ na sua pasta pessoal e nos apps
+655|%@ está aberto. Encerre-o primeiro.
+656|%1$@ itens movidos para o Lixo, %2$@ liberados
+657|%@ selecionados
+658|%1$@ itens menores, %2$@
+659|Ações para %@
+660|Tudo
+661|Analisar
+662|Analisar Novamente
+663|Analisando… %@ arquivos
+664|Outro app gerencia isto. Faça a limpeza por esse app.
+665|Dados de apps
+666|Apps não abertos há 6 meses
+667|Os apps recriam seus caches quando precisam. Caches de apps abertos são mantidos.
+668|Por categoria
+669|Caches
+670|Não foi possível mover %1$@: %2$@
+671|Símbolos de depuração de dispositivos que você conectou ao Xcode. O Xcode os baixa de novo quando precisar.
+672|Apague os simuladores que você não usa mais em Xcode › Ajustes › Componentes, ou rode “xcrun simctl delete unavailable” no Terminal.
+673|Ferramentas de desenvolvimento
+674|Imagens de disco e pacotes de instalação em Downloads e na Mesa. Depois que o app é instalado, o instalador não é mais necessário.
+675|Dados do Docker
+676|O Docker guarda imagens e volumes num único arquivo de disco. Libere espaço em Docker Desktop › Troubleshoot › Clean / Purge data, ou com “docker system prune”.
+677|Documentos e Mesa
+678|Downloads
+679|Arquivos com mais de 100 MB em Downloads que não mudam há 90 dias. Revise antes de remover.
+680|Encontre as maiores pastas, arquivos e apps, e mova para o Lixo o que você não usa mais.
+681|Veja o que ocupa espaço e mova para o Lixo o que você não usa mais.
+682|Pastas
+683|Liberar espaço
+684|Liberar Espaço…
+685|Instaladores que você já usou
+686|Os itens vão para o Lixo. Você pode devolvê-los até esvaziá-lo.
+687|Itens no Lixo
+688|Os itens no Lixo continuam ocupando espaço até você esvaziá-lo no Finder.
+689|Itens foram devolvidos do Lixo. Analise novamente para atualizar os tamanhos.
+690|Caches grandes
+691|Downloads grandes sem mudança há 90 dias
+692|Arquivos grandes
+693|Aberto pela última vez %@
+694|Mail e Mensagens
+695|Gerencie os backups no Finder: selecione o dispositivo e clique em Gerenciar Backups. Apague só os que não precisa mais.
+696|Mover para o Lixo
+697|Mover para o Lixo?
+698|Mover para o Lixo…
+699|Move o app e os arquivos que ele deixou para o Lixo, depois que você revisar.
+700|Nunca aberto, ou sem registro
+701|Sem acesso
+702|Nenhum arquivo acima de 10 MB.
+703|Nada óbvio para limpar. As abas Pastas e Arquivos grandes mostram o que ocupa mais espaço.
+704|Abrir %@
+705|Abrir Ajustes de Privacidade
+706|Outros arquivos
+707|Fotos, música e filmes
+708|Remover %@ apps?
+709|Remover %@?
+710|Remover…
+711|Remover um app também remove os arquivos de suporte que ele deixou na sua Biblioteca, depois que você revisar.
+712|Revisar…
+713|O Sensa só remove itens da sua pasta pessoal e apps das pastas de Aplicativos.
+714|O Sensa lê apenas nomes e tamanhos de arquivos da sua pasta pessoal e das pastas de Aplicativos. O macOS pode pedir permissão antes de o Sensa olhar a Mesa, Documentos, Downloads ou dados de outros apps.
+715|Mostrar
+716|Simuladores
+717|Algumas pastas são protegidas pelo macOS, então o tamanho delas não entra na conta. Para incluí-las, dê ao Sensa Acesso Total ao Disco em Ajustes do Sistema › Privacidade e Segurança. O Sensa só lê tamanhos, nunca conteúdo.
+718|Sugestões
+719|A análise não pôde terminar: %@
+720|Este app faz parte do macOS.
+721|Isto guarda ajustes dos quais apps e o macOS dependem.
+722|Este é o próprio Sensa.
+723|Isto faz parte de um app. Remova o app inteiro.
+724|Lixo
+725|Desfazer
+726|Até %@ podem ser liberados.
+727|O que ocupa espaço
+728|Arquivos de build do Xcode
+729|Arquivos de suporte a dispositivos do Xcode
+730|O Xcode os recria no próximo build. Os projetos demoram mais para compilar na primeira vez.
+731|alterado em %@
+732|O iCloud Drive e outras pastas na nuvem não são analisados: os apps deles decidem quais arquivos ficam neste Mac.
+733|Backups do iPhone e iPad
+734|O macOS e seus apps dependem desta pasta.
+735|Fechar
+736|Usado pela última vez %@
+737|Sem registro de uso
+738|Página
+739|Continua no Lixo.
+740|O Sensa quer mover “%@” para o Lixo.
+741|O Sensa quer devolver “%@” ao lugar.

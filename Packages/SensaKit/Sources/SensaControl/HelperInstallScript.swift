@@ -73,7 +73,7 @@ public enum HelperInstallScript {
         "do shell script \"\(appleScriptEscaped(script))\" with prompt \"\(appleScriptEscaped(prompt))\" with administrator privileges"
     }
 
-    static func shellQuoted(_ value: String) -> String {
+    public static func shellQuoted(_ value: String) -> String {
         "'" + value.replacingOccurrences(of: "'", with: "'\\''") + "'"
     }
 

@@ -10,6 +10,7 @@ struct AlertText {
         case .highTemperature: tr("Your Mac is running hot")
         case .memoryPressure: tr("Memory pressure is high")
         case .lowStorage: tr("Startup disk almost full")
+        case .storageFillingFast: tr("Disk space is shrinking fast")
         case .lowBattery: tr("Battery is low")
         case .batteryCharged: tr("Battery charged")
         case .batteryTemperature: tr("Battery is warm")
@@ -26,6 +27,8 @@ struct AlertText {
             tr("macOS is working hard to free memory. Closing apps you are not using will help.")
         case .lowStorage:
             Copy.lowStorageBody(value.map { formatter.percent($0) } ?? "–")
+        case .storageFillingFast:
+            Copy.storageFillingFastBody(value.map { formatter.fileBytes(Int64($0)) } ?? "–")
         case .lowBattery:
             tr("%@ left. Connect the charger to keep working.", value.map { formatter.percent($0) } ?? "–")
         case .batteryCharged:
@@ -44,6 +47,7 @@ struct AlertText {
         case .highTemperature: tr("High CPU temperature")
         case .memoryPressure: tr("High memory pressure")
         case .lowStorage: tr("Low disk space")
+        case .storageFillingFast: tr("Disk space shrinking fast")
         case .lowBattery: tr("Low battery")
         case .batteryCharged: tr("Battery charged to a level")
         case .batteryTemperature: tr("Warm battery")

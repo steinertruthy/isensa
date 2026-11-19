@@ -2,7 +2,7 @@ import Foundation
 import SensaCore
 import SensaHardware
 
-/// Top processes by CPU and memory (public `libproc`). Processes owned by other
+/// Top processes by CPU, memory and storage activity (public `libproc`). Processes owned by other
 /// users are counted as inaccessible instead of being guessed.
 public actor ProcessProvider: MetricProvider {
     public nonisolated let id = "processes"
@@ -42,7 +42,8 @@ public actor ProcessProvider: MetricProvider {
             topByCPU: Array(usages.sorted { $0.cpu > $1.cpu }.prefix(limit)),
             topByMemory: Array(usages.sorted { $0.memory > $1.memory }.prefix(limit)),
             processCount: pids.count,
-            inaccessibleCount: pids.count - counters.count
+            inaccessibleCount: pids.count - counters.count,
+            topByDisk: Array(usages.filter { $0.diskTotal > 0 }.sorted { $0.diskTotal > $1.diskTotal }.prefix(limit))
         )
     }
 
@@ -65,11 +66,19 @@ enum ProcessUsageCalculator {
         current.values.map { counters in
             // Only compare with the same process instance (PID reuse changes the start time).
             let earlier = previous[counters.pid].flatMap { $0.startTime == counters.startTime ? $0 : nil }
-            var cpu = 0.0
-            if let earlier, interval > 0, counters.cpuTime >= earlier.cpuTime {
-                cpu = Double(counters.cpuTime - earlier.cpuTime) / 1e9 / interval
+            var cpu = 0.0, diskRead = 0.0, diskWrite = 0.0
+            if let earlier, interval > 0 {
+                if counters.cpuTime >= earlier.cpuTime { cpu = Double(counters.cpuTime - earlier.cpuTime) / 1e9 / interval }
+                if counters.diskBytesRead >= earlier.diskBytesRead {
+                    diskRead = Double(counters.diskBytesRead - earlier.diskBytesRead) / interval
+                }
+                if counters.diskBytesWritten >= earlier.diskBytesWritten {
+                    diskWrite = Double(counters.diskBytesWritten - earlier.diskBytesWritten) / interval
+                }
             }
-            return ProcessUsage(id: counters.pid, name: name(counters), cpu: cpu, memory: counters.physicalFootprint)
+            return ProcessUsage(
+                id: counters.pid, name: name(counters), cpu: cpu, memory: counters.physicalFootprint, diskRead: diskRead, diskWrite: diskWrite
+            )
         }
     }
 }

@@ -38,6 +38,11 @@ struct NotificationsPane: View {
                     tr("%@ free", BatteryPane.percent($0))
                 }
                 .disabled(!settings.alerts.lowStorage.isEnabled)
+                RuleToggle(rule: $settings.alerts.storageFillingFast, title: AlertText.ruleName(.storageFillingFast))
+                ThresholdSlider(value: $settings.alerts.storageFillingFast.threshold, range: 2e9...50e9, step: 1e9) {
+                    tr("%@ in 30 minutes", settings.formatter.fileBytes(Int64($0)))
+                }
+                .disabled(!settings.alerts.storageFillingFast.isEnabled)
                 RuleToggle(rule: $settings.alerts.ssdHealth, title: AlertText.ruleName(.ssdHealth))
                 RuleToggle(rule: $settings.alerts.sensorUnavailable, title: AlertText.ruleName(.sensorUnavailable))
                 if services.history != nil, settings.alerts.isEnabled {

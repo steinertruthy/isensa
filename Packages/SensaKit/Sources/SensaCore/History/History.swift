@@ -65,6 +65,6 @@ public enum HistoryMetrics {
 
     public static let recorded: [MetricID] = [
         .cpuUsage, .gpuUsage, .memoryUsed, .memoryPressure, .cpuTemperature, .gpuTemperature,
-        .systemPower, .batteryCharge, .networkDownload, .networkUpload, .diskRead, .diskWrite
+        .systemPower, .batteryCharge, .networkDownload, .networkUpload, .diskRead, .diskWrite, .diskUsed, .ssdWritten
     ] + (0..<maximumFans).map(MetricID.fanSpeed)
 }

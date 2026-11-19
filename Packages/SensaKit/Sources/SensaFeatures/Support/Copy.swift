@@ -18,6 +18,42 @@ enum Copy {
         tr("Only %@ of the startup disk is free. Delete files you no longer need or move them to another drive.", free)
     }
 
+    static func storageFillingFastBody(_ lost: String) -> String {
+        tr("The startup disk lost %@ of free space in the last 30 minutes. Storage › Activity by app shows what is writing.", lost)
+    }
+
+    static var purgeableExplanation: String {
+        tr("Purgeable space holds caches, local snapshots and iCloud files kept on this Mac. macOS frees it on its own when an app needs room, so Finder counts it as available.")
+    }
+
+    static var snapshotsExplanation: String {
+        tr("Snapshots record the disk at a moment in time, for Time Machine or a macOS update. macOS deletes them automatically when space runs low.")
+    }
+
+    static var activityByAppNote: String {
+        tr("Spotlight indexing, Time Machine and other system services run as other users, so their disk activity only shows in the totals above.")
+    }
+
+    static var latencyExplanation: String {
+        tr("Latency is how long the disk takes, on average, to complete one read or write. It rises when the disk is the bottleneck, even if little data moves.")
+    }
+
+    static var containerExplanation: String {
+        tr("Your startup disk is one APFS container shared by several volumes. They all draw from the same free space, so none of them has a fixed size.")
+    }
+
+    static var trendForecastNote: String {
+        tr("Estimate: the recent pace extended in a straight line. A large download or cleanup changes it quickly.")
+    }
+
+    static var writesNote: String {
+        tr("Writing is what wears an SSD. Apple does not publish an endurance rating for its drives, so Sensa shows the pace and the wear the drive itself reports, not a remaining lifespan.")
+    }
+
+    static var speedTestExplanation: String {
+        tr("Writes a 2 GB temporary file to the selected disk and reads it back, bypassing the memory cache. The file is deleted when the test ends. Each run adds a little wear to an SSD, so run it only when you need it.")
+    }
+
     static var onboardingNotifications: String {
         tr("Sensa can tell you when your Mac runs hot, memory is under pressure, the disk is almost full or the battery is low.")
     }

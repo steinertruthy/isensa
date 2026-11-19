@@ -1,7 +1,7 @@
 // sensa-probe — development tool that dumps every sensor Sensa can see on this Mac.
 // Used to validate the sensor catalog (idle vs. load) before marking mappings as verified.
 //
-// Usage: sensa-probe [smc|hid|ioreport|dvfs|smart|all] [prefixes...]
+// Usage: sensa-probe [smc|hid|ioreport|dvfs|smart|all|space] [prefixes or folders...]
 //   sensa-probe smc T F P     → SMC keys starting with T, F or P with their decoded values
 import Foundation
 import SensaHardware
@@ -16,6 +16,31 @@ let prefixes = Array(arguments.dropFirst())
 func line(_ text: String) { FileHandle.standardOutput.write(Data((text + "\n").utf8)) }
 
 line("# model \(Sysctl.string("hw.model") ?? "?") · \(Sysctl.string("machdep.cpu.brand_string") ?? "?")")
+
+if mode == "space" {
+    // sensa-probe space <folder>… → sizes as the Free Up Space analysis measures them (read-only).
+    let roots = prefixes.map { URL(fileURLWithPath: ($0 as NSString).expandingTildeInPath) }
+    let semaphore = DispatchSemaphore(value: 0)
+    // Detached: top-level code runs on the main actor, which `semaphore.wait()` blocks.
+    Task.detached {
+        let started = Date()
+        do {
+            let report = try await DiskUsageScanner().scan(roots: roots) { _ in }
+            line("space\tscanned \(report.itemCount) files in \(String(format: "%.1f", Date().timeIntervalSince(started))) s")
+            for root in report.roots {
+                line("space\t\(root.size / 1_000)\tKB\t\(root.url.path)")
+                root.children.prefix(8).forEach { line("space\t  \($0.size / 1_000)\tKB\t\($0.name)") }
+            }
+            report.largestFiles.prefix(5).forEach { line("largest\t\($0.size / 1_000_000) MB\t\($0.url.path)") }
+            report.unreadable.prefix(10).forEach { line("unreadable\t\($0.path)") }
+        } catch {
+            line("space\tfailed: \(error)")
+        }
+        semaphore.signal()
+    }
+    semaphore.wait()
+    exit(0)
+}
 
 if mode == "smc" || mode == "all" {
     do {

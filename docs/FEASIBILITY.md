@@ -13,7 +13,10 @@ Validado em **MacBook Pro 14" Nov 2023 (`Mac15,6`), Apple M3 Pro, macOS 26.6.2**
 | Potência total | SMC `PSTR` | **Privada** | — | 🧪 Experimental (≈5 W repouso, ≈38 W sob carga GPU) |
 | Ventoinhas (leitura) | SMC `FNum`, `F{n}Ac/Mn/Mx/Tg/Md` | **Privada** | — | 🧪 2 ventoinhas, 2317–6800 rpm; param em repouso |
 | Ventoinhas (escrita) | SMC `Ftst`, `F{n}Md`, `F{n}Tg` via helper root | **Privada** | Root (senha de administrador) | 🧪 Experimental; validado neste Mac (curva, queda do app, repouso) |
-| Armazenamento | `URLResourceValues`, `IOBlockStorageDriver` | Sim/Registry | — | ✅ Disponível |
+| Armazenamento | `URLResourceValues`, `IOBlockStorageDriver` | Sim/Registry | — | ✅ Disponível (espaço livre/purgável, IOPS, latência) |
+| Atividade de disco por app | `proc_pid_rusage` (`ri_diskio_*`) | Sim | — | ✅ Processos do usuário; serviços do sistema só nos totais |
+| Estrutura APFS e FileVault | `diskutil info/apfs list -plist` | Sim (ferramenta do sistema) | — | ✅ Validado neste Mac |
+| Snapshots locais | `tmutil listlocalsnapshots /` | Sim (ferramenta do sistema) | — | ✅ Validado neste Mac |
 | Rede | `NET_RT_IFLIST2` (`if_data64`) | Sim | — | ✅ Disponível |
 | Frequências CPU/GPU | IOReport (residência) × tabelas DVFS do `pmgr` | **Privada** | — | 🧪 Verificado: E 2748, P 4056, GPU 1380 MHz sob carga |
 | Energia por componente | IOReport `Energy Model` | **Privada** | — | 🧪 CPU 6,5 W (carga CPU), GPU 13,4 W (carga Metal) |
@@ -96,7 +99,41 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
   Túneis (`utun*`) não entram na soma para não contar o tráfego de VPN duas vezes.
 * **SMART no Apple silicon:** a capacidade fica no `IOEmbeddedNVMeBlockDevice`, não no controlador, e o
   plug-in precisa permanecer vivo durante a leitura.
-* **Volumes somente leitura** (imagens de instalação montadas) foram removidos da lista de capacidade.
+* **Volumes somente leitura** ficam fora da lista de volumes; imagens de disco montadas aparecem num cartão próprio.
+
+## Achados do Armazenamento (19/11/2026, Mac15,6, macOS 26.6)
+
+* **Espaço purgável:** `volumeAvailableCapacityForImportantUsage` (o que o Finder mostra) − `volumeAvailableCapacity`
+  (livre de fato). Neste Mac: 17,84 GB disponíveis = 14,62 GB livres + 3,22 GB purgáveis. Volumes somente leitura
+  informam 0 para "uso importante"; para eles vale o valor simples.
+* **`volumeIsEncrypted` não indica o FileVault:** é falso em `/` (o volume de sistema selado) com o FileVault ligado.
+  O estado vem do volume de dados em `diskutil apfs list -plist` (`FileVault = true`), conferido com `fdesetup status`.
+* **Contêiner APFS:** 494 GB compartilhados por Sistema (16,6 GB), Dados (429 GB), Preboot (16,3 GB), VM (14 GB:
+  swap e imagem de repouso), Recuperação e Atualização. `diskutil` responde em ~0,1 s sem privilégios; o Sensa
+  consulta a cada 5 minutos e uma vez por volume montado.
+* **Snapshots:** `tmutil listlocalsnapshots /` lista os do grupo de volumes, inclusive os de atualização do macOS
+  (`com.apple.os.update-…`; 3 neste Mac, nenhum do Time Machine). O tamanho de cada um não é informado sem privilégios.
+* **IOPS e latência:** `IOBlockStorageDriver` › `Statistics` traz `Operations` e `Total Time` (ns) de leitura e
+  escrita; a latência média é Δtempo ÷ Δoperações (neste Mac, desde o boot: ~0,41 ms por leitura, ~53 µs por escrita).
+  `Latency Time` fica sempre 0 e não é usado.
+* **Atividade por app:** `ri_diskio_bytesread/byteswritten` funcionam para processos do usuário (ex.:
+  `corespotlightd`); `mds_stores`, `backupd` e outros serviços root ficam de fora e aparecem só no total.
+* **Imagens de disco:** o `BusProtocol` do `diskutil info` ("Disk Image") as separa dos volumes; neste Mac havia 9
+  montadas (instaladores esquecidos). Ejetar usa `NSWorkspace.unmountAndEjectDevice` e não apaga o arquivo.
+* **Teste de velocidade:** arquivo temporário com `F_NOCACHE` (sem cache de memória) e `F_FULLFSYNC` ao fim da
+  escrita; validado com 64 MB nos testes de hardware. Só roda quando a pessoa inicia.
+* **Liberar espaço — desempenho:** a primeira versão (`contentsOfDirectory` + `URLResourceValues` por arquivo) levou
+  74 s para 889 mil arquivos (/Applications, ~/Library/Developer e ~/Library/Caches); com `fts` e objetos só para
+  itens ≥ 1 MB, 26,5 s, contra ~24 s do `du -skx` nas mesmas pastas. Os tamanhos são idênticos entre as duas versões e
+  ficam a 0,2–1,2 % do `du` (unidades decimais × KiB).
+* **Pastas protegidas:** sem Acesso Total ao Disco, 9 pastas de `~/Library/Caches` (Safari, HomeKit, CloudKit…)
+  não podem ser lidas; aparecem como "sem acesso", não como zero. Desktop, Documentos, Downloads e dados de outros
+  apps disparam o pedido de permissão do próprio macOS na primeira análise.
+* **Último uso de apps:** `kMDItemLastUsedDate` (Spotlight) funciona sem privilégios; apps sem registro ficam fora da
+  sugestão de apps não usados.
+* **Não implementado, por honestidade:** vida útil restante do SSD (a Apple não publica o TBW) e velocidade do
+  link USB/Thunderbolt (nenhum disco externo disponível para validar a leitura do IORegistry). O aviso de disco
+  removido sem ejetar já é feito pelo próprio macOS.
 
 ## Distribuição
 

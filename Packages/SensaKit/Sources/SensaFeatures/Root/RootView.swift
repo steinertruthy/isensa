@@ -86,7 +86,7 @@ public struct RootView: View {
         case .battery: BatteryScreen().navigationTitle(tr("Battery"))
         case .thermals: ThermalsScreen().navigationTitle(tr("Temperatures"))
         case .fans: FansScreen().navigationTitle(tr("Fans"))
-        case .storage: StorageScreen().navigationTitle(tr("Storage"))
+        case .storage: StorageRoot().navigationTitle(tr("Storage"))
         case .network: NetworkScreen().navigationTitle(tr("Network"))
         case .sensors: SensorExplorerScreen()
         case .history: HistoryScreen().navigationTitle(tr("History"))

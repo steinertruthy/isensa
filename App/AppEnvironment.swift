@@ -21,6 +21,7 @@ final class AppEnvironment {
     let feedback: FeedbackPlayer
     let notifications = UserNotificationDelivery()
     let history: HistoryStore?
+    let storageServices: StorageServices
     private(set) var alerts: AlertCoordinator?
     /// Present only on Macs with fans.
     let fanControl: FanControlCoordinator?
@@ -30,7 +31,11 @@ final class AppEnvironment {
         settings = AppSettings()
         launchAtLogin = LaunchAtLoginService()
         feedback = FeedbackPlayer(settings: settings)
-        if let initial = arguments.string(forKey: "SensaInitialDestination").flatMap(Destination.init) {
+        // "cleanup" opens Storage › Free Up Space.
+        if arguments.string(forKey: "SensaInitialDestination") == "cleanup" {
+            navigation.selection = .storage
+            navigation.storagePage = .freeUpSpace
+        } else if let initial = arguments.string(forKey: "SensaInitialDestination").flatMap(Destination.init) {
             navigation.selection = initial
         }
 
@@ -50,6 +55,7 @@ final class AppEnvironment {
             store = MetricsStore(profile: profile, staticCapabilities: ProductionProviders.staticCapabilities(for: profile))
             isDemo = false
         }
+        storageServices = isDemo ? Self.demoStorageServices() : Self.storageServices()
         history = isDemo ? nil : try? HistoryStore(url: HistoryStore.defaultURL())
         if profile.fanCount > 0 {
             // Demo mode never touches the helper or the hardware.
@@ -66,6 +72,28 @@ final class AppEnvironment {
         startAlerts()
     }
 
+    private static func storageServices() -> StorageServices {
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        let applicationFolders = [URL(fileURLWithPath: "/Applications"), home.appendingPathComponent("Applications")]
+            .filter { FileManager.default.fileExists(atPath: $0.path) }
+        let analysis = SpaceAnalysis(dependencies: .init(
+            scanner: DiskUsageScanner(home: home),
+            inventory: { sizes in InstalledApps(home: home, knownSizes: sizes) },
+            trash: AdministratorTrash(), home: home, applicationFolders: applicationFolders, ownBundle: Bundle.main.bundleURL
+        ))
+        return StorageServices(speedTester: DiskSpeedTester(), eject: { url in
+            try await Task.detached { try NSWorkspace.shared.unmountAndEjectDevice(at: url) }.value
+        }, spaceAnalysis: analysis)
+    }
+
+    private static func demoStorageServices() -> StorageServices {
+        let analysis = SpaceAnalysis(dependencies: .init(
+            scanner: DemoDiskUsageScanner(), inventory: { _ in DemoAppInventory() }, trash: DemoTrash(),
+            home: DemoSpace.home, applicationFolders: [DemoSpace.applications], ownBundle: Bundle.main.bundleURL
+        ))
+        return StorageServices(speedTester: DemoDiskSpeedTester(), eject: DemoDiskSpeedTester.eject, spaceAnalysis: analysis)
+    }
+
     func samplingPolicy() -> SamplingPolicy {
         SamplingPolicy(
             interactiveInterval: settings.refreshInterval,
@@ -77,7 +105,7 @@ final class AppEnvironment {
     func services(actions: AppActions) -> SensaServices {
         SensaServices(
             history: history, alerts: alerts, notifications: notifications, launchAtLogin: launchAtLogin,
-            fanControl: fanControl, actions: actions
+            fanControl: fanControl, storage: storageServices, actions: actions
         )
     }
 

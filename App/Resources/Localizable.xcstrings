@@ -930,6 +930,122 @@
         }
       }
     },
+    "Sensa wants to move “%@” to the Trash.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa quer mover “%@” para o Lixo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa quiere trasladar “%@” a la Papelera."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa veut placer « %@ » dans la corbeille."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa möchte „%@“ in den Papierkorb legen."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa vuole spostare “%@” nel Cestino."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaが“%@”をゴミ箱に入れようとしています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa가 “%@”을(를) 휴지통으로 옮기려고 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa想要将“%@”移到废纸篓。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa想要將「%@」丟到垃圾桶。"
+          }
+        }
+      }
+    },
+    "Sensa wants to put “%@” back.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa quer devolver “%@” ao lugar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa quiere devolver “%@” a su sitio."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa veut remettre « %@ » en place."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa möchte „%@“ zurücklegen."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa vuole ripristinare “%@”."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaが“%@”を元に戻そうとしています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa가 “%@”을(를) 되돌리려고 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa想要将“%@”放回原处。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa想要將「%@」放回原處。"
+          }
+        }
+      }
+    },
     "Sensa wants to remove its fan helper.": {
       "localizations": {
         "pt-BR": {

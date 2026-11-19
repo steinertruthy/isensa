@@ -49,7 +49,7 @@ public struct SegmentedMeter: View {
             .accessibilityHidden(true)
 
             if showsLegend {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), alignment: .leading)], alignment: .leading, spacing: Spacing.small) {
+                FlowLayout {
                     ForEach(segments) { segment in
                         HStack(spacing: Spacing.small) {
                             Circle().fill(segment.color).frame(width: 8, height: 8)
@@ -57,6 +57,7 @@ public struct SegmentedMeter: View {
                             Text(segment.detail).monospacedDigit()
                         }
                         .font(Typography.callout)
+                        .fixedSize()
                         .accessibilityElement(children: .combine)
                     }
                 }

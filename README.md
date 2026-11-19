@@ -13,7 +13,7 @@ open Sensa.xcodeproj           # ou: scripts/ci.sh para validar tudo
 Argumentos úteis (desenvolvimento):
 
 * `-SensaDemoMode laptopWithFans|fanlessLaptop|desktop` — dados de demonstração rotulados.
-* `-SensaInitialDestination cpu|gpu|memory|battery|thermals|fans|storage|network|sensors`.
+* `-SensaInitialDestination cpu|gpu|memory|battery|thermals|fans|storage|cleanup|network|sensors`.
 * `-SensaOpenPopover YES` — abre o popover da barra de menus ao iniciar.
 * `-SensaSettingsPane general|notifications|history|…` — abre os Ajustes num painel.
 * `-hasCompletedOnboarding NO` — mostra as boas-vindas novamente.
@@ -23,6 +23,7 @@ Traduções: edite `scripts/localization/<idioma>.txt` e rode `scripts/localizat
 
 Design: [plano visual e princípios](docs/DESIGN.md).
 * `swift run --package-path Packages/SensaKit sensa-probe smc T F P` — despeja sensores para validação.
+* `swift run -c release --package-path Packages/SensaKit sensa-probe space ~/Library/Caches` — mede pastas como a análise de Liberar espaço (só leitura).
 
 ### Controle de ventoinhas (experimental)
 

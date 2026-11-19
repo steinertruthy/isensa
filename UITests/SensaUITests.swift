@@ -147,6 +147,75 @@ final class SensaUITests: XCTestCase {
         XCTAssertFalse(app.descendants(matching: .any)["settings.fans"].exists, "A fanless Mac has no Fans pane")
     }
 
+    func testStorageExplainsSpaceEjectsAndTestsSpeed() {
+        let app = launch("laptopWithFans", extraArguments: ["-SensaInitialDestination", "storage"])
+        XCTAssertTrue(app.descendants(matching: .any)["storage.space"].waitForExistence(timeout: 10), "Used, purgeable and free")
+        attachScreenshot(app, "storage-top")
+        // The screen is lazy: rows exist once scrolled into view.
+        let writer = app.staticTexts.matching(NSPredicate(format: "value BEGINSWITH %@", "Demo Editor: writing")).firstMatch
+        scroll(app, to: writer)
+        attachScreenshot(app, "storage-activity")
+        let performance = app.descendants(matching: .any)["storage.performance"]
+        scroll(app, to: performance)
+        attachScreenshot(app, "storage-volumes")
+
+        // Disk images can be ejected; the demo eject succeeds without touching anything.
+        let image = app.buttons["Eject Demo Installer"]
+        scroll(app, to: image)
+        image.click()
+        XCTAssertTrue(waitUntilGone(image), "An ejected image leaves the list")
+
+        attachScreenshot(app, "storage-images")
+        scroll(app, to: app.descendants(matching: .any)["storage.container"])
+        let start = app.buttons["storage.speed.start"]
+        scroll(app, to: start)
+        start.click()
+        XCTAssertTrue(app.descendants(matching: .any)["storage.speed.result"].waitForExistence(timeout: 10))
+        attachScreenshot(app, "storage-bottom")
+    }
+
+    func testFreeUpSpaceReviewsMovesToTrashAndUndoes() {
+        let app = launch("laptopWithFans", extraArguments: ["-SensaInitialDestination", "cleanup"])
+        let analyze = app.buttons["space.analyze"]
+        XCTAssertTrue(analyze.waitForExistence(timeout: 10))
+        analyze.click()
+        let review = app.buttons["space.suggestion.installers"]
+        XCTAssertTrue(review.waitForExistence(timeout: 10), "Suggestions appear after the analysis")
+        attachScreenshot(app, "space-suggestions")
+        scroll(app, to: review)
+        review.click()
+        let confirm = app.buttons["space.review.confirm"]
+        XCTAssertTrue(confirm.waitForExistence(timeout: 5), "Nothing moves before the review")
+        confirm.click()
+        let undo = app.buttons["space.undo"]
+        XCTAssertTrue(undo.waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["space.suggestion.installers"].exists, "The installer is gone from the suggestions")
+        undo.click()
+        XCTAssertTrue(waitUntilGone(undo))
+
+        app.descendants(matching: .any)["space.tabs"].radioButtons["Apps"].click()
+        XCTAssertTrue(app.staticTexts["Demo Game"].waitForExistence(timeout: 5))
+        attachScreenshot(app, "space-apps")
+    }
+
+    private func scroll(_ app: XCUIApplication, to element: XCUIElement) {
+        // Scroll the screen's content, not the sidebar.
+        let content = app.scrollViews["screen.scroll"]
+        let bottom = app.windows.firstMatch.frame.maxY - 40
+        // Fully on screen, not just peeking in at the bottom edge.
+        for _ in 0..<20 where !(element.exists && element.isHittable && element.frame.maxY < bottom) {
+            content.scroll(byDeltaX: 0, deltaY: -250)
+        }
+        XCTAssertTrue(element.isHittable, "Could not scroll to \(element)")
+    }
+
+    private func attachScreenshot(_ app: XCUIApplication, _ name: String) {
+        let attachment = XCTAttachment(screenshot: app.windows.firstMatch.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
     func testHistoryScreenExplainsEmptyState() {
         let app = launch("laptopWithFans", extraArguments: ["-SensaInitialDestination", "history"])
         let header = app.descendants(matching: .any)["screen.header"]

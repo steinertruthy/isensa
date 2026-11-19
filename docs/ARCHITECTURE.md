@@ -99,6 +99,34 @@ Medido em Release no Mac15,6 (média de ~60 s):
 Toda leitura carrega `Provenance` (`hardware`, `system`, `derived`, `estimated`, `demo`). Sensores só recebem
 nome quando um catálogo os valida no modelo; temperaturas agregadas usam apenas mapeamentos verificados.
 
+## Armazenamento
+
+O `StorageProvider` junta três fontes com cadências diferentes: taxas e operações a cada amostra (contadores do
+`IOBlockStorageDriver`), volumes a cada 30 s (`URLResourceValues`; `diskutil info` só na primeira vez que um volume
+aparece) e, a cada 5 minutos, o contêiner APFS (`diskutil apfs list`) e os snapshots (`tmutil`). As ferramentas
+rodam pelo `CommandRunner`: caminho absoluto, sem shell, com limite de tempo e saída lida como dados.
+
+A tendência (`StorageTrend`, SensaInsights) usa o histórico de `disk.used` (regressão linear, mínimo de 2 dias,
+previsão só até 1 ano e acima de 100 MB/dia) e de `disk.ssd.written` (contador SMART, escritas por dia). O alerta
+`storageFillingFast` compara o espaço livre com o maior valor visto nos últimos 30 minutos. O teste de velocidade
+(`DiskSpeedTesting`) e o ejetar entram pelos `StorageServices`; no modo demonstração os dois são simulados.
+
+## Liberar espaço
+
+A análise roda só quando a pessoa pede (`SpaceAnalysis`, que vive a sessão inteira). O `DiskUsageScanner` mede a
+pasta pessoal e as pastas de Aplicativos: os dois primeiros níveis em paralelo e, abaixo disso, `fts` (físico, sem
+sair do volume, como o `du`), criando objetos só para itens de 1 MB ou mais — o resto vira contagem. Pacotes (apps,
+bibliotecas) contam como um item só; iCloud Drive e `CloudStorage` não são percorridos. Do resultado saem as
+categorias (`SpaceCategory`) e as sugestões (`CleanupSuggestions`, regras puras), e o `InstalledApps` lista os apps
+com o último uso registrado pelo Spotlight e os arquivos que deixam na Biblioteca (só pelo identificador exato).
+
+Remoção: sempre para o Lixo (`FileManager.trashItem`), depois de uma revisão com uma caixa por item, e a última
+remoção pode ser desfeita. A `RemovalPolicy` é conferida de novo imediatamente antes de mover cada item: só a pasta
+pessoal e os apps das pastas de Aplicativos; nunca as pastas essenciais (a própria pasta pessoal, Documentos,
+Biblioteca e suas pastas de primeiro nível…), arquivos de configuração, partes de um app, apps do sistema, o próprio
+Sensa, apps abertos (e as pastas com o nome deles) nem dados que outros apps gerenciam (Mail, Mensagens, Chaves,
+bibliotecas de Fotos e Música, nuvem). Simuladores, Docker, backups de iPhone e o Lixo só ganham instruções.
+
 ## Serviços do app
 
 O `AppEnvironment` (composition root) cria e injeta, via `sensaEnvironment(...)`, os serviços que a interface usa

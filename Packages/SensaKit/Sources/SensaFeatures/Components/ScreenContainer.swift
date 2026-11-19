@@ -32,6 +32,7 @@ struct ScreenContainer<Content: View>: View {
             .frame(maxWidth: .infinity)
         }
         .scrollContentBackground(.hidden)
+        .accessibilityIdentifier("screen.scroll")
     }
 }
 

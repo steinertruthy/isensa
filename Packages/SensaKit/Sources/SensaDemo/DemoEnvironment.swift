@@ -181,7 +181,13 @@ public enum DemoEnvironment {
                 ProcessUsage(id: 102, name: "Demo Editor", cpu: 0.11, memory: 800_000_000),
                 ProcessUsage(id: 103, name: "Demo Music", cpu: 0.04, memory: 300_000_000)
             ]
-            return ProcessSnapshot(timestamp: Date(), topByCPU: list, topByMemory: list, processCount: 420, inaccessibleCount: 150)
+            let disk = [
+                ProcessUsage(id: 102, name: "Demo Editor", cpu: 0.11, memory: 800_000_000, diskRead: 120_000, diskWrite: 2_400_000),
+                ProcessUsage(id: 101, name: "Demo Browser", cpu: 0.24, memory: 1_400_000_000, diskRead: 800_000, diskWrite: 350_000)
+            ]
+            return ProcessSnapshot(
+                timestamp: Date(), topByCPU: list, topByMemory: list, processCount: 420, inaccessibleCount: 150, topByDisk: disk
+            )
         }
     }
 
@@ -210,18 +216,37 @@ public enum DemoEnvironment {
         DemoProvider(id: "demo.storage", feature: .storage, tier: .medium) { t in
             StorageSnapshot(
                 timestamp: Date(),
-                volumes: [VolumeInfo(
-                    id: "demo",
-                    name: "Macintosh HD",
-                    mountPoint: "/",
-                    totalCapacity: 512_000_000_000,
-                    availableCapacity: 210_000_000_000,
-                    isInternal: true,
-                    isRemovable: false,
-                    isRoot: true
-                )],
+                volumes: [
+                    VolumeInfo(
+                        id: "demo", name: "Macintosh HD", mountPoint: "/", totalCapacity: 512_000_000_000,
+                        availableCapacity: 210_000_000_000, isInternal: true, isRemovable: false, isRoot: true,
+                        freeCapacity: 185_000_000_000, formatName: "APFS", connection: .appleFabric
+                    ),
+                    VolumeInfo(
+                        id: "demo.external", name: "Demo Backup", mountPoint: "/Volumes/Demo Backup", totalCapacity: 1_000_000_000_000,
+                        availableCapacity: 640_000_000_000, isInternal: false, isRemovable: true, isRoot: false,
+                        freeCapacity: 640_000_000_000, isEjectable: true, formatName: "APFS", connection: .usb
+                    )
+                ],
                 readRate: 2_000_000 * wave(t, period: 7, base: 0.3, amplitude: 0.3),
-                writeRate: 1_000_000 * wave(t, period: 11, base: 0.3, amplitude: 0.3)
+                writeRate: 1_000_000 * wave(t, period: 11, base: 0.3, amplitude: 0.3),
+                diskImages: [VolumeInfo(
+                    id: "demo.image", name: "Demo Installer", mountPoint: "/Volumes/Demo Installer", totalCapacity: 400_000_000,
+                    availableCapacity: 20_000_000, isInternal: false, isRemovable: true, isRoot: false,
+                    isEjectable: true, formatName: "Mac OS Extended", connection: .diskImage
+                )],
+                activity: DiskOperations(
+                    readOperations: 300 * wave(t, period: 7, base: 0.5, amplitude: 0.4), writeOperations: 120,
+                    readLatency: 0.000_42, writeLatency: 0.000_06
+                ),
+                container: APFSContainerInfo(identifier: "disk3", capacity: 494_000_000_000, freeCapacity: 185_000_000_000, volumes: [
+                    .init(id: "disk3s1", name: "Macintosh HD", role: .system, usedCapacity: 12_000_000_000, isFileVaultOn: true),
+                    .init(id: "disk3s5", name: "Macintosh HD - Data", role: .data, usedCapacity: 280_000_000_000, isFileVaultOn: true),
+                    .init(id: "disk3s6", name: "VM", role: .virtualMemory, usedCapacity: 4_000_000_000, isFileVaultOn: false),
+                    .init(id: "disk3s2", name: "Preboot", role: .preboot, usedCapacity: 8_000_000_000, isFileVaultOn: false),
+                    .init(id: "disk3s3", name: "Recovery", role: .recovery, usedCapacity: 2_000_000_000, isFileVaultOn: false)
+                ]),
+                localSnapshots: LocalSnapshotSummary(timeMachine: 2, systemUpdate: 1, other: 0, newestTimeMachine: Date())
             )
         }
     }

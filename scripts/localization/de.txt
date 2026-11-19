@@ -591,3 +591,152 @@
 590|Drehzahl von Punkt %@
 591|Heißester Kern
 592|Lüfterkurven folgen diesem Wert
+593|%@ in 30 Minuten
+594|%@ Image(s) aktiviert. Beim Auswerfen wird die Datei nicht gelöscht.
+595|%1$@: schreibt %2$@, liest %3$@
+596|Etwa %@
+597|Aktivität nach App
+598|Änderung pro Tag
+599|%1$@ konnte nicht ausgeworfen werden: %2$@
+600|Demo
+601|Volume
+602|Image
+603|Images
+604|Der Speicherplatz schrumpft schnell
+605|Speicherplatz schrumpft schnell
+606|%@ auswerfen
+607|Alle auswerfen
+608|Schätzung: das jüngste Tempo, geradlinig fortgeschrieben. Ein großer Download oder eine Aufräumaktion ändert sie schnell.
+609|FileVault aus
+610|FileVault an
+611|Inaktiv
+612|Latenz
+613|Die Latenz gibt an, wie lange das Laufwerk im Schnitt für einen Lese- oder Schreibvorgang braucht. Sie steigt, wenn das Laufwerk der Engpass ist – auch wenn wenig Daten fließen.
+614|Lokale Schnappschüsse
+615|Gerade liest oder schreibt keine App.
+616|Keine
+617|Auf diesem Volume ist nicht genug Platz für den Test frei.
+618|Füllt sich nicht
+619|Vorgänge
+620|Andere: %@
+621|Löschbar
+622|Löschbarer Speicher enthält Caches, lokale Schnappschüsse und auf diesem Mac behaltene iCloud-Dateien. macOS gibt ihn selbst frei, wenn eine App Platz braucht – deshalb zählt der Finder ihn als verfügbar.
+623|Lesen …
+624|Wiederherstellung
+625|Sensa braucht zwei Tage Verlauf, um einen Trend zu schätzen.
+626|Schnappschüsse halten das Volume zu einem Zeitpunkt fest – für Time Machine oder ein macOS-Update. macOS löscht sie automatisch, wenn der Platz knapp wird.
+627|Speicherplatz
+628|Geschwindigkeitstest
+629|Spotlight-Indizierung, Time Machine und andere Systemdienste laufen als andere Benutzer. Ihre Festplattenaktivität erscheint daher nur in den Summen oben.
+630|Stabil
+631|Start und Wiederherstellung
+632|Aufbau des Startvolumes
+633|Startdateien
+634|Stoppen
+635|Auslagerung und Ruhezustandsabbild
+636|Geschwindigkeit testen
+637|Die Daten auf diesem Volume sind mit deinem Anmeldepasswort verschlüsselt.
+638|Das Startvolume hat in den letzten 30 Minuten %@ freien Speicher verloren. „Speicher“ › „Aktivität nach App“ zeigt, was schreibt.
+639|Der Test konnte nicht abgeschlossen werden: %@
+640|Time Machine: %@
+641|Trend
+642|Aktiviere FileVault unter „Systemeinstellungen“ › „Datenschutz & Sicherheit“, um deine Daten zu verschlüsseln.
+643|Aktiviere den Verlauf unter „Einstellungen“ › „Verlauf“, um zu sehen, wie sich dein Speicherplatz entwickelt.
+644|Bis das Volume voll ist
+645|Virtuell
+646|Schreibt eine temporäre 2-GB-Datei auf das gewählte Volume und liest sie am Cache vorbei wieder ein. Die Datei wird nach dem Test gelöscht. Jeder Durchlauf nutzt eine SSD ein wenig ab – starte ihn nur bei Bedarf.
+647|Schreiben nutzt eine SSD ab. Apple veröffentlicht keine Haltbarkeitsangabe für seine Laufwerke, daher zeigt Sensa das Tempo und den vom Laufwerk selbst gemeldeten Verschleiß – keine Restlebensdauer.
+648|Schreiben …
+649|Pro Tag auf die SSD geschrieben
+650|Dein Startvolume ist ein APFS-Container, den sich mehrere Volumes teilen. Alle nutzen denselben freien Speicher, daher hat keines eine feste Größe.
+651|macOS-Updates
+652|macOS-Updates: %@
+653|%1$@ Dateien analysiert, %2$@
+654|%@ in deinem Benutzerordner und deinen Apps
+655|%@ ist geöffnet. Beende die App zuerst.
+656|%1$@ Objekte in den Papierkorb gelegt, %2$@ frei
+657|%@ ausgewählt
+658|%1$@ kleinere Objekte, %2$@
+659|Aktionen für %@
+660|Alle
+661|Analysieren
+662|Erneut analysieren
+663|Analyse … %@ Dateien
+664|Eine andere App verwaltet dies. Räume es in dieser App auf.
+665|App-Daten
+666|Seit 6 Monaten nicht geöffnete Apps
+667|Apps erstellen ihre Caches bei Bedarf neu. Caches geöffneter Apps bleiben erhalten.
+668|Nach Kategorie
+669|Caches
+670|%1$@ konnte nicht bewegt werden: %2$@
+671|Debugsymbole für Geräte, die du mit Xcode verbunden hast. Xcode lädt sie bei Bedarf erneut.
+672|Lösche nicht mehr benötigte Simulatoren unter „Xcode“ › „Einstellungen“ › „Komponenten“ oder führe „xcrun simctl delete unavailable“ im Terminal aus.
+673|Entwicklerwerkzeuge
+674|Images und Installationspakete in „Downloads“ und auf dem Schreibtisch. Ist eine App installiert, wird ihr Installationsprogramm nicht mehr gebraucht.
+675|Docker-Daten
+676|Docker speichert Images und Volumes in einer Datei. Gib Platz frei unter „Docker Desktop“ › „Troubleshoot“ › „Clean / Purge data“ oder mit „docker system prune“.
+677|Dokumente und Schreibtisch
+678|Downloads
+679|Dateien über 100 MB in „Downloads“, die sich seit 90 Tagen nicht geändert haben. Prüfe sie vor dem Entfernen.
+680|Finde die größten Ordner, Dateien und Apps und lege Nicht-mehr-Benötigtes in den Papierkorb.
+681|Finde heraus, was Platz belegt, und lege Nicht-mehr-Benötigtes in den Papierkorb.
+682|Ordner
+683|Speicherplatz freigeben
+684|Speicherplatz freigeben …
+685|Bereits benutzte Installationsprogramme
+686|Die Objekte kommen in den Papierkorb. Bis du ihn leerst, kannst du sie zurücklegen.
+687|Objekte im Papierkorb
+688|Objekte im Papierkorb belegen Platz, bis du ihn im Finder leerst.
+689|Objekte wurden aus dem Papierkorb zurückgelegt. Analysiere erneut, um die Größen zu aktualisieren.
+690|Große Caches
+691|Große Downloads, seit 90 Tagen unverändert
+692|Große Dateien
+693|Zuletzt geöffnet: %@
+694|Mail und Nachrichten
+695|Verwalte Backups im Finder: Wähle dein Gerät und dann „Backups verwalten“. Lösche nur, was du nicht mehr brauchst.
+696|In den Papierkorb legen
+697|In den Papierkorb legen?
+698|In den Papierkorb legen …
+699|Legt die App und die von ihr hinterlassenen Dateien nach deiner Prüfung in den Papierkorb.
+700|Nie geöffnet oder nicht erfasst
+701|Kein Zugriff
+702|Keine Datei über 10 MB.
+703|Nichts Offensichtliches zum Aufräumen. Die Tabs „Ordner“ und „Große Dateien“ zeigen, was am meisten Platz belegt.
+704|%@ öffnen
+705|Datenschutzeinstellungen öffnen
+706|Andere Dateien
+707|Fotos, Musik und Filme
+708|%@ Apps entfernen?
+709|%@ entfernen?
+710|Entfernen …
+711|Beim Entfernen einer App werden nach deiner Prüfung auch die Supportdateien entfernt, die sie in deiner Library hinterlassen hat.
+712|Prüfen …
+713|Sensa entfernt nur Objekte in deinem Benutzerordner und Apps in den Programme-Ordnern.
+714|Sensa liest nur Namen und Größen der Dateien in deinem Benutzerordner und den Programme-Ordnern. macOS fragt eventuell nach, bevor Sensa in Schreibtisch, Dokumente, Downloads oder Daten anderer Apps schaut.
+715|Zeigen
+716|Simulatoren
+717|Einige Ordner sind von macOS geschützt, ihre Größe wird daher nicht gezählt. Um sie einzubeziehen, gib Sensa unter „Systemeinstellungen“ › „Datenschutz & Sicherheit“ Festplattenvollzugriff. Sensa liest nur Größen, nie Inhalte.
+718|Vorschläge
+719|Die Analyse konnte nicht abgeschlossen werden: %@
+720|Diese App gehört zu macOS.
+721|Enthält Einstellungen, auf die Apps und macOS angewiesen sind.
+722|Das ist Sensa selbst.
+723|Das ist Teil einer App. Entferne stattdessen die ganze App.
+724|Papierkorb
+725|Widerrufen
+726|Bis zu %@ könnten frei werden.
+727|Was Platz belegt
+728|Xcode-Build-Dateien
+729|Xcode-Geräteunterstützungsdateien
+730|Xcode erstellt sie beim nächsten Build neu. Projekte brauchen beim ersten Mal länger.
+731|geändert am %@
+732|iCloud Drive und andere Cloud-Ordner werden nicht analysiert: Ihre Apps entscheiden, welche Dateien auf diesem Mac bleiben.
+733|iPhone- und iPad-Backups
+734|macOS und deine Apps sind auf diesen Ordner angewiesen.
+735|Schließen
+736|Zuletzt verwendet: %@
+737|Keine Nutzung erfasst
+738|Seite
+739|Noch im Papierkorb.
+740|Sensa möchte „%@“ in den Papierkorb legen.
+741|Sensa möchte „%@“ zurücklegen.
