@@ -78,6 +78,18 @@ function setUpTilt(): void {
   });
 }
 
+/** Cards with data-spotlight light up under the pointer. */
+function setUpSpotlight(): void {
+  if (!finePointer.matches) return;
+  document.querySelectorAll<HTMLElement>('[data-spotlight]').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  });
+}
+
 /** “Detected system: macOS”, as the reference page shows it. */
 function setUpDetectedSystem(): void {
   const item = document.querySelector<HTMLElement>('[data-detected-os]');
@@ -100,5 +112,6 @@ export function setUpMotion(): void {
   setUpReveal();
   setUpHero();
   setUpTilt();
+  setUpSpotlight();
   setUpDetectedSystem();
 }

@@ -45,7 +45,12 @@ function setUpTheme(): void {
 function setUpHeader(): void {
   const header = document.querySelector<HTMLElement>('[data-header]');
   if (!header) return;
-  const update = () => header.toggleAttribute('data-scrolled', window.scrollY > 8);
+  const progress = header.querySelector<HTMLElement>('[data-progress]');
+  const update = () => {
+    header.toggleAttribute('data-scrolled', window.scrollY > 8);
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progress?.style.setProperty('--progress', total > 0 ? (window.scrollY / total).toFixed(4) : '0');
+  };
   update();
   window.addEventListener('scroll', update, { passive: true });
 

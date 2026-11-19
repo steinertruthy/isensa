@@ -84,6 +84,8 @@ const sections = [
     </div>
   </div>
 
+  <span class="progress" aria-hidden="true" data-progress></span>
+
   <div class="mobile" id="mobile-nav" hidden>
     <nav class="wrap" aria-label={t.nav.menu}>
       <ul class="mobile-sections">
@@ -133,6 +135,23 @@ const sections = [
     --line-strong: rgb(255 255 255 / 0.15);
     --surface: #1c1c1e;
     color: var(--text);
+  }
+  /* How far down the page you are, in the app's component hues. */
+  .progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--hue-cpu), var(--hue-network), var(--hue-gpu), var(--hue-thermal));
+    transform: scaleX(var(--progress, 0));
+    transform-origin: 0 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .header[data-scrolled] .progress {
+    opacity: 1;
   }
   .bar {
     display: flex;

@@ -42,7 +42,7 @@ const requirements = Object.values(t.requirements.items);
       <p class="section-intro">{t.download.intro}</p>
     </div>
 
-    <div class="panel" data-download data-state="idle" data-reveal>
+    <div class="panel" data-download data-state="idle" data-reveal data-spotlight>
       <script type="application/json" data-download-strings set:html={JSON.stringify(strings)} />
       <div class="identity">
         <Logo size={88} class="icon" />
@@ -119,6 +119,13 @@ const requirements = Object.values(t.requirements.items);
     display: flex;
     align-items: center;
     gap: 1.25rem;
+  }
+  /* The icon's gauge sweeps up when the panel arrives. */
+  .panel :global(.needle) {
+    transition: stroke-dashoffset 1.8s 0.4s var(--ease-out);
+  }
+  :global(.js) .panel:not(.is-visible) :global(.needle) {
+    stroke-dashoffset: 68;
   }
   .identity :global(.icon) {
     flex: none;

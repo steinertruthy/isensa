@@ -10,7 +10,7 @@ const t = translations(locale);
 const pillars = [
   { ...t.overview.pillars.native, icon: 'gauge', hue: 'cpu' },
   { ...t.overview.pillars.honest, icon: 'sparkle', hue: 'gpu' },
-  { ...t.overview.pillars.safe, icon: 'shield', hue: 'battery' },
+  { ...t.overview.pillars.safe, icon: 'bolt', hue: 'battery' },
 ] as const;
 ---
 <section class="overview section" id="overview" aria-labelledby="overview-title">
@@ -22,7 +22,7 @@ const pillars = [
     </div>
     <ul class="pillars">
       {pillars.map((pillar, index) => (
-        <li class="pillar" data-reveal data-tilt style={`--hue: var(--hue-${pillar.hue}); --delay: ${index}`}>
+        <li class="pillar" data-reveal data-tilt data-spotlight style={`--hue: var(--hue-${pillar.hue}); --delay: ${index}`}>
           <span class="glyph" style="--size: 44px"><Icon name={pillar.icon} /></span>
           <h3>{pillar.title}</h3>
           <p>{pillar.text}</p>
