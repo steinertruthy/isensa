@@ -740,3 +740,6 @@
 739|Continua no Lixo.
 740|O Sensa quer mover “%@” para o Lixo.
 741|O Sensa quer devolver “%@” ao lugar.
+742|Média da CPU
+743|Medida dentro do disco
+744|Informada pelo disco (SMART)

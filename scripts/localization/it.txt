@@ -740,3 +740,6 @@
 739|Ancora nel Cestino.
 740|Sensa vuole spostare “%@” nel Cestino.
 741|Sensa vuole ripristinare “%@”.
+742|Media della CPU
+743|Misurata all’interno dell’unità
+744|Indicata dall’unità (SMART)

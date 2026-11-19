@@ -740,3 +740,6 @@
 739|Noch im Papierkorb.
 740|Sensa möchte „%@“ in den Papierkorb legen.
 741|Sensa möchte „%@“ zurücklegen.
+742|CPU-Durchschnitt
+743|Im Laufwerk gemessen
+744|Vom Laufwerk gemeldet (SMART)

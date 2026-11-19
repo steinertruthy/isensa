@@ -740,3 +740,6 @@
 739|Toujours dans la corbeille.
 740|Sensa veut placer « %@ » dans la corbeille.
 741|Sensa veut remettre « %@ » en place.
+742|Moyenne du processeur
+743|Mesurée dans le disque
+744|Indiquée par le disque (SMART)

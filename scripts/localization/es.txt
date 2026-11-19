@@ -740,3 +740,6 @@
 739|Sigue en la Papelera.
 740|Sensa quiere trasladar “%@” a la Papelera.
 741|Sensa quiere devolver “%@” a su sitio.
+742|Media de la CPU
+743|Medida dentro de la unidad
+744|Informada por la unidad (SMART)

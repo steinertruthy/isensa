@@ -56,6 +56,16 @@ struct StorageProviderTests {
         #expect(snapshot.volumes.allSatisfy { $0.connection != .diskImage }, "Disk images are listed apart")
     }
 
+    @Test(.tags(.hardware), .enabled(if: HardwareDiscovery.discover().modelIdentifier == "Mac15,6"))
+    func ssdTemperatureSensorAgreesWithSMART() async throws {
+        let sensors = SensorProvider(profile: HardwareDiscovery.discover())
+        await sensors.prepare(for: .interactive)
+        let snapshot = try #require(try await sensors.sample() as? SensorSnapshot)
+        let nand = try #require(snapshot.sensors.first { $0.sensor.group == .storage && $0.sensor.kind == .temperature })
+        let smart = try #require(NVMeHealthReader.read()?.temperatureCelsius)
+        #expect(abs(nand.value - smart) < 3, "NAND \(nand.value) °C vs SMART \(smart) °C")
+    }
+
     @Test(.tags(.hardware)) func speedTestWritesReadsAndCleansUp() async throws {
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent("sensa-speed-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
