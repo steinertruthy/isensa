@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths: ['website/**', '.github/workflows/pages.yml']
+  # Every pull request builds the site: the check is required to merge into main (see ci.yml).
   pull_request:
-    paths: ['website/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 # Least privilege: read the code; only the deploy job may write to Pages.

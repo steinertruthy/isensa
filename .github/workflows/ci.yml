@@ -2,8 +2,9 @@ name: CI
 on:
   push:
     paths-ignore: ['website/**']
+  # Every pull request runs this check: it is required to merge into main, and a check that
+  # never starts would leave the pull request waiting forever.
   pull_request:
-    paths-ignore: ['website/**']
 permissions:
   contents: read
 jobs:
