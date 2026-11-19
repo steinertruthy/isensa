@@ -27,7 +27,7 @@ Design: [plano visual e princípios](docs/DESIGN.md).
 ### Controle de ventoinhas (experimental)
 
 Em Ventoinhas › Controle, instale o auxiliar (pede a senha de administrador) e escolha Automático,
-Velocidade fixa ou Curva. Cada novo build do Sensa muda sua assinatura ad hoc, então o auxiliar precisa ser
+Velocidade fixa ou Curva (Silenciosa, Equilibrada, Desempenho ou Personalizada, com pontos arrastáveis). Cada novo build do Sensa muda sua assinatura ad hoc, então o auxiliar precisa ser
 atualizado pelo mesmo botão. Para remover manualmente — as ventoinhas voltam ao automático antes de o
 auxiliar sair:
 
@@ -41,4 +41,4 @@ sudo rm -f /Library/LaunchDaemons/app.sensa.Sensa.helper.plist /Library/Privileg
 
 Para conferir o estado do SMC (somente leitura): `swift run --package-path Packages/SensaKit sensa-probe smc Ftst F0Md F1Md F0Tg F0Ac F1Ac`.
 
-Documentação: [arquitetura](docs/ARCHITECTURE.md) · [viabilidade e validação](docs/FEASIBILITY.md).
+Documentação: [arquitetura](docs/ARCHITECTURE.md) · [viabilidade e validação](docs/FEASIBILITY.md) · [distribuição](docs/DISTRIBUTION.md).

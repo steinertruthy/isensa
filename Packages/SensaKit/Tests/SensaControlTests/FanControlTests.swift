@@ -51,7 +51,7 @@ struct CurveTests {
 
     @Test func everyPresetReachesFullSpeedBeforeThrottlingTemperatures() {
         for preset in FanCurve.Preset.allCases {
-            #expect(preset.curve.fraction(at: 95) == 1, "\(preset)")
+            #expect(preset.curve.fraction(at: 98) == 1, "\(preset)")
         }
     }
 }
@@ -61,7 +61,7 @@ struct PlannerTests {
     private func plan(
         _ planner: inout FanControlPlanner, _ mode: FanMode, _ temperature: Double?, age: TimeInterval = 1, thermal: ThermalLevel? = .nominal
     ) -> FanPlan {
-        planner.plan(mode: mode, cpuTemperature: temperature, sampleAge: age, thermalLevel: thermal, limits: testLimits)
+        planner.plan(mode: mode, temperature: temperature, sampleAge: age, thermalLevel: thermal, limits: testLimits)
     }
 
     @Test func automaticAndSafetyConditionsHandControlToMacOS() {
@@ -71,7 +71,15 @@ struct PlannerTests {
         #expect(plan(&planner, .curve(.performance), 70, age: 60) == .system(.noTemperature), "Stale readings count as missing")
         #expect(plan(&planner, .fixed(fraction: 1), 70, thermal: .serious) == .system(.thermalPressure))
         #expect(plan(&planner, .fixed(fraction: 0.2), 92) == .system(.tooHotForFixedSpeed))
-        #expect(planner.plan(mode: .fixed(fraction: 1), cpuTemperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: []) == .system(.noLimits))
+        #expect(planner.plan(mode: .fixed(fraction: 1), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: []) == .system(.noLimits))
+    }
+
+    @Test func tooHotForFixedSpeedUsesHysteresis() {
+        var planner = FanControlPlanner()
+        #expect(plan(&planner, .fixed(fraction: 0.3), 91) == .system(.tooHotForFixedSpeed))
+        #expect(plan(&planner, .fixed(fraction: 0.3), 88) == .system(.tooHotForFixedSpeed), "Stays with macOS inside the band")
+        guard case .manual = plan(&planner, .fixed(fraction: 0.3), 86) else { Issue.record("Should resume below the band"); return }
+        guard case .manual = plan(&planner, .fixed(fraction: 0.3), 89) else { Issue.record("Below the ceiling again"); return }
     }
 
     @Test func fixedSpeedTargetsEveryFan() {
@@ -81,11 +89,11 @@ struct PlannerTests {
 
     @Test func curveQuietZoneUsesHysteresis() {
         var planner = FanControlPlanner()
-        #expect(plan(&planner, .curve(.balanced), 50) == .system(.coolEnough))
-        #expect(plan(&planner, .curve(.balanced), 54) == .system(.coolEnough))
-        guard case .manual = plan(&planner, .curve(.balanced), 56) else { Issue.record("Should take control above 55 °C"); return }
-        guard case .manual = plan(&planner, .curve(.balanced), 53) else { Issue.record("Should keep control inside the hysteresis band"); return }
-        #expect(plan(&planner, .curve(.balanced), 51) == .system(.coolEnough))
+        #expect(plan(&planner, .curve(.balanced), 76) == .system(.coolEnough), "Light use stays with macOS")
+        #expect(plan(&planner, .curve(.balanced), 81) == .system(.coolEnough))
+        guard case .manual = plan(&planner, .curve(.balanced), 83) else { Issue.record("Should take control above 82 °C"); return }
+        guard case .manual = plan(&planner, .curve(.balanced), 80) else { Issue.record("Should keep control inside the hysteresis band"); return }
+        #expect(plan(&planner, .curve(.balanced), 78) == .system(.coolEnough))
     }
 
     @Test func curveSpeedsMoveInTenPercentStepsRoundedUp() {
@@ -97,7 +105,7 @@ struct PlannerTests {
 
     @Test func speedsUpAtOnceButSlowsDownGradually() throws {
         var planner = FanControlPlanner()
-        let hot = plan(&planner, .curve(.performance), 85)
+        let hot = plan(&planner, .curve(.performance), 92)
         #expect(hot == .manual([FanTarget(index: 0, rpm: 6_800), FanTarget(index: 1, rpm: 6_800)]))
         // Sudden drop to 40 °C: one step of at most 10 % of the range.
         guard case let .manual(targets) = plan(&planner, .curve(.performance), 40) else { Issue.record("Expected manual"); return }
@@ -222,5 +230,112 @@ struct InstallScriptTests {
     @Test func escapesForAppleScript() {
         let wrapped = HelperInstallScript.appleScript(running: #"echo "a\b""#, prompt: "Sensa")
         #expect(wrapped == #"do shell script "echo \"a\\b\"" with prompt "Sensa" with administrator privileges"#)
+    }
+}
+
+@Suite("Temperature smoothing")
+struct TemperatureSmootherTests {
+    private let start = Date(timeIntervalSince1970: 5_000)
+
+    @Test func firstReadingPassesThrough() {
+        var smoother = TemperatureSmoother()
+        #expect(smoother.update(60, at: start) == 60)
+    }
+
+    @Test func briefSpikeBarelyMovesTheValue() {
+        var smoother = TemperatureSmoother()
+        smoother.update(65, at: start)
+        let spike = smoother.update(80, at: start.addingTimeInterval(2)) ?? .infinity
+        let after = smoother.update(66, at: start.addingTimeInterval(4)) ?? .infinity
+        #expect(spike < 69, "A 15 °C spike for one sample adds only a few degrees")
+        #expect(after < 68, "and fades once the spike is gone")
+    }
+
+    @Test func sustainedRiseComesThroughWithinSeconds() {
+        var smoother = TemperatureSmoother()
+        smoother.update(60, at: start)
+        var value = 60.0
+        for second in stride(from: 2, through: 16, by: 2) {
+            value = smoother.update(80, at: start.addingTimeInterval(TimeInterval(second))) ?? 0
+        }
+        #expect(value > 77, "After two time constants most of the rise is through")
+    }
+
+    @Test func repeatedOrOlderSamplesChangeNothing() {
+        var smoother = TemperatureSmoother()
+        smoother.update(60, at: start)
+        smoother.update(70, at: start.addingTimeInterval(2))
+        let value = smoother.value
+        #expect(smoother.update(90, at: start.addingTimeInterval(2)) == value)
+        #expect(smoother.update(90, at: start.addingTimeInterval(1)) == value)
+    }
+
+    @Test func longGapStartsOver() {
+        var smoother = TemperatureSmoother()
+        smoother.update(60, at: start)
+        #expect(smoother.update(85, at: start.addingTimeInterval(60)) == 85)
+    }
+
+    @Test func ignoresInvalidReadings() {
+        var smoother = TemperatureSmoother()
+        #expect(smoother.update(.nan, at: start) == nil)
+        smoother.update(60, at: start)
+        #expect(smoother.update(.infinity, at: start.addingTimeInterval(2)) == 60)
+    }
+}
+
+@Suite("Custom fan curves")
+struct CustomCurveTests {
+    private let base = FanCurve(points: [.init(50, 0.1), .init(65, 0.4), .init(80, 0.7), .init(90, 1)])
+
+    @Test func pointsStayBetweenTheirNeighbours() {
+        let moved = base.moving(pointAt: 1, celsius: 95, fraction: 0)
+        #expect(moved.points[1].celsius == 77, "At most the gap below the next point")
+        #expect(abs(moved.points[1].fraction - 0.1) < 1e-9, "Never slower than the previous point")
+        let raised = base.moving(pointAt: 1, celsius: 40, fraction: 0.95)
+        #expect(raised.points[1].celsius == 53)
+        #expect(abs(raised.points[1].fraction - 0.7) < 1e-9, "Never faster than the next point")
+    }
+
+    @Test func lastPointIsAlwaysFullSpeedBelowTheCeiling() {
+        let moved = base.moving(pointAt: 3, celsius: 120, fraction: 0.2)
+        #expect(moved.points[3] == FanCurve.Point(98, 1))
+        #expect(moved.fraction(at: 98) == 1)
+    }
+
+    @Test func movesSnapToSteps() {
+        let moved = base.moving(pointAt: 2, celsius: 72.4, fraction: 0.53)
+        #expect(moved.points[2].celsius == 72)
+        #expect(abs(moved.points[2].fraction - 0.55) < 1e-9)
+    }
+
+    @Test func quietZoneFollowsTheFirstPoint() {
+        let quiet = base.leavingFansToMacOSBelowFirstPoint(true)
+        #expect(quiet.systemControlBelow == 50)
+        #expect(quiet.moving(pointAt: 0, celsius: 58, fraction: 0).systemControlBelow == 58)
+        #expect(quiet.leavingFansToMacOSBelowFirstPoint(false).systemControlBelow == nil)
+    }
+
+    @Test func enforcingSafetyRepairsAnyStoredCurve() {
+        let broken = FanCurve(points: [.init(70, 0.8), .init(71, 0.9), .init(85, 0.2), .init(130, 0.5)], systemControlBelow: 95)
+        let safe = broken.enforcingSafety()
+        #expect(safe.points.map(\.celsius) == [70, 85, 98], "Too-close points dropped, temperatures clamped")
+        #expect(safe.points.map(\.fraction) == [0.8, 0.8, 1], "Never slows down; ends at full speed")
+        #expect(safe.systemControlBelow == 70)
+        #expect(FanCurve(points: [.init(60, 0.5)]).enforcingSafety() == FanCurve.Preset.balanced.curve)
+    }
+
+    @Test func plannerUsesTheSafeVersionOfACustomCurve() {
+        var planner = FanControlPlanner()
+        let unsafe = FanCurve(points: [.init(40, 0.2), .init(60, 0.1)])
+        let plan = planner.plan(mode: .custom(unsafe), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: testLimits)
+        #expect(plan == .manual([FanTarget(index: 0, rpm: 6_800), FanTarget(index: 1, rpm: 6_800)]), "Past its last point: full speed")
+    }
+
+    @Test func customModeSurvivesARoundTrip() throws {
+        let mode = FanMode.custom(base.leavingFansToMacOSBelowFirstPoint(true))
+        let decoded = try JSONDecoder().decode(FanMode.self, from: JSONEncoder().encode(mode))
+        #expect(decoded == mode)
+        #expect(try JSONDecoder().decode(FanMode.self, from: Data(#"{"curve":{"_0":"performance"}}"#.utf8)) == .curve(.performance))
     }
 }

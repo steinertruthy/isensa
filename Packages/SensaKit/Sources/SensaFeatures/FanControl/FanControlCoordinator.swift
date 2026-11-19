@@ -34,11 +34,14 @@ public final class FanControlCoordinator {
     public private(set) var isApplying = false
     /// So can handing the fans back to macOS.
     public private(set) var isReleasing = false
+    /// What curves follow: the hottest CPU core, smoothed over a few seconds.
+    public private(set) var controlTemperature: Double?
 
     @ObservationIgnored public let service: any FanControlService
     @ObservationIgnored private let store: MetricsStore
     @ObservationIgnored private let settings: AppSettings
     @ObservationIgnored private var planner = FanControlPlanner()
+    @ObservationIgnored private var smoother = TemperatureSmoother()
     @ObservationIgnored private var loop: Task<Void, Never>?
     @ObservationIgnored private var sentTargets: [FanTarget] = []
     @ObservationIgnored private var isSuspended = false
@@ -80,6 +83,7 @@ public final class FanControlCoordinator {
     public func resume() {
         isSuspended = false
         planner = FanControlPlanner()
+        smoother.reset()
     }
 
     public func refreshState() async {
@@ -118,6 +122,7 @@ public final class FanControlCoordinator {
     /// One control step. Public for tests.
     public func tick(now: Date = Date()) async {
         guard !isSuspended else { return }
+        updateControlTemperature()
         let mode = settings.fanMode
         guard mode.isManual else {
             if isManual || !sentTargets.isEmpty { await releaseControl() }
@@ -143,7 +148,7 @@ public final class FanControlCoordinator {
         }
         let next = planner.plan(
             mode: mode,
-            cpuTemperature: sensors?.cpuTemperature,
+            temperature: controlTemperature,
             sampleAge: sensors.map { now.timeIntervalSince($0.timestamp) } ?? .infinity,
             thermalLevel: store.snapshot.thermal?.level,
             limits: limits
@@ -155,6 +160,12 @@ public final class FanControlCoordinator {
         case let .manual(targets):
             await send(targets, now: now)
         }
+    }
+
+    private func updateControlTemperature() {
+        guard let sensors = store.snapshot.sensors, let hottest = sensors.cpuHottestTemperature ?? sensors.cpuTemperature else { return }
+        let smoothed = smoother.update(hottest, at: sensors.timestamp)
+        if smoothed != controlTemperature { controlTemperature = smoothed }
     }
 
     /// Sends targets only when they change (the helper's lease is kept alive by heartbeats), so the
@@ -193,7 +204,7 @@ public final class FanControlCoordinator {
     /// Moving the slider or switching preset is not a new attempt; switching mode is.
     static func sameKind(_ lhs: FanMode, _ rhs: FanMode) -> Bool {
         switch (lhs, rhs) {
-        case (.fixed, .fixed), (.curve, .curve), (.automatic, .automatic): true
+        case (.fixed, .fixed), (.curve, .curve), (.custom, .custom), (.curve, .custom), (.custom, .curve), (.automatic, .automatic): true
         default: false
         }
     }

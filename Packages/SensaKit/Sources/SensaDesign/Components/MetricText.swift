@@ -24,8 +24,9 @@ public struct MetricText: View {
     /// - Parameters:
     ///   - minimumScale: how far a value may shrink before it truncates; lower it only for
     ///     long compound values (e.g. download and upload rates) in narrow places.
-    ///   - rolls: digits roll to each new value. Reserve it for a screen's headline numbers:
-    ///     values refresh every second, and animating every number on screen costs real CPU.
+    ///   - rolls: digits roll to each new value. Only for values that change rarely (battery charge):
+    ///     on a value refreshed every second, the roll redraws its whole surface for most of that
+    ///     second — measured at 7 points of CPU on the overview for two numbers.
     public init(_ text: String, size: Size = .large, minimumScale: CGFloat = 0.6, rolls: Bool = false) {
         self.text = text
         self.size = size

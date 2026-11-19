@@ -60,8 +60,11 @@ public protocol HistoryReading: Sendable {
 
 /// Metrics worth keeping over time. Per-core and per-sensor series stay live-only.
 public enum HistoryMetrics {
+    /// Fans recorded per Mac; current models have at most two.
+    public static let maximumFans = 4
+
     public static let recorded: [MetricID] = [
         .cpuUsage, .gpuUsage, .memoryUsed, .memoryPressure, .cpuTemperature, .gpuTemperature,
-        .systemPower, .batteryCharge, .networkDownload, .networkUpload, .diskRead, .diskWrite, .fanSpeed(0)
-    ]
+        .systemPower, .batteryCharge, .networkDownload, .networkUpload, .diskRead, .diskWrite
+    ] + (0..<maximumFans).map(MetricID.fanSpeed)
 }

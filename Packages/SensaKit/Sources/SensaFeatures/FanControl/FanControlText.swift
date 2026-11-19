@@ -13,22 +13,25 @@ enum FanControlText {
         }
     }
 
-    static func presetTitle(_ preset: FanCurve.Preset) -> String {
-        switch preset {
+    static func curveTitle(_ choice: FanCurveChoice) -> String {
+        switch choice {
         case .quiet: tr("Quiet")
         case .balanced: tr("Balanced")
         case .performance: tr("Performance")
+        case .custom: tr("Custom")
         }
     }
 
-    static func presetDescription(_ preset: FanCurve.Preset, formatter: MetricFormatter) -> String {
-        let curve = preset.curve
+    static func curveDescription(_ choice: FanCurveChoice, curve: FanCurve, formatter: MetricFormatter) -> String {
         let quietBelow = formatter.temperature(curve.systemControlBelow ?? 0)
         let fullSpeed = formatter.temperature(curve.points.first { $0.fraction >= 1 }?.celsius ?? 100)
-        return switch preset {
+        return switch choice {
         case .quiet: tr("Leaves the fans to macOS below %@, then speeds up gently.", quietBelow)
         case .balanced: tr("Leaves the fans to macOS below %@, then follows the temperature.", quietBelow)
         case .performance: tr("Keeps the fans running and reaches full speed at %@.", fullSpeed)
+        case .custom where curve.systemControlBelow != nil:
+            tr("Your curve leaves the fans to macOS below %1$@ and reaches full speed at %2$@.", quietBelow, fullSpeed)
+        case .custom: tr("Your curve reaches full speed at %@.", fullSpeed)
         }
     }
 
@@ -77,7 +80,28 @@ enum FanModeKind: String, CaseIterable, Identifiable {
         switch mode {
         case .automatic: self = .automatic
         case .fixed: self = .fixed
-        case .curve: self = .curve
+        case .curve, .custom: self = .curve
         }
     }
+}
+
+/// The curve picker's choices: the presets plus the user's own curve.
+enum FanCurveChoice: Hashable, CaseIterable, Identifiable {
+    case quiet, balanced, performance, custom
+
+    var id: Self { self }
+
+    init?(_ mode: FanMode) {
+        switch mode {
+        case let .curve(preset): self = Self.choices[preset] ?? .balanced
+        case .custom: self = .custom
+        case .automatic, .fixed: return nil
+        }
+    }
+
+    var preset: FanCurve.Preset? {
+        Self.choices.first { $0.value == self }?.key
+    }
+
+    private static let choices: [FanCurve.Preset: FanCurveChoice] = [.quiet: .quiet, .balanced: .balanced, .performance: .performance]
 }

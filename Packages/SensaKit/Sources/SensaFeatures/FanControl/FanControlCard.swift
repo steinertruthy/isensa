@@ -49,8 +49,8 @@ struct FanControlCard: View {
             EmptyView()
         case let .fixed(fraction):
             fixedSpeed(fraction)
-        case let .curve(preset):
-            curve(preset)
+        case .curve, .custom:
+            curveSection
         }
         status
         Text(FanControlText.safety).font(Typography.caption).foregroundStyle(.secondary)
@@ -100,18 +100,52 @@ struct FanControlCard: View {
         }
     }
 
-    private func curve(_ preset: FanCurve.Preset) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.medium) {
-            Picker(tr("Curve"), selection: Binding(get: { preset }, set: { settings.fanMode = .curve($0) })) {
-                ForEach(FanCurve.Preset.allCases, id: \.self) { Text(FanControlText.presetTitle($0)).tag($0) }
+    private var curveSection: some View {
+        let choice = FanCurveChoice(settings.fanMode) ?? .balanced
+        let curve = settings.fanMode.curve ?? FanCurve.Preset.balanced.curve
+        let description = FanControlText.curveDescription(choice, curve: curve, formatter: settings.formatter)
+        return VStack(alignment: .leading, spacing: Spacing.medium) {
+            Picker(tr("Curve"), selection: Binding(get: { choice }, set: { select($0, from: choice) })) {
+                ForEach(FanCurveChoice.allCases) { Text(FanControlText.curveTitle($0)).tag($0) }
             }
             .pickerStyle(.segmented)
             .labelsHidden()
             .accessibilityIdentifier("fans.preset")
-            Text(FanControlText.presetDescription(preset, formatter: settings.formatter)).font(Typography.callout).foregroundStyle(.secondary)
-            FanCurveChart(curve: preset.curve, temperature: store.snapshot.sensors?.cpuTemperature, formatter: settings.formatter)
-                .frame(height: 130)
+            Text(description).font(Typography.callout).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+            FanCurveChart(
+                curve: curve,
+                temperature: coordinator.controlTemperature,
+                formatter: settings.formatter,
+                onMove: choice == .custom ? { edit(curve.moving(pointAt: $0, celsius: $1, fraction: $2)) } : nil
+            )
+            .frame(height: choice == .custom ? 170 : 130)
+            .accessibilityValue(description)
+            if choice == .custom {
+                CustomCurveControls(curve: curve, formatter: settings.formatter, onChange: edit)
+            }
+            Text(tr("The curve follows the hottest CPU core, averaged over a few seconds so brief spikes don't change the fan speed."))
+                .font(Typography.caption).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
+    }
+
+    private func select(_ choice: FanCurveChoice, from previous: FanCurveChoice) {
+        feedback.perform(.selection)
+        if let preset = choice.preset {
+            settings.fanMode = .curve(preset)
+            return
+        }
+        // A first custom curve starts from the preset the user was looking at.
+        if settings.customFanCurve == FanCurve.Preset.balanced.curve, let preset = previous.preset {
+            settings.customFanCurve = preset.curve
+        }
+        settings.fanMode = .custom(settings.customFanCurve)
+    }
+
+    private func edit(_ curve: FanCurve) {
+        settings.customFanCurve = curve
+        settings.fanMode = .custom(curve)
     }
 
     @ViewBuilder private var status: some View {
@@ -187,53 +221,5 @@ struct FanProblemView: View {
             }
         }
         .accessibilityIdentifier("fans.problem")
-    }
-}
-
-/// The selected curve, with the macOS-controlled zone shaded and the current temperature marked.
-private struct FanCurveChart: View {
-    let curve: FanCurve
-    let temperature: Double?
-    let formatter: MetricFormatter
-
-    var body: some View {
-        let points = stride(from: 30.0, through: 100, by: 1).map { ($0, curve.fraction(at: $0)) }
-        Chart {
-            if let quiet = curve.systemControlBelow {
-                RectangleMark(xStart: .value("From", 30), xEnd: .value("To", quiet), yStart: .value("Bottom", 0), yEnd: .value("Top", 1))
-                    .foregroundStyle(Color.secondary.opacity(0.08))
-                    .annotation(position: .overlay, alignment: .center) {
-                        Text("macOS").font(Typography.caption).foregroundStyle(.secondary)
-                    }
-            }
-            ForEach(points, id: \.0) { point in
-                LineMark(x: .value("Temperature", point.0), y: .value("Speed", point.1))
-                    .foregroundStyle(Hue.fans.color)
-                    .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
-            }
-            if let temperature {
-                RuleMark(x: .value("Now", min(max(temperature, 30), 100)))
-                    .foregroundStyle(Hue.thermal.color)
-                    .lineStyle(StrokeStyle(lineWidth: 1, dash: [3, 3]))
-                    .annotation(position: .top, alignment: .center) {
-                        Text(formatter.temperature(temperature)).font(Typography.caption).foregroundStyle(Hue.thermal.color)
-                    }
-            }
-        }
-        .chartXScale(domain: 30...100)
-        .chartYScale(domain: 0...1)
-        .chartYAxis {
-            AxisMarks(values: [0, 0.5, 1]) { value in
-                AxisGridLine()
-                AxisValueLabel { Text(value.as(Double.self).map { $0 == 0 ? tr("Min") : $0 == 1 ? tr("Max") : "50%" } ?? "") }
-            }
-        }
-        .chartXAxis {
-            AxisMarks(values: [40, 60, 80, 100]) { value in
-                AxisGridLine()
-                AxisValueLabel { Text(value.as(Double.self).map { formatter.temperature($0) } ?? "") }
-            }
-        }
-        .accessibilityLabel(tr("Fan curve"))
     }
 }

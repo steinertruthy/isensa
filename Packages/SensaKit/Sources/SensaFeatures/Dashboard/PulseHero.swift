@@ -73,7 +73,7 @@ struct PulseHero: View {
                 Circle().fill(hue.color).frame(width: 7, height: 7)
                 Text(title).font(Typography.caption).foregroundStyle(.secondary)
             }
-            MetricText(value.map { settings.formatter.percent($0) } ?? "–", size: .medium, rolls: true)
+            MetricText(value.map { settings.formatter.percent($0) } ?? "–", size: .medium, rolls: false)
         }
         .accessibilityElement(children: .combine)
     }

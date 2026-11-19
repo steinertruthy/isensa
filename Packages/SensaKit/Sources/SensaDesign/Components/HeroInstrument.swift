@@ -81,7 +81,7 @@ public struct GaugeInstrument: View {
     public var body: some View {
         RingGauge(value: fraction, tint: hue.color, lineWidth: 11) {
             VStack(spacing: 0) {
-                MetricText(value, size: .large, rolls: true)
+                MetricText(value, size: .large, rolls: false)
                 Text(caption).font(Typography.caption).foregroundStyle(.secondary)
             }
             .padding(Spacing.large)

@@ -139,6 +139,7 @@ public enum DemoEnvironment {
                 sensors: sensors,
                 fans: fans,
                 cpuTemperature: cpuTemperature,
+                cpuHottestTemperature: cpuTemperature + 9,
                 gpuTemperature: cpuTemperature - 4,
                 systemPower: 8 + 10 * wave(t, period: 20, base: 0.4, amplitude: 0.3)
             )

@@ -40,12 +40,15 @@ public struct FanCurve: Codable, Hashable, Sendable {
 
         public var curve: FanCurve {
             switch self {
+            // Temperatures are of the hottest CPU core, smoothed. Calibrated on an M3 Pro: light use
+            // holds it at 73–78 °C and all cores busy at 83–90 °C, both with macOS keeping the fans at
+            // minimum. Every preset reaches full speed before Apple silicon starts throttling.
             case .quiet:
-                FanCurve(points: [.init(65, 0), .init(80, 0.25), .init(90, 0.6), .init(95, 1)], systemControlBelow: 65)
+                FanCurve(points: [.init(90, 0), .init(94, 0.4), .init(98, 1)], systemControlBelow: 90)
             case .balanced:
-                FanCurve(points: [.init(55, 0), .init(70, 0.3), .init(85, 0.7), .init(92, 1)], systemControlBelow: 55)
+                FanCurve(points: [.init(82, 0), .init(88, 0.35), .init(94, 0.75), .init(98, 1)], systemControlBelow: 82)
             case .performance:
-                FanCurve(points: [.init(40, 0.15), .init(60, 0.45), .init(75, 0.8), .init(85, 1)])
+                FanCurve(points: [.init(60, 0.1), .init(75, 0.3), .init(85, 0.7), .init(92, 1)])
             }
         }
     }
@@ -57,8 +60,20 @@ public enum FanMode: Codable, Hashable, Sendable {
     case automatic
     /// Every fan at the same position of its range.
     case fixed(fraction: Double)
-    /// Speed follows the CPU temperature.
+    /// Speed follows the hottest CPU core along a preset curve.
     case curve(FanCurve.Preset)
+    /// Speed follows the hottest CPU core along the user's own curve.
+    case custom(FanCurve)
 
     public var isManual: Bool { self != .automatic }
+
+    /// The curve in effect, with a custom curve's safety rules enforced (it may come from old or
+    /// edited preferences).
+    public var curve: FanCurve? {
+        switch self {
+        case .automatic, .fixed: nil
+        case let .curve(preset): preset.curve
+        case let .custom(curve): curve.enforcingSafety()
+        }
+    }
 }

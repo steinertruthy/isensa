@@ -64,6 +64,9 @@ struct ThermalsScreen: View {
 
     private func stats(_ sensors: SensorSnapshot, formatter: MetricFormatter) -> [Stat] {
         var stats: [Stat] = []
+        if let hottest = sensors.cpuHottestTemperature {
+            stats.append(Stat(tr("Hottest core"), value: formatter.temperature(hottest), note: tr("Fan curves follow this reading")))
+        }
         if let gpu = sensors.gpuTemperature { stats.append(Stat(tr("GPU"), value: formatter.temperature(gpu), note: tr("Average of the GPU sensors"))) }
         if let power = sensors.systemPower { stats.append(Stat(tr("Power"), value: formatter.watts(power), note: tr("Total system power draw"))) }
         if sensors.cpuTemperature != nil { stats.append(Stat(tr("Method"), value: tr("Average"), note: tr("Average of identified sensors"))) }

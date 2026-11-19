@@ -28,544 +28,566 @@
 27|Avvisami
 28|Avvisi
 29|Tutti i gruppi
-30|Consenti l’helper di Sensa in Impostazioni di Sistema › Generali › Elementi login.
-31|Mostra sempre i dettagli tecnici
-32|Animazioni
-33|Aspetto
-34|Aspetto, barra dei menu, avvisi, preferiti e tutte le altre preferenze tornano ai valori predefiniti.
-35|Approvazione necessaria
-36|Approva Sensa in Impostazioni di Sistema › Generali › Elementi login.
-37|App
-38|Architettura
-39|Attenzione
-40|Automatico
-41|Disponibile
-42|Lo spazio disponibile include lo spazio eliminabile che macOS può liberare automaticamente, come nel Finder.
-43|Riserva disponibile
-44|Media
-45|Media %@, picco %@
-46|Numero medio di attività in esecuzione o in attesa della CPU.
-47|Media dei sensori identificati
-48|Media dei sensori dei core della CPU
-49|Media dei sensori della GPU
-50|Velocità media quando è attiva, in base al tempo trascorso in ogni punto di funzionamento.
-51|Indietro
-52|Banda
-53|Batteria
-54|Gli avvisi della batteria si trovano in Impostazioni › Batteria.
-55|Batteria carica
-56|Batteria carica fino a un livello
-57|Batteria in esaurimento
-58|Batteria in esaurimento (%@). Collega l’alimentatore.
-59|Batteria calda
-60|Batteria, archiviazione e rete
-61|Prelevata dalla batteria
-62|Per impostazione predefinita, Sensa segue l’ordine delle lingue di Impostazioni di Sistema › Generali › Lingua e Zona.
-63|CPU
-64|Frequenza della CPU
-65|Consumo della CPU
-66|Temperatura della CPU
-67|Temperatura della CPU non identificata su questo modello
-68|Utilizzo della CPU
-69|CSV (fogli di calcolo)
-70|File nella cache
-71|Annulla
-72|Capacità
-73|Cellulare
-74|Celsius (°C)
-75|Per modificare la velocità delle ventole serve l’helper con privilegi di Sensa, che macOS installa solo per le app firmate con un Apple Developer ID. Il monitoraggio continua a funzionare e il Mac resta sotto il controllo automatico di Apple.
-76|Canale
-77|Larghezza del canale
-78|Carica
-79|Cicli di carica
-80|In carica
-81|I limiti di carica sono gestiti da macOS. Sui portatili con Apple silicon e versioni recenti di macOS puoi impostarli in Impostazioni di Sistema › Batteria.
-82|Chip
-83|Scegli cosa tenere d’occhio. Puoi cambiarlo in qualsiasi momento nelle Impostazioni.
-84|Cancella
-85|Cancellare preferiti e nomi?
-86|Cancella preferiti e nomi…
-87|Frequenza
-88|Frequenze e consumi per componente
-89|Raccolta dei dati…
-90|Componenti
-91|Compressa
-92|Condizione
-93|La condizione deve durare
-94|Connesso tramite %@.
-95|Collegato, non in carica
-96|Continua
-97|Controllo
-98|Raffreddamento
-99|Core %@: %@
-100|Core
-101|Critico
-102|Temperatura critica: macOS sta limitando fortemente le prestazioni.
-103|Critico: prestazioni fortemente limitate
-104|Corrente
-105|Scuro
-106|Dati
-107|Dati letti
-108|Elimina
-109|Elimina cronologia…
-110|Eliminare tutta la cronologia?
-111|Dati dimostrativi
-112|Derivato
-113|Capacità di progetto
-114|Dettagli
-115|Funzioni rilevate
-116|Attività del disco
-117|Visualizzazione
-118|Download
-119|Trascina per riordinare. Senza indicatori attivi, Sensa mostra solo la sua icona.
-120|Core di efficienza
-121|Durata consumata, secondo la stima dell’unità
-122|Energia
-123|Stimato
-124|Ethernet
-125|Ogni 10 secondi
-126|Ogni 2 secondi
-127|Ogni 3 secondi
-128|Ogni 5 secondi
-129|Ogni secondo
-130|Tutto resta sul tuo Mac
-131|Tutto resta sul tuo Mac.
-132|Segnale eccellente
-133|Sperimentale
-134|Le funzioni sperimentali leggono interfacce di macOS non documentate e possono cambiare con gli aggiornamenti.
-135|Esportazione non riuscita
-136|Esporta…
-137|Esterno
-138|Fahrenheit (°F)
-139|Segnale discreto
-140|Ventola %@
-141|Controllo delle ventole
-142|Il controllo delle ventole è bloccato
-143|Ventole
-144|Le ventole di questo Mac si fermano del tutto quando il raffreddamento non serve. È il comportamento normale.
-145|Preferiti
-146|In ingresso nella batteria
-147|Libera
-148|Liberata subito quando serve
-149|Completa
-150|Capacità di carica completa
-151|Completa tra %@
-152|Carica completa
-153|GPU
-154|Core della GPU
-155|Consumo della GPU
-156|Temperatura della GPU
-157|Utilizzo della GPU
-158|Raccolta delle informazioni…
-159|Generali
-160|Geometria (tiler)
-161|Buon pomeriggio
-162|Buonasera
-163|Buongiorno
-164|Segnale buono
-165|Grafico
-166|Salutami con il mio nome
-167|Saluto
-168|Gruppo
-169|Feedback aptico sul trackpad
-170|Feedback aptico
-171|Stato di salute
-172|Ecco come sta il tuo Mac questo pomeriggio.
-173|Ecco come sta il tuo Mac stasera.
-174|Ecco come il tuo Mac inizia la giornata.
-175|Nascondi l’icona nel Dock (solo barra dei menu)
-176|Temperatura elevata della CPU
-177|Pressione della memoria elevata
-178|Più è alto, meglio è; sopra i 25 dB la connessione è solida.
-179|Cronologia
-180|La cronologia viene conservata. Eliminala in Impostazioni › Cronologia.
-181|La cronologia è in pausa
-182|Caldo
-183|Caldo: macOS sta riducendo le prestazioni
-184|Ora
-185|Identificazione
-186|Nella barra dei menu
-187|Include schermo, SSD e tutto il resto, secondo l’SMC.
-188|Indicatori
-189|Dedotto, non verificato
-190|Installata
-191|Interno
-192|Gli elementi che questo Mac non ha, come batteria o ventole, non vengono mai mostrati.
-193|JSON
-194|Conserva la cronologia per
-195|Conservata su questo Mac per %@.
-196|Chiave
-197|Lingua
-198|Disposizione
-199|Chiaro
-200|Poco utilizzato
-201|Velocità di collegamento
-202|Carico medio (1, 5, 15 min)
-203|Caricamento della cronologia…
-204|Loopback
-205|Batteria in esaurimento
-206|Spazio su disco insufficiente
-207|Manuale
-208|Max
-209|Capacità massima rispetto a quando era nuova
-210|Errori del supporto
-211|Memoria
-212|Memoria (DRAM)
-213|Memoria in uso
-214|La memoria viene gestita normalmente
-215|Pressione della memoria
-216|La pressione della memoria è critica
-217|La pressione della memoria è critica. macOS ha poca memoria disponibile.
-218|La pressione della memoria è elevata
-219|La pressione della memoria è elevata. Chiudere le app che non usi può aiutare.
-220|La pressione della memoria è alta
-221|Memoria che il sistema deve mantenere nella RAM.
-222|Memoria utilizzata
-223|Barra dei menu
-224|Metodo
-225|Min
-226|Modello
-227|Moderatamente utilizzato
-228|Monitoraggio ed energia
-229|Movimento
-230|Nome
-231|Rete
-232|Rete: %@
-233|Neural Engine
-234|Mai più di una volta ogni 30 minuti per lo stesso avviso
-235|Nessuna connessione di rete attiva.
-236|Nessun avviso in questo periodo.
-237|Nessun dato sulle ventole
-238|Ancora nessuna cronologia
-239|Nessun risultato
-240|Nessun sensore
-241|Rumore
-242|Normale
-243|Non ora
-244|Non verificato
-245|Non connesso a una rete Wi-Fi.
-246|Non presente su questo Mac
-247|Non presente
-248|Non supportato
-249|Notifiche
-250|Le notifiche sono attive
-251|Le notifiche di Sensa sono disattivate in Impostazioni di Sistema.
-252|OK
-253|No
-254|Sì
-255|A batteria
-256|Un decimale
-257|Solo il %@ del disco di avvio è libero. Elimina i file che non ti servono più o spostali su un’altra unità.
-258|Solo quando una condizione persiste
-259|Apri cronologia
-260|Apri Sensa
-261|Apri Sensa al login
-262|Apri Impostazioni di Sistema
-263|Originale: %@ · %@
-264|Altro
-265|Panoramica
-266|Picco
-267|Percentuale dell’intervallo
-268|La percentuale dell’intervallo colloca la velocità attuale tra il minimo e il massimo della ventola.
-269|Prestazioni
-270|Prestazioni / efficienza
-271|Core di prestazioni
-272|Periodo
-273|Autorizzazioni
-274|Riproduci effetti sonori
-275|Positiva in carica, negativa in scarica.
-276|Consumo
-277|Alimentatore
-278|Consumo per componente
-279|Consumo energetico
-280|Cicli di accensione
-281|Flusso di energia
-282|Ore di accensione
-283|Precisione
-284|Preferenze e cronologia
-285|La pressione indica se macOS deve sforzarsi per liberare memoria. Una memoria piena con pressione bassa è normale: macOS tiene la RAM occupata con le cache per rendere il Mac più veloce.
-286|Ascolta
-287|Privacy
-288|Processo %@
-289|Processi
-290|Processore
-291|Esci da Sensa
-292|Intervallo %@ – %@
-293|Capacità massima grezza
-294|Lettura
-295|Letto tramite interfacce non documentate (SMC, HID). Sperimentale.
-296|Lettura dei sensori…
-297|In ricezione
-298|Registra la cronologia
-299|Le metriche e gli avvisi registrati verranno rimossi da questo Mac. L’operazione non può essere annullata.
-300|“Riduci movimento” è attivo in Impostazioni di Sistema, quindi Sensa usa brevi dissolvenze al posto del movimento.
-301|Ridotto
-302|Ridotto sostituisce il movimento con brevi dissolvenze. No mostra le modifiche all’istante.
-303|Aggiorna meno spesso a batteria
-304|Frequenza di aggiornamento
-305|Aggiorna quando è visibile solo la barra dei menu
-306|Carica rimanente
-307|Rimuovi dai preferiti
-308|Rinomina sensore
-309|Sensori rinominati
-310|Rinomina…
-311|Rendering
-312|Ripeti al massimo ogni
-313|Segnalato da macOS
-314|Problema segnalato
-315|Richiede autorizzazione
-316|Ripristina
-317|Ripristina tutte le impostazioni…
-318|Ripristinare tutte le impostazioni?
-319|Riavvia ora
-320|Ripristina originale
-321|Giri al minuto
-322|Origine SMART
-323|Stato dell’SSD
-324|Avviso sullo stato dell’SSD
-325|L’SSD segnala un problema
-326|Temperatura dell’SSD
-327|Salva
-328|Cerca sensori
-329|Scopri come si comporta il tuo Mac.
-330|Scopri a colpo d’occhio come sta il tuo Mac: temperature, memoria, batteria, ventole e altro, spiegati in parole semplici.
-331|Invia prova
-332|Invia notifiche
-333|In invio
-334|Sensa si mette anche in pausa quando il Mac è in stop e rallenta a schermo spento. Elenchi dei processi, frequenze e dettagli Wi-Fi vengono letti solo con una finestra o il pannello della barra dei menu aperti.
-335|Sensa può avvisarti quando il Mac si scalda, la memoria è sotto pressione, il disco è quasi pieno o la batteria è in esaurimento.
-336|Sensa non invia metriche, identificatori né altri dati ai server. Nessuna telemetria nascosta. Il monitoraggio di rete legge solo i contatori di byte e non ispeziona mai il traffico.
-337|Sensa ora è nella barra dei menu. Aprilo quando vuoi per vedere come sta il tuo Mac.
-338|Sensa conserva un riepilogo al minuto per una settimana, poi uno all’ora. I dati più vecchi vengono eliminati automaticamente.
-339|Sensa non ha bisogno di autorizzazioni speciali per monitorare il Mac. Chiede solo il permesso per le notifiche, e solo quando le attivi.
-340|Sensa assegna un nome ai sensori solo dopo averli verificati su un modello di Mac. Tutti i sensori grezzi restano disponibili in Sensori.
-341|Sensa avvisa solo quando una condizione persiste e attende prima di ripetere, così gli avvisi restano rari.
-342|Sensa legge solo contatori di byte e non ispeziona mai il traffico. macOS fornisce questi contatori alle app in passi di 1 KB, quindi le velocità molto basse sono approssimative.
-343|Sensa riproduce un suono leggero solo quando un’azione termina o un avviso richiede la tua attenzione. Resta in silenzio se gli effetti sonori dell’interfaccia sono disattivati in Impostazioni di Sistema › Suono.
-344|Sensa registra un riepilogo ogni minuto mentre è in esecuzione. Torna tra qualche minuto.
-345|Sensa mostra solo ciò che questo Mac ha davvero. Niente viene stimato senza dirlo.
-346|Sensa mostra la stima dell’unità stessa e non prevede la durata residua.
-347|Sensa ti avviserà quando qualcosa richiede la tua attenzione.
-348|Elenco dei sensori
-349|Sensori
-350|I sensori compaiono qui appena vengono letti.
-351|Sensori letti
-352|I sensori tornano ai nomi originali e l’elenco dei preferiti viene svuotato.
-353|I sensori smettono di rispondere
-354|Sensori non disponibili
-355|Impostazioni…
-356|Vediamo come sta il tuo Mac?
-357|Quota della frequenza massima
-358|Condivisa con la CPU
-359|Mostra di nuovo il benvenuto
-360|Mostra la velocità delle ventole come
-361|Mostra solo i preferiti
-362|Mostra icone
-363|Mostra nel Finder
-364|Mostra nella panoramica
-365|Mostra i sensori che Sensa non riesce a identificare
-366|Mostra la finestra all’apertura di Sensa
-367|Mostra origini dei sensori, capacità grezze e altri valori avanzati in ogni schermata.
-368|Affiancati
-369|Segnale
-370|Rapporto segnale/rumore
-371|Leggermente caldo, senza impatto sulle prestazioni
-372|Suoni
-373|Suoni e feedback aptico
-374|Origine
-375|Spazio utilizzato
-376|In rotazione con controllo automatico
-377|Impilato (compatto)
-378|La disposizione impilata mette due indicatori in una colonna e occupa circa metà della larghezza quando la barra dei menu è piena.
-379|Standard
-380|Avvio
-381|Disco di avvio quasi pieno
-382|Resta informato
-383|Passo %@ di %@
-384|Ferme: ora non serve raffreddamento
-385|Archiviazione
-386|Supportato
-387|Swap
-388|Swap utilizzato
-389|Sistema
-390|Lingua del sistema
-391|Dettagli tecnici
-392|Temperatura
-393|Cronologia della temperatura
-394|La temperatura è nell’intervallo previsto
-395|Sensori di temperatura
-396|I sensori di temperatura hanno smesso di rispondere. Sensa continua a riprovare automaticamente.
-397|Temperatura, memoria, archiviazione e batteria sono nei valori previsti.
-398|Temperature
-399|Temperature e ventole si aggiornano con metà di questa frequenza. Intervalli più lunghi consumano meno energia.
-400|Temporaneamente non disponibile
-401|La CPU è a %@ da un po’. Chiudere le app più impegnative la aiuta a raffreddarsi.
-402|La batteria è a %@. Tieni il Mac in un luogo più fresco mentre si carica.
-403|La batteria è in carica: completa tra circa %@.
-404|La batteria è in carica.
-405|La batteria ha raggiunto il %@. Puoi scollegare l’alimentatore.
-406|Il disco “%@” è pieno al %@.
-407|L’SSD interno ha registrato %@ errori del supporto. Tieni aggiornati i backup.
-408|L’SSD interno segnala una condizione critica. Esegui un backup dei dati.
-409|La nuova lingua sarà applicata al riavvio di Sensa.
-410|Tema
-411|Pressione termica
-412|Stato termico
-413|Temperatura e consumi
-414|Questo Mac
-415|È la valutazione di macOS stesso. Quando arriva a “grave”, macOS riduce le prestazioni per mantenere il Mac a temperature sicure.
-416|Soglia
-417|Tempistiche
-418|Totale
-419|Consumo totale del sistema
-420|Traffico
-421|Prova con un’altra ricerca.
-422|Attiva le notifiche
-423|Attivala in Impostazioni › Cronologia per tenere una registrazione.
-424|Attiva le notifiche in Impostazioni › Notifiche per ricevere questi avvisi.
-425|Con controllo manuale
-426|Spegnimenti imprevisti
-427|Memoria unificata (condivisa da CPU e GPU)
-428|Unità
-429|Sconosciuto
-430|I sensori sconosciuti mantengono la chiave originale. I preferiti vengono sempre mostrati.
-431|Aggiornamenti
-432|Upload
-433|Upload %@
-434|Utilizzo
-435|Cronologia di utilizzo
-436|Utilizzato
-437|Utente
-438|Usa il nome del tuo account macOS. Non lascia mai il Mac.
-439|Usano più CPU
-440|Usano più memoria
-441|Valore
-442|Valori da interfacce non documentate (SMC, HID). Minimo, massimo e media coprono gli ultimi due minuti.
-443|Verificato su questo modello
-444|Versione %@
-445|Tensione
-446|Volume
-447|Volumi
-448|Tiepido
-449|Batteria calda
-450|Segnale debole
-451|Benvenuto
-452|Benvenuto in Sensa
-453|Quando la carica raggiunge un livello
-454|Quando è visibile solo la barra dei menu
-455|Quando la batteria si scalda
-456|Quando la batteria è in esaurimento
-457|Con una finestra di Sensa aperta
-458|Numeri interi
-459|Intero sistema
-460|Wi-Fi
-461|Dettagli Wi-Fi
-462|Interfaccia Wi-Fi
-463|Il Wi-Fi è disattivato.
-464|Residente
-465|Molto impegnato
-466|Scrittura
-467|Scritti nel corso della vita utile
-468|Stai utilizzando %@ di memoria.
-469|Puoi sempre riaprire Sensa dall’icona nella barra dei menu.
-470|Tutto pronto
-471|Il tuo Mac
-472|Il Mac è caldo e ha ridotto le prestazioni per proteggersi.
-473|Il Mac gestisce le risorse normalmente.
-474|Il Mac è pronto per un nuovo giorno.
-475|Il Mac si sta scaldando
-476|Il Mac funziona normalmente.
-477|Il Mac gestisce le ventole automaticamente.
-478|Il Mac richiede attenzione.
-479|I tuoi dati
-480|Il disco di avvio è quasi pieno.
-481|disponibili su %@
-482|in uso
-483|macOS
-484|macOS non ha consentito questa modifica: %@
-485|macOS si sta sforzando per liberare memoria. Chiudere le app che non usi aiuterà.
-486|macOS consiglia di far controllare la batteria (%@).
-487|macOS mostra il nome della rete solo alle app con il permesso di Localizzazione.
-488|su %@, attivo il %@ del tempo
-489|pressione
-490|soglia
-491|utilizzato
-492|Informazioni su Sensa
-493|Chiudi
-494|Copia
-495|Taglia
-496|Modifica
-497|Entra in modalità a tutto schermo
-498|Cerca
-499|Nascondi altre
-500|Nascondi Sensa
-501|Riduci a icona
-502|Apri Sensa
-503|Incolla
-504|Esci da Sensa
-505|Ripeti
-506|Seleziona tutto
-507|Impostazioni
-508|Impostazioni…
-509|Mostra tutte
-510|Mostra/nascondi barra laterale
-511|Annulla
-512|Vista
-513|Finestra
-514|Ridimensiona
-515|CPU · Core di prestazioni
-516|CPU · Core di efficienza
-517|Indicatore di carica della batteria
-518|SSD (NAND)
-519|Die del SoC (PMU)
-520|La cronologia non viene registrata mentre Sensa mostra dati dimostrativi.
-521|Impostazioni
-522|Mostra/nascondi barra laterale
-523|Bilanciato
-524|Per cambiare la velocità delle ventole serve un piccolo helper che funziona con i privilegi di amministratore. macOS chiede la password per installarlo. Il monitoraggio funziona anche senza.
-525|Abbastanza fresco: macOS controlla le ventole, che possono fermarsi.
-526|Curva
-527|Curva delle ventole
-528|I limiti delle ventole non sono disponibili, quindi macOS le controlla.
-529|Velocità fissa
-530|Helper
-531|Installa di nuovo…
-532|Installa helper…
-533|Installa l’helper delle ventole
-534|Mantiene le ventole in funzione e raggiunge la velocità massima a %@.
-535|Lascia le ventole a macOS sotto %@, poi segue la temperatura.
-536|Lascia le ventole a macOS sotto %@, poi accelera gradualmente.
-537|Modalità
-538|Da aggiornare
-539|Nessuna lettura recente della temperatura, quindi macOS controlla le ventole.
-540|Non installato
-541|Non risponde
-542|Silenzioso
-543|Rimuovi
-544|Rimuovi helper…
-545|Rimuovere l’helper delle ventole?
-546|Sensa controlla le ventole: %@.
-547|Sensa non ferma mai una ventola né supera i suoi limiti. Se Sensa si chiude o smette di rispondere, o se il Mac si scalda troppo, le ventole tornano in automatico entro 10 secondi.
-548|Velocità
-549|L’helper delle ventole non risponde
-550|L’helper delle ventole va aggiornato
-551|Le ventole tornano in automatico e macOS chiede la password per rimuovere l’helper.
-552|Questa copia di Sensa non è firmata con un Apple Developer ID, quindi l’helper si installa con una richiesta di password invece che da Impostazioni di Sistema. Dopo aver ricompilato Sensa, l’helper va aggiornato.
-553|Troppo caldo per una velocità fissa inferiore al massimo, quindi macOS controlla le ventole.
-554|Aggiorna helper…
-555|Il Mac è sotto pressione termica, quindi macOS controlla le ventole.
-556|macOS controlla le ventole.
-557|Sensa vuole installare l’helper delle ventole.
-558|Sensa vuole rimuovere l’helper delle ventole.
-559|L’helper delle ventole non ha risposto in tempo.
-560|In questa copia di Sensa mancano l’helper delle ventole o la firma del codice.
-561|Si è verificato un problema nel riportare le ventole in automatico. Se continuano a girare veloci, riavvia il Mac.
-562|Passaggio delle ventole al controllo manuale…
-563|Il controller delle ventole non ha accettato la modifica, quindi macOS mantiene il controllo delle ventole.
-564|Impossibile installare l’helper.
-565|Impossibile rimuovere l’helper.
-566|Riprova
-567|Restituzione delle ventole a macOS…
-568|Mantiene l’obiettivo di %@
-569|Accelera fino a %@
-570|Rallenta fino a %@
+30|Mostra sempre i dettagli tecnici
+31|Animazioni
+32|Aspetto
+33|Aspetto, barra dei menu, avvisi, preferiti e tutte le altre preferenze tornano ai valori predefiniti.
+34|Approva Sensa in Impostazioni di Sistema › Generali › Elementi login.
+35|App
+36|Architettura
+37|Attenzione
+38|Automatico
+39|Disponibile
+40|Lo spazio disponibile include lo spazio eliminabile che macOS può liberare automaticamente, come nel Finder.
+41|Riserva disponibile
+42|Media
+43|Media %@, picco %@
+44|Numero medio di attività in esecuzione o in attesa della CPU.
+45|Media dei sensori identificati
+46|Media dei sensori dei core della CPU
+47|Media dei sensori della GPU
+48|Velocità media quando è attiva, in base al tempo trascorso in ogni punto di funzionamento.
+49|Indietro
+50|Banda
+51|Batteria
+52|Gli avvisi della batteria si trovano in Impostazioni › Batteria.
+53|Batteria carica
+54|Batteria carica fino a un livello
+55|Batteria in esaurimento
+56|Batteria in esaurimento (%@). Collega l’alimentatore.
+57|Batteria calda
+58|Batteria, archiviazione e rete
+59|Prelevata dalla batteria
+60|Per impostazione predefinita, Sensa segue l’ordine delle lingue di Impostazioni di Sistema › Generali › Lingua e Zona.
+61|CPU
+62|Frequenza della CPU
+63|Consumo della CPU
+64|Temperatura della CPU
+65|Temperatura della CPU non identificata su questo modello
+66|Utilizzo della CPU
+67|CSV (fogli di calcolo)
+68|File nella cache
+69|Annulla
+70|Capacità
+71|Cellulare
+72|Celsius (°C)
+73|Canale
+74|Larghezza del canale
+75|Carica
+76|Cicli di carica
+77|In carica
+78|I limiti di carica sono gestiti da macOS. Sui portatili con Apple silicon e versioni recenti di macOS puoi impostarli in Impostazioni di Sistema › Batteria.
+79|Chip
+80|Scegli cosa tenere d’occhio. Puoi cambiarlo in qualsiasi momento nelle Impostazioni.
+81|Cancella
+82|Cancellare preferiti e nomi?
+83|Cancella preferiti e nomi…
+84|Frequenza
+85|Frequenze e consumi per componente
+86|Raccolta dei dati…
+87|Componenti
+88|Compressa
+89|Condizione
+90|La condizione deve durare
+91|Connesso tramite %@.
+92|Collegato, non in carica
+93|Continua
+94|Controllo
+95|Raffreddamento
+96|Core %@: %@
+97|Core
+98|Critico
+99|Temperatura critica: macOS sta limitando fortemente le prestazioni.
+100|Critico: prestazioni fortemente limitate
+101|Corrente
+102|Scuro
+103|Dati
+104|Dati letti
+105|Elimina
+106|Elimina cronologia…
+107|Eliminare tutta la cronologia?
+108|Dati dimostrativi
+109|Derivato
+110|Capacità di progetto
+111|Dettagli
+112|Funzioni rilevate
+113|Attività del disco
+114|Visualizzazione
+115|Download
+116|Trascina per riordinare. Senza indicatori attivi, Sensa mostra solo la sua icona.
+117|Core di efficienza
+118|Durata consumata, secondo la stima dell’unità
+119|Energia
+120|Stimato
+121|Ethernet
+122|Ogni 10 secondi
+123|Ogni 2 secondi
+124|Ogni 3 secondi
+125|Ogni 5 secondi
+126|Ogni secondo
+127|Tutto resta sul tuo Mac
+128|Tutto resta sul tuo Mac.
+129|Segnale eccellente
+130|Sperimentale
+131|Le funzioni sperimentali leggono interfacce di macOS non documentate e possono cambiare con gli aggiornamenti.
+132|Esportazione non riuscita
+133|Esporta…
+134|Esterno
+135|Fahrenheit (°F)
+136|Segnale discreto
+137|Ventola %@
+138|Controllo delle ventole
+139|Ventole
+140|Le ventole di questo Mac si fermano del tutto quando il raffreddamento non serve. È il comportamento normale.
+141|Preferiti
+142|In ingresso nella batteria
+143|Libera
+144|Liberata subito quando serve
+145|Completa
+146|Capacità di carica completa
+147|Completa tra %@
+148|Carica completa
+149|GPU
+150|Core della GPU
+151|Consumo della GPU
+152|Temperatura della GPU
+153|Utilizzo della GPU
+154|Raccolta delle informazioni…
+155|Generali
+156|Geometria (tiler)
+157|Buon pomeriggio
+158|Buonasera
+159|Buongiorno
+160|Segnale buono
+161|Grafico
+162|Salutami con il mio nome
+163|Saluto
+164|Gruppo
+165|Feedback aptico sul trackpad
+166|Feedback aptico
+167|Stato di salute
+168|Ecco come sta il tuo Mac questo pomeriggio.
+169|Ecco come sta il tuo Mac stasera.
+170|Ecco come il tuo Mac inizia la giornata.
+171|Nascondi l’icona nel Dock (solo barra dei menu)
+172|Temperatura elevata della CPU
+173|Pressione della memoria elevata
+174|Più è alto, meglio è; sopra i 25 dB la connessione è solida.
+175|Cronologia
+176|La cronologia viene conservata. Eliminala in Impostazioni › Cronologia.
+177|La cronologia è in pausa
+178|Caldo
+179|Caldo: macOS sta riducendo le prestazioni
+180|Ora
+181|Identificazione
+182|Nella barra dei menu
+183|Include schermo, SSD e tutto il resto, secondo l’SMC.
+184|Indicatori
+185|Dedotto, non verificato
+186|Installata
+187|Interno
+188|Gli elementi che questo Mac non ha, come batteria o ventole, non vengono mai mostrati.
+189|JSON
+190|Conserva la cronologia per
+191|Conservata su questo Mac per %@.
+192|Chiave
+193|Lingua
+194|Disposizione
+195|Chiaro
+196|Poco utilizzato
+197|Velocità di collegamento
+198|Carico medio (1, 5, 15 min)
+199|Caricamento della cronologia…
+200|Loopback
+201|Batteria in esaurimento
+202|Spazio su disco insufficiente
+203|Manuale
+204|Max
+205|Capacità massima rispetto a quando era nuova
+206|Errori del supporto
+207|Memoria
+208|Memoria (DRAM)
+209|Memoria in uso
+210|La memoria viene gestita normalmente
+211|Pressione della memoria
+212|La pressione della memoria è critica
+213|La pressione della memoria è critica. macOS ha poca memoria disponibile.
+214|La pressione della memoria è elevata
+215|La pressione della memoria è elevata. Chiudere le app che non usi può aiutare.
+216|La pressione della memoria è alta
+217|Memoria che il sistema deve mantenere nella RAM.
+218|Memoria utilizzata
+219|Barra dei menu
+220|Metodo
+221|Min
+222|Modello
+223|Moderatamente utilizzato
+224|Monitoraggio ed energia
+225|Movimento
+226|Nome
+227|Rete
+228|Rete: %@
+229|Neural Engine
+230|Mai più di una volta ogni 30 minuti per lo stesso avviso
+231|Nessuna connessione di rete attiva.
+232|Nessun avviso in questo periodo.
+233|Nessun dato sulle ventole
+234|Ancora nessuna cronologia
+235|Nessun risultato
+236|Nessun sensore
+237|Rumore
+238|Normale
+239|Non ora
+240|Non verificato
+241|Non connesso a una rete Wi-Fi.
+242|Non presente su questo Mac
+243|Non presente
+244|Non supportato
+245|Notifiche
+246|Le notifiche sono attive
+247|Le notifiche di Sensa sono disattivate in Impostazioni di Sistema.
+248|OK
+249|No
+250|Sì
+251|A batteria
+252|Un decimale
+253|Solo il %@ del disco di avvio è libero. Elimina i file che non ti servono più o spostali su un’altra unità.
+254|Solo quando una condizione persiste
+255|Apri cronologia
+256|Apri Sensa
+257|Apri Sensa al login
+258|Apri Impostazioni di Sistema
+259|Originale: %@ · %@
+260|Altro
+261|Panoramica
+262|Picco
+263|Percentuale dell’intervallo
+264|La percentuale dell’intervallo colloca la velocità attuale tra il minimo e il massimo della ventola.
+265|Prestazioni
+266|Prestazioni / efficienza
+267|Core di prestazioni
+268|Periodo
+269|Autorizzazioni
+270|Riproduci effetti sonori
+271|Positiva in carica, negativa in scarica.
+272|Consumo
+273|Alimentatore
+274|Consumo per componente
+275|Consumo energetico
+276|Cicli di accensione
+277|Flusso di energia
+278|Ore di accensione
+279|Precisione
+280|Preferenze e cronologia
+281|La pressione indica se macOS deve sforzarsi per liberare memoria. Una memoria piena con pressione bassa è normale: macOS tiene la RAM occupata con le cache per rendere il Mac più veloce.
+282|Ascolta
+283|Privacy
+284|Processo %@
+285|Processi
+286|Processore
+287|Esci da Sensa
+288|Intervallo %@ – %@
+289|Capacità massima grezza
+290|Lettura
+291|Letto tramite interfacce non documentate (SMC, HID). Sperimentale.
+292|Lettura dei sensori…
+293|In ricezione
+294|Registra la cronologia
+295|Le metriche e gli avvisi registrati verranno rimossi da questo Mac. L’operazione non può essere annullata.
+296|“Riduci movimento” è attivo in Impostazioni di Sistema, quindi Sensa usa brevi dissolvenze al posto del movimento.
+297|Ridotto
+298|Ridotto sostituisce il movimento con brevi dissolvenze. No mostra le modifiche all’istante.
+299|Aggiorna meno spesso a batteria
+300|Frequenza di aggiornamento
+301|Aggiorna quando è visibile solo la barra dei menu
+302|Carica rimanente
+303|Rimuovi dai preferiti
+304|Rinomina sensore
+305|Sensori rinominati
+306|Rinomina…
+307|Rendering
+308|Ripeti al massimo ogni
+309|Segnalato da macOS
+310|Problema segnalato
+311|Richiede autorizzazione
+312|Ripristina
+313|Ripristina tutte le impostazioni…
+314|Ripristinare tutte le impostazioni?
+315|Riavvia ora
+316|Ripristina originale
+317|Giri al minuto
+318|Origine SMART
+319|Stato dell’SSD
+320|Avviso sullo stato dell’SSD
+321|L’SSD segnala un problema
+322|Temperatura dell’SSD
+323|Salva
+324|Cerca sensori
+325|Scopri come si comporta il tuo Mac.
+326|Scopri a colpo d’occhio come sta il tuo Mac: temperature, memoria, batteria, ventole e altro, spiegati in parole semplici.
+327|Invia prova
+328|Invia notifiche
+329|In invio
+330|Sensa si mette anche in pausa quando il Mac è in stop e rallenta a schermo spento. Elenchi dei processi, frequenze e dettagli Wi-Fi vengono letti solo con una finestra o il pannello della barra dei menu aperti.
+331|Sensa può avvisarti quando il Mac si scalda, la memoria è sotto pressione, il disco è quasi pieno o la batteria è in esaurimento.
+332|Sensa non invia metriche, identificatori né altri dati ai server. Nessuna telemetria nascosta. Il monitoraggio di rete legge solo i contatori di byte e non ispeziona mai il traffico.
+333|Sensa ora è nella barra dei menu. Aprilo quando vuoi per vedere come sta il tuo Mac.
+334|Sensa conserva un riepilogo al minuto per una settimana, poi uno all’ora. I dati più vecchi vengono eliminati automaticamente.
+335|Sensa non ha bisogno di autorizzazioni speciali per monitorare il Mac. Chiede solo il permesso per le notifiche, e solo quando le attivi.
+336|Sensa assegna un nome ai sensori solo dopo averli verificati su un modello di Mac. Tutti i sensori grezzi restano disponibili in Sensori.
+337|Sensa avvisa solo quando una condizione persiste e attende prima di ripetere, così gli avvisi restano rari.
+338|Sensa legge solo contatori di byte e non ispeziona mai il traffico. macOS fornisce questi contatori alle app in passi di 1 KB, quindi le velocità molto basse sono approssimative.
+339|Sensa riproduce un suono leggero solo quando un’azione termina o un avviso richiede la tua attenzione. Resta in silenzio se gli effetti sonori dell’interfaccia sono disattivati in Impostazioni di Sistema › Suono.
+340|Sensa registra un riepilogo ogni minuto mentre è in esecuzione. Torna tra qualche minuto.
+341|Sensa mostra solo ciò che questo Mac ha davvero. Niente viene stimato senza dirlo.
+342|Sensa mostra la stima dell’unità stessa e non prevede la durata residua.
+343|Sensa ti avviserà quando qualcosa richiede la tua attenzione.
+344|Elenco dei sensori
+345|Sensori
+346|I sensori compaiono qui appena vengono letti.
+347|Sensori letti
+348|I sensori tornano ai nomi originali e l’elenco dei preferiti viene svuotato.
+349|I sensori smettono di rispondere
+350|Sensori non disponibili
+351|Impostazioni…
+352|Vediamo come sta il tuo Mac?
+353|Quota della frequenza massima
+354|Condivisa con la CPU
+355|Mostra di nuovo il benvenuto
+356|Mostra la velocità delle ventole come
+357|Mostra solo i preferiti
+358|Mostra icone
+359|Mostra nel Finder
+360|Mostra nella panoramica
+361|Mostra i sensori che Sensa non riesce a identificare
+362|Mostra la finestra all’apertura di Sensa
+363|Mostra origini dei sensori, capacità grezze e altri valori avanzati in ogni schermata.
+364|Affiancati
+365|Segnale
+366|Rapporto segnale/rumore
+367|Leggermente caldo, senza impatto sulle prestazioni
+368|Suoni
+369|Suoni e feedback aptico
+370|Origine
+371|Spazio utilizzato
+372|In rotazione con controllo automatico
+373|Impilato (compatto)
+374|La disposizione impilata mette due indicatori in una colonna e occupa circa metà della larghezza quando la barra dei menu è piena.
+375|Standard
+376|Avvio
+377|Disco di avvio quasi pieno
+378|Resta informato
+379|Passo %@ di %@
+380|Ferme: ora non serve raffreddamento
+381|Archiviazione
+382|Supportato
+383|Swap
+384|Swap utilizzato
+385|Sistema
+386|Lingua del sistema
+387|Dettagli tecnici
+388|Temperatura
+389|Cronologia della temperatura
+390|La temperatura è nell’intervallo previsto
+391|Sensori di temperatura
+392|I sensori di temperatura hanno smesso di rispondere. Sensa continua a riprovare automaticamente.
+393|Temperatura, memoria, archiviazione e batteria sono nei valori previsti.
+394|Temperature
+395|Temperature e ventole si aggiornano con metà di questa frequenza. Intervalli più lunghi consumano meno energia.
+396|Temporaneamente non disponibile
+397|La CPU è a %@ da un po’. Chiudere le app più impegnative la aiuta a raffreddarsi.
+398|La batteria è a %@. Tieni il Mac in un luogo più fresco mentre si carica.
+399|La batteria è in carica: completa tra circa %@.
+400|La batteria è in carica.
+401|La batteria ha raggiunto il %@. Puoi scollegare l’alimentatore.
+402|Il disco “%@” è pieno al %@.
+403|L’SSD interno ha registrato %@ errori del supporto. Tieni aggiornati i backup.
+404|L’SSD interno segnala una condizione critica. Esegui un backup dei dati.
+405|La nuova lingua sarà applicata al riavvio di Sensa.
+406|Tema
+407|Pressione termica
+408|Stato termico
+409|Temperatura e consumi
+410|Questo Mac
+411|È la valutazione di macOS stesso. Quando arriva a “grave”, macOS riduce le prestazioni per mantenere il Mac a temperature sicure.
+412|Soglia
+413|Tempistiche
+414|Totale
+415|Consumo totale del sistema
+416|Traffico
+417|Prova con un’altra ricerca.
+418|Attiva le notifiche
+419|Attivala in Impostazioni › Cronologia per tenere una registrazione.
+420|Attiva le notifiche in Impostazioni › Notifiche per ricevere questi avvisi.
+421|Con controllo manuale
+422|Spegnimenti imprevisti
+423|Memoria unificata (condivisa da CPU e GPU)
+424|Unità
+425|Sconosciuto
+426|I sensori sconosciuti mantengono la chiave originale. I preferiti vengono sempre mostrati.
+427|Aggiornamenti
+428|Upload
+429|Upload %@
+430|Utilizzo
+431|Cronologia di utilizzo
+432|Utilizzato
+433|Utente
+434|Usa il nome del tuo account macOS. Non lascia mai il Mac.
+435|Usano più CPU
+436|Usano più memoria
+437|Valore
+438|Valori da interfacce non documentate (SMC, HID). Minimo, massimo e media coprono gli ultimi due minuti.
+439|Verificato su questo modello
+440|Versione %@
+441|Tensione
+442|Volume
+443|Volumi
+444|Tiepido
+445|Batteria calda
+446|Segnale debole
+447|Benvenuto
+448|Benvenuto in Sensa
+449|Quando la carica raggiunge un livello
+450|Quando è visibile solo la barra dei menu
+451|Quando la batteria si scalda
+452|Quando la batteria è in esaurimento
+453|Con una finestra di Sensa aperta
+454|Numeri interi
+455|Intero sistema
+456|Wi-Fi
+457|Dettagli Wi-Fi
+458|Interfaccia Wi-Fi
+459|Il Wi-Fi è disattivato.
+460|Residente
+461|Molto impegnato
+462|Scrittura
+463|Scritti nel corso della vita utile
+464|Stai utilizzando %@ di memoria.
+465|Puoi sempre riaprire Sensa dall’icona nella barra dei menu.
+466|Tutto pronto
+467|Il tuo Mac
+468|Il Mac è caldo e ha ridotto le prestazioni per proteggersi.
+469|Il Mac gestisce le risorse normalmente.
+470|Il Mac è pronto per un nuovo giorno.
+471|Il Mac si sta scaldando
+472|Il Mac funziona normalmente.
+473|Il Mac richiede attenzione.
+474|I tuoi dati
+475|Il disco di avvio è quasi pieno.
+476|disponibili su %@
+477|in uso
+478|macOS
+479|macOS non ha consentito questa modifica: %@
+480|macOS si sta sforzando per liberare memoria. Chiudere le app che non usi aiuterà.
+481|macOS consiglia di far controllare la batteria (%@).
+482|macOS mostra il nome della rete solo alle app con il permesso di Localizzazione.
+483|su %@, attivo il %@ del tempo
+484|pressione
+485|soglia
+486|utilizzato
+487|Informazioni su Sensa
+488|Chiudi
+489|Copia
+490|Taglia
+491|Modifica
+492|Entra in modalità a tutto schermo
+493|Cerca
+494|Nascondi altre
+495|Nascondi Sensa
+496|Riduci a icona
+497|Apri Sensa
+498|Incolla
+499|Esci da Sensa
+500|Ripeti
+501|Seleziona tutto
+502|Impostazioni
+503|Impostazioni…
+504|Mostra tutte
+505|Mostra/nascondi barra laterale
+506|Annulla
+507|Vista
+508|Finestra
+509|Ridimensiona
+510|CPU · Core di prestazioni
+511|CPU · Core di efficienza
+512|Indicatore di carica della batteria
+513|SSD (NAND)
+514|Die del SoC (PMU)
+515|La cronologia non viene registrata mentre Sensa mostra dati dimostrativi.
+516|Impostazioni
+517|Mostra/nascondi barra laterale
+518|Bilanciato
+519|Per cambiare la velocità delle ventole serve un piccolo helper che funziona con i privilegi di amministratore. macOS chiede la password per installarlo. Il monitoraggio funziona anche senza.
+520|Abbastanza fresco: macOS controlla le ventole, che possono fermarsi.
+521|Curva
+522|Curva delle ventole
+523|I limiti delle ventole non sono disponibili, quindi macOS le controlla.
+524|Velocità fissa
+525|Helper
+526|Installa di nuovo…
+527|Installa helper…
+528|Installa l’helper delle ventole
+529|Mantiene le ventole in funzione e raggiunge la velocità massima a %@.
+530|Lascia le ventole a macOS sotto %@, poi segue la temperatura.
+531|Lascia le ventole a macOS sotto %@, poi accelera gradualmente.
+532|Modalità
+533|Da aggiornare
+534|Nessuna lettura recente della temperatura, quindi macOS controlla le ventole.
+535|Non installato
+536|Non risponde
+537|Silenzioso
+538|Rimuovi
+539|Rimuovi helper…
+540|Rimuovere l’helper delle ventole?
+541|Sensa controlla le ventole: %@.
+542|Sensa non ferma mai una ventola né supera i suoi limiti. Se Sensa si chiude o smette di rispondere, o se il Mac si scalda troppo, le ventole tornano in automatico entro 10 secondi.
+543|Velocità
+544|L’helper delle ventole non risponde
+545|L’helper delle ventole va aggiornato
+546|Le ventole tornano in automatico e macOS chiede la password per rimuovere l’helper.
+547|Questa copia di Sensa non è firmata con un Apple Developer ID, quindi l’helper si installa con una richiesta di password invece che da Impostazioni di Sistema. Dopo aver ricompilato Sensa, l’helper va aggiornato.
+548|Troppo caldo per una velocità fissa inferiore al massimo, quindi macOS controlla le ventole.
+549|Aggiorna helper…
+550|Il Mac è sotto pressione termica, quindi macOS controlla le ventole.
+551|macOS controlla le ventole.
+552|Sensa vuole installare l’helper delle ventole.
+553|Sensa vuole rimuovere l’helper delle ventole.
+554|L’helper delle ventole non ha risposto in tempo.
+555|In questa copia di Sensa mancano l’helper delle ventole o la firma del codice.
+556|Si è verificato un problema nel riportare le ventole in automatico. Se continuano a girare veloci, riavvia il Mac.
+557|Passaggio delle ventole al controllo manuale…
+558|Il controller delle ventole non ha accettato la modifica, quindi macOS mantiene il controllo delle ventole.
+559|Impossibile installare l’helper.
+560|Impossibile rimuovere l’helper.
+561|Riprova
+562|Restituzione delle ventole a macOS…
+563|Mantiene l’obiettivo di %@
+564|Accelera fino a %@
+565|Rallenta fino a %@
+566|Confronta con il periodo precedente
+567|Periodo precedente
+568|Questo periodo
+569|Ora più alto rispetto al periodo precedente
+570|Ora più basso rispetto al periodo precedente
+571|Più o meno come il periodo precedente
+572|Non c’è ancora cronologia per il periodo precedente.
+573|In base ai riepiloghi registrati. I valori che cambiano insieme non sempre si causano a vicenda.
+574|La temperatura della CPU è salita e scesa con il carico del processore.
+575|Momento più caldo: %@ alle %@, con la CPU al %@.
+576|Momento più caldo: %@ alle %@.
+577|Schemi
+578|La CPU ha raggiunto %@ pur essendo quasi inattiva. Qualcos’altro, come la GPU, la ricarica o una stanza calda, può aver contribuito.
+579|Le ventole hanno accelerato con l’aumento della temperatura, di solito a partire da circa %@.
+580|Le ventole hanno accelerato con l’aumento della temperatura.
+581|Le ventole sono rimaste ferme: il Mac si è raffreddato senza di esse.
+582|La curva segue il core della CPU più caldo, mediato su alcuni secondi perché brevi picchi non cambino la velocità delle ventole.
+583|Personalizzata
+584|La tua curva raggiunge la velocità massima a %@.
+585|La tua curva lascia le ventole a macOS sotto %1$@ e raggiunge la velocità massima a %2$@.
+586|Trascina i punti per modellare la curva. La velocità non scende mai quando la temperatura sale, e l'ultimo punto è sempre la velocità massima.
+587|Lascia le ventole a macOS sotto il primo punto
+588|Regola i valori
+589|Temperatura del punto %@
+590|Velocità del punto %@
+591|Core più caldo
+592|Le curve delle ventole seguono questa lettura

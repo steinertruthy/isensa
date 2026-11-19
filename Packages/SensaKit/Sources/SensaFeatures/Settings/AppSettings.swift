@@ -78,6 +78,8 @@ public final class AppSettings {
     /// Fan control the user chose. Applied only while the privileged helper is installed and safe
     /// conditions hold; otherwise macOS keeps control.
     public var fanMode: FanMode { didSet { saveJSON(fanMode, .fanMode) } }
+    /// The user's own curve, kept while another mode is selected.
+    public var customFanCurve: FanCurve { didSet { saveJSON(customFanCurve, .customFanCurve) } }
     public var favoriteSensors: Set<String> { didSet { saveJSON(favoriteSensors, .favoriteSensors) } }
     public var sensorNicknames: [String: String] { didSet { saveJSON(sensorNicknames, .sensorNicknames) } }
     // Monitoring and performance
@@ -105,7 +107,7 @@ public final class AppSettings {
     private enum Key: String {
         case appearance, motion, greetingUsesName, showsTechnicalDetails, hiddenDashboardCells, language
         case soundsEnabled, soundVolume, hapticsEnabled
-        case temperatureUnit, showsUnknownSensors, fanSpeedDisplay, fanMode, favoriteSensors, sensorNicknames
+        case temperatureUnit, showsUnknownSensors, fanSpeedDisplay, fanMode, customFanCurve, favoriteSensors, sensorNicknames
         case refreshInterval, backgroundRefreshInterval, savesEnergyOnBattery
         case menuBarItems, menuBarShowsIcons, menuBarLayout, menuBarDecimals
         case hidesDockIcon, opensWindowAtLaunch, hasCompletedOnboarding
@@ -141,6 +143,7 @@ public final class AppSettings {
         showsUnknownSensors = bool(.showsUnknownSensors, true)
         fanSpeedDisplay = string(.fanSpeedDisplay, .rpm)
         fanMode = Self.loadJSON(defaults, .fanMode) ?? .automatic
+        customFanCurve = (Self.loadJSON(defaults, .customFanCurve) ?? FanCurve.Preset.balanced.curve).enforcingSafety()
         favoriteSensors = Self.loadJSON(defaults, .favoriteSensors) ?? []
         sensorNicknames = Self.loadJSON(defaults, .sensorNicknames) ?? [:]
         refreshInterval = double(.refreshInterval, 1)
@@ -192,6 +195,7 @@ public final class AppSettings {
         showsUnknownSensors = fresh.showsUnknownSensors
         fanSpeedDisplay = fresh.fanSpeedDisplay
         fanMode = fresh.fanMode
+        customFanCurve = fresh.customFanCurve
         favoriteSensors = fresh.favoriteSensors
         sensorNicknames = fresh.sensorNicknames
         refreshInterval = fresh.refreshInterval

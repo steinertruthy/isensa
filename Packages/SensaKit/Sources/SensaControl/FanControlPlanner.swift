@@ -11,7 +11,7 @@ public enum SystemControlReason: String, Codable, Sendable {
     case noTemperature
     /// macOS reports serious or critical thermal pressure.
     case thermalPressure
-    /// A fixed speed below maximum while the CPU is very hot.
+    /// A fixed speed below maximum while the hottest CPU core is very hot.
     case tooHotForFixedSpeed
     /// Fan limits could not be read or are implausible.
     case noLimits
@@ -24,10 +24,14 @@ public enum FanPlan: Equatable, Sendable {
 
 /// Pure decision logic for the app side: turns the user's mode and the latest readings into either
 /// "let macOS decide" or validated targets. Smooths curves with hysteresis so fans don't hunt.
+///
+/// `temperature` is the control temperature: the hottest CPU core, already smoothed over time by
+/// `TemperatureSmoother`.
 public struct FanControlPlanner: Sendable {
     /// Readings older than this are treated as missing.
     public static let maximumSampleAge: TimeInterval = 15
-    /// A fixed speed below maximum is abandoned above this temperature.
+    /// A fixed speed below maximum is abandoned above this temperature, and resumed only once the
+    /// temperature has dropped `hysteresis` below it.
     public static let fixedSpeedCeiling: Double = 90
     /// Degrees the temperature must fall before a curve slows the fans down again.
     public static let hysteresis: Double = 3
@@ -39,28 +43,32 @@ public struct FanControlPlanner: Sendable {
 
     private var lastFraction: Double?
     private var inQuietZone = false
+    private var tooHotForFixed = false
 
     public init() {}
 
     public mutating func plan(
-        mode: FanMode, cpuTemperature: Double?, sampleAge: TimeInterval, thermalLevel: ThermalLevel?, limits: [FanLimits]
+        mode: FanMode, temperature reading: Double?, sampleAge: TimeInterval, thermalLevel: ThermalLevel?, limits: [FanLimits]
     ) -> FanPlan {
         guard mode.isManual else { return reset(.userChoice) }
         if let thermalLevel, thermalLevel >= .serious { return reset(.thermalPressure) }
         let valid = limits.filter(\.isValid)
         guard !valid.isEmpty else { return reset(.noLimits) }
-        let temperature = sampleAge <= Self.maximumSampleAge ? cpuTemperature.flatMap { $0.isFinite ? $0 : nil } : nil
+        let temperature = sampleAge <= Self.maximumSampleAge ? reading.flatMap { $0.isFinite ? $0 : nil } : nil
 
         let fraction: Double
         switch mode {
         case .automatic:
             return reset(.userChoice)
         case let .fixed(requested):
-            if requested < 1, let temperature, temperature >= Self.fixedSpeedCeiling { return reset(.tooHotForFixedSpeed) }
+            if requested < 1, let temperature {
+                let limit = tooHotForFixed ? Self.fixedSpeedCeiling - Self.hysteresis : Self.fixedSpeedCeiling
+                tooHotForFixed = temperature >= limit
+                if tooHotForFixed { return reset(.tooHotForFixedSpeed) }
+            }
             fraction = min(max(requested, 0), 1)
-        case let .curve(preset):
-            guard let temperature else { return reset(.noTemperature) }
-            let curve = preset.curve
+        case .curve, .custom:
+            guard let temperature, let curve = mode.curve else { return reset(.noTemperature) }
             if let quietBelow = curve.systemControlBelow {
                 // Leave the quiet zone at its edge; return to it only well below (hysteresis).
                 inQuietZone = inQuietZone ? temperature < quietBelow : temperature < quietBelow - Self.hysteresis
@@ -89,6 +97,7 @@ public struct FanControlPlanner: Sendable {
     private mutating func reset(_ reason: SystemControlReason) -> FanPlan {
         lastFraction = nil
         if reason != .coolEnough { inQuietZone = false }
+        if reason != .tooHotForFixedSpeed { tooHotForFixed = false }
         return .system(reason)
     }
 }

@@ -69,6 +69,7 @@ public actor SensorProvider: MetricProvider {
             sensors: readings,
             fans: fans,
             cpuTemperature: Self.mean(aggregates[.cpu]),
+            cpuHottestTemperature: aggregates[.cpu]?.max(),
             gpuTemperature: Self.mean(aggregates[.gpu]),
             systemPower: systemPower
         )

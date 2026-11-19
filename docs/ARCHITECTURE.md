@@ -34,7 +34,22 @@ Segurança, sem depender do app:
 | Pressão térmica séria/crítica (macOS) | automático; manual recusado até 30 s de condição normal |
 | Helper inicia (boot, crash) ou recebe SIGTERM | automático, mesmo sem override conhecido |
 | Falha de escrita | automático |
-| App: sem leitura de temperatura recente, limites inválidos, muito quente para velocidade fixa | automático |
+| App: sem leitura de temperatura recente, limites inválidos, muito quente para velocidade fixa (≥ 90 °C; volta abaixo de 87 °C) | automático |
+
+Temperatura de controle: o **núcleo de CPU mais quente** (máximo dos sensores `Tp*`/`Te*` identificados), não a
+média — o calor se acumula num ponto do chip, e a média dilui um cluster quente entre os frios (no M3 Pro sob carga:
+média 57–61 °C, núcleo mais quente 73–80 °C). Como o máximo oscila ~10 °C em segundos, o `TemperatureSmoother`
+aplica uma média móvel exponencial de constante 8 s antes do planejador: um pico de uma amostra move o valor
+~3 °C, uma subida sustentada passa quase inteira em ~16 s. Depois disso valem os degraus de 10%, a histerese de
+3 °C e a descida máxima de 10% por atualização. A interface continua mostrando a média como "temperatura da CPU";
+o gráfico da curva mostra a temperatura de controle. As curvas prontas foram calibradas no M3 Pro (uso leve
+73–78 °C, todos os núcleos ocupados 83–90 °C, ambos com o macOS mantendo as ventoinhas no mínimo); ver
+[viabilidade](FEASIBILITY.md).
+
+Curva personalizada (`FanMode.custom`): o usuário arrasta os pontos no gráfico ou ajusta pelos botões (teclado e
+VoiceOver). As regras ficam em `FanCurve` (`moving`, `enforcingSafety`) e valem também para preferências
+antigas ou editadas à mão: a velocidade nunca cai quando a temperatura sobe, o último ponto é sempre velocidade
+máxima, no máximo a 98 °C, e os pontos ficam a pelo menos 3 °C entre si. O helper continua validando cada alvo.
 
 Restaurar = gravar em cada `F{n}Md` o modo encontrado quando o helper iniciou (3 no M3; 0 em gerações
 anteriores), depois `Ftst = 0`, e confirmar por leitura que nenhuma ventoinha ficou em manual.

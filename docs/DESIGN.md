@@ -73,11 +73,12 @@ off) and macOS Reduce Motion: reduced turns movement into short fades, off makes
 | Selecting a sidebar row; opening a screen | the hued icon's glyph bounces once (full motion only) |
 | A screen appears | gauges and meters fill from zero (`Motion.reveal`) |
 | Live samples (every second) | gauges and bars ease in 0.3 s (`Motion.update`) — never springs |
-| Headline numbers | digits roll (`MetricText(rolls: true)`, 0.22 s); other numbers swap without animation |
+| Rarely changing headline numbers (battery charge) | digits roll (`MetricText(rolls: true)`, 0.22 s); live numbers swap without animation |
 
-Live data refreshes every second, so its motion must finish well within that second: an earlier
-spring kept the CPU screen redrawing continuously (18 % CPU, now 6 %), and rolling every number on the
-overview cost about 6 points of CPU. Measure with motion on and off before adding motion to live values.
+Live data refreshes every second, so its motion must finish well within that second and stay local:
+an earlier spring kept the CPU screen redrawing continuously (18 % CPU), and even two rolling numbers
+made the whole Pulse surface redraw every frame (overview 9.9 % → 2.5 % without them; CPU screen
+11.3 % → 3.8 %). Measure with motion on and off before adding motion to live values.
 
 ## Principles
 

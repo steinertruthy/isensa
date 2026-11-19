@@ -1394,6 +1394,64 @@
         }
       }
     },
+    "About the same as the previous period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Praticamente igual ao período anterior"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prácticamente igual que el periodo anterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presque identique à la période précédente"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etwa wie im vorherigen Zeitraum"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Più o meno come il periodo precedente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間とほぼ同じ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간과 거의 같음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与上一时段基本持平"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "與上一時段大致相同"
+          }
+        }
+      }
+    },
     "Adapter": {
       "localizations": {
         "pt-BR": {
@@ -1506,6 +1564,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "加入喜好項目"
+          }
+        }
+      }
+    },
+    "Adjust values": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustar valores"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustar valores"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajuster les valeurs"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Werte anpassen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regola i valori"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "値を調整"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "값 조정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "调整数值"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "調整數值"
           }
         }
       }
@@ -1742,64 +1858,6 @@
         }
       }
     },
-    "Allow Sensa's helper in System Settings › General › Login Items.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Permita o auxiliar do Sensa em Ajustes do Sistema › Geral › Itens de Início."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Permite el asistente de Sensa en Ajustes del Sistema › General › Ítems de inicio."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autorisez l’assistant de Sensa dans Réglages Système › Général › Ouverture."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erlaube den Helfer von Sensa unter „Systemeinstellungen“ › „Allgemein“ › „Anmeldeobjekte“."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consenti l’helper di Sensa in Impostazioni di Sistema › Generali › Elementi login."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "「システム設定」›「一般」›「ログイン項目」でSensaのヘルパーを許可してください。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "시스템 설정 › 일반 › 로그인 항목에서 Sensa 도우미를 허용하십시오."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请在“系统设置”›“通用”›“登录项”中允许Sensa的辅助程序。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "請在「系統設定」›「一般」›「登入項目」中允許Sensa的輔助程式。"
-          }
-        }
-      }
-    },
     "Always show technical details": {
       "localizations": {
         "pt-BR": {
@@ -2028,64 +2086,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "外觀、選單列、警示、喜好項目及其他所有偏好設定都會回復為預設值。"
-          }
-        }
-      }
-    },
-    "Approval needed": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aprovação necessária"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se necesita aprobación"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autorisation requise"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Genehmigung erforderlich"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Approvazione necessaria"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "承認が必要です"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "승인 필요"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "需要批准"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "需要核准"
           }
         }
       }
@@ -3134,6 +3134,64 @@
         }
       }
     },
+    "Based on recorded summaries. Values that change together do not always cause each other.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com base nos resumos registrados. Valores que mudam juntos nem sempre causam um ao outro."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Según los resúmenes registrados. Los valores que cambian juntos no siempre se causan entre sí."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "D’après les résumés enregistrés. Des valeurs qui évoluent ensemble ne sont pas forcément liées par une cause."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Basierend auf den aufgezeichneten Zusammenfassungen. Werte, die sich gemeinsam ändern, verursachen sich nicht unbedingt gegenseitig."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In base ai riepiloghi registrati. I valori che cambiano insieme non sempre si causano a vicenda."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記録された概要に基づいています。一緒に変化する値が、互いの原因とは限りません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기록된 요약을 기준으로 합니다. 함께 변하는 값이 항상 서로의 원인인 것은 아닙니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "基于已记录的摘要。同时变化的数值不一定互为因果。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "根據已記錄的摘要。同時變化的數值不一定互為因果。"
+          }
+        }
+      }
+    },
     "Battery": {
       "localizations": {
         "pt-BR": {
@@ -4062,6 +4120,64 @@
         }
       }
     },
+    "CPU temperature rose and fell with how hard the processor was working.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A temperatura da CPU subiu e desceu conforme o esforço do processador."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La temperatura de la CPU subió y bajó según el esfuerzo del procesador."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La température du CPU a suivi la charge du processeur."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die CPU-Temperatur stieg und fiel mit der Auslastung des Prozessors."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La temperatura della CPU è salita e scesa con il carico del processore."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU温度はプロセッサの負荷に合わせて上下しました。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU 온도가 프로세서 사용량에 따라 오르내렸습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU 温度随处理器负载升降。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU 溫度隨處理器負載升降。"
+          }
+        }
+      }
+    },
     "CPU usage": {
       "localizations": {
         "pt-BR": {
@@ -4638,64 +4754,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "變更風扇速度需要一個以管理者權限執行的小型輔助程式。安裝時 macOS 會要求輸入密碼。監測功能無需它即可使用。"
-          }
-        }
-      }
-    },
-    "Changing fan speeds requires Sensa's privileged helper, which macOS only installs for apps signed with an Apple Developer ID. Monitoring keeps working, and your Mac stays under Apple's automatic control.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alterar a velocidade das ventoinhas exige o auxiliar privilegiado do Sensa, que o macOS só instala em apps assinados com um Apple Developer ID. O monitoramento continua funcionando e seu Mac permanece no controle automático da Apple."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambiar la velocidad de los ventiladores requiere el asistente con privilegios de Sensa, que macOS solo instala en apps firmadas con un Apple Developer ID. La monitorización sigue funcionando y tu Mac mantiene el control automático de Apple."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifier la vitesse des ventilateurs nécessite l’assistant privilégié de Sensa, que macOS n’installe que pour les apps signées avec un Apple Developer ID. La surveillance continue de fonctionner et votre Mac reste sous le contrôle automatique d’Apple."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zum Ändern der Lüftergeschwindigkeit wird der privilegierte Helfer von Sensa benötigt, den macOS nur für Apps installiert, die mit einer Apple Developer ID signiert sind. Die Überwachung funktioniert weiter und dein Mac bleibt unter der automatischen Steuerung von Apple."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Per modificare la velocità delle ventole serve l’helper con privilegi di Sensa, che macOS installa solo per le app firmate con un Apple Developer ID. Il monitoraggio continua a funzionare e il Mac resta sotto il controllo automatico di Apple."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ファンの速度を変更するには、Sensaの特権ヘルパーが必要です。macOSはApple Developer IDで署名されたAppにのみこれをインストールします。モニタリングは引き続き機能し、MacはAppleの自動制御のままです。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "팬 속도를 변경하려면 Sensa의 권한 있는 도우미가 필요하며, macOS는 Apple Developer ID로 서명된 앱에만 이를 설치합니다. 모니터링은 계속 작동하며 Mac은 Apple의 자동 제어 상태를 유지합니다."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "更改风扇转速需要Sensa的特权辅助程序，而macOS仅为使用Apple Developer ID签名的App安装该程序。监控功能仍可正常使用，你的Mac仍由Apple自动控制。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "變更風扇轉速需要Sensa的特權輔助程式，而macOS只會為以Apple Developer ID簽署的App安裝此程式。監控功能仍可正常運作，你的Mac仍由Apple自動控制。"
           }
         }
       }
@@ -5508,6 +5566,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "正在收集資料⋯"
+          }
+        }
+      }
+    },
+    "Compare with previous period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar com o período anterior"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar con el periodo anterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer à la période précédente"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mit vorherigem Zeitraum vergleichen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confronta con il periodo precedente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間と比較"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간과 비교"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与上一时段比较"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "與上一時段比較"
           }
         }
       }
@@ -6498,6 +6614,64 @@
         }
       }
     },
+    "Custom": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizada"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizada"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personnalisée"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eigene"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizzata"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタム"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂"
+          }
+        }
+      }
+    },
     "Dark": {
       "localizations": {
         "pt-BR": {
@@ -7306,6 +7480,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "下載"
+          }
+        }
+      }
+    },
+    "Drag the points to shape the curve. Speed never drops as the temperature rises, and the last point is always full speed.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arraste os pontos para moldar a curva. A velocidade nunca cai quando a temperatura sobe, e o último ponto é sempre a velocidade máxima."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrastra los puntos para dar forma a la curva. La velocidad nunca baja cuando sube la temperatura, y el último punto siempre es la velocidad máxima."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faites glisser les points pour façonner la courbe. La vitesse ne baisse jamais quand la température monte, et le dernier point est toujours la vitesse maximale."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ziehe die Punkte, um die Kurve zu formen. Die Drehzahl sinkt nie, wenn die Temperatur steigt, und der letzte Punkt ist immer volle Drehzahl."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trascina i punti per modellare la curva. La velocità non scende mai quando la temperatura sale, e l'ultimo punto è sempre la velocità massima."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポイントをドラッグしてカーブを調整します。温度が上がると速度が下がることはなく、最後のポイントは常に最大速度です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "점을 드래그하여 커브를 조정하세요. 온도가 오를 때 속도가 내려가지 않으며, 마지막 점은 항상 최대 속도입니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拖移各点以调整曲线。温度上升时转速不会下降，最后一个点始终为最高转速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拖移各點以調整曲線。溫度上升時轉速不會下降，最後一個點一律為最高轉速。"
           }
         }
       }
@@ -8644,64 +8876,6 @@
         }
       }
     },
-    "Fan control is locked": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Controle das ventoinhas bloqueado"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El control de ventiladores está bloqueado"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le contrôle des ventilateurs est verrouillé"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Lüftersteuerung ist gesperrt"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il controllo delle ventole è bloccato"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ファン制御はロックされています"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "팬 제어가 잠겨 있습니다"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "风扇控制已锁定"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "風扇控制已鎖定"
-          }
-        }
-      }
-    },
     "Fan curve": {
       "localizations": {
         "pt-BR": {
@@ -8756,6 +8930,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "風扇曲線"
+          }
+        }
+      }
+    },
+    "Fan curves follow this reading": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As curvas das ventoinhas seguem esta leitura"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las curvas de los ventiladores siguen esta lectura"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les courbes des ventilateurs suivent cette mesure"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfterkurven folgen diesem Wert"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le curve delle ventole seguono questa lettura"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンのカーブはこの値に従います"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 커브는 이 값을 따릅니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇曲线依据此读数"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇曲線依據此讀數"
           }
         }
       }
@@ -11428,6 +11660,180 @@
         }
       }
     },
+    "Hottest core": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleo mais quente"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleo más caliente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cœur le plus chaud"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heißester Kern"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Core più caldo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最も高温のコア"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "가장 뜨거운 코어"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最热的核心"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最熱的核心"
+          }
+        }
+      }
+    },
+    "Hottest moment: %@ at %@, with the CPU at %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento mais quente: %@ às %@, com a CPU em %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento más caluroso: %@ a las %@, con la CPU al %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moment le plus chaud : %@ à %@, avec le CPU à %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heißester Moment: %@ um %@, bei %@ CPU-Auslastung."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento più caldo: %@ alle %@, con la CPU al %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最も高温だった時点：%2$@に%1$@（CPU使用率 %3$@）。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "가장 뜨거웠던 시점: %2$@에 %1$@ (CPU %3$@)."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最热时刻：%2$@，%1$@，CPU 占用 %3$@。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最熱時刻：%2$@，%1$@，CPU 使用率 %3$@。"
+          }
+        }
+      }
+    },
+    "Hottest moment: %@ at %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento mais quente: %@ às %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento más caluroso: %@ a las %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moment le plus chaud : %@ à %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heißester Moment: %@ um %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Momento più caldo: %@ alle %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最も高温だった時点：%2$@に%1$@。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "가장 뜨거웠던 시점: %2$@에 %1$@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最热时刻：%2$@，%1$@。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最熱時刻：%2$@，%1$@。"
+          }
+        }
+      }
+    },
     "Hour": {
       "localizations": {
         "pt-BR": {
@@ -12526,6 +12932,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "佈局"
+          }
+        }
+      }
+    },
+    "Leave the fans to macOS below the first point": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deixar as ventoinhas com o macOS abaixo do primeiro ponto"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dejar los ventiladores a macOS por debajo del primer punto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisser les ventilateurs à macOS sous le premier point"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfter unter dem ersten Punkt macOS überlassen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lascia le ventole a macOS sotto il primo punto"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初のポイント未満ではファンを macOS に任せる"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "첫 번째 점 미만에서는 팬을 macOS에 맡기기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低于第一个点时将风扇交给 macOS"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低於第一個點時將風扇交給 macOS"
           }
         }
       }
@@ -15024,6 +15488,64 @@
         }
       }
     },
+    "No history for the previous period yet.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ainda não há histórico do período anterior."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay historial del periodo anterior."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas encore d’historique pour la période précédente."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch kein Verlauf für den vorherigen Zeitraum."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non c’è ancora cronologia per il periodo precedente."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間の履歴はまだありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간의 기록이 아직 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上一时段暂无历史记录。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上一時段尚無歷史記錄。"
+          }
+        }
+      }
+    },
     "No history yet": {
       "localizations": {
         "pt-BR": {
@@ -16010,6 +16532,122 @@
         }
       }
     },
+    "Now higher than the previous period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agora mais alto que no período anterior"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahora más alto que en el periodo anterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus élevé qu’à la période précédente"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt höher als im vorherigen Zeitraum"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ora più alto rispetto al periodo precedente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間より高くなっています"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간보다 높음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比上一时段高"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比上一時段高"
+          }
+        }
+      }
+    },
+    "Now lower than the previous period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agora mais baixo que no período anterior"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahora más bajo que en el periodo anterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus bas qu’à la période précédente"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt niedriger als im vorherigen Zeitraum"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ora più basso rispetto al periodo precedente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間より低くなっています"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간보다 낮음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比上一时段低"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比上一時段低"
+          }
+        }
+      }
+    },
     "OK": {
       "localizations": {
         "pt-BR": {
@@ -16822,6 +17460,64 @@
         }
       }
     },
+    "Patterns": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padrões"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Patrones"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendances"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muster"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schemi"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パターン"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "패턴"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "规律"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "規律"
+          }
+        }
+      }
+    },
     "Peak": {
       "localizations": {
         "pt-BR": {
@@ -17340,6 +18036,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "播放音效"
+          }
+        }
+      }
+    },
+    "Point %@ speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade do ponto %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidad del punto %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitesse du point %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Drehzahl von Punkt %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocità del punto %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポイント %@ の速度"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "점 %@ 속도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点 %@ 的转速"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點 %@ 的轉速"
+          }
+        }
+      }
+    },
+    "Point %@ temperature": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura do ponto %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura del punto %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Température du point %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatur von Punkt %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura del punto %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポイント %@ の温度"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "점 %@ 온도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点 %@ 的温度"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點 %@ 的溫度"
           }
         }
       }
@@ -18036,6 +18848,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "試聽"
+          }
+        }
+      }
+    },
+    "Previous period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Período anterior"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Periodo anterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Période précédente"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorheriger Zeitraum"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Periodo precedente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の期間"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전 기간"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上一时段"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上一時段"
           }
         }
       }
@@ -25580,6 +26450,64 @@
         }
       }
     },
+    "The CPU reached %@ while it was mostly idle. Something else, such as the GPU, charging or a warm room, may have contributed.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A CPU chegou a %@ estando quase ociosa. Outra coisa, como a GPU, o carregamento ou um ambiente quente, pode ter contribuído."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La CPU llegó a %@ estando casi inactiva. Otra cosa, como la GPU, la carga o una habitación cálida, puede haber contribuido."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le CPU a atteint %@ alors qu’il était presque inactif. Autre chose, comme le GPU, la charge ou une pièce chaude, a pu y contribuer."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die CPU erreichte %@, obwohl sie kaum ausgelastet war. Etwas anderes, etwa die GPU, das Laden oder ein warmer Raum, könnte beigetragen haben."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La CPU ha raggiunto %@ pur essendo quasi inattiva. Qualcos’altro, come la GPU, la ricarica o una stanza calda, può aver contribuito."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPUはほとんどアイドル状態なのに%@に達しました。GPU、充電、暑い室温など、別の要因が影響した可能性があります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU가 거의 유휴 상태였는데도 %@에 도달했습니다. GPU, 충전 또는 더운 실내 등 다른 요인이 영향을 주었을 수 있습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU 几乎空闲时仍达到 %@。可能有其他因素，例如 GPU、充电或室温较高。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU 幾乎閒置時仍達到 %@。可能有其他因素，例如 GPU、充電或室溫較高。"
+          }
+        }
+      }
+    },
     "The battery is at %@. Keep the Mac in a cooler place while charging.": {
       "localizations": {
         "pt-BR": {
@@ -25808,6 +26736,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "電池電量已達%@。你可以拔下充電器。"
+          }
+        }
+      }
+    },
+    "The curve follows the hottest CPU core, averaged over a few seconds so brief spikes don't change the fan speed.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A curva segue o núcleo mais quente da CPU, com média de alguns segundos para que picos breves não mudem a velocidade das ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La curva sigue el núcleo más caliente de la CPU, promediado durante unos segundos para que los picos breves no cambien la velocidad de los ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La courbe suit le cœur du processeur le plus chaud, moyenné sur quelques secondes pour que de brefs pics ne modifient pas la vitesse des ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Kurve folgt dem heißesten CPU-Kern, gemittelt über einige Sekunden, damit kurze Spitzen die Lüfterdrehzahl nicht ändern."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La curva segue il core della CPU più caldo, mediato su alcuni secondi perché brevi picchi non cambino la velocità delle ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カーブは最も高温の CPU コアに従います。短い急上昇でファンの速度が変わらないよう、数秒間で平均化しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "커브는 가장 뜨거운 CPU 코어를 따릅니다. 짧은 급상승으로 팬 속도가 바뀌지 않도록 몇 초 동안 평균을 냅니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曲线跟随最热的 CPU 核心，并在几秒内取平均值，避免短暂峰值改变风扇转速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曲線跟隨最熱的 CPU 核心，並在幾秒內取平均值，避免短暫峰值改變風扇轉速。"
           }
         }
       }
@@ -26098,6 +27084,180 @@
           "stringUnit": {
             "state": "translated",
             "value": "風扇將恢復自動控制，移除輔助程式時 macOS 會要求輸入密碼。"
+          }
+        }
+      }
+    },
+    "The fans sped up as the temperature rose, usually from about %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As ventoinhas aceleraram conforme a temperatura subiu, geralmente a partir de cerca de %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los ventiladores aceleraron a medida que subía la temperatura, normalmente a partir de unos %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les ventilateurs ont accéléré avec la température, généralement à partir d’environ %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Lüfter liefen mit steigender Temperatur schneller, meist ab etwa %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le ventole hanno accelerato con l’aumento della temperatura, di solito a partire da circa %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "温度の上昇に合わせてファンが加速しました。たいてい約%@からです。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "온도가 오르면서 팬이 빨라졌습니다. 보통 약 %@부터입니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇随温度升高而加速，通常从约 %@ 开始。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇隨溫度升高而加速，通常從約 %@ 開始。"
+          }
+        }
+      }
+    },
+    "The fans sped up as the temperature rose.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As ventoinhas aceleraram conforme a temperatura subiu."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los ventiladores aceleraron a medida que subía la temperatura."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les ventilateurs ont accéléré avec la température."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Lüfter liefen mit steigender Temperatur schneller."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le ventole hanno accelerato con l’aumento della temperatura."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "温度の上昇に合わせてファンが加速しました。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "온도가 오르면서 팬이 빨라졌습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇随温度升高而加速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇隨溫度升高而加速。"
+          }
+        }
+      }
+    },
+    "The fans stayed off: the Mac cooled itself without them.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As ventoinhas ficaram paradas: o Mac se refrigerou sem elas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los ventiladores no se encendieron: el Mac se refrigeró sin ellos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les ventilateurs sont restés à l’arrêt : le Mac s’est refroidi sans eux."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Lüfter blieben aus: Der Mac kühlte sich ohne sie."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le ventole sono rimaste ferme: il Mac si è raffreddato senza di esse."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンは停止したままでした。Macはファンなしで冷却できていました。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬이 꺼진 상태를 유지했습니다. Mac이 팬 없이 냉각되었습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇一直未转动：Mac 无需风扇即可散热。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇一直未轉動：Mac 無需風扇即可散熱。"
           }
         }
       }
@@ -26794,6 +27954,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "這是macOS自身的評估。升至「嚴重」時，macOS會降低效能，讓Mac維持在安全溫度。"
+          }
+        }
+      }
+    },
+    "This period": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este período"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este periodo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette période"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Zeitraum"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo periodo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この期間"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이번 기간"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本时段"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本時段"
           }
         }
       }
@@ -30626,64 +31844,6 @@
         }
       }
     },
-    "Your Mac manages its fans automatically.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu Mac controla as ventoinhas automaticamente."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu Mac controla los ventiladores automáticamente."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre Mac gère ses ventilateurs automatiquement."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dein Mac steuert seine Lüfter automatisch."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il Mac gestisce le ventole automaticamente."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Macはファンを自動で制御しています。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mac이 팬을 자동으로 제어합니다."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你的Mac会自动控制风扇。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你的Mac會自動控制風扇。"
-          }
-        }
-      }
-    },
     "Your Mac needs attention.": {
       "localizations": {
         "pt-BR": {
@@ -30738,6 +31898,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "你的Mac需要留意。"
+          }
+        }
+      }
+    },
+    "Your curve leaves the fans to macOS below %1$@ and reaches full speed at %2$@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua curva deixa as ventoinhas com o macOS abaixo de %1$@ e chega à velocidade máxima em %2$@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu curva deja los ventiladores a macOS por debajo de %1$@ y alcanza la velocidad máxima a %2$@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre courbe laisse les ventilateurs à macOS sous %1$@ et atteint la vitesse maximale à %2$@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Kurve überlässt die Lüfter unter %1$@ macOS und erreicht die volle Drehzahl bei %2$@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La tua curva lascia le ventole a macOS sotto %1$@ e raggiunge la velocità massima a %2$@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このカーブは %1$@ 未満ではファンを macOS に任せ、%2$@ で最大速度になります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 커브는 %1$@ 미만에서는 팬을 macOS에 맡기고 %2$@에서 최대 속도에 도달합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的曲线在低于 %1$@ 时将风扇交给 macOS，并在 %2$@ 时达到最高转速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的曲線在低於 %1$@ 時將風扇交給 macOS，並在 %2$@ 時達到最高轉速。"
+          }
+        }
+      }
+    },
+    "Your curve reaches full speed at %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua curva chega à velocidade máxima em %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu curva alcanza la velocidad máxima a %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre courbe atteint la vitesse maximale à %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Kurve erreicht die volle Drehzahl bei %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La tua curva raggiunge la velocità massima a %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このカーブは %@ で最大速度になります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 커브는 %@에서 최대 속도에 도달합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的曲线在 %@ 时达到最高转速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的曲線在 %@ 時達到最高轉速。"
           }
         }
       }

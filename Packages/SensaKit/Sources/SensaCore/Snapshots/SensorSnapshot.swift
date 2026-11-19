@@ -30,8 +30,11 @@ public struct SensorSnapshot: SnapshotFragment, Equatable {
     public let timestamp: Date
     public let sensors: [SensorReading]
     public let fans: [FanReading]
-    /// Aggregated die temperature of the CPU clusters, when identifiable.
+    /// Mean of the identified CPU die sensors: the overall state, shown in the interface.
     public let cpuTemperature: Double?
+    /// Hottest identified CPU die sensor: what fan control follows, since heat builds up at a spot,
+    /// not on average. Noisier than the mean.
+    public let cpuHottestTemperature: Double?
     public let gpuTemperature: Double?
     /// Total system power reported by the SMC, in watts.
     public let systemPower: Double?
@@ -41,6 +44,7 @@ public struct SensorSnapshot: SnapshotFragment, Equatable {
         sensors: [SensorReading],
         fans: [FanReading],
         cpuTemperature: Double?,
+        cpuHottestTemperature: Double? = nil,
         gpuTemperature: Double?,
         systemPower: Double?
     ) {
@@ -48,6 +52,7 @@ public struct SensorSnapshot: SnapshotFragment, Equatable {
         self.sensors = sensors
         self.fans = fans
         self.cpuTemperature = cpuTemperature
+        self.cpuHottestTemperature = cpuHottestTemperature
         self.gpuTemperature = gpuTemperature
         self.systemPower = systemPower
     }
@@ -63,7 +68,7 @@ public struct SensorSnapshot: SnapshotFragment, Equatable {
         result += fans.map {
             Reading(metric: .fanSpeed($0.id), value: $0.currentRPM, unit: .rpm, timestamp: timestamp, provenance: smc)
         }
-        let aggregate = Provenance.derived(method: "maximum of identified die sensors")
+        let aggregate = Provenance.derived(method: "mean of identified die sensors")
         if let cpuTemperature {
             result.append(Reading(metric: .cpuTemperature, value: cpuTemperature, unit: .celsius, timestamp: timestamp, provenance: aggregate))
         }

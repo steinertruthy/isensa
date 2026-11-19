@@ -109,6 +109,12 @@ final class SensaUITests: XCTestCase {
         let status = app.descendants(matching: .any)["fans.status"]
         XCTAssertTrue(app.sliders["fans.speed"].waitForExistence(timeout: 5))
         XCTAssertTrue(waitFor(status, labelContaining: "Sensa is controlling the fans"), "Status: \(status.debugDescription)")
+        mode.radioButtons["Curve"].click()
+        let preset = app.descendants(matching: .any)["fans.preset"]
+        XCTAssertTrue(preset.waitForExistence(timeout: 5))
+        preset.radioButtons["Custom"].click()
+        XCTAssertTrue(app.checkBoxes["fans.custom.macos"].waitForExistence(timeout: 5), "Custom curve controls appear")
+        XCTAssertTrue(app.descendants(matching: .any)["fans.curve"].exists)
         mode.radioButtons["Automatic"].click()
         XCTAssertTrue(waitFor(status, labelContaining: "macOS is controlling the fans"), "Status: \(status.debugDescription)")
     }
