@@ -12,7 +12,14 @@ public enum NotificationAuthorization: Sendable {
 public protocol NotificationDelivering: AnyObject {
     func authorization() async -> NotificationAuthorization
     func requestAuthorization() async -> Bool
-    func deliver(title: String, body: String, identifier: String)
+    /// `link` opens when the user clicks the notification.
+    func deliver(title: String, body: String, identifier: String, link: URL?)
+}
+
+public extension NotificationDelivering {
+    func deliver(title: String, body: String, identifier: String) {
+        deliver(title: title, body: body, identifier: identifier, link: nil)
+    }
 }
 
 /// Evaluates alert rules as data arrives, delivers notifications, records alerts in history

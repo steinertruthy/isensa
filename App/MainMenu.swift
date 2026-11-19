@@ -36,6 +36,7 @@ enum MainMenu {
     private static func appMenu(target: AppDelegate) -> NSMenu {
         let menu = NSMenu(title: "iSensa")
         menu.addItem(item(String(localized: "About iSensa"), #selector(AppDelegate.showAbout), target: target))
+        menu.addItem(item(String(localized: "Check for Updates…"), #selector(AppDelegate.checkForUpdates), target: target))
         menu.addItem(.separator())
         menu.addItem(item(String(localized: "Settings…"), #selector(AppDelegate.showSettings), ",", target: target))
         menu.addItem(item(String(localized: "Open iSensa"), #selector(AppDelegate.showMainWindow), "0", target: target))

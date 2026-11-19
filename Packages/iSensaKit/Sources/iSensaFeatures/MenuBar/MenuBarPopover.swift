@@ -22,6 +22,7 @@ public struct MenuBarActions {
 public struct MenuBarPopover: View {
     @Environment(MetricsStore.self) private var store
     @Environment(AppSettings.self) private var settings
+    @Environment(\.services) private var services
     private let actions: MenuBarActions
 
     /// Curated overview, independent of which indicators sit in the menu bar.
@@ -65,6 +66,7 @@ public struct MenuBarPopover: View {
             }
             .surface()
             if store.isDemo { ProvenanceTag(tr("Demo data"), symbol: "theatermasks") }
+            if let update = services.updates?.availableUpdate { UpdateBanner(update: update) }
             footer
         }
         .padding(Spacing.large)

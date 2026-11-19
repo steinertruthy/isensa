@@ -66,8 +66,12 @@ enum Copy {
         tr("iSensa also pauses while your Mac sleeps and slows down while the display is off. Process lists, clock speeds and Wi-Fi details are only read while a window or the menu bar panel is open.")
     }
 
+    static var aboutProject: String {
+        tr("iSensa shows what is happening inside your Mac (processor, memory, temperatures, fans, battery, storage and network) in a window and right in the menu bar. It is free, open source, and everything it measures stays on your Mac.")
+    }
+
     static var privacyStatement: String {
-        tr("iSensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic.")
+        tr("iSensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic. The only connection iSensa makes on its own is a daily check on GitHub for a newer version, which you can turn off in About iSensa.")
     }
 }
 // swiftlint:enable line_length

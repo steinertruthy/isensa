@@ -12,7 +12,7 @@ final class iSensaUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = [
             "-iSensaDemoMode", variant, "-AppleLanguages", "(en)", "-hidesDockIcon", "NO",
-            "-opensWindowAtLaunch", "YES", "-hasCompletedOnboarding", "YES"
+            "-opensWindowAtLaunch", "YES", "-hasCompletedOnboarding", "YES", "-iSensaDisableUpdateCheck", "YES"
         ] + extraArguments
         app.launch()
         return app

@@ -103,6 +103,9 @@ public final class AppSettings {
     public var alerts: AlertConfiguration { didSet { saveJSON(alerts, .alerts) } }
     public var historyEnabled: Bool { didSet { save(historyEnabled, .historyEnabled) } }
     public var historyRetention: HistoryRetention { didSet { save(historyRetention.rawValue, .historyRetention) } }
+    // Updates
+    /// Look on GitHub once a day for a newer version.
+    public var checksForUpdates: Bool { didSet { save(checksForUpdates, .checksForUpdates) } }
 
     private enum Key: String {
         case appearance, motion, greetingUsesName, showsTechnicalDetails, hiddenDashboardCells, language
@@ -112,6 +115,7 @@ public final class AppSettings {
         case menuBarItems, menuBarShowsIcons, menuBarLayout, menuBarDecimals
         case hidesDockIcon, opensWindowAtLaunch, hasCompletedOnboarding
         case alerts, historyEnabled, historyRetention
+        case checksForUpdates
     }
 
     public init(defaults: UserDefaults = .standard) {
@@ -159,6 +163,7 @@ public final class AppSettings {
         alerts = Self.loadJSON(defaults, .alerts) ?? AlertConfiguration()
         historyEnabled = bool(.historyEnabled, true)
         historyRetention = HistoryRetention(rawValue: defaults.integer(forKey: Key.historyRetention.rawValue)) ?? .month
+        checksForUpdates = bool(.checksForUpdates, true)
     }
 
     public var formatter: MetricFormatter {
@@ -210,6 +215,7 @@ public final class AppSettings {
         alerts = fresh.alerts
         historyEnabled = fresh.historyEnabled
         historyRetention = fresh.historyRetention
+        checksForUpdates = fresh.checksForUpdates
     }
 
     /// Keeps saved order but adds indicators introduced by newer versions.

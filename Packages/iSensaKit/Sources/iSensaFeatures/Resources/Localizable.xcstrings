@@ -6498,6 +6498,238 @@
         }
       }
     },
+    "Check Now": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verificar Agora"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar ahora"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher maintenant"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt suchen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controlla ora"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今すぐ確認"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지금 확인"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即检查"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即檢查"
+          }
+        }
+      }
+    },
+    "Check for updates automatically": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Procurar atualizações automaticamente"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar actualizaciones automáticamente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher les mises à jour automatiquement"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatisch nach Updates suchen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerca aggiornamenti automaticamente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アップデートを自動的に確認"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "자동으로 업데이트 확인"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动检查更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動檢查更新"
+          }
+        }
+      }
+    },
+    "Checked %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verificado %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprobado %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifié %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geprüft %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controllato %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "確認: %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检查于%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檢查於%@"
+          }
+        }
+      }
+    },
+    "Checking…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verificando…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprobando…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérification…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird geprüft …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controllo in corso…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "確認中…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인 중…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在檢查…"
+          }
+        }
+      }
+    },
     "Chip": {
       "localizations": {
         "pt-BR": {
@@ -6784,6 +7016,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "清除喜好項目和名稱⋯"
+          }
+        }
+      }
+    },
+    "Click to download it from GitHub. You are using version %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clique para baixar no GitHub. Você está usando a versão %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haz clic para descargarla de GitHub. Estás usando la versión %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour la télécharger sur GitHub. Vous utilisez la version %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klicke, um sie von GitHub zu laden. Du verwendest Version %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fai clic per scaricarla da GitHub. Stai usando la versione %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クリックするとGitHubからダウンロードできます。現在のバージョンは%@です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "클릭하여 GitHub에서 다운로드하세요. 현재 버전은 %@입니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按即可从GitHub下载。你正在使用版本%@。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按一下即可從GitHub下載。你正在使用版本%@。"
           }
         }
       }
@@ -7886,6 +8176,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法移動%1$@：%2$@"
+          }
+        }
+      }
+    },
+    "Could not reach GitHub. Try again later.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível acessar o GitHub. Tente novamente mais tarde."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo conectar con GitHub. Inténtalo más tarde."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de joindre GitHub. Réessayez plus tard."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub ist nicht erreichbar. Versuche es später erneut."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile raggiungere GitHub. Riprova più tardi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHubに接続できませんでした。あとでもう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub에 연결할 수 없습니다. 나중에 다시 시도하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法连接GitHub，请稍后再试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法連線至GitHub，請稍後再試。"
+          }
+        }
+      }
+    },
+    "Created by": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Criado por"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creado por"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé par"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstellt von"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creato da"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作成者"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "만든 사람"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作者"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作者"
           }
         }
       }
@@ -9800,6 +10206,180 @@
           "stringUnit": {
             "state": "translated",
             "value": "下載"
+          }
+        }
+      }
+    },
+    "Download iSensa %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixar iSensa %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descargar iSensa %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Télécharger iSensa %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ laden"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scarica iSensa %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@をダウンロード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ 다운로드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载iSensa %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下載iSensa %@"
+          }
+        }
+      }
+    },
+    "Download it from GitHub": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixe no GitHub"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descárgala de GitHub"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargez-la sur GitHub"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Von GitHub laden"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scaricala da GitHub"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHubからダウンロード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub에서 다운로드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从GitHub下载"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從GitHub下載"
+          }
+        }
+      }
+    },
+    "Download the disk image and drag iSensa to Applications to replace this one.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixe a imagem de disco e arraste o iSensa para Aplicativos para substituir esta."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga la imagen de disco y arrastra iSensa a Aplicaciones para reemplazar esta."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargez l’image disque et faites glisser iSensa dans Applications pour remplacer celle-ci."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lade das Disk-Image und ziehe iSensa in den Ordner „Programme“, um diese Version zu ersetzen."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scarica l’immagine disco e trascina iSensa in Applicazioni per sostituire questa."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ディスクイメージをダウンロードし、iSensaを「アプリケーション」にドラッグして置き換えてください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "디스크 이미지를 다운로드하고 iSensa를 응용 프로그램으로 드래그하여 교체하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载磁盘映像并将iSensa拖到“应用程序”中以替换当前版本。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下載磁碟映像檔並將iSensa拖到「應用程式」中以取代目前版本。"
           }
         }
       }
@@ -16880,6 +17460,64 @@
         }
       }
     },
+    "License": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licença"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licencia"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licence"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lizenz"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licenza"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライセンス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "라이선스"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "许可证"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "授權"
+          }
+        }
+      }
+    },
     "Light": {
       "localizations": {
         "pt-BR": {
@@ -17398,6 +18036,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "磁碟空間不足"
+          }
+        }
+      }
+    },
+    "MIT, free and open source": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, gratuito e de código aberto"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, gratuito y de código abierto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, gratuit et open source"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, kostenlos und Open Source"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, gratuito e open source"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT、無料のオープンソース"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT, 무료 오픈 소스"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT，免费开源"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT，免費開放原始碼"
           }
         }
       }
@@ -20592,6 +21288,64 @@
         }
       }
     },
+    "Not checked yet": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ainda não verificado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no comprobado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas encore vérifié"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nicht geprüft"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non ancora controllato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "まだ確認していません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아직 확인하지 않음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未检查"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未檢查"
+          }
+        }
+      }
+    },
     "Not connected to a Wi-Fi network.": {
       "localizations": {
         "pt-BR": {
@@ -21636,6 +22390,64 @@
         }
       }
     },
+    "Once a day iSensa asks GitHub for the number of the latest version. Nothing about you or your Mac is sent.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma vez por dia o iSensa pergunta ao GitHub qual é o número da versão mais recente. Nada sobre você ou seu Mac é enviado."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una vez al día iSensa consulta a GitHub el número de la última versión. No se envía nada sobre ti ni sobre tu Mac."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une fois par jour, iSensa demande à GitHub le numéro de la dernière version. Rien sur vous ni sur votre Mac n’est envoyé."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einmal am Tag fragt iSensa bei GitHub die Nummer der neuesten Version ab. Über dich oder deinen Mac wird nichts gesendet."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una volta al giorno iSensa chiede a GitHub il numero dell’ultima versione. Non viene inviato nulla su di te o sul tuo Mac."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensaは1日1回、最新バージョンの番号をGitHubに問い合わせます。あなたやMacに関する情報は送信されません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa는 하루에 한 번 GitHub에 최신 버전 번호를 확인합니다. 사용자나 Mac에 관한 정보는 전송되지 않습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa每天向GitHub查询一次最新版本号，不会发送任何关于你或你的Mac的信息。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa每天向GitHub查詢一次最新版本號碼，不會傳送任何關於你或你的Mac的資訊。"
+          }
+        }
+      }
+    },
     "One decimal place": {
       "localizations": {
         "pt-BR": {
@@ -22038,6 +22850,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "打開「系統設定」"
+          }
+        }
+      }
+    },
+    "Open an issue on GitHub": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abra uma issue no GitHub"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre una incidencia en GitHub"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez un ticket sur GitHub"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issue auf GitHub eröffnen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri una segnalazione su GitHub"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHubでIssueを作成"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub에서 이슈 열기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在GitHub上提交问题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在GitHub上提交問題"
           }
         }
       }
@@ -24130,6 +25000,64 @@
         }
       }
     },
+    "Problems or ideas": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problemas ou ideias"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problemas o ideas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problèmes ou idées"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probleme oder Ideen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problemi o idee"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "問題やアイデア"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "문제 또는 아이디어"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "问题或建议"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "問題或建議"
+          }
+        }
+      }
+    },
     "Process %@": {
       "localizations": {
         "pt-BR": {
@@ -24300,6 +25228,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "處理器"
+          }
+        }
+      }
+    },
+    "Project": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projeto"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proyecto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projet"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projekt"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Progetto"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プロジェクト"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "프로젝트"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "项目"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "專案"
           }
         }
       }
@@ -29756,6 +30742,64 @@
         }
       }
     },
+    "Source code": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Código-fonte"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Código fuente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code source"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quellcode"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codice sorgente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ソースコード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "소스 코드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "源代码"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "原始碼"
+          }
+        }
+      }
+    },
     "Space": {
       "localizations": {
         "pt-BR": {
@@ -30680,6 +31724,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "啟動檔案"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Situação"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "État"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Status"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "状況"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "상태"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "状态"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "狀態"
           }
         }
       }
@@ -33990,6 +35092,64 @@
         }
       }
     },
+    "This is a beta version. Download the disk image and drag iSensa to Applications to replace this one.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta é uma versão beta. Baixe a imagem de disco e arraste o iSensa para Aplicativos para substituir esta."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Es una versión beta. Descarga la imagen de disco y arrastra iSensa a Aplicaciones para reemplazar esta."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il s’agit d’une version bêta. Téléchargez l’image disque et faites glisser iSensa dans Applications pour remplacer celle-ci."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dies ist eine Betaversion. Lade das Disk-Image und ziehe iSensa in den Ordner „Programme“, um diese Version zu ersetzen."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa è una versione beta. Scarica l’immagine disco e trascina iSensa in Applicazioni per sostituire questa."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "これはベータ版です。ディスクイメージをダウンロードし、iSensaを「アプリケーション」にドラッグして置き換えてください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "베타 버전입니다. 디스크 이미지를 다운로드하고 iSensa를 응용 프로그램으로 드래그하여 교체하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这是测试版。下载磁盘映像并将iSensa拖到“应用程序”中以替换当前版本。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "這是測試版。下載磁碟映像檔並將iSensa拖到「應用程式」中以取代目前版本。"
+          }
+        }
+      }
+    },
     "This is iSensa itself.": {
       "localizations": {
         "pt-BR": {
@@ -36600,6 +37760,64 @@
         }
       }
     },
+    "Version %@ is available": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A versão %@ está disponível"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La versión %@ está disponible"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La version %@ est disponible"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@ ist verfügbar"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La versione %@ è disponibile"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン%@が利用可能です"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "버전 %@ 사용 가능"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本%@现已推出"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本%@現已推出"
+          }
+        }
+      }
+    },
     "Virtual": {
       "localizations": {
         "pt-BR": {
@@ -37002,6 +38220,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "訊號微弱"
+          }
+        }
+      }
+    },
+    "Website": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitio web"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site web"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Website"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sito web"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Webサイト"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "웹 사이트"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "网站"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "網站"
           }
         }
       }
@@ -39616,6 +40892,64 @@
         }
       }
     },
+    "iSensa %@ is available": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ está disponível"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ está disponible"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ est disponible"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ ist verfügbar"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ è disponibile"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@が利用可能です"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ 사용 가능"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ 现已推出"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa %@ 現已推出"
+          }
+        }
+      }
+    },
     "iSensa also pauses while your Mac sleeps and slows down while the display is off. Process lists, clock speeds and Wi-Fi details are only read while a window or the menu bar panel is open.": {
       "localizations": {
         "pt-BR": {
@@ -39732,60 +41066,60 @@
         }
       }
     },
-    "iSensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic.": {
+    "iSensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic. The only connection iSensa makes on its own is a daily check on GitHub for a newer version, which you can turn off in About iSensa.": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O iSensa não envia métricas, identificadores nem quaisquer outros dados a servidores. Não há telemetria oculta. O monitoramento de rede lê apenas contadores de bytes e nunca inspeciona o tráfego."
+            "value": "O iSensa não envia métricas, identificadores nem quaisquer outros dados a servidores. Não há telemetria oculta. O monitoramento de rede lê apenas contadores de bytes e nunca inspeciona o tráfego. A única conexão que o iSensa faz por conta própria é uma verificação diária no GitHub por uma versão mais nova, que você pode desligar em Sobre o iSensa."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa no envía métricas, identificadores ni ningún otro dato a servidores. No hay telemetría oculta. La monitorización de red solo lee contadores de bytes y nunca inspecciona el tráfico."
+            "value": "iSensa no envía métricas, identificadores ni ningún otro dato a servidores. No hay telemetría oculta. La monitorización de red solo lee contadores de bytes y nunca inspecciona el tráfico. La única conexión que iSensa hace por su cuenta es una comprobación diaria en GitHub de si hay una versión más reciente, que puedes desactivar en Acerca de iSensa."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa n’envoie aucune mesure, aucun identifiant ni aucune autre donnée à des serveurs. Aucune télémétrie cachée. La surveillance réseau lit uniquement des compteurs d’octets et n’inspecte jamais le trafic."
+            "value": "iSensa n’envoie aucune mesure, aucun identifiant ni aucune autre donnée à des serveurs. Aucune télémétrie cachée. La surveillance réseau lit uniquement des compteurs d’octets et n’inspecte jamais le trafic. La seule connexion qu’iSensa établit de lui-même est une vérification quotidienne sur GitHub d’une version plus récente, que vous pouvez désactiver dans À propos de iSensa."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa sendet keine Messwerte, Kennungen oder sonstigen Daten an Server. Es gibt keine versteckte Telemetrie. Die Netzwerküberwachung liest nur Bytezähler und untersucht niemals den Datenverkehr."
+            "value": "iSensa sendet keine Messwerte, Kennungen oder sonstigen Daten an Server. Es gibt keine versteckte Telemetrie. Die Netzwerküberwachung liest nur Bytezähler und untersucht niemals den Datenverkehr. Die einzige Verbindung, die iSensa von sich aus herstellt, ist eine tägliche Prüfung auf GitHub, ob es eine neuere Version gibt. Du kannst sie unter „Über iSensa“ ausschalten."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa non invia metriche, identificatori né altri dati ai server. Nessuna telemetria nascosta. Il monitoraggio di rete legge solo i contatori di byte e non ispeziona mai il traffico."
+            "value": "iSensa non invia metriche, identificatori né altri dati ai server. Nessuna telemetria nascosta. Il monitoraggio di rete legge solo i contatori di byte e non ispeziona mai il traffico. L’unica connessione che iSensa effettua da solo è un controllo giornaliero su GitHub per una versione più recente, che puoi disattivare in Informazioni su iSensa."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensaは測定値、識別子、その他のデータをサーバに送信しません。隠れたテレメトリもありません。ネットワークのモニタリングはバイト数のカウンタだけを読み取り、通信内容は一切調べません。"
+            "value": "iSensaは測定値、識別子、その他のデータをサーバに送信しません。隠れたテレメトリもありません。ネットワークのモニタリングはバイト数のカウンタだけを読み取り、通信内容は一切調べません。iSensaが自動で行う通信は、GitHubで新しいバージョンを1日1回確認することだけです。これは「iSensaについて」でオフにできます。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa는 측정값, 식별자 또는 기타 데이터를 서버로 보내지 않습니다. 숨겨진 원격 측정도 없습니다. 네트워크 모니터링은 바이트 카운터만 읽으며 트래픽을 절대 검사하지 않습니다."
+            "value": "iSensa는 측정값, 식별자 또는 기타 데이터를 서버로 보내지 않습니다. 숨겨진 원격 측정도 없습니다. 네트워크 모니터링은 바이트 카운터만 읽으며 트래픽을 절대 검사하지 않습니다. iSensa가 스스로 하는 유일한 연결은 GitHub에서 하루에 한 번 새 버전을 확인하는 것이며, ‘iSensa에 관하여’에서 끌 수 있습니다."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa不会将指标、标识符或任何其他数据发送到服务器，也没有隐藏的遥测。网络监控仅读取字节计数器，从不检查流量内容。"
+            "value": "iSensa不会将指标、标识符或任何其他数据发送到服务器，也没有隐藏的遥测。网络监控仅读取字节计数器，从不检查流量内容。iSensa唯一会自行发起的连接是每天在GitHub上检查一次是否有新版本，你可以在“关于iSensa”中关闭它。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "iSensa不會將指標、識別碼或任何其他資料傳送到伺服器，也沒有隱藏的遙測。網路監控只會讀取位元組計數器，絕不檢查流量內容。"
+            "value": "iSensa不會將指標、識別碼或任何其他資料傳送到伺服器，也沒有隱藏的遙測。網路監控只會讀取位元組計數器，絕不檢查流量內容。iSensa唯一會自行發起的連線是每天在GitHub上檢查一次是否有新版本，你可以在「關於iSensa」中關閉它。"
           }
         }
       }
@@ -39902,6 +41236,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "iSensa現在位於你的選單列中。隨時打開即可查看Mac的狀況。"
+          }
+        }
+      }
+    },
+    "iSensa is up to date": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O iSensa está atualizado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa está actualizado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa est à jour"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa ist auf dem neuesten Stand"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa è aggiornato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensaは最新です"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa가 최신 상태입니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa已是最新版本"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa已是最新版本"
           }
         }
       }
@@ -40656,6 +42048,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "iSensa顯示的是磁碟自身的估算值，不會預測剩餘壽命。"
+          }
+        }
+      }
+    },
+    "iSensa shows what is happening inside your Mac (processor, memory, temperatures, fans, battery, storage and network) in a window and right in the menu bar. It is free, open source, and everything it measures stays on your Mac.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O iSensa mostra o que acontece dentro do seu Mac (processador, memória, temperaturas, ventiladores, bateria, armazenamento e rede) em uma janela e direto na barra de menus. É gratuito, de código aberto, e tudo o que ele mede fica no seu Mac."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa muestra lo que ocurre dentro de tu Mac (procesador, memoria, temperaturas, ventiladores, batería, almacenamiento y red) en una ventana y directamente en la barra de menús. Es gratuito, de código abierto, y todo lo que mide se queda en tu Mac."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa montre ce qui se passe dans votre Mac (processeur, mémoire, températures, ventilateurs, batterie, stockage et réseau) dans une fenêtre et directement dans la barre des menus. Il est gratuit, open source, et tout ce qu’il mesure reste sur votre Mac."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa zeigt, was in deinem Mac passiert (Prozessor, Speicher, Temperaturen, Lüfter, Batterie, Speicherplatz und Netzwerk), in einem Fenster und direkt in der Menüleiste. Es ist kostenlos, Open Source, und alles, was es misst, bleibt auf deinem Mac."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa mostra cosa succede all’interno del tuo Mac (processore, memoria, temperature, ventole, batteria, archiviazione e rete) in una finestra e direttamente nella barra dei menu. È gratuito, open source e tutto ciò che misura resta sul tuo Mac."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensaは、Macの内部で起きていること(プロセッサ、メモリ、温度、ファン、バッテリー、ストレージ、ネットワーク)をウインドウとメニューバーに表示します。無料のオープンソースで、計測したデータはすべてMacの中にとどまります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa는 Mac 내부에서 일어나는 일(프로세서, 메모리, 온도, 팬, 배터리, 저장 공간, 네트워크)을 윈도우와 메뉴 막대에 바로 보여 줍니다. 무료 오픈 소스이며, 측정한 모든 데이터는 Mac에만 남습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa在窗口和菜单栏中显示Mac内部正在发生的事情（处理器、内存、温度、风扇、电池、储存空间和网络）。它免费、开源，测量的一切都只保存在你的Mac上。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iSensa在視窗和選單列中顯示Mac內部正在發生的事情（處理器、記憶體、溫度、風扇、電池、儲存空間和網路）。它免費、開放原始碼，測量的一切都只保存在你的Mac上。"
           }
         }
       }

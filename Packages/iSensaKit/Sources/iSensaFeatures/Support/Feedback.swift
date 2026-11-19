@@ -39,14 +39,17 @@ public struct iSensaServices {
     /// Present only on Macs with fans.
     public var fanControl: FanControlCoordinator?
     public var storage: StorageServices
+    /// Absent in demo mode, which never goes online.
+    public var updates: UpdateChecker?
     public var actions: AppActions
 
     public init(
         history: (any HistoryReading)? = nil, alerts: AlertCoordinator? = nil, notifications: NotificationDelivering? = nil,
         launchAtLogin: LaunchAtLoginControlling? = nil, fanControl: FanControlCoordinator? = nil,
-        storage: StorageServices = StorageServices(), actions: AppActions = AppActions()
+        storage: StorageServices = StorageServices(), updates: UpdateChecker? = nil, actions: AppActions = AppActions()
     ) {
         self.storage = storage
+        self.updates = updates
         self.history = history
         self.alerts = alerts
         self.notifications = notifications

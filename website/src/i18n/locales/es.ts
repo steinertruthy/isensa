@@ -214,7 +214,7 @@ const es: Dictionary = {
     text: 'iSensa es gratuito y de código abierto. Cualquiera puede ver cómo funciona, proponer cambios y ayudar a mejorarlo en GitHub.',
     principles: {
       honest: { title: 'Nada inventado', text: 'Un sensor solo recibe nombre cuando iSensa está seguro de qué es. Las estimaciones aparecen como estimaciones.' },
-      local: { title: 'Nada sale de tu Mac', text: 'iSensa no usa internet. Tu historial se queda en tu Mac.' },
+      local: { title: 'Nada sale de tu Mac', text: 'Tus lecturas y tu historial se quedan en tu Mac. En internet, iSensa solo comprueba si hay una versión nueva.' },
       safe: { title: 'Cuidado con el hardware', text: 'El control de ventiladores es opcional y devuelve el control a macOS en cuanto algo parece ir mal.' },
     },
     links: {
@@ -313,13 +313,13 @@ const es: Dictionary = {
         {
           heading: 'Resumen',
           body: [
-            'La app iSensa funciona por completo en tu Mac y no realiza conexiones de red. Este sitio no usa cookies ni herramientas de análisis. Los servicios que sí ven tus solicitudes son los de GitHub, descritos a continuación.',
+            'La app iSensa funciona por completo en tu Mac. Su única conexión es una comprobación diaria en GitHub de si hay una versión más reciente, que puedes desactivar. Este sitio no usa cookies ni herramientas de análisis. Los servicios que sí ven tus solicitudes son los de GitHub, descritos a continuación.',
           ],
         },
         {
           heading: 'El sitio web',
           body: [
-            'El sitio está alojado en GitHub Pages. Para mostrar la última versión y las estadísticas del repositorio, tu navegador solicita información pública a la API de GitHub (api.github.com). Las descargas las sirve GitHub. Como cualquier servidor web, GitHub recibe tu dirección IP y los datos de tu navegador con estas solicitudes y los trata según la Declaración de privacidad general de GitHub.',
+            'El sitio está alojado en GitHub Pages. Para mostrar la última versión, tu navegador solicita información pública a la API de GitHub (api.github.com). Las descargas las sirve GitHub. Como cualquier servidor web, GitHub recibe tu dirección IP y los datos de tu navegador con estas solicitudes y los trata según la Declaración de privacidad general de GitHub.',
             'El sitio recuerda el idioma y la apariencia que elegiste en el almacenamiento local del navegador. Eso se queda en tu dispositivo, no se envía a ningún sitio y puedes borrarlo cuando quieras desde los ajustes del navegador.',
           ],
         },
@@ -327,6 +327,7 @@ const es: Dictionary = {
           heading: 'La app',
           body: [
             'iSensa lee información del hardware y del sistema de tu Mac (como el uso, las temperaturas, la batería y el almacenamiento) para mostrarla. Su historial y sus preferencias se guardan solo en tu Mac, en ~/Library/Application Support/iSensa y en las preferencias de la app, y puedes exportarlos o borrarlos en Ajustes.',
+            'Una vez al día, y cuando eliges Buscar actualizaciones, la app consulta a la API de GitHub (api.github.com) la lista de versiones publicadas. La solicitud solo lleva el nombre y el número de versión de la app; como cualquier servidor, GitHub también recibe tu dirección IP. Puedes desactivarlo en Ajustes › Acerca de iSensa.',
             'El análisis Liberar espacio lee tamaños y nombres de carpetas y archivos, nunca su contenido, y solo cuando lo inicias. macOS puede pedir permiso para acceder a algunas carpetas; puedes negarlo o revocarlo en Ajustes del Sistema.',
             'Las notificaciones las crea macOS de forma local. La app no contiene servicios de análisis, publicidad ni informes de errores.',
           ],

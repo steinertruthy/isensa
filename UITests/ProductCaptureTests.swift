@@ -45,7 +45,7 @@ final class ProductCaptureTests: XCTestCase {
         let frame = "\(Int(origin.x)) \(Int(origin.y)) \(Int(size.width)) \(Int(size.height)) 0 0 \(Int(screen.width)) \(Int(screen.height))"
         app.launchArguments = [
             "-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-hidesDockIcon", "NO", "-opensWindowAtLaunch", "YES",
-            "-hasCompletedOnboarding", "YES", "-hidesComputerName", "YES", "-greetingUsesName", "NO",
+            "-hasCompletedOnboarding", "YES", "-iSensaDisableUpdateCheck", "YES", "-hidesComputerName", "YES", "-greetingUsesName", "NO",
             // Technical details stay closed: the Network screen lists this Mac's IP addresses there.
             "-showsTechnicalDetails", "NO", "-temperatureUnit", "celsius",
             "-appearance", appearance, "-sidebarVisible", "YES", "-NSWindow Frame iSensaMainWindow", frame
@@ -60,7 +60,7 @@ final class ProductCaptureTests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = [
             "-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-hidesDockIcon", "YES", "-opensWindowAtLaunch", "NO",
-            "-hasCompletedOnboarding", "YES", "-hidesComputerName", "YES", "-temperatureUnit", "celsius", "-appearance", appearance
+            "-hasCompletedOnboarding", "YES", "-iSensaDisableUpdateCheck", "YES", "-hidesComputerName", "YES", "-temperatureUnit", "celsius", "-appearance", appearance
         ]
         app.launch()
         let item = app.statusItems.firstMatch

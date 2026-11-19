@@ -10,7 +10,7 @@ Thank you for helping. Issues and pull requests are welcome in English or Portug
 - **Fan safety.** The privileged helper validates every command again, clamps speeds to the limits the
   hardware reports and returns the fans to automatic control on any failure. Changes to fan control
   need tests for the failure paths.
-- **Nothing leaves the Mac.** The app makes no network connections.
+- **Nothing leaves the Mac.** The only connection the app makes is the daily update check against the public GitHub Releases API, which sends nothing but its name and version and can be turned off. Do not add others.
 - **Ten languages.** Every user-visible string is translated (see below).
 - **Accessibility and performance.** VoiceOver labels, keyboard access, Reduce Motion, and low energy
   use when only the menu bar is visible.

@@ -98,3 +98,20 @@ Distribuir como `.dmg` assinado e notarizado (`hdiutil create`, `codesign`, `not
 - [ ] Controle de ventoinhas validado de novo em hardware, com o build assinado (curva, lease, sono e despertar)
 - [ ] Sparkle com appcast real e teste de atualização de uma versão para a seguinte
 - [ ] README com requisitos (macOS 14+), privacidade e como remover o auxiliar
+
+## Publicar uma versão hoje (sem Developer ID)
+
+1. Atualize `CFBundleShortVersionString` em `project.yml` (versão semântica: `0.2.0`, `0.2.0-beta.1`).
+2. `scripts/release/make-dmg.sh` gera `build/release/iSensa-<versão>-arm64.dmg` (Release, Apple Silicon, assinatura ad hoc) e o `.sha256`.
+3. Publique no GitHub com a tag `v<versão>` e anexe o `.dmg` e o `.sha256`:
+   `gh release create v<versão> build/release/iSensa-<versão>-arm64.dmg{,.sha256} --title "iSensa <versão>" --notes-file notas.md`
+   (`--prerelease` para betas).
+
+Depois disso, sem nenhum outro passo:
+- o site oferece o novo `.dmg` no botão de download (lê a API de Releases do GitHub);
+- o app instalado encontra a versão na verificação diária (ou em **iSensa › Procurar Atualizações…**), avisa com uma notificação
+  e mostra o aviso no popover da barra de menus e em **Ajustes › Sobre o iSensa**. O aviso só aparece quando a versão já tem
+  um instalador anexado, e cada versão é anunciada uma única vez.
+
+A atualização ainda é manual (baixar e arrastar para Aplicativos). A instalação automática com Sparkle depende de assinatura
+Developer ID; ver acima.

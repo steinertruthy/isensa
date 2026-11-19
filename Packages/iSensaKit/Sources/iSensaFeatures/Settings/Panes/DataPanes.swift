@@ -106,6 +106,7 @@ struct AdvancedPane: View {
 
 struct AboutPane: View {
     @Environment(MetricsStore.self) private var store
+    @Environment(\.services) private var services
 
     var body: some View {
         Form {
@@ -120,7 +121,30 @@ struct AboutPane: View {
                     }
                 }
                 .padding(.vertical, Spacing.xSmall)
+                Text(Copy.aboutProject)
+                    .font(Typography.callout)
+                    .fixedSize(horizontal: false, vertical: true)
             }
+            Section(tr("Project")) {
+                LabeledContent(tr("Created by")) {
+                    Link("Steiner (@steinertruthy)", destination: ProjectLinks.author)
+                }
+                .accessibilityIdentifier("about.author")
+                LabeledContent(tr("Source code")) {
+                    Link("github.com/steinertruthy/isensa", destination: ProjectLinks.repository)
+                }
+                .accessibilityIdentifier("about.repository")
+                LabeledContent(tr("Website")) {
+                    Link("steinertruthy.github.io/isensa", destination: ProjectLinks.website)
+                }
+                LabeledContent(tr("License")) {
+                    Link(tr("MIT, free and open source"), destination: ProjectLinks.license)
+                }
+                LabeledContent(tr("Problems or ideas")) {
+                    Link(tr("Open an issue on GitHub"), destination: ProjectLinks.issues)
+                }
+            }
+            if let updates = services.updates { UpdateSection(checker: updates) }
             Section(tr("This Mac")) {
                 LabeledContent(tr("Model"), value: "\(store.profile.displayModelName) (\(store.profile.modelIdentifier))")
                 LabeledContent(tr("Chip"), value: store.profile.chipName)

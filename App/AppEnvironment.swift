@@ -23,6 +23,8 @@ final class AppEnvironment {
     let history: HistoryStore?
     let storageServices: StorageServices
     private(set) var alerts: AlertCoordinator?
+    /// Absent in demo mode and with `-iSensaDisableUpdateCheck YES` (tests, screenshots): those never go online.
+    private(set) var updates: UpdateChecker?
     /// Present only on Macs with fans.
     let fanControl: FanControlCoordinator?
     private var maintenance: Task<Void, Never>?
@@ -73,6 +75,13 @@ final class AppEnvironment {
         store.consume(engine.events)
         startHistory()
         startAlerts()
+        if !isDemo && !arguments.bool(forKey: "iSensaDisableUpdateCheck") {
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+            updates = UpdateChecker(
+                currentVersion: version, settings: settings, delivery: notifications,
+                fetch: GitHubReleaseSource.fetcher(version: version)
+            )
+        }
     }
 
     private static func storageServices() -> StorageServices {
@@ -108,7 +117,7 @@ final class AppEnvironment {
     func services(actions: AppActions) -> iSensaServices {
         iSensaServices(
             history: history, alerts: alerts, notifications: notifications, launchAtLogin: launchAtLogin,
-            fanControl: fanControl, storage: storageServices, actions: actions
+            fanControl: fanControl, storage: storageServices, updates: updates, actions: actions
         )
     }
 

@@ -120,7 +120,7 @@ private final class RecordingDelivery: NotificationDelivering {
     var delivered: [(title: String, identifier: String)] = []
     func authorization() async -> NotificationAuthorization { .authorized }
     func requestAuthorization() async -> Bool { true }
-    func deliver(title: String, body: String, identifier: String) { delivered.append((title, identifier)) }
+    func deliver(title: String, body: String, identifier: String, link: URL?) { delivered.append((title, identifier)) }
 }
 
 @MainActor

@@ -69,6 +69,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             await environment.engine.start()
         }
         environment.fanControl?.start()
+        environment.updates?.start()
         // `-iSensaOpenPopover YES` opens the popover at launch (UI tests, screenshots).
         if UserDefaults.standard.bool(forKey: "iSensaOpenPopover") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.statusItem.showPopover() }
@@ -139,6 +140,37 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showSettings() {
         settingsWindow.show()
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    /// "Check for Updates…": checks now and answers in a dialog, like other Mac apps.
+    @objc func checkForUpdates() {
+        guard let updates = environment.updates else { return }
+        Task {
+            await updates.check()
+            let current = updates.currentVersion?.description ?? "–"
+            let alert = NSAlert()
+            switch updates.status {
+            case .available(let update):
+                alert.messageText = String(format: String(localized: "iSensa %@ is available"), update.version.description)
+                // swiftlint:disable:next line_length
+                let advice = String(localized: "You are using version %@. Download the disk image from GitHub and drag iSensa to Applications to replace this one.")
+                alert.informativeText = String(format: advice, current)
+                alert.addButton(withTitle: String(localized: "Download"))
+                alert.addButton(withTitle: String(localized: "Later"))
+                NSApp.activate(ignoringOtherApps: true)
+                if alert.runModal() == .alertFirstButtonReturn { NSWorkspace.shared.open(update.pageURL) }
+                return
+            case .upToDate:
+                alert.messageText = String(localized: "iSensa is up to date")
+                alert.informativeText = String(format: String(localized: "Version %@ is the latest."), current)
+            default:
+                alert.alertStyle = .warning
+                alert.messageText = String(localized: "Could not check for updates")
+                alert.informativeText = String(localized: "GitHub could not be reached. Check your connection and try again.")
+            }
+            NSApp.activate(ignoringOtherApps: true)
+            alert.runModal()
+        }
     }
 
     @objc func showAbout() {

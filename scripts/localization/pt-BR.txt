@@ -207,7 +207,7 @@
 324|Buscar sensores
 325|Veja como seu Mac está se comportando.
 329|Enviando
-332|O iSensa não envia métricas, identificadores nem quaisquer outros dados a servidores. Não há telemetria oculta. O monitoramento de rede lê apenas contadores de bytes e nunca inspeciona o tráfego.
+332|O iSensa não envia métricas, identificadores nem quaisquer outros dados a servidores. Não há telemetria oculta. O monitoramento de rede lê apenas contadores de bytes e nunca inspeciona o tráfego. A única conexão que o iSensa faz por conta própria é uma verificação diária no GitHub por uma versão mais nova, que você pode desligar em Sobre o iSensa.
 336|O iSensa só nomeia sensores depois de validá-los em um modelo de Mac. Todos os sensores brutos continuam disponíveis em Sensores.
 338|O iSensa lê apenas contadores de bytes e nunca inspeciona seu tráfego. O macOS informa esses contadores aos apps em passos de 1 KB, então taxas muito baixas são aproximadas.
 342|O iSensa mostra a estimativa da própria unidade e não prevê a vida útil restante.
@@ -743,3 +743,37 @@
 742|Média da CPU
 743|Medida dentro do disco
 744|Informada pelo disco (SMART)
+745|iSensa %@ está disponível
+746|Clique para baixar no GitHub. Você está usando a versão %@.
+747|Baixe no GitHub
+748|Procurar atualizações automaticamente
+749|Situação
+750|Esta é uma versão beta. Baixe a imagem de disco e arraste o iSensa para Aplicativos para substituir esta.
+751|Baixe a imagem de disco e arraste o iSensa para Aplicativos para substituir esta.
+752|Baixar iSensa %@
+753|Verificar Agora
+754|Uma vez por dia o iSensa pergunta ao GitHub qual é o número da versão mais recente. Nada sobre você ou seu Mac é enviado.
+755|Ainda não verificado
+756|Verificando…
+757|O iSensa está atualizado
+758|Verificado %@
+759|A versão %@ está disponível
+760|Não foi possível acessar o GitHub. Tente novamente mais tarde.
+761|O iSensa mostra o que acontece dentro do seu Mac (processador, memória, temperaturas, ventiladores, bateria, armazenamento e rede) em uma janela e direto na barra de menus. É gratuito, de código aberto, e tudo o que ele mede fica no seu Mac.
+762|Projeto
+763|Criado por
+764|Código-fonte
+765|Site
+766|Licença
+767|MIT, gratuito e de código aberto
+768|Problemas ou ideias
+769|Abra uma issue no GitHub
+770|Procurar Atualizações…
+771|iSensa %@ está disponível
+772|Você está usando a versão %@. Baixe a imagem de disco no GitHub e arraste o iSensa para Aplicativos para substituir esta.
+773|Baixar
+774|Mais Tarde
+775|O iSensa está atualizado
+776|A versão %@ é a mais recente.
+777|Não foi possível procurar atualizações
+778|Não foi possível acessar o GitHub. Verifique sua conexão e tente novamente.

@@ -330,7 +330,7 @@
 329|Enviando
 330|iSensa también se pausa mientras el Mac está en reposo y va más despacio con la pantalla apagada. Las listas de procesos, las frecuencias y los detalles de la Wi-Fi solo se leen con una ventana o el panel de la barra de menús abiertos.
 331|iSensa puede avisarte cuando tu Mac se calienta, la memoria está bajo presión, el disco está casi lleno o la batería está baja.
-332|iSensa no envía métricas, identificadores ni ningún otro dato a servidores. No hay telemetría oculta. La monitorización de red solo lee contadores de bytes y nunca inspecciona el tráfico.
+332|iSensa no envía métricas, identificadores ni ningún otro dato a servidores. No hay telemetría oculta. La monitorización de red solo lee contadores de bytes y nunca inspecciona el tráfico. La única conexión que iSensa hace por su cuenta es una comprobación diaria en GitHub de si hay una versión más reciente, que puedes desactivar en Acerca de iSensa.
 333|iSensa ya está en tu barra de menús. Ábrelo cuando quieras para ver cómo está tu Mac.
 334|iSensa guarda un resumen por minuto durante una semana y después uno por hora. Los datos más antiguos se eliminan automáticamente.
 335|iSensa no necesita permisos especiales para monitorizar tu Mac. Solo pide permiso para las notificaciones, y solo cuando las activas.
@@ -743,3 +743,37 @@
 742|Media de la CPU
 743|Medida dentro de la unidad
 744|Informada por la unidad (SMART)
+745|iSensa %@ está disponible
+746|Haz clic para descargarla de GitHub. Estás usando la versión %@.
+747|Descárgala de GitHub
+748|Buscar actualizaciones automáticamente
+749|Estado
+750|Es una versión beta. Descarga la imagen de disco y arrastra iSensa a Aplicaciones para reemplazar esta.
+751|Descarga la imagen de disco y arrastra iSensa a Aplicaciones para reemplazar esta.
+752|Descargar iSensa %@
+753|Buscar ahora
+754|Una vez al día iSensa consulta a GitHub el número de la última versión. No se envía nada sobre ti ni sobre tu Mac.
+755|Aún no comprobado
+756|Comprobando…
+757|iSensa está actualizado
+758|Comprobado %@
+759|La versión %@ está disponible
+760|No se pudo conectar con GitHub. Inténtalo más tarde.
+761|iSensa muestra lo que ocurre dentro de tu Mac (procesador, memoria, temperaturas, ventiladores, batería, almacenamiento y red) en una ventana y directamente en la barra de menús. Es gratuito, de código abierto, y todo lo que mide se queda en tu Mac.
+762|Proyecto
+763|Creado por
+764|Código fuente
+765|Sitio web
+766|Licencia
+767|MIT, gratuito y de código abierto
+768|Problemas o ideas
+769|Abre una incidencia en GitHub
+770|Buscar actualizaciones…
+771|iSensa %@ está disponible
+772|Estás usando la versión %@. Descarga la imagen de disco de GitHub y arrastra iSensa a Aplicaciones para reemplazar esta.
+773|Descargar
+774|Más tarde
+775|iSensa está actualizado
+776|La versión %@ es la más reciente.
+777|No se pudieron buscar actualizaciones
+778|No se pudo conectar con GitHub. Comprueba tu conexión e inténtalo de nuevo.

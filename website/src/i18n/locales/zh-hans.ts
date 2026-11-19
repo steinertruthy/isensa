@@ -214,7 +214,7 @@ const zhHans: Dictionary = {
     text: 'iSensa 免费且开源。任何人都可以在 GitHub 上查看它的工作原理、提出修改建议并帮助改进。',
     principles: {
       honest: { title: '绝不编造', text: '只有 iSensa 确定传感器是什么时，才会给它命名。估算值会标为估算值。' },
-      local: { title: '数据不离开你的 Mac', text: 'iSensa 不使用互联网。你的历史记录留在你的 Mac 上。' },
+      local: { title: '数据不离开你的 Mac', text: '你的读数和历史记录都留在你的 Mac 上。iSensa 联网只为检查是否有新版本。' },
       safe: { title: '审慎对待硬件', text: '风扇控制是可选的，一旦发现异常，就会立即把控制权交还给 macOS。' },
     },
     links: {
@@ -313,13 +313,13 @@ const zhHans: Dictionary = {
         {
           heading: '摘要',
           body: [
-            'iSensa 应用完全在你的 Mac 上运行，不建立任何网络连接。本网站不使用 Cookie，也不使用分析工具。能看到你请求的是 GitHub 的服务，详见下文。',
+            'iSensa 应用完全在你的 Mac 上运行。它唯一的网络连接是每天在 GitHub 上检查一次是否有新版本，你可以关闭它。本网站不使用 Cookie，也不使用分析工具。能看到你请求的是 GitHub 的服务，详见下文。',
           ],
         },
         {
           heading: '网站',
           body: [
-            '本网站由 GitHub Pages 托管。为了显示最新版本和仓库统计信息，你的浏览器会向 GitHub API（api.github.com）请求公开信息。下载内容由 GitHub 提供。与任何网络服务器一样，GitHub 会在这些请求中收到你的 IP 地址和浏览器信息，并依据 GitHub 隐私声明处理。',
+            '本网站由 GitHub Pages 托管。为了显示最新版本，你的浏览器会向 GitHub API（api.github.com）请求公开信息。下载内容由 GitHub 提供。与任何网络服务器一样，GitHub 会在这些请求中收到你的 IP 地址和浏览器信息，并依据 GitHub 隐私声明处理。',
             '网站会在浏览器的本地存储中记住你选择的语言和外观。这些信息只保存在你的设备上，不会发送到任何地方，你可以随时在浏览器设置中清除。',
           ],
         },
@@ -327,6 +327,7 @@ const zhHans: Dictionary = {
           heading: '应用',
           body: [
             'iSensa 读取 Mac 的硬件和系统信息（如使用率、温度、电池和存储）以便显示。历史记录和偏好设置只保存在你的 Mac 上，位于 ~/Library/Application Support/iSensa 和应用偏好设置中，你可以在设置中导出或删除。',
+            '应用每天一次，以及在你选择“检查更新”时，会向 GitHub API（api.github.com）查询已发布版本的列表。请求只包含应用的名称和版本号；与任何服务器一样，GitHub 也会收到你的 IP 地址。你可以在“设置 › 关于iSensa”中关闭此功能。',
             '“释放空间”分析只在你启动时读取文件夹和文件的大小与名称，从不读取其内容。macOS 可能会请求访问某些文件夹的权限；你可以拒绝，或在“系统设置”中撤销。',
             '通知由 macOS 在本地创建。应用不包含任何分析、广告或崩溃报告服务。',
           ],
