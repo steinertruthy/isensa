@@ -17,11 +17,14 @@ public struct SparklineChart: View {
     private let points: [Point]
     private let range: ClosedRange<Double>?
     private let tint: Color
+    private let reference: Double?
 
-    public init(points: [Point], range: ClosedRange<Double>? = nil, tint: Color = .accentColor) {
+    /// - Parameter reference: a value to mark with a dashed line, such as a fan's target speed.
+    public init(points: [Point], range: ClosedRange<Double>? = nil, tint: Color = .accentColor, reference: Double? = nil) {
         self.points = points
         self.range = range
         self.tint = tint
+        self.reference = reference
     }
 
     public var body: some View {
@@ -41,6 +44,7 @@ public struct SparklineChart: View {
                 .lineStyle(StrokeStyle(lineWidth: 1.6, lineCap: .round, lineJoin: .round))
                 .interpolationMethod(.monotone)
         }
+        .modifier(ReferenceLine(reference: reference, tint: tint))
         .chartXAxis(.hidden)
         .chartYAxis(.hidden)
         .chartLegend(.hidden)
@@ -49,6 +53,31 @@ public struct SparklineChart: View {
         .chartPlotStyle { $0.clipped() }
         .clipped()
         .accessibilityHidden(true)
+    }
+}
+
+/// Draws the reference as a dashed rule in the chart's own coordinate space.
+private struct ReferenceLine: ViewModifier {
+    let reference: Double?
+    let tint: Color
+
+    func body(content: Content) -> some View {
+        if let reference {
+            content.chartBackground { proxy in
+                GeometryReader { geometry in
+                    if let plot = proxy.plotFrame, let y = proxy.position(forY: reference) {
+                        let frame = geometry[plot]
+                        Path { path in
+                            path.move(to: CGPoint(x: frame.minX, y: frame.minY + y))
+                            path.addLine(to: CGPoint(x: frame.maxX, y: frame.minY + y))
+                        }
+                        .stroke(tint.opacity(0.7), style: StrokeStyle(lineWidth: 1, dash: [3, 3]))
+                    }
+                }
+            }
+        } else {
+            content
+        }
     }
 }
 

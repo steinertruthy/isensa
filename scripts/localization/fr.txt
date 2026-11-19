@@ -521,3 +521,51 @@
 520|L’historique n’est pas enregistré lorsque Sensa affiche des données de démonstration.
 521|Réglages
 522|Afficher/masquer la barre latérale
+523|Équilibré
+524|Pour modifier la vitesse des ventilateurs, un petit assistant doté des droits d’administrateur est nécessaire. macOS demande votre mot de passe pour l’installer. La surveillance fonctionne sans lui.
+525|Assez frais : macOS contrôle les ventilateurs, qui peuvent s’arrêter.
+526|Courbe
+527|Courbe des ventilateurs
+528|Les limites des ventilateurs ne sont pas disponibles : macOS les contrôle.
+529|Vitesse fixe
+530|Assistant
+531|Réinstaller…
+532|Installer l’assistant…
+533|Installer l’assistant des ventilateurs
+534|Garde les ventilateurs en marche et atteint la vitesse maximale à %@.
+535|Laisse les ventilateurs à macOS sous %@, puis suit la température.
+536|Laisse les ventilateurs à macOS sous %@, puis accélère en douceur.
+537|Mode
+538|Mise à jour requise
+539|Aucune mesure de température récente : macOS contrôle les ventilateurs.
+540|Non installé
+541|Ne répond pas
+542|Silencieux
+543|Supprimer
+544|Supprimer l’assistant…
+545|Supprimer l’assistant des ventilateurs ?
+546|Sensa contrôle les ventilateurs : %@.
+547|Sensa n’arrête jamais un ventilateur et ne dépasse jamais ses limites. Si Sensa se ferme ou ne répond plus, ou si votre Mac devient trop chaud, les ventilateurs repassent en automatique en 10 secondes au plus.
+548|Vitesse
+549|L’assistant des ventilateurs ne répond pas
+550|L’assistant des ventilateurs doit être mis à jour
+551|Les ventilateurs repassent en automatique et macOS demande votre mot de passe pour supprimer l’assistant.
+552|Cette copie de Sensa n’est pas signée avec un Apple Developer ID : l’assistant s’installe donc avec une demande de mot de passe plutôt que via Réglages Système. Après une recompilation de Sensa, l’assistant doit être mis à jour.
+553|Trop chaud pour une vitesse fixe inférieure au maximum : macOS contrôle les ventilateurs.
+554|Mettre à jour l’assistant…
+555|Votre Mac est sous pression thermique : macOS contrôle les ventilateurs.
+556|macOS contrôle les ventilateurs.
+557|Sensa souhaite installer son assistant des ventilateurs.
+558|Sensa souhaite supprimer son assistant des ventilateurs.
+559|L’assistant des ventilateurs n’a pas répondu à temps.
+560|Il manque à cette copie de Sensa son assistant des ventilateurs ou sa signature de code.
+561|Le retour des ventilateurs en automatique a signalé un problème. S’ils continuent de tourner vite, redémarrez votre Mac.
+562|Passage des ventilateurs en contrôle manuel…
+563|Le contrôleur des ventilateurs n’a pas accepté la modification : macOS garde le contrôle des ventilateurs.
+564|Impossible d’installer l’assistant.
+565|Impossible de supprimer l’assistant.
+566|Réessayer
+567|Retour des ventilateurs à macOS…
+568|Maintient l’objectif de %@
+569|Accélère jusqu’à %@
+570|Ralentit jusqu’à %@

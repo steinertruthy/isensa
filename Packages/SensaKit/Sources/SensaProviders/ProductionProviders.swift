@@ -30,9 +30,8 @@ public enum ProductionProviders {
         states[.battery] = profile.hasBattery ? nil : .unavailable
         states[.powerAdapter] = profile.hasBattery ? .available : .unavailable
         states[.fans] = profile.fanCount > 0 ? .experimental(.privateInterface) : .unavailable
-        // Writing fan speeds needs the privileged helper, which macOS only registers for a
-        // Developer ID–signed app. Until then, control stays explicitly locked.
-        states[.fanControl] = profile.fanCount > 0 ? .requiresAuthorization(.signedPrivilegedHelper) : .unavailable
+        // Writing fan speeds goes through undocumented SMC keys and a privileged helper the user installs.
+        states[.fanControl] = profile.fanCount > 0 ? .experimental(.privateInterface) : .unavailable
         return states.compactMapValues { $0 }
     }
 }

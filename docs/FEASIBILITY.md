@@ -12,7 +12,7 @@ Validado em **MacBook Pro 14" Nov 2023 (`Mac15,6`), Apple M3 Pro, macOS 26.6.2**
 | Temperaturas | SMC (`T*`, 230 chaves plausíveis) + HID (45 serviços) | **Privada** | — | 🧪 Experimental |
 | Potência total | SMC `PSTR` | **Privada** | — | 🧪 Experimental (≈5 W repouso, ≈38 W sob carga GPU) |
 | Ventoinhas (leitura) | SMC `FNum`, `F{n}Ac/Mn/Mx/Tg/Md` | **Privada** | — | 🧪 2 ventoinhas, 2317–6800 rpm; param em repouso |
-| Ventoinhas (escrita) | SMC via helper root | **Privada** | Root + Developer ID | 🔒 Bloqueado (sem Team ID) |
+| Ventoinhas (escrita) | SMC `Ftst`, `F{n}Md`, `F{n}Tg` via helper root | **Privada** | Root (senha de administrador) | 🧪 Implementado; aguarda validação em hardware |
 | Armazenamento | `URLResourceValues`, `IOBlockStorageDriver` | Sim/Registry | — | ✅ Disponível |
 | Rede | `NET_RT_IFLIST2` (`if_data64`) | Sim | — | ✅ Disponível |
 | Frequências CPU/GPU | IOReport (residência) × tabelas DVFS do `pmgr` | **Privada** | — | 🧪 Verificado: E 2748, P 4056, GPU 1380 MHz sob carga |
@@ -39,6 +39,15 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
 
 * **Modo automático das ventoinhas é `F{n}Md = 3` neste Mac** (não 0 como em Intel). O helper deve gravar o
   modo original e restaurá-lo — nunca presumir 0.
+* **Escrita de modo manual no M3 Pro (macOS 26) devolve `0x82` na primeira tentativa** — o `thermalmonitord`
+  mantém as ventoinhas em modo de sistema (3). Sequência adotada: tentar `F{n}Md = 1`; se `0x82`, gravar
+  `Ftst = 1` e repetir a cada 1 s por até 12 s (a liberação leva ~3–6 s segundo outros projetos).
+* **Devolver ao automático no M3 Pro**: gravar `F{n}Md = 3` também devolve `0x82`; o que devolve o controle é
+  `Ftst = 0` — o gerenciador térmico do macOS volta a colocar as ventoinhas em modo 3 sozinho, em alguns
+  segundos (verificado neste Mac). O helper tenta o modo original (necessário em gerações anteriores), limpa
+  `Ftst` e confirma por leitura em até 10 s. Há relato (não confirmado no M3) de limite de
+  ~100 escritas de ventoinha por boot; por isso o helper nunca regrava valores iguais e o app não repete
+  tentativas recusadas sozinho.
 * **`BatteryHealth` (IOPS) é enganoso**: retorna "Check Battery" enquanto Informações do Sistema mostra
   Condition: Normal. Usa-se `BatteryHealthCondition` (vazio = normal).
 * As ventoinhas ficam em 0 rpm em repouso — o app explica isso como comportamento normal.

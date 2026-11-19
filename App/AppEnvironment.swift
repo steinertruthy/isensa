@@ -1,5 +1,6 @@
 import AppKit
 import Foundation
+import SensaControl
 import SensaCore
 import SensaDemo
 import SensaFeatures
@@ -21,6 +22,8 @@ final class AppEnvironment {
     let notifications = UserNotificationDelivery()
     let history: HistoryStore?
     private(set) var alerts: AlertCoordinator?
+    /// Present only on Macs with fans.
+    let fanControl: FanControlCoordinator?
     private var maintenance: Task<Void, Never>?
 
     init(arguments: UserDefaults = .standard) {
@@ -48,6 +51,16 @@ final class AppEnvironment {
             isDemo = false
         }
         history = isDemo ? nil : try? HistoryStore(url: HistoryStore.defaultURL())
+        if profile.fanCount > 0 {
+            // Demo mode never touches the helper or the hardware.
+            // `-SensaDemoFanHelperInstalled YES` starts demo mode with the demo helper in place (screenshots).
+            let service: any FanControlService = isDemo
+                ? DemoFanControlService(installed: arguments.bool(forKey: "SensaDemoFanHelperInstalled"))
+                : XPCFanControlService()
+            fanControl = FanControlCoordinator(service: service, store: store, settings: settings)
+        } else {
+            fanControl = nil
+        }
         store.consume(engine.events)
         startHistory()
         startAlerts()
@@ -62,7 +75,10 @@ final class AppEnvironment {
     }
 
     func services(actions: AppActions) -> SensaServices {
-        SensaServices(history: history, alerts: alerts, notifications: notifications, launchAtLogin: launchAtLogin, actions: actions)
+        SensaServices(
+            history: history, alerts: alerts, notifications: notifications, launchAtLogin: launchAtLogin,
+            fanControl: fanControl, actions: actions
+        )
     }
 
     /// Writes pending history before quitting.

@@ -521,3 +521,51 @@
 520|O histórico não é registrado enquanto o Sensa mostra dados de demonstração.
 521|Ajustes
 522|Mostrar/Ocultar Barra Lateral
+523|Equilibrado
+524|Para mudar a velocidade das ventoinhas, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele.
+525|Temperatura baixa: o macOS está controlando as ventoinhas, que podem parar.
+526|Curva
+527|Curva das ventoinhas
+528|Os limites das ventoinhas não estão disponíveis, então o macOS está controlando as ventoinhas.
+529|Velocidade fixa
+530|Auxiliar
+531|Instalar Novamente…
+532|Instalar Auxiliar…
+533|Instale o auxiliar das ventoinhas
+534|Mantém as ventoinhas girando e chega à velocidade máxima em %@.
+535|Deixa as ventoinhas com o macOS abaixo de %@ e depois acompanha a temperatura.
+536|Deixa as ventoinhas com o macOS abaixo de %@ e depois acelera suavemente.
+537|Modo
+538|Precisa de atualização
+539|Não há leitura recente de temperatura, então o macOS está controlando as ventoinhas.
+540|Não instalado
+541|Sem resposta
+542|Silencioso
+543|Remover
+544|Remover Auxiliar…
+545|Remover o auxiliar das ventoinhas?
+546|O Sensa está controlando as ventoinhas: %@.
+547|O Sensa nunca para uma ventoinha nem ultrapassa os limites dela. Se o Sensa for encerrado ou parar de responder, ou se o Mac esquentar demais, as ventoinhas voltam ao automático em até 10 segundos.
+548|Velocidade
+549|O auxiliar das ventoinhas não está respondendo
+550|O auxiliar das ventoinhas precisa de atualização
+551|As ventoinhas voltam ao automático e o macOS pede sua senha para remover o auxiliar.
+552|Esta cópia do Sensa não é assinada com um Apple Developer ID, por isso o auxiliar é instalado com um pedido de senha em vez dos Ajustes do Sistema. Ao recompilar o Sensa, é preciso atualizar o auxiliar.
+553|Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando as ventoinhas.
+554|Atualizar Auxiliar…
+555|Seu Mac está sob pressão térmica, então o macOS está controlando as ventoinhas.
+556|O macOS está controlando as ventoinhas.
+557|O Sensa quer instalar o auxiliar das ventoinhas.
+558|O Sensa quer remover o auxiliar das ventoinhas.
+559|O auxiliar das ventoinhas não respondeu a tempo.
+560|Esta cópia do Sensa está sem o auxiliar das ventoinhas ou sem assinatura de código.
+561|Houve um problema ao devolver as ventoinhas ao automático. Se elas continuarem rápidas, reinicie o Mac.
+562|Passando as ventoinhas para controle manual…
+563|O controlador das ventoinhas não aceitou a mudança, então o macOS continua controlando as ventoinhas.
+564|Não foi possível instalar o auxiliar.
+565|Não foi possível remover o auxiliar.
+566|Tentar Novamente
+567|Devolvendo as ventoinhas ao macOS…
+568|Mantendo o alvo de %@
+569|Acelerando até %@
+570|Desacelerando até %@

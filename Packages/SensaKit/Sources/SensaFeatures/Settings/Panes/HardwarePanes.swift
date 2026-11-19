@@ -103,6 +103,7 @@ struct BatteryPane: View {
 struct FansPane: View {
     @Environment(AppSettings.self) private var settings
     @Environment(MetricsStore.self) private var store
+    @Environment(\.services) private var services
 
     var body: some View {
         @Bindable var settings = settings
@@ -114,13 +115,8 @@ struct FansPane: View {
                 }
                 Footnote(tr("Percentage of range places the current speed between the fan's minimum and maximum."))
             }
-            Section(tr("Control")) {
-                if case .requiresAuthorization? = store.capabilities[.fanControl] {
-                    Label(tr("Fan control is locked"), systemImage: "lock.shield")
-                    Footnote(Copy.fanControlLocked)
-                } else {
-                    Footnote(tr("Your Mac manages its fans automatically."))
-                }
+            if let coordinator = services.fanControl {
+                FanHelperSection(coordinator: coordinator)
             }
         }
     }

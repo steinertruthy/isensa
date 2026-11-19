@@ -97,6 +97,28 @@ final class SensaUITests: XCTestCase {
         return XCTWaiter().wait(for: [gone], timeout: timeout) == .completed
     }
 
+    func testFanControlInstallsHelperAndTakesControl() {
+        // Demo fan service: no password prompt, no hardware writes.
+        let app = launch("laptopWithFans", extraArguments: ["-SensaInitialDestination", "fans", "-fanMode", "\"\""])
+        let install = app.buttons["fans.install"]
+        XCTAssertTrue(install.waitForExistence(timeout: 10))
+        install.click()
+        let mode = app.descendants(matching: .any)["fans.mode"]
+        XCTAssertTrue(mode.waitForExistence(timeout: 5))
+        mode.radioButtons["Fixed speed"].click()
+        let status = app.descendants(matching: .any)["fans.status"]
+        XCTAssertTrue(app.sliders["fans.speed"].waitForExistence(timeout: 5))
+        XCTAssertTrue(waitFor(status, labelContaining: "Sensa is controlling the fans"), "Status: \(status.debugDescription)")
+        mode.radioButtons["Automatic"].click()
+        XCTAssertTrue(waitFor(status, labelContaining: "macOS is controlling the fans"), "Status: \(status.debugDescription)")
+    }
+
+    private func waitFor(_ element: XCUIElement, labelContaining text: String, timeout: TimeInterval = 8) -> Bool {
+        // Static text exposes its string as the value; other elements as the label.
+        let predicate = NSPredicate(format: "label CONTAINS %@ OR value CONTAINS %@", text, text)
+        return XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: predicate, object: element)], timeout: timeout) == .completed
+    }
+
     func testOnboardingWalksThroughAndOpensSensa() {
         let app = launch("laptopWithFans", extraArguments: ["-hasCompletedOnboarding", "NO"])
         let next = app.buttons["onboarding.continue"]

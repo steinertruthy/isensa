@@ -3018,6 +3018,64 @@
         }
       }
     },
+    "Balanced": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Equilibrado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Equilibrado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Équilibré"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausgewogen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bilanciato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バランス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "균형"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "均衡"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平衡"
+          }
+        }
+      }
+    },
     "Band": {
       "localizations": {
         "pt-BR": {
@@ -4526,6 +4584,64 @@
         }
       }
     },
+    "Changing fan speeds needs a small helper that runs with administrator rights. macOS asks for your password to install it. Monitoring works without it.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para mudar a velocidade das ventoinhas, é preciso um pequeno auxiliar que roda com permissões de administrador. O macOS pede sua senha para instalá-lo. O monitoramento funciona sem ele."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para cambiar la velocidad de los ventiladores se necesita un pequeño asistente que se ejecuta con permisos de administrador. macOS te pide la contraseña para instalarlo. La monitorización funciona sin él."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pour modifier la vitesse des ventilateurs, un petit assistant doté des droits d’administrateur est nécessaire. macOS demande votre mot de passe pour l’installer. La surveillance fonctionne sans lui."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zum Ändern der Lüftergeschwindigkeit ist ein kleines Hilfsprogramm mit Administratorrechten nötig. macOS fragt zur Installation nach deinem Passwort. Die Überwachung funktioniert auch ohne."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per cambiare la velocità delle ventole serve un piccolo helper che funziona con i privilegi di amministratore. macOS chiede la password per installarlo. Il monitoraggio funziona anche senza."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンの速度を変更するには、管理者権限で動作する小さなヘルパーが必要です。インストール時にmacOSがパスワードを求めます。モニタリングはヘルパーなしで動作します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 속도를 변경하려면 관리자 권한으로 실행되는 작은 도우미가 필요합니다. 설치할 때 macOS가 암호를 요청합니다. 모니터링은 도우미 없이도 작동합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更改风扇速度需要一个以管理员权限运行的小型辅助程序。安装时 macOS 会要求输入密码。监测功能无需它即可使用。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "變更風扇速度需要一個以管理者權限執行的小型輔助程式。安裝時 macOS 會要求輸入密碼。監測功能無需它即可使用。"
+          }
+        }
+      }
+    },
     "Changing fan speeds requires Sensa's privileged helper, which macOS only installs for apps signed with an Apple Developer ID. Monitoring keeps working, and your Mac stays under Apple's automatic control.": {
       "localizations": {
         "pt-BR": {
@@ -5860,6 +5976,64 @@
         }
       }
     },
+    "Cool enough: macOS is controlling the fans, which may stop.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura baixa: o macOS está controlando as ventoinhas, que podem parar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura baja: macOS controla los ventiladores, que pueden detenerse."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assez frais : macOS contrôle les ventilateurs, qui peuvent s’arrêter."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kühl genug: macOS steuert die Lüfter, die auch stillstehen können."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbastanza fresco: macOS controlla le ventole, che possono fermarsi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "十分に冷えています。macOSがファンを制御しており、停止することがあります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "충분히 시원합니다. macOS가 팬을 제어하며 팬이 멈출 수 있습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "温度足够低：macOS 正在控制风扇，风扇可能会停转。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "溫度夠低：macOS 正在控制風扇，風扇可能會停止轉動。"
+          }
+        }
+      }
+    },
     "Cooling": {
       "localizations": {
         "pt-BR": {
@@ -6262,6 +6436,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "電流"
+          }
+        }
+      }
+    },
+    "Curve": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Courbe"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurve"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カーブ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "곡선"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曲线"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曲線"
           }
         }
       }
@@ -8470,6 +8702,122 @@
         }
       }
     },
+    "Fan curve": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva das ventoinhas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva de los ventiladores"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Courbe des ventilateurs"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfterkurve"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva delle ventole"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンカーブ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 곡선"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇曲线"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇曲線"
+          }
+        }
+      }
+    },
+    "Fan limits are unavailable, so macOS is controlling the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os limites das ventoinhas não estão disponíveis, então o macOS está controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los límites de los ventiladores no están disponibles, así que macOS los controla."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les limites des ventilateurs ne sont pas disponibles : macOS les contrôle."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Lüftergrenzen sind nicht verfügbar, daher steuert macOS die Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I limiti delle ventole non sono disponibili, quindi macOS le controlla."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンの限界値を取得できないため、macOSがファンを制御しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 한계값을 사용할 수 없으므로 macOS가 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法获取风扇限值，因此由 macOS 控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法取得風扇限值，因此由 macOS 控制風扇。"
+          }
+        }
+      }
+    },
     "Fans": {
       "localizations": {
         "pt-BR": {
@@ -8640,6 +8988,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "喜好項目"
+          }
+        }
+      }
+    },
+    "Fixed speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade fixa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidad fija"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitesse fixe"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feste Drehzahl"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocità fissa"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定速度"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "고정 속도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定速度"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定速度"
           }
         }
       }
@@ -10152,6 +10558,64 @@
         }
       }
     },
+    "Helper": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auxiliar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistant"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hilfsprogramm"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helper"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辅助程序"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輔助程式"
+          }
+        }
+      }
+    },
     "Here is how your Mac is doing this afternoon.": {
       "localizations": {
         "pt-BR": {
@@ -10790,6 +11254,64 @@
         }
       }
     },
+    "Holding the %@ target": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantendo o alvo de %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manteniendo el objetivo de %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintient l’objectif de %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hält das Ziel von %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantiene l’obiettivo di %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目標の%@を維持"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "목표 %@ 유지 중"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保持在目标 %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "維持在目標 %@"
+          }
+        }
+      }
+    },
     "Hot": {
       "localizations": {
         "pt-BR": {
@@ -11254,6 +11776,180 @@
         }
       }
     },
+    "Install Again…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instalar Novamente…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a instalar…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinstaller…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erneut installieren …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installa di nuovo…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再インストール…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다시 설치…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新安装…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新安裝⋯"
+          }
+        }
+      }
+    },
+    "Install Helper…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instalar Auxiliar…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instalar asistente…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installer l’assistant…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hilfsprogramm installieren …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installa helper…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパーをインストール…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미 설치…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安装辅助程序…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安裝輔助程式⋯"
+          }
+        }
+      }
+    },
+    "Install the fan helper": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instale o auxiliar das ventoinhas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instala el asistente de ventiladores"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installer l’assistant des ventilateurs"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfter-Hilfsprogramm installieren"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installa l’helper delle ventole"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンヘルパーをインストール"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 도우미 설치"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安装风扇辅助程序"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安裝風扇輔助程式"
+          }
+        }
+      }
+    },
     "Installed": {
       "localizations": {
         "pt-BR": {
@@ -11544,6 +12240,64 @@
         }
       }
     },
+    "Keeps the fans running and reaches full speed at %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantém as ventoinhas girando e chega à velocidade máxima em %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantiene los ventiladores en marcha y alcanza la velocidad máxima a %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garde les ventilateurs en marche et atteint la vitesse maximale à %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hält die Lüfter in Betrieb und erreicht bei %@ die volle Drehzahl."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantiene le ventole in funzione e raggiunge la velocità massima a %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンを常に回し、%@で最大速度に達します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬을 계속 돌리며 %@에서 최대 속도에 도달합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让风扇持续运转，在 %@ 时达到全速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讓風扇持續運轉，在 %@ 時達到全速。"
+          }
+        }
+      }
+    },
     "Kept on this Mac for %@.": {
       "localizations": {
         "pt-BR": {
@@ -11772,6 +12526,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "佈局"
+          }
+        }
+      }
+    },
+    "Leaves the fans to macOS below %@, then follows the temperature.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deixa as ventoinhas com o macOS abaixo de %@ e depois acompanha a temperatura."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deja los ventiladores a macOS por debajo de %@ y luego sigue la temperatura."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisse les ventilateurs à macOS sous %@, puis suit la température."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überlässt die Lüfter unter %@ macOS und folgt dann der Temperatur."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lascia le ventole a macOS sotto %@, poi segue la temperatura."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@未満ではファンをmacOSに任せ、それ以上では温度に合わせて調整します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 미만에서는 팬을 macOS에 맡기고, 그 이상에서는 온도를 따릅니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低于 %@ 时交由 macOS 控制风扇，之后随温度调整。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低於 %@ 時交由 macOS 控制風扇，之後隨溫度調整。"
+          }
+        }
+      }
+    },
+    "Leaves the fans to macOS below %@, then speeds up gently.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deixa as ventoinhas com o macOS abaixo de %@ e depois acelera suavemente."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deja los ventiladores a macOS por debajo de %@ y luego acelera suavemente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisse les ventilateurs à macOS sous %@, puis accélère en douceur."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überlässt die Lüfter unter %@ macOS und erhöht dann sanft die Drehzahl."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lascia le ventole a macOS sotto %@, poi accelera gradualmente."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@未満ではファンをmacOSに任せ、それ以上では穏やかに速度を上げます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 미만에서는 팬을 macOS에 맡기고, 그 이상에서는 부드럽게 속도를 높입니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低于 %@ 时交由 macOS 控制风扇，之后平缓提速。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低於 %@ 時交由 macOS 控制風扇，之後平緩提速。"
           }
         }
       }
@@ -13342,6 +14212,64 @@
         }
       }
     },
+    "Mode": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modus"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modalità"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模式"
+          }
+        }
+      }
+    },
     "Model": {
       "localizations": {
         "pt-BR": {
@@ -13628,6 +14556,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "名稱"
+          }
+        }
+      }
+    },
+    "Needs an update": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Precisa de atualização"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Necesita actualizarse"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mise à jour requise"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualisierung nötig"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Da aggiornare"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アップデートが必要"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "업데이트 필요"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要更新"
           }
         }
       }
@@ -14096,6 +15082,64 @@
         }
       }
     },
+    "No recent temperature reading, so macOS is controlling the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não há leitura recente de temperatura, então o macOS está controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay una lectura reciente de temperatura, así que macOS controla los ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune mesure de température récente : macOS contrôle les ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein aktueller Temperaturwert, daher steuert macOS die Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna lettura recente della temperatura, quindi macOS controlla le ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近の温度データがないため、macOSがファンを制御しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최근 온도 값이 없으므로 macOS가 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有最近的温度读数，因此由 macOS 控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有最近的溫度讀數，因此由 macOS 控制風扇。"
+          }
+        }
+      }
+    },
     "No results": {
       "localizations": {
         "pt-BR": {
@@ -14502,6 +15546,64 @@
         }
       }
     },
+    "Not installed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não instalado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No instalado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non installé"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht installiert"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non installato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未インストール"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설치되지 않음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未安装"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未安裝"
+          }
+        }
+      }
+    },
     "Not on this Mac": {
       "localizations": {
         "pt-BR": {
@@ -14614,6 +15716,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "不存在"
+          }
+        }
+      }
+    },
+    "Not responding": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem resposta"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No responde"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne répond pas"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reagiert nicht"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non risponde"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "応答なし"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "응답 없음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无响应"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有回應"
           }
         }
       }
@@ -17112,6 +18272,64 @@
         }
       }
     },
+    "Quiet": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silencioso"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silencioso"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silencieux"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leise"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silenzioso"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "静音"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저소음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安静"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安靜"
+          }
+        }
+      }
+    },
     "Quit Sensa": {
       "localizations": {
         "pt-BR": {
@@ -18040,6 +19258,122 @@
         }
       }
     },
+    "Remove": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entfernen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rimuovi"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "削除"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "제거"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除"
+          }
+        }
+      }
+    },
+    "Remove Helper…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover Auxiliar…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar asistente…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer l’assistant…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hilfsprogramm entfernen …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rimuovi helper…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパーを削除…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미 제거…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除辅助程序…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除輔助程式⋯"
+          }
+        }
+      }
+    },
     "Remove from favorites": {
       "localizations": {
         "pt-BR": {
@@ -18094,6 +19428,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "從喜好項目中移除"
+          }
+        }
+      }
+    },
+    "Remove the fan helper?": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover o auxiliar das ventoinhas?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar el asistente de ventiladores?"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer l’assistant des ventilateurs ?"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfter-Hilfsprogramm entfernen?"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rimuovere l’helper delle ventole?"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンヘルパーを削除しますか？"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 도우미를 제거하겠습니까?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要移除风扇辅助程序吗？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要移除風扇輔助程式嗎？"
           }
         }
       }
@@ -18848,6 +20240,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "回復原始名稱"
+          }
+        }
+      }
+    },
+    "Returning the fans to automatic reported a problem. If they keep running fast, restart your Mac.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houve um problema ao devolver as ventoinhas ao automático. Se elas continuarem rápidas, reinicie o Mac."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubo un problema al devolver los ventiladores al modo automático. Si siguen girando rápido, reinicia el Mac."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le retour des ventilateurs en automatique a signalé un problème. S’ils continuent de tourner vite, redémarrez votre Mac."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beim Zurücksetzen der Lüfter auf Automatik ist ein Problem aufgetreten. Wenn sie weiter schnell laufen, starte deinen Mac neu."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si è verificato un problema nel riportare le ventole in automatico. Se continuano a girare veloci, riavvia il Mac."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンを自動制御に戻す際に問題が発生しました。高速で回り続ける場合は、Macを再起動してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬을 자동 제어로 되돌리는 중 문제가 발생했습니다. 계속 빠르게 돌면 Mac을 재시동하십시오."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将风扇恢复为自动控制时出现问题。如果风扇持续高速运转，请重新启动 Mac。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "將風扇恢復為自動控制時發生問題。如果風扇持續高速運轉，請重新啟動 Mac。"
+          }
+        }
+      }
+    },
+    "Returning the fans to macOS…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devolvendo as ventoinhas ao macOS…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devolviendo los ventiladores a macOS…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retour des ventilateurs à macOS…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfter werden an macOS zurückgegeben …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restituzione delle ventole a macOS…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンをmacOSに戻しています…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬을 macOS에 돌려주는 중…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在将风扇交还给 macOS…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在將風扇交還給 macOS⋯"
           }
         }
       }
@@ -19838,6 +21346,64 @@
         }
       }
     },
+    "Sensa is controlling the fans: %@.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa está controlando as ventoinhas: %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa controla los ventiladores: %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa contrôle les ventilateurs : %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa steuert die Lüfter: %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa controlla le ventole: %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaがファンを制御しています：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa가 팬을 제어하는 중입니다: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 正在控制风扇：%@。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 正在控制風扇：%@。"
+          }
+        }
+      }
+    },
     "Sensa is now in your menu bar. Open it anytime to see how your Mac is doing.": {
       "localizations": {
         "pt-BR": {
@@ -20008,6 +21574,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sensa監控你的Mac不需要特殊權限。它只會要求通知權限，而且只在你開啟通知時要求。"
+          }
+        }
+      }
+    },
+    "Sensa never stops a fan or goes beyond its limits. If Sensa quits or stops responding, or your Mac gets too hot, the fans return to automatic within 10 seconds.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa nunca para uma ventoinha nem ultrapassa os limites dela. Se o Sensa for encerrado ou parar de responder, ou se o Mac esquentar demais, as ventoinhas voltam ao automático em até 10 segundos."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa nunca detiene un ventilador ni supera sus límites. Si Sensa se cierra o deja de responder, o si el Mac se calienta demasiado, los ventiladores vuelven al modo automático en 10 segundos como máximo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa n’arrête jamais un ventilateur et ne dépasse jamais ses limites. Si Sensa se ferme ou ne répond plus, ou si votre Mac devient trop chaud, les ventilateurs repassent en automatique en 10 secondes au plus."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa hält nie einen Lüfter an und überschreitet nie seine Grenzen. Wenn Sensa beendet wird oder nicht mehr reagiert oder dein Mac zu heiß wird, kehren die Lüfter innerhalb von 10 Sekunden zur automatischen Steuerung zurück."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa non ferma mai una ventola né supera i suoi limiti. Se Sensa si chiude o smette di rispondere, o se il Mac si scalda troppo, le ventole tornano in automatico entro 10 secondi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaがファンを停止させたり、限界値を超えたりすることはありません。Sensaが終了したり応答しなくなったり、Macが熱くなりすぎたりした場合は、10秒以内にファンが自動制御に戻ります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa는 팬을 멈추거나 한계를 넘기지 않습니다. Sensa가 종료되거나 응답하지 않거나 Mac이 너무 뜨거워지면 10초 이내에 팬이 자동 제어로 돌아갑니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 绝不会让风扇停转，也不会超出其限值。如果 Sensa 退出或无响应，或者 Mac 过热，风扇会在 10 秒内恢复自动控制。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 絕不會讓風扇停止，也不會超出其限值。如果 Sensa 結束或沒有回應，或者 Mac 過熱，風扇會在 10 秒內恢復自動控制。"
           }
         }
       }
@@ -21926,6 +23550,64 @@
         }
       }
     },
+    "Slowing down to %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desacelerando até %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desacelerando hasta %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ralentit jusqu’à %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlangsamt auf %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rallenta fino a %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@まで減速中"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@까지 감속 중"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在减速至 %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在減速至 %@"
+          }
+        }
+      }
+    },
     "SoC die (PMU)": {
       "localizations": {
         "pt-BR": {
@@ -22212,6 +23894,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "已使用空間"
+          }
+        }
+      }
+    },
+    "Speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidad"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitesse"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Drehzahl"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocità"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "速度"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "속도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "速度"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "速度"
+          }
+        }
+      }
+    },
+    "Speeding up to %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acelerando até %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acelerando hasta %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accélère jusqu’à %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beschleunigt auf %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accelera fino a %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@まで加速中"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@까지 가속 중"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在加速至 %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在加速至 %@"
           }
         }
       }
@@ -22966,6 +24764,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "已使用的置換空間"
+          }
+        }
+      }
+    },
+    "Switching the fans to manual control…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passando as ventoinhas para controle manual…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasando los ventiladores a control manual…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passage des ventilateurs en contrôle manuel…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfter werden auf manuelle Steuerung umgestellt …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passaggio delle ventole al controllo manuale…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンを手動制御に切り替えています…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬을 수동 제어로 전환하는 중…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在将风扇切换为手动控制…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在將風扇切換為手動控制⋯"
           }
         }
       }
@@ -24014,6 +25870,354 @@
         }
       }
     },
+    "The fan controller did not accept the change, so macOS keeps control of the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O controlador das ventoinhas não aceitou a mudança, então o macOS continua controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El controlador de ventiladores no aceptó el cambio, así que macOS sigue controlándolos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le contrôleur des ventilateurs n’a pas accepté la modification : macOS garde le contrôle des ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Lüftercontroller hat die Änderung nicht angenommen, daher behält macOS die Steuerung der Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il controller delle ventole non ha accettato la modifica, quindi macOS mantiene il controllo delle ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンコントローラが変更を受け付けなかったため、macOSがファンの制御を続けます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 컨트롤러가 변경을 받아들이지 않아 macOS가 계속 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇控制器未接受此更改，因此由 macOS 继续控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇控制器未接受此變更，因此由 macOS 繼續控制風扇。"
+          }
+        }
+      }
+    },
+    "The fan helper is not responding": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O auxiliar das ventoinhas não está respondendo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El asistente de ventiladores no responde"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’assistant des ventilateurs ne répond pas"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Lüfter-Hilfsprogramm reagiert nicht"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’helper delle ventole non risponde"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンヘルパーが応答しません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 도우미가 응답하지 않습니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇辅助程序无响应"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇輔助程式沒有回應"
+          }
+        }
+      }
+    },
+    "The fan helper needs an update": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O auxiliar das ventoinhas precisa de atualização"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El asistente de ventiladores necesita actualizarse"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’assistant des ventilateurs doit être mis à jour"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Lüfter-Hilfsprogramm muss aktualisiert werden"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’helper delle ventole va aggiornato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンヘルパーのアップデートが必要です"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 도우미를 업데이트해야 합니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇辅助程序需要更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇輔助程式需要更新"
+          }
+        }
+      }
+    },
+    "The fans return to automatic and macOS asks for your password to remove the helper.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As ventoinhas voltam ao automático e o macOS pede sua senha para remover o auxiliar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los ventiladores vuelven al modo automático y macOS te pide la contraseña para eliminar el asistente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les ventilateurs repassent en automatique et macOS demande votre mot de passe pour supprimer l’assistant."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Lüfter kehren zur automatischen Steuerung zurück, und macOS fragt zum Entfernen des Hilfsprogramms nach deinem Passwort."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le ventole tornano in automatico e macOS chiede la password per rimuovere l’helper."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンは自動制御に戻り、ヘルパーの削除時にmacOSがパスワードを求めます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬이 자동 제어로 돌아가고, 도우미를 제거할 때 macOS가 암호를 요청합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇将恢复自动控制，移除辅助程序时 macOS 会要求输入密码。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇將恢復自動控制，移除輔助程式時 macOS 會要求輸入密碼。"
+          }
+        }
+      }
+    },
+    "The helper could not be installed.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível instalar o auxiliar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo instalar el asistente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d’installer l’assistant."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Hilfsprogramm konnte nicht installiert werden."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile installare l’helper."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパーをインストールできませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미를 설치할 수 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法安装辅助程序。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法安裝輔助程式。"
+          }
+        }
+      }
+    },
+    "The helper could not be removed.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível remover o auxiliar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo eliminar el asistente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de supprimer l’assistant."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Hilfsprogramm konnte nicht entfernt werden."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile rimuovere l’helper."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパーを削除できませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미를 제거할 수 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法移除辅助程序。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法移除輔助程式。"
+          }
+        }
+      }
+    },
     "The internal SSD has recorded %@ media errors. Keep your backups current.": {
       "localizations": {
         "pt-BR": {
@@ -24478,6 +26682,64 @@
         }
       }
     },
+    "This copy of Sensa is not signed with an Apple Developer ID, so the helper is installed with a password prompt instead of System Settings. Rebuilding Sensa requires updating the helper.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cópia do Sensa não é assinada com um Apple Developer ID, por isso o auxiliar é instalado com um pedido de senha em vez dos Ajustes do Sistema. Ao recompilar o Sensa, é preciso atualizar o auxiliar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta copia de Sensa no está firmada con un Apple Developer ID, así que el asistente se instala con una solicitud de contraseña en lugar de Ajustes del Sistema. Al recompilar Sensa hay que actualizar el asistente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette copie de Sensa n’est pas signée avec un Apple Developer ID : l’assistant s’installe donc avec une demande de mot de passe plutôt que via Réglages Système. Après une recompilation de Sensa, l’assistant doit être mis à jour."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Kopie von Sensa ist nicht mit einer Apple Developer ID signiert. Daher wird das Hilfsprogramm über eine Passwortabfrage statt über die Systemeinstellungen installiert. Nach einem neuen Build von Sensa muss es aktualisiert werden."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa copia di Sensa non è firmata con un Apple Developer ID, quindi l’helper si installa con una richiesta di password invece che da Impostazioni di Sistema. Dopo aver ricompilato Sensa, l’helper va aggiornato."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このSensaはApple Developer IDで署名されていないため、ヘルパーはシステム設定ではなくパスワード入力でインストールされます。Sensaを再ビルドした場合はヘルパーのアップデートが必要です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Sensa 사본은 Apple Developer ID로 서명되지 않았으므로 도우미는 시스템 설정 대신 암호 입력으로 설치됩니다. Sensa를 다시 빌드하면 도우미를 업데이트해야 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 Sensa 副本未使用 Apple Developer ID 签名，因此辅助程序通过密码提示安装，而非通过系统设置。重新构建 Sensa 后需要更新辅助程序。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 Sensa 副本未使用 Apple Developer ID 簽署，因此輔助程式是透過密碼提示安裝，而非透過系統設定。重新建置 Sensa 後需要更新輔助程式。"
+          }
+        }
+      }
+    },
     "This is macOS' own assessment. When it rises to “serious”, macOS reduces performance to keep the Mac within safe temperatures.": {
       "localizations": {
         "pt-BR": {
@@ -24710,6 +26972,64 @@
         }
       }
     },
+    "Too hot for a fixed speed below maximum, so macOS is controlling the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quente demais para uma velocidade fixa abaixo do máximo, então o macOS está controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hace demasiado calor para una velocidad fija por debajo del máximo, así que macOS controla los ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trop chaud pour une vitesse fixe inférieure au maximum : macOS contrôle les ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zu heiß für eine feste Drehzahl unter dem Maximum, daher steuert macOS die Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Troppo caldo per una velocità fissa inferiore al massimo, quindi macOS controlla le ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大未満の固定速度では温度が高すぎるため、macOSがファンを制御しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최대 미만의 고정 속도로는 너무 뜨거워 macOS가 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "温度过高，不适合低于最大值的固定速度，因此由 macOS 控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "溫度過高，不適合低於最大值的固定速度，因此由 macOS 控制風扇。"
+          }
+        }
+      }
+    },
     "Total": {
       "localizations": {
         "pt-BR": {
@@ -24880,6 +27200,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "流量"
+          }
+        }
+      }
+    },
+    "Try Again": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentar Novamente"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a intentarlo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réessayer"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erneut versuchen"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprova"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再試行"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다시 시도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再試一次"
           }
         }
       }
@@ -25460,6 +27838,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "未知感測器會保留原始鍵。喜好項目一律顯示。"
+          }
+        }
+      }
+    },
+    "Update Helper…": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar Auxiliar…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar asistente…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mettre à jour l’assistant…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hilfsprogramm aktualisieren …"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiorna helper…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルパーをアップデート…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "도우미 업데이트…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新辅助程序…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新輔助程式⋯"
           }
         }
       }
@@ -28132,6 +30568,64 @@
         }
       }
     },
+    "Your Mac is under thermal pressure, so macOS is controlling the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Mac está sob pressão térmica, então o macOS está controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Mac está bajo presión térmica, así que macOS controla los ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre Mac est sous pression thermique : macOS contrôle les ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dein Mac steht unter thermischer Belastung, daher steuert macOS die Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il Mac è sotto pressione termica, quindi macOS controlla le ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Macに熱負荷がかかっているため、macOSがファンを制御しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac에 열 부하가 걸려 macOS가 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac 正处于热压力下，因此由 macOS 控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac 正處於熱壓力下，因此由 macOS 控制風扇。"
+          }
+        }
+      }
+    },
     "Your Mac manages its fans automatically.": {
       "localizations": {
         "pt-BR": {
@@ -28592,6 +31086,64 @@
           "stringUnit": {
             "state": "translated",
             "value": "macOS不允許此更改：%@"
+          }
+        }
+      }
+    },
+    "macOS is controlling the fans.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O macOS está controlando as ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS controla los ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS contrôle les ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS steuert die Lüfter."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS controlla le ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOSがファンを制御しています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS가 팬을 제어합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 正在控制风扇。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 正在控制風扇。"
           }
         }
       }

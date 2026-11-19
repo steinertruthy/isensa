@@ -872,6 +872,122 @@
         }
       }
     },
+    "Sensa wants to install its fan helper.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa quer instalar o auxiliar das ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa quiere instalar su asistente de ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa souhaite installer son assistant des ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa möchte sein Lüfter-Hilfsprogramm installieren."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa vuole installare l’helper delle ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaがファンヘルパーをインストールしようとしています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa가 팬 도우미를 설치하려고 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 想要安装其风扇辅助程序。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 想要安裝其風扇輔助程式。"
+          }
+        }
+      }
+    },
+    "Sensa wants to remove its fan helper.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa quer remover o auxiliar das ventoinhas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa quiere eliminar su asistente de ventiladores."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa souhaite supprimer son assistant des ventilateurs."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa möchte sein Lüfter-Hilfsprogramm entfernen."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa vuole rimuovere l’helper delle ventole."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensaがファンヘルパーを削除しようとしています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa가 팬 도우미를 제거하려고 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 想要移除其风扇辅助程序。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensa 想要移除其風扇輔助程式。"
+          }
+        }
+      }
+    },
     "Settings": {
       "localizations": {
         "pt-BR": {
@@ -1042,6 +1158,122 @@
           "stringUnit": {
             "state": "translated",
             "value": "全部顯示"
+          }
+        }
+      }
+    },
+    "The fan helper did not answer in time.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O auxiliar das ventoinhas não respondeu a tempo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El asistente de ventiladores no respondió a tiempo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’assistant des ventilateurs n’a pas répondu à temps."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Lüfter-Hilfsprogramm hat nicht rechtzeitig geantwortet."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’helper delle ventole non ha risposto in tempo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファンヘルパーが時間内に応答しませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팬 도우미가 제때 응답하지 않았습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风扇辅助程序未及时响应。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風扇輔助程式未及時回應。"
+          }
+        }
+      }
+    },
+    "This copy of Sensa is missing its fan helper or code signature.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cópia do Sensa está sem o auxiliar das ventoinhas ou sem assinatura de código."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A esta copia de Sensa le falta el asistente de ventiladores o la firma de código."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il manque à cette copie de Sensa son assistant des ventilateurs ou sa signature de code."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Kopie von Sensa fehlt das Lüfter-Hilfsprogramm oder die Codesignatur."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In questa copia di Sensa mancano l’helper delle ventole o la firma del codice."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このSensaにはファンヘルパーまたはコード署名がありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Sensa 사본에 팬 도우미 또는 코드 서명이 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 Sensa 副本缺少风扇辅助程序或代码签名。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 Sensa 副本缺少風扇輔助程式或程式碼簽章。"
           }
         }
       }

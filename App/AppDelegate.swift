@@ -36,8 +36,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.install()
         observeSettings()
         systemEvents = SystemEventsObserver(
-            onSleep: { [weak self] in Task { await self?.environment.engine.suspend() } },
-            onWake: { [weak self] in Task { await self?.environment.engine.resume() } },
+            onSleep: { [weak self] in
+                Task {
+                    // Fans go back to macOS before sleeping; the helper's lease would expire anyway.
+                    await self?.environment.fanControl?.suspend()
+                    await self?.environment.engine.suspend()
+                }
+            },
+            onWake: { [weak self] in
+                Task { await self?.environment.engine.resume() }
+                self?.environment.fanControl?.resume()
+            },
             onScreensSleepChange: { [weak self] asleep in
                 self?.isScreenAsleep = asleep
                 self?.updateDemand()
@@ -59,6 +68,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             await environment.engine.setDemand(initialDemand)
             await environment.engine.start()
         }
+        environment.fanControl?.start()
         // `-SensaOpenPopover YES` opens the popover at launch (UI tests, screenshots).
         if UserDefaults.standard.bool(forKey: "SensaOpenPopover") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.statusItem.showPopover() }
@@ -75,9 +85,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     /// Closing the window keeps Sensa running in the menu bar.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
 
-    /// Gives pending history a moment to reach disk before quitting.
+    /// Returns the fans to macOS and gives pending history a moment to reach disk before quitting.
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         Task {
+            await environment.fanControl?.suspend()
             await environment.flushHistory()
             NSApp.reply(toApplicationShouldTerminate: true)
         }

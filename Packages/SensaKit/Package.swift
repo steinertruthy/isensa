@@ -11,6 +11,7 @@ import PackageDescription
 ///   SensaMonitoring      ← sampling engine and observable store (Core only)
 ///   SensaPersistence     ← local SQLite history (Core only)
 ///   SensaInsights        ← health rules (Core only)
+///   SensaControl         ← fan control: curves, validation, safety core, helper protocol (Core only)
 ///   SensaDesign          ← design system (SwiftUI, Core for semantic levels)
 ///   SensaFeatures        ← screens and view models (never imports hardware layers)
 ///   SensaDemo            ← clearly-labelled demonstration providers
@@ -27,6 +28,8 @@ let package = Package(
         .library(name: "SensaFeatures", targets: ["SensaFeatures"]),
         .library(name: "SensaDemo", targets: ["SensaDemo"]),
         .library(name: "SensaPersistence", targets: ["SensaPersistence"]),
+        .library(name: "SensaControl", targets: ["SensaControl"]),
+        .library(name: "SensaPrivateAPI", targets: ["SensaPrivateAPI"]),
         .executable(name: "sensa-probe", targets: ["SensaProbe"])
     ],
     targets: [
@@ -56,12 +59,13 @@ let package = Package(
         .target(name: "SensaMonitoring", dependencies: ["SensaCore"]),
         .target(name: "SensaPersistence", dependencies: ["SensaCore"], linkerSettings: [.linkedLibrary("sqlite3")]),
         .target(name: "SensaInsights", dependencies: ["SensaCore"]),
+        .target(name: "SensaControl", dependencies: ["SensaCore"]),
         .target(name: "SensaDesign", dependencies: ["SensaCore"]),
-        .target(name: "SensaDemo", dependencies: ["SensaCore"]),
+        .target(name: "SensaDemo", dependencies: ["SensaCore", "SensaControl"]),
 
         .target(
             name: "SensaFeatures",
-            dependencies: ["SensaCore", "SensaMonitoring", "SensaInsights", "SensaDesign"],
+            dependencies: ["SensaCore", "SensaMonitoring", "SensaInsights", "SensaDesign", "SensaControl"],
             resources: [.process("Resources")]
         ),
 
@@ -76,7 +80,8 @@ let package = Package(
         .testTarget(name: "SensaProvidersTests", dependencies: ["SensaProviders", "SensaCore"]),
         .testTarget(name: "SensaMonitoringTests", dependencies: ["SensaMonitoring", "SensaCore"]),
         .testTarget(name: "SensaInsightsTests", dependencies: ["SensaInsights", "SensaCore"]),
+        .testTarget(name: "SensaControlTests", dependencies: ["SensaControl", "SensaCore"]),
         .testTarget(name: "SensaPersistenceTests", dependencies: ["SensaPersistence", "SensaCore"]),
-        .testTarget(name: "SensaFeaturesTests", dependencies: ["SensaFeatures", "SensaCore", "SensaDemo", "SensaMonitoring", "SensaDesign", "SensaInsights"])
+        .testTarget(name: "SensaFeaturesTests", dependencies: ["SensaFeatures", "SensaCore", "SensaDemo", "SensaMonitoring", "SensaDesign", "SensaInsights", "SensaControl"])
     ]
 )

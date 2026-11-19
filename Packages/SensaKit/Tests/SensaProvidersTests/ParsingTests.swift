@@ -102,7 +102,8 @@ struct ParsingTests {
         #expect(profile.cpu.efficiencyCores == 6)
         #expect(profile.isLaptop)
         let capabilities = ProductionProviders.staticCapabilities(for: profile)
-        #expect(capabilities[.fanControl] == .requiresAuthorization(.signedPrivilegedHelper))
+        // Control goes through undocumented SMC keys and the user-installed helper.
+        #expect(capabilities[.fanControl] == .experimental(.privateInterface))
     }
 
     @Test func fanlessDesktopHasNoFanOrBatteryFeatures() {

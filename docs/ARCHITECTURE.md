@@ -8,13 +8,43 @@ App (composition root, AppKit lifecycle)
  │   └─ SensaDesign tokens, superfícies, componentes, gráficos
  ├─ SensaMonitoring MonitoringEngine (actor) → MetricsStore (@Observable) → MetricSeries
  ├─ SensaInsights   regras de saúde e AlertEngine (limiar, duração, histerese, repetição) — puros
+ ├─ SensaControl    controle de ventoinhas: curvas, validação, planejador, núcleo de segurança, protocolo XPC — puros
  ├─ SensaPersistence HistoryStore (SQLite do sistema): minuto por 7 dias → hora, retenção, CSV/JSON
  ├─ SensaProviders  provedores reais + descoberta de hardware + catálogo de sensores
  │   ├─ SensaHardware    APIs públicas (sysctl, Mach, IORegistry, IOPowerSources)
  │   └─ SensaPrivateAPI  ⚠️ SMC, HID (isolado; símbolos via dlsym) ── CSensaPrivate (layouts C)
  ├─ SensaDemo       provedores de demonstração (somente via -SensaDemoMode, sempre rotulados)
  └─ SensaCore       domínio puro: modelos, capacidades, contratos (Foundation apenas)
+
+Helper (app.sensa.Sensa.helper, root via launchd) ── SensaControl + SensaPrivateAPI (SMCFanWriter)
 ```
+
+## Controle de ventoinhas
+
+O app nunca escreve no SMC. Ele decide *o quê* (`FanControlPlanner`, no `FanControlCoordinator`) e envia
+alvos por XPC ao helper privilegiado, que decide *se* é seguro (`FanSafetyController`) e só então escreve
+(`SMCFanWriter`, que aceita apenas `Ftst`, `F{n}Md` e `F{n}Tg`).
+
+Segurança, sem depender do app:
+
+| Situação | Comportamento |
+|---|---|
+| Pedido do app | validado contra limites lidos do hardware na hora; velocidade presa em [mín, máx]; nunca 0 rpm |
+| App encerra, trava ou para de responder | conexão cai ou o *lease* de 10 s expira → automático |
+| Pressão térmica séria/crítica (macOS) | automático; manual recusado até 30 s de condição normal |
+| Helper inicia (boot, crash) ou recebe SIGTERM | automático, mesmo sem override conhecido |
+| Falha de escrita | automático |
+| App: sem leitura de temperatura recente, limites inválidos, muito quente para velocidade fixa | automático |
+
+Restaurar = gravar em cada `F{n}Md` o modo encontrado quando o helper iniciou (3 no M3; 0 em gerações
+anteriores), depois `Ftst = 0`, e confirmar por leitura que nenhuma ventoinha ficou em manual.
+
+Instalação sem Developer ID: o app gera um script (`HelperInstallScript`) executado com
+`do shell script … with administrator privileges` (o usuário digita a senha). O script copia o helper para
+`/Library/PrivilegedHelperTools`, **verifica o cdhash já no local de root** e cria o job do launchd
+(`RunAtLoad`, `KeepAlive` em falha, Mach service). O helper aceita conexões só do build do Sensa cujo
+cdhash está fixado no job; o app só conversa com o helper idêntico ao embutido. Com Developer ID, troca-se
+por `SMAppService` e requisitos por Team ID.
 
 ## Fluxo de dados
 

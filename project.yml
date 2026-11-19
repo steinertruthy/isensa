@@ -48,6 +48,15 @@ targets:
         product: SensaInsights
       - package: SensaKit
         product: SensaPersistence
+      - package: SensaKit
+        product: SensaControl
+      # The privileged fan helper ships inside the app and is installed on request.
+      - target: SensaHelper
+        embed: true
+        codeSign: false
+        copy:
+          destination: wrapper
+          subpath: Contents/Library/LaunchServices
     info:
       path: App/Info.plist
       properties:
@@ -81,6 +90,28 @@ targets:
           else
             echo "warning: SwiftLint not installed (brew install swiftlint)"
           fi
+
+  SensaHelper:
+    type: tool
+    platform: macOS
+    sources:
+      - path: Helper
+    dependencies:
+      - package: SensaKit
+        product: SensaControl
+      - package: SensaKit
+        product: SensaPrivateAPI
+      - package: SensaKit
+        product: SensaCore
+    settings:
+      base:
+        PRODUCT_NAME: app.sensa.Sensa.helper
+        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.Sensa.helper
+        GENERATE_INFOPLIST_FILE: YES
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        SKIP_INSTALL: YES
+        # The code-signing identifier the app requires when it connects to the helper.
+        OTHER_CODE_SIGN_FLAGS: "--identifier app.sensa.Sensa.helper"
 
   SensaUITests:
     type: bundle.ui-testing

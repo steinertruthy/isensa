@@ -521,3 +521,51 @@
 520|La cronologia non viene registrata mentre Sensa mostra dati dimostrativi.
 521|Impostazioni
 522|Mostra/nascondi barra laterale
+523|Bilanciato
+524|Per cambiare la velocità delle ventole serve un piccolo helper che funziona con i privilegi di amministratore. macOS chiede la password per installarlo. Il monitoraggio funziona anche senza.
+525|Abbastanza fresco: macOS controlla le ventole, che possono fermarsi.
+526|Curva
+527|Curva delle ventole
+528|I limiti delle ventole non sono disponibili, quindi macOS le controlla.
+529|Velocità fissa
+530|Helper
+531|Installa di nuovo…
+532|Installa helper…
+533|Installa l’helper delle ventole
+534|Mantiene le ventole in funzione e raggiunge la velocità massima a %@.
+535|Lascia le ventole a macOS sotto %@, poi segue la temperatura.
+536|Lascia le ventole a macOS sotto %@, poi accelera gradualmente.
+537|Modalità
+538|Da aggiornare
+539|Nessuna lettura recente della temperatura, quindi macOS controlla le ventole.
+540|Non installato
+541|Non risponde
+542|Silenzioso
+543|Rimuovi
+544|Rimuovi helper…
+545|Rimuovere l’helper delle ventole?
+546|Sensa controlla le ventole: %@.
+547|Sensa non ferma mai una ventola né supera i suoi limiti. Se Sensa si chiude o smette di rispondere, o se il Mac si scalda troppo, le ventole tornano in automatico entro 10 secondi.
+548|Velocità
+549|L’helper delle ventole non risponde
+550|L’helper delle ventole va aggiornato
+551|Le ventole tornano in automatico e macOS chiede la password per rimuovere l’helper.
+552|Questa copia di Sensa non è firmata con un Apple Developer ID, quindi l’helper si installa con una richiesta di password invece che da Impostazioni di Sistema. Dopo aver ricompilato Sensa, l’helper va aggiornato.
+553|Troppo caldo per una velocità fissa inferiore al massimo, quindi macOS controlla le ventole.
+554|Aggiorna helper…
+555|Il Mac è sotto pressione termica, quindi macOS controlla le ventole.
+556|macOS controlla le ventole.
+557|Sensa vuole installare l’helper delle ventole.
+558|Sensa vuole rimuovere l’helper delle ventole.
+559|L’helper delle ventole non ha risposto in tempo.
+560|In questa copia di Sensa mancano l’helper delle ventole o la firma del codice.
+561|Si è verificato un problema nel riportare le ventole in automatico. Se continuano a girare veloci, riavvia il Mac.
+562|Passaggio delle ventole al controllo manuale…
+563|Il controller delle ventole non ha accettato la modifica, quindi macOS mantiene il controllo delle ventole.
+564|Impossibile installare l’helper.
+565|Impossibile rimuovere l’helper.
+566|Riprova
+567|Restituzione delle ventole a macOS…
+568|Mantiene l’obiettivo di %@
+569|Accelera fino a %@
+570|Rallenta fino a %@

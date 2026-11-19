@@ -10,10 +10,6 @@ enum Copy {
         tr("Charging limits are managed by macOS. On Apple silicon laptops with recent macOS versions you can set them in System Settings › Battery.")
     }
 
-    static var fanControlLocked: String {
-        tr("Changing fan speeds requires Sensa's privileged helper, which macOS only installs for apps signed with an Apple Developer ID. Monitoring keeps working, and your Mac stays under Apple's automatic control.")
-    }
-
     static var networkCountersNote: String {
         tr("Sensa only reads byte counters. It never inspects your traffic. macOS reports these counters to apps in 1 KB steps, so very low rates are approximate.")
     }

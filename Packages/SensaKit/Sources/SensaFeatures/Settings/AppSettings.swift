@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import SensaControl
 import SensaDesign
 import SensaInsights
 
@@ -74,6 +75,9 @@ public final class AppSettings {
     public var temperatureUnit: TemperatureUnitPreference { didSet { save(temperatureUnit.rawValue, .temperatureUnit) } }
     public var showsUnknownSensors: Bool { didSet { save(showsUnknownSensors, .showsUnknownSensors) } }
     public var fanSpeedDisplay: FanSpeedDisplay { didSet { save(fanSpeedDisplay.rawValue, .fanSpeedDisplay) } }
+    /// Fan control the user chose. Applied only while the privileged helper is installed and safe
+    /// conditions hold; otherwise macOS keeps control.
+    public var fanMode: FanMode { didSet { saveJSON(fanMode, .fanMode) } }
     public var favoriteSensors: Set<String> { didSet { saveJSON(favoriteSensors, .favoriteSensors) } }
     public var sensorNicknames: [String: String] { didSet { saveJSON(sensorNicknames, .sensorNicknames) } }
     // Monitoring and performance
@@ -101,7 +105,7 @@ public final class AppSettings {
     private enum Key: String {
         case appearance, motion, greetingUsesName, showsTechnicalDetails, hiddenDashboardCells, language
         case soundsEnabled, soundVolume, hapticsEnabled
-        case temperatureUnit, showsUnknownSensors, fanSpeedDisplay, favoriteSensors, sensorNicknames
+        case temperatureUnit, showsUnknownSensors, fanSpeedDisplay, fanMode, favoriteSensors, sensorNicknames
         case refreshInterval, backgroundRefreshInterval, savesEnergyOnBattery
         case menuBarItems, menuBarShowsIcons, menuBarLayout, menuBarDecimals
         case hidesDockIcon, opensWindowAtLaunch, hasCompletedOnboarding
@@ -136,6 +140,7 @@ public final class AppSettings {
         temperatureUnit = string(.temperatureUnit, Locale.current.measurementSystem == .us ? .fahrenheit : .celsius)
         showsUnknownSensors = bool(.showsUnknownSensors, true)
         fanSpeedDisplay = string(.fanSpeedDisplay, .rpm)
+        fanMode = Self.loadJSON(defaults, .fanMode) ?? .automatic
         favoriteSensors = Self.loadJSON(defaults, .favoriteSensors) ?? []
         sensorNicknames = Self.loadJSON(defaults, .sensorNicknames) ?? [:]
         refreshInterval = double(.refreshInterval, 1)
@@ -186,6 +191,7 @@ public final class AppSettings {
         temperatureUnit = fresh.temperatureUnit
         showsUnknownSensors = fresh.showsUnknownSensors
         fanSpeedDisplay = fresh.fanSpeedDisplay
+        fanMode = fresh.fanMode
         favoriteSensors = fresh.favoriteSensors
         sensorNicknames = fresh.sensorNicknames
         refreshInterval = fresh.refreshInterval

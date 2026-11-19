@@ -46,7 +46,7 @@ public enum DemoEnvironment {
             .battery: profile.hasBattery ? .available : .unavailable,
             .powerAdapter: profile.hasBattery ? .available : .unavailable,
             .fans: profile.fanCount > 0 ? .available : .unavailable,
-            .fanControl: profile.fanCount > 0 ? .requiresAuthorization(.signedPrivilegedHelper) : .unavailable
+            .fanControl: profile.fanCount > 0 ? .experimental(.privateInterface) : .unavailable
         ]
     }
 

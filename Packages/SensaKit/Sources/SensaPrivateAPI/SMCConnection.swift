@@ -2,19 +2,40 @@ import CSensaPrivate
 import Foundation
 import IOKit
 
-public enum SMCError: Error, Sendable, Equatable {
+public enum SMCError: Error, Sendable, Equatable, CustomStringConvertible {
     case serviceNotFound
     case openFailed(kern_return_t)
     case callFailed(kern_return_t)
     case keyNotFound(String)
     case firmwareError(UInt8)
+    case sizeMismatch(String)
+    case keyNotWritable(String)
+    /// The firmware kept refusing manual mode (the macOS thermal manager did not release the fans).
+    case manualModeRefused(String)
+
+    /// "Bad command": on M3 and later, the answer to a fan mode write while macOS' thermal manager holds the fans.
+    public static let badCommand: UInt8 = 0x82
+
+    public var description: String {
+        switch self {
+        case .serviceNotFound: "SMC not found"
+        case let .openFailed(code): "SMC open failed (\(code))"
+        case let .callFailed(code): "SMC call failed (\(code))"
+        case let .keyNotFound(key): "SMC key \(key) not found"
+        case let .firmwareError(code): "SMC error 0x\(String(code, radix: 16))"
+        case let .sizeMismatch(key): "SMC key \(key): size mismatch"
+        case let .keyNotWritable(key): "SMC key \(key) is not writable"
+        case let .manualModeRefused(key): "SMC refused manual mode on \(key)"
+        }
+    }
 }
 
 /// ⚠️ PRIVATE INTERFACE — read-only connection to the System Management Controller.
 ///
 /// Uses the undocumented `AppleSMC` user client. Reading requires no privileges.
-/// This type deliberately exposes **no write operation**: writes live only in the
-/// privileged helper, behind a whitelist. Not thread-safe; own it from a single actor.
+/// This type deliberately exposes **no public write operation**: writes go only through
+/// `SMCFanWriter`, which whitelists fan keys and is used only by the privileged helper.
+/// Not thread-safe; own it from a single actor.
 public final class SMCConnection {
     private var connection: io_connect_t = 0
     private var keyInfoCache: [SMCKey: SensaSMCKeyInfo] = [:]
@@ -59,6 +80,20 @@ public final class SMCConnection {
     /// Reads a numeric key, returning `nil` if it does not exist or cannot be decoded.
     public func number(_ key: SMCKey) -> Double? {
         (try? read(key))?.doubleValue
+    }
+
+    /// Writes raw bytes. Internal on purpose — see `SMCFanWriter`. Requires root.
+    func write(_ key: SMCKey, bytes: [UInt8]) throws {
+        let info = try keyInfo(key)
+        guard bytes.count == Int(info.dataSize), bytes.count <= 32 else { throw SMCError.sizeMismatch(key.description) }
+        var input = SensaSMCKeyData()
+        input.key = key.code
+        input.keyInfo.dataSize = info.dataSize
+        input.data8 = UInt8(kSensaSMCWriteKey)
+        withUnsafeMutableBytes(of: &input.bytes) { buffer in
+            for (offset, byte) in bytes.enumerated() { buffer[offset] = byte }
+        }
+        _ = try call(input)
     }
 
     public func dataType(of key: SMCKey) throws -> String {

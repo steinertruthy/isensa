@@ -45,12 +45,14 @@ struct SeriesSparkline: View {
     let metric: MetricID
     var range: ClosedRange<Double>?
     var tint: Color = .accentColor
+    /// Marked with a dashed line and kept inside the visible range (e.g. a fan's target speed).
+    var reference: Double?
 
     var body: some View {
         let points = store.series(for: metric).points()
-        let values = points.map(\.value)
+        let values = points.map(\.value) + (reference.map { [$0] } ?? [])
         let resolved = range == 0...1 ? Self.utilizationRange(values) : range ?? Self.paddedRange(values)
-        SparklineChart(points: points, range: resolved, tint: tint)
+        SparklineChart(points: points, range: resolved, tint: tint, reference: reference)
     }
 
     /// Utilization keeps zero as the baseline but scales to the data (at least 25 %), so light

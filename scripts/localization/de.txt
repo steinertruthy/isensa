@@ -521,3 +521,51 @@
 520|Der Verlauf wird nicht aufgezeichnet, solange Sensa Demodaten anzeigt.
 521|Einstellungen
 522|Seitenleiste ein-/ausblenden
+523|Ausgewogen
+524|Zum Ändern der Lüftergeschwindigkeit ist ein kleines Hilfsprogramm mit Administratorrechten nötig. macOS fragt zur Installation nach deinem Passwort. Die Überwachung funktioniert auch ohne.
+525|Kühl genug: macOS steuert die Lüfter, die auch stillstehen können.
+526|Kurve
+527|Lüfterkurve
+528|Die Lüftergrenzen sind nicht verfügbar, daher steuert macOS die Lüfter.
+529|Feste Drehzahl
+530|Hilfsprogramm
+531|Erneut installieren …
+532|Hilfsprogramm installieren …
+533|Lüfter-Hilfsprogramm installieren
+534|Hält die Lüfter in Betrieb und erreicht bei %@ die volle Drehzahl.
+535|Überlässt die Lüfter unter %@ macOS und folgt dann der Temperatur.
+536|Überlässt die Lüfter unter %@ macOS und erhöht dann sanft die Drehzahl.
+537|Modus
+538|Aktualisierung nötig
+539|Kein aktueller Temperaturwert, daher steuert macOS die Lüfter.
+540|Nicht installiert
+541|Reagiert nicht
+542|Leise
+543|Entfernen
+544|Hilfsprogramm entfernen …
+545|Lüfter-Hilfsprogramm entfernen?
+546|Sensa steuert die Lüfter: %@.
+547|Sensa hält nie einen Lüfter an und überschreitet nie seine Grenzen. Wenn Sensa beendet wird oder nicht mehr reagiert oder dein Mac zu heiß wird, kehren die Lüfter innerhalb von 10 Sekunden zur automatischen Steuerung zurück.
+548|Drehzahl
+549|Das Lüfter-Hilfsprogramm reagiert nicht
+550|Das Lüfter-Hilfsprogramm muss aktualisiert werden
+551|Die Lüfter kehren zur automatischen Steuerung zurück, und macOS fragt zum Entfernen des Hilfsprogramms nach deinem Passwort.
+552|Diese Kopie von Sensa ist nicht mit einer Apple Developer ID signiert. Daher wird das Hilfsprogramm über eine Passwortabfrage statt über die Systemeinstellungen installiert. Nach einem neuen Build von Sensa muss es aktualisiert werden.
+553|Zu heiß für eine feste Drehzahl unter dem Maximum, daher steuert macOS die Lüfter.
+554|Hilfsprogramm aktualisieren …
+555|Dein Mac steht unter thermischer Belastung, daher steuert macOS die Lüfter.
+556|macOS steuert die Lüfter.
+557|Sensa möchte sein Lüfter-Hilfsprogramm installieren.
+558|Sensa möchte sein Lüfter-Hilfsprogramm entfernen.
+559|Das Lüfter-Hilfsprogramm hat nicht rechtzeitig geantwortet.
+560|Dieser Kopie von Sensa fehlt das Lüfter-Hilfsprogramm oder die Codesignatur.
+561|Beim Zurücksetzen der Lüfter auf Automatik ist ein Problem aufgetreten. Wenn sie weiter schnell laufen, starte deinen Mac neu.
+562|Lüfter werden auf manuelle Steuerung umgestellt …
+563|Der Lüftercontroller hat die Änderung nicht angenommen, daher behält macOS die Steuerung der Lüfter.
+564|Das Hilfsprogramm konnte nicht installiert werden.
+565|Das Hilfsprogramm konnte nicht entfernt werden.
+566|Erneut versuchen
+567|Lüfter werden an macOS zurückgegeben …
+568|Hält das Ziel von %@
+569|Beschleunigt auf %@
+570|Verlangsamt auf %@
