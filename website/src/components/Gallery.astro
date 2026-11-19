@@ -1,0 +1,261 @@
+---
+import { translations, type Locale } from '../i18n';
+import { fill } from '../lib/releases';
+import Icon from './Icon.astro';
+import Screen from './Screen.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = translations(locale);
+type Item = keyof typeof t.gallery.items;
+const items: { key: Item; screen: string }[] = [
+  { key: 'overview', screen: 'overview' },
+  { key: 'cpu', screen: 'cpu' },
+  { key: 'gpu', screen: 'gpu' },
+  { key: 'memory', screen: 'memory' },
+  { key: 'battery', screen: 'battery' },
+  { key: 'thermals', screen: 'thermals' },
+  { key: 'sensors', screen: 'sensors' },
+  { key: 'fans', screen: 'fans' },
+  { key: 'storage', screen: 'storage' },
+  { key: 'history', screen: 'history' },
+  { key: 'settings', screen: 'settings-menuBar' },
+];
+---
+<section class="gallery section" id="gallery" aria-labelledby="gallery-title" data-gallery data-counter={t.gallery.counter}>
+  <div class="wrap head">
+    <div>
+      <h2 class="section-title" id="gallery-title">{t.gallery.title}</h2>
+      <p class="section-intro">{t.gallery.intro}</p>
+    </div>
+    <div class="controls">
+      <span class="counter" aria-live="polite" data-gallery-counter>{fill(t.gallery.counter, { current: 1, total: items.length })}</span>
+      <button class="round" type="button" data-gallery-previous aria-label={t.gallery.previous}><Icon name="previous" /></button>
+      <button class="round" type="button" data-gallery-next aria-label={t.gallery.next}><Icon name="next" /></button>
+    </div>
+  </div>
+
+  <ul class="track" data-gallery-track aria-label={t.gallery.title} tabindex="0">
+    {items.map((item, index) => (
+      <li class="slide" data-gallery-slide={index}>
+        <figure>
+          <button class="shot window" type="button" data-gallery-open={index} aria-label={`${t.gallery.open}: ${t.gallery.items[item.key]}`}>
+            <Screen name={item.screen} alt={t.gallery.items[item.key]} sizes="(min-width: 1024px) 70vw, 88vw" widths={[640, 960, 1320, 1920]} />
+            <span class="zoom" aria-hidden="true"><Icon name="expand" /></span>
+          </button>
+          <figcaption>{t.gallery.items[item.key]}</figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+
+  <dialog class="lightbox" data-lightbox aria-label={t.gallery.title}>
+    <div class="lightbox-image" data-lightbox-image></div>
+    <p class="lightbox-caption" data-lightbox-caption></p>
+    <button class="round close" type="button" data-lightbox-close aria-label={t.gallery.close}><Icon name="close" /></button>
+    <button class="round side previous" type="button" data-lightbox-previous aria-label={t.gallery.previous}><Icon name="previous" /></button>
+    <button class="round side next" type="button" data-lightbox-next aria-label={t.gallery.next}><Icon name="next" /></button>
+  </dialog>
+</section>
+
+<style>
+  .gallery {
+    overflow: hidden;
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .counter {
+    margin-right: 0.5rem;
+    color: var(--text-3);
+    font-family: var(--font-number);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step--1);
+  }
+  .round {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition:
+      transform 0.3s var(--ease-spring),
+      background-color 0.2s ease;
+  }
+  .round:hover {
+    transform: scale(1.06);
+  }
+  .round:active {
+    transform: scale(0.96);
+  }
+  .round :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .track {
+    --inset: max(var(--gutter), (100vw - var(--content)) / 2);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(88vw, 960px);
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: clamp(2.5rem, 2rem + 3vw, 4rem) 0 0;
+    padding: 1rem var(--inset) 2.5rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--inset);
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  .track:focus-visible {
+    outline-offset: -4px;
+  }
+  .slide {
+    scroll-snap-align: start;
+  }
+  figure {
+    margin: 0;
+  }
+  .shot {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    cursor: zoom-in;
+    aspect-ratio: 2640 / 1720;
+    background: var(--surface-2);
+  }
+  .shot :global(picture) {
+    height: 100%;
+  }
+  .shot :global(img) {
+    height: 100%;
+    object-fit: contain;
+  }
+  .zoom {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(10 15 26 / 0.55);
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      opacity 0.2s ease,
+      transform 0.3s var(--ease-spring);
+  }
+  .zoom :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .shot:hover .zoom,
+  .shot:focus-visible .zoom {
+    opacity: 1;
+    transform: none;
+  }
+  figcaption {
+    margin-top: 1rem;
+    color: var(--text-2);
+    font-size: var(--step--1);
+  }
+  .lightbox {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: clamp(3.5rem, 6vw, 5rem) clamp(1rem, 6vw, 6rem);
+    border: 0;
+    background: rgb(5 8 14 / 0.92);
+    color: #eef1f6;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .lightbox[open] {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    place-items: center;
+    animation: fade 0.25s ease;
+  }
+  .lightbox::backdrop {
+    background: transparent;
+  }
+  .lightbox-image {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    min-height: 0;
+  }
+  .lightbox-image :global(picture),
+  .lightbox-image :global(img) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-window);
+  }
+  .lightbox-image :global(picture) {
+    display: contents;
+  }
+  .lightbox-caption {
+    margin-top: 1rem;
+    color: #a7b0c0;
+  }
+  .lightbox .round {
+    position: absolute;
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.16);
+    color: #fff;
+  }
+  .close {
+    top: 1rem;
+    right: 1rem;
+  }
+  .side {
+    top: 50%;
+    margin-top: -22px;
+  }
+  .previous {
+    left: 1rem;
+  }
+  .next {
+    right: 1rem;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  }
+  @media (max-width: 640px) {
+    .side {
+      top: auto;
+      bottom: 1rem;
+      margin-top: 0;
+    }
+  }
+</style>

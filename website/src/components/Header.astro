@@ -1,0 +1,349 @@
+---
+import { localeInfo, locales, translations, type Locale } from '../i18n';
+import { localePath } from '../lib/paths';
+import { repository } from '../lib/site';
+import Link from './Link.astro';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  page: string;
+}
+const { locale, page } = Astro.props;
+const t = translations(locale);
+const home = localePath(locale);
+// On the home page, sections are anchors; elsewhere they lead back to the home page.
+const anchor = (id: string) => (page === '' ? `#${id}` : `${home}#${id}`);
+const sections = [
+  { id: 'features', label: t.nav.features },
+  { id: 'gallery', label: t.nav.gallery },
+  { id: 'download', label: t.nav.download },
+  { id: 'open-source', label: t.nav.openSource },
+];
+---
+<header class="header" data-header>
+  <div class="bar wrap">
+    <a class="brand" href={home} aria-label={t.nav.home}>
+      <Logo size={30} />
+      <span>iSensa</span>
+    </a>
+
+    <nav class="nav" aria-label={t.nav.features}>
+      <ul>
+        {sections.map((section) => <li><a href={anchor(section.id)}>{section.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="tools">
+      <details class="menu language" data-menu>
+        <summary aria-label={`${t.nav.language}: ${localeInfo[locale].name}`}>
+          <Icon name="globe" />
+          <span class="current">{localeInfo[locale].name}</span>
+        </summary>
+        <ul class="popover" role="list">
+          {locales.map((code) => (
+            <li>
+              <a
+                href={localePath(code, page)}
+                hreflang={localeInfo[code].tag}
+                lang={localeInfo[code].tag}
+                aria-current={code === locale ? 'true' : undefined}
+                data-locale-link={code}
+              >
+                {localeInfo[code].name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      <button
+        class="icon-button theme"
+        type="button"
+        data-theme-toggle
+        data-label={t.nav.theme}
+        data-names={JSON.stringify({ system: t.nav.themeSystem, light: t.nav.themeLight, dark: t.nav.themeDark })}
+        aria-label={`${t.nav.theme}: ${t.nav.themeSystem}`}
+      >
+        <span data-theme-icon="system"><Icon name="circle-half" /></span>
+        <span data-theme-icon="light"><Icon name="sun" /></span>
+        <span data-theme-icon="dark"><Icon name="moon" /></span>
+      </button>
+
+      <Link class="icon-button github" href={repository.url} aria-label={t.nav.github}>
+        <Icon name="github" />
+      </Link>
+
+      <button class="icon-button toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle data-open={t.nav.menu} data-close={t.nav.closeMenu} aria-label={t.nav.menu}>
+        <span class="lines" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile" id="mobile-nav" hidden>
+    <nav class="wrap" aria-label={t.nav.menu}>
+      <ul class="mobile-sections">
+        {sections.map((section) => <li><a href={anchor(section.id)} data-close-menu>{section.label}</a></li>)}
+        <li><Link href={repository.url}>GitHub</Link></li>
+      </ul>
+      <p class="mobile-label">{t.nav.language}</p>
+      <ul class="mobile-languages">
+        {locales.map((code) => (
+          <li>
+            <a href={localePath(code, page)} hreflang={localeInfo[code].tag} lang={localeInfo[code].tag} aria-current={code === locale ? 'true' : undefined} data-locale-link={code}>
+              {localeInfo[code].name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease,
+      backdrop-filter 0.3s ease;
+  }
+  /* Transparent over the hero, a translucent material once the page scrolls. */
+  .header[data-scrolled],
+  .header[data-open] {
+    background: var(--header);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 1px 0 var(--line);
+  }
+  /* Over the always-dark stage, the bar uses the dark palette until it leaves it. */
+  :global(body:has(.stage-top)) .header:not([data-scrolled]) {
+    color-scheme: dark;
+    --text: #eef1f6;
+    --text-2: #a7b0c0;
+    --line: rgb(255 255 255 / 0.08);
+    --line-strong: rgb(255 255 255 / 0.16);
+    --surface: #111827;
+    color: var(--text);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 64px;
+    color: var(--text);
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 650;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .brand :global(svg) {
+    transition: transform 0.6s var(--ease-spring);
+  }
+  .brand:hover :global(svg) {
+    transform: rotate(-8deg);
+  }
+  .nav {
+    margin-left: auto;
+  }
+  .nav ul {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .nav a {
+    display: block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    color: var(--text-2);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+  .nav a:hover {
+    color: var(--text);
+    background: color-mix(in srgb, var(--text) 7%, transparent);
+  }
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .icon-button,
+  .menu summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.6rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-2);
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+  .icon-button:hover,
+  .menu summary:hover {
+    color: var(--text);
+    background: color-mix(in srgb, var(--text) 7%, transparent);
+  }
+  .icon-button :global(svg),
+  .menu summary :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .theme [data-theme-icon] {
+    display: none;
+  }
+  .theme[data-current='system'] [data-theme-icon='system'],
+  .theme[data-current='light'] [data-theme-icon='light'],
+  .theme[data-current='dark'] [data-theme-icon='dark'],
+  .theme:not([data-current]) [data-theme-icon='system'] {
+    display: inline-flex;
+  }
+  .menu {
+    position: relative;
+  }
+  .menu summary {
+    list-style: none;
+    font-size: 0.9375rem;
+  }
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .popover {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 200px;
+    margin: 0;
+    padding: 0.4rem;
+    list-style: none;
+    border-radius: var(--radius-m);
+    background: var(--surface);
+    box-shadow: var(--shadow), 0 0 0 1px var(--line);
+    transform-origin: top right;
+    animation: pop 0.22s var(--ease-out);
+  }
+  .popover a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-s);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .popover a:hover {
+    background: color-mix(in srgb, var(--text) 7%, transparent);
+  }
+  .popover a[aria-current='true'],
+  .mobile-languages a[aria-current='true'] {
+    font-weight: 650;
+    color: var(--accent);
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(-4px);
+    }
+  }
+  .toggle {
+    display: none;
+  }
+  .lines {
+    position: relative;
+    width: 18px;
+    height: 12px;
+  }
+  .lines span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    border-radius: 2px;
+    background: currentcolor;
+    transition:
+      transform 0.35s var(--ease-out),
+      top 0.35s var(--ease-out);
+  }
+  .lines span:first-child {
+    top: 2px;
+  }
+  .lines span:last-child {
+    top: 9px;
+  }
+  .header[data-open] .lines span:first-child {
+    top: 5.5px;
+    transform: rotate(45deg);
+  }
+  .header[data-open] .lines span:last-child {
+    top: 5.5px;
+    transform: rotate(-45deg);
+  }
+  .mobile {
+    border-top: 1px solid var(--line);
+    padding-block: 1rem 2rem;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+  }
+  .mobile ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mobile-sections a {
+    display: block;
+    padding: 0.7rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-label {
+    margin-top: 1.5rem;
+    color: var(--text-3);
+    font-size: var(--step--1);
+  }
+  .mobile-languages {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1rem;
+    margin-top: 0.5rem !important;
+  }
+  .mobile-languages a {
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: var(--text-2);
+  }
+  @media (max-width: 860px) {
+    .nav,
+    .language {
+      display: none;
+    }
+    .toggle {
+      display: inline-flex;
+    }
+    .tools {
+      margin-left: auto;
+    }
+  }
+</style>

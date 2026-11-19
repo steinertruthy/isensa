@@ -1,0 +1,168 @@
+---
+import { translations, type Locale } from '../i18n';
+import Screen from './Screen.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = translations(locale);
+
+type Key = keyof typeof t.features.items;
+// Each feature keeps the hue of its component in the app; status says what is experimental.
+const features: { key: Key; screen: string; hue: string; status: 'available' | 'experimental' | 'varies' }[] = [
+  { key: 'realtime', screen: 'overview', hue: 'cpu', status: 'available' },
+  { key: 'thermals', screen: 'thermals', hue: 'thermal', status: 'varies' },
+  { key: 'battery', screen: 'battery', hue: 'battery', status: 'available' },
+  { key: 'fans', screen: 'fans', hue: 'fans', status: 'experimental' },
+  { key: 'storage', screen: 'storage', hue: 'storage', status: 'available' },
+  { key: 'history', screen: 'history', hue: 'network', status: 'available' },
+  { key: 'settings', screen: 'settings-general', hue: 'gpu', status: 'available' },
+  { key: 'native', screen: 'memory', hue: 'memory', status: 'available' },
+];
+const sizes = '(min-width: 1024px) 58vw, 100vw';
+---
+<section class="features section" id="features" aria-labelledby="features-title">
+  <div class="wrap">
+    <h2 class="section-title" id="features-title">{t.features.title}</h2>
+    <p class="section-intro">{t.features.intro}</p>
+
+    <div class="story" data-story>
+      <ol class="steps">
+        {features.map((feature, index) => (
+          <li class="step" data-step={index} style={`--hue: var(--hue-${feature.hue})`}>
+            <div class="text">
+              <span class="swatch" aria-hidden="true"></span>
+              <h3>{t.features.items[feature.key].title}</h3>
+              <p>{t.features.items[feature.key].text}</p>
+              <span class="status" data-kind={feature.status}>{t.status[feature.status]}</span>
+            </div>
+            <div class="inline-shot window">
+              <Screen name={feature.screen} alt={t.features.items[feature.key].alt} sizes={sizes} widths={[640, 960, 1320]} />
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="stage-frame">
+        <div class="sticky">
+          <div class="window frame">
+            {features.map((feature, index) => (
+              <div class="slide" data-slide={index} data-active={index === 0 ? '' : undefined} data-tall={feature.screen.startsWith('settings') ? '' : undefined}>
+                <Screen name={feature.screen} alt={t.features.items[feature.key].alt} sizes={sizes} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    position: relative;
+    margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+  }
+  .steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .step + .step {
+    margin-top: clamp(4rem, 3rem + 5vw, 7rem);
+  }
+  .swatch {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--hue);
+    margin-bottom: 1.25rem;
+  }
+  h3 {
+    font-size: var(--step-2);
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    max-width: 20ch;
+  }
+  .text p {
+    margin-top: 1rem;
+    max-width: 46ch;
+    color: var(--text-2);
+  }
+  .text .status {
+    margin-top: 1.25rem;
+  }
+  .inline-shot {
+    margin-top: 2rem;
+  }
+  .stage-frame {
+    display: none;
+  }
+
+  /* Wide screens: the text scrolls while one window stays in place and changes with it. */
+  @media (min-width: 1024px) {
+    .story {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2rem, 4vw, 5rem);
+    }
+    .step {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .step + .step {
+      margin-top: 0;
+    }
+    .text {
+      opacity: 0.72;
+      transition: opacity 0.6s var(--ease-out);
+    }
+    .step[data-active] .text {
+      opacity: 1;
+    }
+    .inline-shot {
+      display: none;
+    }
+    .stage-frame {
+      display: block;
+    }
+    .sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: grid;
+      align-items: center;
+    }
+    .frame {
+      aspect-ratio: 2640 / 1720;
+      background: var(--surface-2);
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: scale(1.015);
+      transition:
+        opacity 0.7s var(--ease-out),
+        transform 0.9s var(--ease-out);
+    }
+    .slide[data-active] {
+      opacity: 1;
+      transform: none;
+    }
+    .slide[data-tall] :global(picture) {
+      width: auto;
+      height: 100%;
+    }
+    .slide[data-tall] :global(img) {
+      width: auto;
+      height: 100%;
+    }
+  }
+</style>

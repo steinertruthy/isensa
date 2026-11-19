@@ -1,0 +1,27 @@
+---
+import { translations, type Locale } from '../i18n';
+import Base from '../layouts/Base.astro';
+import Download from './Download.astro';
+import Features from './Features.astro';
+import Gallery from './Gallery.astro';
+import Hero from './Hero.astro';
+import MenuBar from './MenuBar.astro';
+import OpenSource from './OpenSource.astro';
+import Tour from './Tour.astro';
+
+interface Props {
+  locale: Locale;
+  isRoot?: boolean;
+}
+const { locale, isRoot = false } = Astro.props;
+const t = translations(locale);
+---
+<Base locale={locale} title={t.meta.title} description={t.meta.description} isRoot={isRoot}>
+  <Hero locale={locale} />
+  <Features locale={locale} />
+  <MenuBar locale={locale} />
+  <Tour locale={locale} />
+  <Gallery locale={locale} />
+  <Download locale={locale} />
+  <OpenSource locale={locale} />
+</Base>

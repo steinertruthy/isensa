@@ -1,0 +1,38 @@
+---
+/**
+ * A real screenshot of iSensa in the page's appearance: the dark capture in dark mode, the light one in
+ * light mode. Only the visible one is downloaded (the other is lazy and not displayed).
+ */
+import { Picture } from 'astro:assets';
+import { hasScreen, screen } from '../lib/screens';
+
+interface Props {
+  name: string;
+  alt: string;
+  sizes: string;
+  eager?: boolean;
+  widths?: number[];
+  class?: string;
+}
+const { name, alt, sizes, eager = false, widths = [640, 960, 1320, 1920, 2640], class: className } = Astro.props;
+const variants = hasScreen(`light-${name}`) ? (['dark', 'light'] as const) : (['dark'] as const);
+---
+{variants.map((variant) => {
+  const image = screen(`${variant}-${name}`);
+  const usable = widths.filter((width) => width <= image.width);
+  return (
+    <Picture
+      src={image}
+      alt={alt}
+      formats={['avif']}
+      fallbackFormat="webp"
+      widths={usable.length ? usable : [image.width]}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : 'auto'}
+      decoding="async"
+      class={className}
+      pictureAttributes={{ class: variants.length > 1 ? `screen theme-${variant}` : 'screen' }}
+    />
+  );
+})}

@@ -1,0 +1,6 @@
+---
+// The root picks a language for first-time visitors (or the one they chose before) and moves there.
+// It renders the English page, so it also works without JavaScript and for crawlers.
+import Home from '../components/Home.astro';
+---
+<Home locale="en" isRoot />

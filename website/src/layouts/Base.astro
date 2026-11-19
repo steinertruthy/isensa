@@ -1,0 +1,125 @@
+---
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import { defaultLocale, localeInfo, locales, matchLocale, translations, type Locale } from '../i18n';
+import { localePath, withBase } from '../lib/paths';
+import { repoLinks, repository } from '../lib/site';
+import ogSource from '../assets/screens/dark-overview.png';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  locale: Locale;
+  /** '' for the home page, otherwise the page's slug in every language. */
+  page?: '' | 'terms' | 'privacy';
+  title: string;
+  description: string;
+  /** The root URL, which picks a language for first-time visitors. */
+  isRoot?: boolean;
+  noindex?: boolean;
+}
+
+const { locale, page = '', title, description, isRoot = false, noindex = false } = Astro.props;
+const t = translations(locale);
+const info = localeInfo[locale];
+const site = Astro.site!;
+const absolute = (path: string) => new URL(path, site).href;
+const canonical = absolute(localePath(locale, page));
+const og = await getImage({ src: ogSource, width: 1200, height: 782, format: 'jpg', quality: 82 });
+
+const structured = page === ''
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'iSensa',
+      description: t.meta.description,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'macOS 14 or later',
+      url: canonical,
+      downloadUrl: repoLinks.releases,
+      license: 'https://opensource.org/license/mit',
+      isAccessibleForFree: true,
+      codeRepository: repository.url,
+      inLanguage: locales.map((code) => localeInfo[code].tag),
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      image: absolute(og.src),
+    }
+  : null;
+
+// Runs before the first paint: theme (avoids a flash) and, on the root page only, the language.
+const themeScript = `(()=>{try{const t=localStorage.getItem('isensa.theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch{}})();`;
+const localeScript = isRoot
+  ? `(()=>{let saved=null;try{saved=localStorage.getItem('isensa.locale')}catch{}const supported=${JSON.stringify(locales)};const match=${matchLocale.toString()};const target=supported.includes(saved)?saved:match(navigator.languages||[navigator.language||''],supported,${JSON.stringify(defaultLocale)});location.replace(${JSON.stringify(withBase(''))}+target+'/'+location.hash)})();`
+  : null;
+---
+<!doctype html>
+<html lang={info.tag} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {locales.map((code) => <link rel="alternate" hreflang={localeInfo[code].tag} href={absolute(localePath(code, page))} />)}
+    <link rel="alternate" hreflang="x-default" href={absolute(page === '' ? withBase('') : localePath(defaultLocale, page))} />
+
+    <meta name="theme-color" content="#f4f6f9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('favicon-32.png')} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={withBase('apple-touch-icon.png')} />
+    <link rel="manifest" href={withBase('manifest.webmanifest')} />
+    <link rel="sitemap" type="application/xml" href={withBase('sitemap.xml')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="iSensa" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={info.og} />
+    {locales.filter((code) => code !== locale).map((code) => <meta property="og:locale:alternate" content={localeInfo[code].og} />)}
+    <meta property="og:image" content={absolute(og.src)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="782" />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absolute(og.src)} />
+    <meta name="twitter:image:alt" content={t.meta.ogAlt} />
+
+    <script is:inline set:html={themeScript} />
+    {localeScript && <script is:inline set:html={localeScript} />}
+    {structured && <script type="application/ld+json" set:html={JSON.stringify(structured)} />}
+  </head>
+  <body data-locale={locale}>
+    <a class="skip visually-hidden" href="#main">{t.nav.skip}</a>
+    <Header locale={locale} page={page} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} page={page} />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip:focus {
+    position: fixed !important;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    clip: auto;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    background: var(--button);
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+</style>

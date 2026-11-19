@@ -1,0 +1,77 @@
+---
+import { localeInfo, translations, type Locale } from '../i18n';
+import { fill } from '../lib/releases';
+import { localePath } from '../lib/paths';
+import Base from './Base.astro';
+
+interface Props {
+  locale: Locale;
+  page: 'terms' | 'privacy';
+}
+const { locale, page } = Astro.props;
+const t = translations(locale);
+const document = t.legal[page];
+// The date the legal texts were last changed (update it with any change to their content).
+const updated = new Date('2026-11-19T12:00:00Z');
+const date = new Intl.DateTimeFormat(localeInfo[locale].tag, { dateStyle: 'long', timeZone: 'UTC' }).format(updated);
+---
+<Base locale={locale} page={page} title={`${document.title} — iSensa`} description={document.description}>
+  <article class="legal wrap">
+    <a class="back" href={localePath(locale)}>{t.legal.back}</a>
+    <h1>{document.title}</h1>
+    <p class="meta">{fill(t.legal.updated, { date })}</p>
+    <p class="draft" role="note">{t.legal.draft}</p>
+    {document.sections.map((section) => (
+      <section>
+        <h2>{section.heading}</h2>
+        {section.body.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+    ))}
+  </article>
+</Base>
+
+<style>
+  .legal {
+    max-width: 720px;
+    padding-block: clamp(3rem, 2rem + 4vw, 6rem) var(--section);
+  }
+  .back {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: var(--step--1);
+  }
+  h1 {
+    margin-top: 1.5rem;
+    font-size: var(--step-3);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  .meta {
+    margin-top: 1rem;
+    color: var(--text-3);
+    font-size: var(--step--1);
+  }
+  .draft {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-m);
+    border-left: 3px solid var(--hue-thermal);
+    background: color-mix(in srgb, var(--hue-thermal) 9%, transparent);
+    color: var(--text);
+    font-size: var(--step--1);
+  }
+  section {
+    margin-top: 2.75rem;
+  }
+  h2 {
+    font-size: var(--step-1);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  section p {
+    margin-top: 0.85rem;
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+</style>

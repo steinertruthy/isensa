@@ -1,0 +1,138 @@
+---
+import { localeInfo, locales, translations, type Locale } from '../i18n';
+import { localePath } from '../lib/paths';
+import { repoLinks, repository } from '../lib/site';
+import Link from './Link.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  locale: Locale;
+  page: string;
+}
+const { locale, page } = Astro.props;
+const t = translations(locale);
+const home = localePath(locale);
+const anchor = (id: string) => (page === '' ? `#${id}` : `${home}#${id}`);
+---
+<footer class="footer">
+  <div class="wrap grid">
+    <div class="about">
+      <a class="brand" href={home} aria-label={t.nav.home}><Logo size={36} /><span>iSensa</span></a>
+      <p>{t.footer.tagline}</p>
+      <p class="version" data-footer-version data-latest={t.footer.latest}>{t.footer.noRelease}</p>
+    </div>
+    <nav aria-label={t.footer.product}>
+      <h2>{t.footer.product}</h2>
+      <ul>
+        <li><a href={anchor('features')}>{t.nav.features}</a></li>
+        <li><a href={anchor('gallery')}>{t.nav.gallery}</a></li>
+        <li><a href={anchor('download')}>{t.nav.download}</a></li>
+        <li><a href={anchor('requirements')}>{t.requirements.title}</a></li>
+      </ul>
+    </nav>
+    <nav aria-label={t.footer.project}>
+      <h2>{t.footer.project}</h2>
+      <ul>
+        <li><Link href={repository.url}>GitHub</Link></li>
+        <li><Link href={repoLinks.releases}>{t.openSource.links.releases}</Link></li>
+        <li><Link href={repoLinks.docs}>{t.openSource.links.docs}</Link></li>
+        <li><Link href={repoLinks.contributing}>{t.openSource.links.contributing}</Link></li>
+        <li><Link href={repoLinks.security}>{t.openSource.links.security}</Link></li>
+        <li><Link href={repoLinks.license}>{t.openSource.links.license}</Link></li>
+      </ul>
+    </nav>
+    <nav aria-label={t.footer.legal}>
+      <h2>{t.footer.legal}</h2>
+      <ul>
+        <li><a href={localePath(locale, 'terms')}>{t.footer.terms}</a></li>
+        <li><a href={localePath(locale, 'privacy')}>{t.footer.privacy}</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap bottom">
+    <p>{t.footer.openSource} {t.footer.trademark}</p>
+    <nav aria-label={t.nav.language}>
+      <ul class="languages">
+        {locales.map((code) => (
+          <li>
+            <a href={localePath(code, page)} hreflang={localeInfo[code].tag} lang={localeInfo[code].tag} aria-current={code === locale ? 'true' : undefined} data-locale-link={code}>
+              {localeInfo[code].name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: clamp(4rem, 3rem + 4vw, 6rem) 2.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-2);
+    font-size: var(--step--1);
+  }
+  .grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text);
+    font-size: 1.125rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .about p {
+    margin-top: 1rem;
+    max-width: 34ch;
+  }
+  .about .version {
+    color: var(--text-3);
+    font-family: var(--font-number);
+    font-variant-numeric: tabular-nums;
+  }
+  h2 {
+    color: var(--text);
+    font-size: var(--step--1);
+    font-weight: 650;
+  }
+  ul {
+    margin: 0.85rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.55rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  ul a:hover {
+    color: var(--text);
+  }
+  .bottom {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-3);
+  }
+  .languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    margin: 0;
+  }
+  .languages a[aria-current='true'] {
+    color: var(--text);
+    font-weight: 600;
+  }
+  @media (min-width: 760px) {
+    .grid {
+      grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

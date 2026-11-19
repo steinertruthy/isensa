@@ -1,0 +1,94 @@
+---
+import { Picture } from 'astro:assets';
+import { translations, type Locale } from '../i18n';
+import { screen } from '../lib/screens';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = translations(locale);
+const statusItem = screen('dark-statusitem');
+const popover = screen('dark-popover');
+---
+<section class="menubar section" id="menu-bar" aria-labelledby="menubar-title">
+  <div class="wrap layout">
+    <div class="copy">
+      <h2 class="section-title" id="menubar-title">{t.menubar.title}</h2>
+      <p class="section-intro">{t.menubar.text}</p>
+      <ul class="points">
+        {t.menubar.points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+    <div class="composition">
+      <div class="item">
+        <Picture src={statusItem} alt={t.menubar.statusAlt} formats={['avif']} fallbackFormat="webp" widths={[statusItem.width]} sizes={`${statusItem.width / 2}px`} loading="lazy" />
+      </div>
+      <div class="popover">
+        <Picture src={popover} alt={t.menubar.popoverAlt} formats={['avif']} fallbackFormat="webp" widths={[308, 616]} sizes="(min-width: 640px) 308px, 80vw" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .menubar {
+    background: var(--surface-2);
+  }
+  .layout {
+    display: grid;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+  .points {
+    display: grid;
+    gap: 0.85rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 46ch;
+  }
+  .points li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--text-2);
+  }
+  .points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+  }
+  .composition {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+  }
+  .item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .item :global(img) {
+    width: 110px;
+    height: auto;
+  }
+  .popover {
+    width: min(100%, 308px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow), 0 0 0 1px var(--line);
+  }
+  @media (min-width: 900px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+    .composition {
+      padding-inline: clamp(1rem, 5vw, 5rem);
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { translations } from '../i18n';
+import { localePath } from '../lib/paths';
+
+const t = translations('en');
+---
+<Base locale="en" title={`${t.notFound.title} — iSensa`} description={t.notFound.text} noindex>
+  <section class="missing wrap">
+    <h1>{t.notFound.title}</h1>
+    <p>{t.notFound.text}</p>
+    <a class="button" href={localePath('en')}>{t.notFound.home}</a>
+  </section>
+</Base>
+
+<style>
+  .missing {
+    display: grid;
+    justify-items: start;
+    gap: 1.25rem;
+    padding-block: var(--section);
+  }
+  h1 {
+    font-size: var(--step-3);
+    letter-spacing: -0.03em;
+  }
+  p {
+    color: var(--text-2);
+  }
+</style>

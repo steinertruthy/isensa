@@ -1,0 +1,42 @@
+---
+/** The app icon, drawn as SVG from the same geometry as scripts/generate-app-icon.swift. */
+interface Props {
+  size?: number;
+  class?: string;
+  title?: string;
+}
+const { size = 32, class: className, title } = Astro.props;
+const id = `logo-${Math.random().toString(36).slice(2, 8)}`;
+---
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="100 100 824 824"
+  role={title ? 'img' : undefined}
+  aria-label={title}
+  aria-hidden={title ? undefined : 'true'}
+>
+  <defs>
+    <linearGradient id={`${id}-body`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#29334a" />
+      <stop offset="1" stop-color="#0a0f1a" />
+    </linearGradient>
+    <linearGradient id={`${id}-arc`} x1="320" y1="720" x2="700" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2e9bff" />
+      <stop offset="1" stop-color="#7b61ff" />
+    </linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="186" fill={`url(#${id}-body)`} />
+  <path d="M321.1 722.9A270 270 0 1 1 702.9 722.9" fill="none" stroke="rgb(255 255 255 / 0.1)" stroke-width="64" stroke-linecap="round" />
+  <path
+    d="M321.1 722.9A270 270 0 1 1 702.9 722.9"
+    fill="none"
+    stroke={`url(#${id}-arc)`}
+    stroke-width="64"
+    stroke-linecap="round"
+    pathLength="100"
+    stroke-dasharray="68 100"
+  />
+  <circle cx="512" cy="532" r="24" fill="#fff" />
+</svg>
