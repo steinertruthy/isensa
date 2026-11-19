@@ -27,15 +27,21 @@ tab with `rel="noopener noreferrer"`.
 | `src/i18n/config.ts` | The languages (the same ten as the app) and the browser-language matching. |
 | `src/components/` | Page sections. `Link.astro` decides, for every link, whether it opens in a new tab. |
 | `src/lib/` | Pure logic: GitHub release selection, paths under the base, link rules. |
-| `src/scripts/` | The little JavaScript the page needs: theme, menu, videos, gallery, GitHub data. |
+| `src/scripts/` | The little JavaScript the page needs: theme, menu, 3D and scroll motion, gallery, GitHub data. |
 | `src/assets/screens/` | Real screenshots of the app, dark and light. |
-| `public/media/` | The real recordings: `hero.*` (muted loop) and `tour.mp4`. |
 
 Pages: `/isensa/` picks a language (a manual choice is remembered and wins over the browser's
 language), `/isensa/<language>/`, `/terms/` and `/privacy/` in each language, `sitemap.xml` with
 `hreflang` alternates, and `404.html`.
 
-## Screenshots and videos
+## Design
+
+The page uses the app's own palette (docs/DESIGN.md): the neutral grays of macOS windows, and one
+hue per component (CPU blue, GPU purple, memory mint, temperature orange…), never a decorative color.
+Motion — the hero window standing up as you scroll, pointer tilt, the coverflow gallery, sections
+arriving — is CSS and a few lines of TypeScript, and turns off with Reduce Motion.
+
+## Screenshots
 
 They are captured from the real app on a Mac, never drawn:
 
@@ -44,8 +50,7 @@ scripts/media/capture.sh          # from the repository root
 ```
 
 The script runs `UITests/ProductCaptureTests.swift` against the real sensors (computer name hidden,
-technical details closed), exports the screenshots, and `scripts/media/edit.py` crops the test runner's
-screen recording to iSensa's own windows to produce `hero.mp4`, `hero.webm`, `tour.mp4` and posters.
+technical details closed) and exports the dark and light screenshots into `src/assets/screens/`.
 macOS asks for an administrator password to allow UI automation.
 
 ## Downloads

@@ -1,0 +1,94 @@
+---
+/** Every component the app watches, in its own hue, drifting past like the menu bar's indicators. */
+import { translations, type Locale } from '../i18n';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = translations(locale);
+const items = [
+  { key: 'cpu', icon: 'cpu', hue: 'cpu' },
+  { key: 'gpu', icon: 'gpu', hue: 'gpu' },
+  { key: 'memory', icon: 'memory', hue: 'memory' },
+  { key: 'thermal', icon: 'thermometer', hue: 'thermal' },
+  { key: 'power', icon: 'bolt', hue: 'power' },
+  { key: 'battery', icon: 'battery', hue: 'battery' },
+  { key: 'fans', icon: 'fan', hue: 'fans' },
+  { key: 'network', icon: 'network', hue: 'network' },
+  { key: 'storage', icon: 'drive', hue: 'storage' },
+] as const;
+---
+<div class="spectrum">
+  {[0, 1].map((copy) => (
+    <ul class="lane" aria-hidden={copy === 1 ? 'true' : undefined} aria-label={copy === 0 ? t.nav.features : undefined}>
+      {items.map((item) => (
+        <li class="chip" style={`--hue: var(--hue-${item.hue})`}>
+          <span class="glyph" style="--size: 26px"><Icon name={item.icon} /></span>
+          {t.spectrum[item.key]}
+        </li>
+      ))}
+    </ul>
+  ))}
+</div>
+
+<style>
+  .spectrum {
+    display: flex;
+    overflow: hidden;
+    padding-block: 1.75rem;
+    border-block: 1px solid var(--line);
+    background: var(--bg-2);
+    mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  }
+  .lane {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex: none;
+    gap: 0.75rem;
+    padding: 0 0.75rem 0 0;
+    animation: slide 40s linear infinite;
+  }
+  .spectrum:hover .lane {
+    animation-play-state: paused;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1rem 0.45rem 0.45rem;
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--line);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+  }
+  .chip .glyph {
+    border-radius: 50%;
+  }
+  @keyframes slide {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spectrum {
+      flex-wrap: wrap;
+      justify-content: center;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    .lane {
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1 1 100%;
+    }
+    .lane + .lane {
+      display: none;
+    }
+  }
+</style>

@@ -24,7 +24,7 @@ const walk = (folder) =>
 const files = walk(dist);
 const pages = files.filter((file) => file.endsWith('.html'));
 
-const required = ['index.html', '404.html', 'sitemap.xml', 'robots.txt', 'favicon.svg', 'manifest.webmanifest', 'media/hero.mp4', 'media/hero.webm', 'media/tour.mp4'];
+const required = ['index.html', '404.html', 'sitemap.xml', 'robots.txt', 'favicon.svg', 'manifest.webmanifest'];
 for (const locale of locales) for (const page of ['', 'terms/', 'privacy/']) required.push(`${locale}/${page}index.html`);
 for (const file of required) if (!existsSync(join(dist, file))) problems.push(`missing ${file}`);
 

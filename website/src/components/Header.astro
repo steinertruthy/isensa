@@ -16,6 +16,7 @@ const home = localePath(locale);
 // On the home page, sections are anchors; elsewhere they lead back to the home page.
 const anchor = (id: string) => (page === '' ? `#${id}` : `${home}#${id}`);
 const sections = [
+  { id: 'overview', label: t.nav.overview },
   { id: 'features', label: t.nav.features },
   { id: 'gallery', label: t.nav.gallery },
   { id: 'download', label: t.nav.download },
@@ -75,6 +76,8 @@ const sections = [
         <Icon name="github" />
       </Link>
 
+      <a class="cta" href={anchor('download')}>{t.nav.download}</a>
+
       <button class="icon-button toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle data-open={t.nav.menu} data-close={t.nav.closeMenu} aria-label={t.nav.menu}>
         <span class="lines" aria-hidden="true"><span></span><span></span></span>
       </button>
@@ -122,11 +125,11 @@ const sections = [
   /* Over the always-dark stage, the bar uses the dark palette until it leaves it. */
   :global(body:has(.stage-top)) .header:not([data-scrolled]) {
     color-scheme: dark;
-    --text: #eef1f6;
-    --text-2: #a7b0c0;
+    --text: #f5f5f7;
+    --text-2: #a1a1a6;
     --line: rgb(255 255 255 / 0.08);
-    --line-strong: rgb(255 255 255 / 0.16);
-    --surface: #111827;
+    --line-strong: rgb(255 255 255 / 0.15);
+    --surface: #1c1c1e;
     color: var(--text);
   }
   .bar {
@@ -264,6 +267,24 @@ const sections = [
       transform: scale(0.96) translateY(-4px);
     }
   }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    height: 34px;
+    margin-left: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 999px;
+    background: var(--button);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s var(--ease-spring), filter 0.2s ease;
+  }
+  .cta:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
   .toggle {
     display: none;
   }
@@ -336,7 +357,8 @@ const sections = [
   }
   @media (max-width: 860px) {
     .nav,
-    .language {
+    .language,
+    .cta {
       display: none;
     }
     .toggle {

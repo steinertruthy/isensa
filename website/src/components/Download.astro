@@ -36,10 +36,13 @@ const requirements = Object.values(t.requirements.items);
 ---
 <section class="download section" id="download" aria-labelledby="download-title">
   <div class="wrap">
-    <h2 class="section-title" id="download-title">{t.download.title}</h2>
-    <p class="section-intro">{t.download.intro}</p>
+    <div class="section-head centered" data-reveal>
+      <p class="eyebrow">{t.download.eyebrow}</p>
+      <h2 class="section-title" id="download-title">{t.download.title}</h2>
+      <p class="section-intro">{t.download.intro}</p>
+    </div>
 
-    <div class="panel" data-download data-state="idle">
+    <div class="panel" data-download data-state="idle" data-reveal>
       <script type="application/json" data-download-strings set:html={JSON.stringify(strings)} />
       <div class="identity">
         <Logo size={88} class="icon" />

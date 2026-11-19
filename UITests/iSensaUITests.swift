@@ -72,7 +72,7 @@ final class iSensaUITests: XCTestCase {
     func testSidebarCollapsesAndOpensSettings() {
         // No launch argument for `sidebarVisible`: it would shadow the value the toggle saves.
         let app = launch("laptopWithFans")
-        let toggle = app.buttons["toolbar.sidebar"]
+        let toggle = app.buttons["toolbar.sidebar"].firstMatch // CI runners may leave a second window open.
         XCTAssertTrue(toggle.waitForExistence(timeout: 10))
         let settingsRow = app.buttons["sidebar.settings"]
         if !settingsRow.waitForExistence(timeout: 2) { toggle.click() } // Left collapsed by an earlier run.

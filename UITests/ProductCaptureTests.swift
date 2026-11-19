@@ -1,14 +1,11 @@
 import AppKit
 import XCTest
 
-/// Captures real screenshots of iSensa running on this Mac, with its real sensors, for the website
-/// and the product video. It runs only when asked (`scripts/capture-media.sh` sets
+/// Captures real screenshots of iSensa running on this Mac, with its real sensors, for the website. It runs only when asked (`scripts/capture-media.sh` sets
 /// `ISENSA_CAPTURE=1`), never as part of the regular suite. The computer name is hidden and the
 /// greeting does not use the person's name.
 @MainActor
 final class ProductCaptureTests: XCTestCase {
-    private var started = Date()
-    private var timeline: [[String: Any]] = []
 
     override func setUpWithError() throws {
         guard ProcessInfo.processInfo.environment["ISENSA_CAPTURE"] == "1" else {
@@ -36,45 +33,6 @@ final class ProductCaptureTests: XCTestCase {
             app.terminate()
             capturePopover(appearance: appearance)
         }
-    }
-
-    /// One continuous tour of the real app, recorded by the test runner's screen recording;
-    /// the timeline tells the editing script which part of the screen and which seconds to keep.
-    func testRecordTour() throws {
-        let app = launch(appearance: "dark")
-        started = Date()
-        let window = app.windows.firstMatch
-        mark("window", frame: window.frame)
-        let tour: [(String, TimeInterval)] = [
-            ("overview", 9), ("cpu", 6), ("gpu", 5), ("thermals", 6), ("battery", 5), ("fans", 5), ("memory", 4), ("history", 6), ("settings", 0)
-        ]
-        for (destination, seconds) in tour {
-            guard open(app, "sidebar.\(destination)") else { continue }
-            mark(destination, frame: window.frame)
-            if destination == "settings" {
-                for pane in ["general", "menuBar", "notifications"] where open(app, "settings.\(pane)") {
-                    mark("settings-\(pane)", frame: window.frame)
-                    pause(3)
-                }
-            } else {
-                pause(seconds)
-            }
-        }
-        // The menu bar: hide the window, then open the popover from the status item.
-        app.typeKey("w", modifierFlags: .command)
-        pause(1)
-        let item = app.statusItems.firstMatch
-        if item.waitForExistence(timeout: 5) {
-            item.click()
-            let popover = app.descendants(matching: .any)["menubar.popover"]
-            if popover.waitForExistence(timeout: 5) {
-                mark("popover", frame: popover.frame.union(item.frame))
-                pause(7)
-            }
-        }
-        mark("end", frame: .zero)
-        writeTimeline()
-        app.terminate()
     }
 
     // MARK: - Helpers
@@ -136,25 +94,5 @@ final class ProductCaptureTests: XCTestCase {
         attachment.name = "\(name).png"
         attachment.lifetime = .keepAlways
         add(attachment)
-    }
-
-    private func mark(_ scene: String, frame: CGRect) {
-        timeline.append([
-            "scene": scene, "t": Date().timeIntervalSince(started), "wall": Date().timeIntervalSince1970,
-            "frame": [frame.minX, frame.minY, frame.width, frame.height]
-        ])
-    }
-
-    private func writeTimeline() {
-        let screen = NSScreen.main
-        let info: [String: Any] = [
-            "scale": screen?.backingScaleFactor ?? 2, "screen": [screen?.frame.width ?? 0, screen?.frame.height ?? 0], "events": timeline
-        ]
-        if let data = try? JSONSerialization.data(withJSONObject: info, options: [.prettyPrinted]) {
-            let attachment = XCTAttachment(data: data, uniformTypeIdentifier: "public.json")
-            attachment.name = "timeline.json"
-            attachment.lifetime = .keepAlways
-            add(attachment)
-        }
     }
 }

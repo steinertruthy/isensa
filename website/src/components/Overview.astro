@@ -1,0 +1,75 @@
+---
+import { translations, type Locale } from '../i18n';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = translations(locale);
+const pillars = [
+  { ...t.overview.pillars.native, icon: 'gauge', hue: 'cpu' },
+  { ...t.overview.pillars.honest, icon: 'sparkle', hue: 'gpu' },
+  { ...t.overview.pillars.safe, icon: 'shield', hue: 'battery' },
+] as const;
+---
+<section class="overview section" id="overview" aria-labelledby="overview-title">
+  <div class="wrap">
+    <div class="section-head centered" data-reveal>
+      <p class="eyebrow">{t.overview.eyebrow}</p>
+      <h2 class="section-title" id="overview-title">{t.overview.title}</h2>
+      <p class="section-intro">{t.overview.text}</p>
+    </div>
+    <ul class="pillars">
+      {pillars.map((pillar, index) => (
+        <li class="pillar" data-reveal data-tilt style={`--hue: var(--hue-${pillar.hue}); --delay: ${index}`}>
+          <span class="glyph" style="--size: 44px"><Icon name={pillar.icon} /></span>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pillars {
+    display: grid;
+    gap: 1.25rem;
+    margin: clamp(3rem, 2rem + 4vw, 5rem) 0 0;
+    padding: 0;
+    list-style: none;
+    perspective: 1200px;
+  }
+  .pillar {
+    position: relative;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+    border-radius: var(--radius-l);
+    background:
+      radial-gradient(120% 80% at 0% 0%, color-mix(in srgb, var(--hue) 12%, transparent), transparent 60%),
+      var(--surface);
+    box-shadow: 0 0 0 1px var(--line);
+    transform-style: preserve-3d;
+    transition: box-shadow 0.4s ease;
+  }
+  .pillar:hover {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--hue) 40%, transparent),
+      0 30px 60px -30px color-mix(in srgb, var(--hue) 50%, transparent);
+  }
+  .pillar h3 {
+    margin-top: 1.5rem;
+    font-size: var(--step-1);
+    font-weight: 650;
+    letter-spacing: -0.015em;
+  }
+  .pillar p {
+    margin-top: 0.6rem;
+    color: var(--text-2);
+  }
+  @media (min-width: 860px) {
+    .pillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

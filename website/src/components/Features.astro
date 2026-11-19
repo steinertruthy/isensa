@@ -1,5 +1,6 @@
 ---
 import { translations, type Locale } from '../i18n';
+import Icon from './Icon.astro';
 import Screen from './Screen.astro';
 
 interface Props {
@@ -9,160 +10,173 @@ const { locale } = Astro.props;
 const t = translations(locale);
 
 type Key = keyof typeof t.features.items;
-// Each feature keeps the hue of its component in the app; status says what is experimental.
-const features: { key: Key; screen: string; hue: string; status: 'available' | 'experimental' | 'varies' }[] = [
-  { key: 'realtime', screen: 'overview', hue: 'cpu', status: 'available' },
-  { key: 'thermals', screen: 'thermals', hue: 'thermal', status: 'varies' },
-  { key: 'battery', screen: 'battery', hue: 'battery', status: 'available' },
-  { key: 'fans', screen: 'fans', hue: 'fans', status: 'experimental' },
-  { key: 'storage', screen: 'storage', hue: 'storage', status: 'available' },
-  { key: 'history', screen: 'history', hue: 'network', status: 'available' },
-  { key: 'settings', screen: 'settings-general', hue: 'gpu', status: 'available' },
-  { key: 'native', screen: 'memory', hue: 'memory', status: 'available' },
+type IconName = 'gauge' | 'thermometer' | 'battery' | 'fan' | 'drive' | 'clock' | 'gear' | 'memory';
+// Each feature keeps the hue and symbol of its component in the app's sidebar.
+const features: { key: Key; screen: string; hue: string; icon: IconName; status: 'available' | 'experimental' | 'varies' }[] = [
+  { key: 'realtime', screen: 'overview', hue: 'cpu', icon: 'gauge', status: 'available' },
+  { key: 'thermals', screen: 'thermals', hue: 'thermal', icon: 'thermometer', status: 'varies' },
+  { key: 'battery', screen: 'battery', hue: 'battery', icon: 'battery', status: 'available' },
+  { key: 'fans', screen: 'fans', hue: 'fans', icon: 'fan', status: 'experimental' },
+  { key: 'storage', screen: 'storage', hue: 'storage', icon: 'drive', status: 'available' },
+  { key: 'history', screen: 'history', hue: 'network', icon: 'clock', status: 'available' },
+  { key: 'settings', screen: 'settings-general', hue: 'neutral', icon: 'gear', status: 'available' },
+  { key: 'native', screen: 'memory', hue: 'memory', icon: 'memory', status: 'available' },
 ];
-const sizes = '(min-width: 1024px) 58vw, 100vw';
 ---
 <section class="features section" id="features" aria-labelledby="features-title">
   <div class="wrap">
-    <h2 class="section-title" id="features-title">{t.features.title}</h2>
-    <p class="section-intro">{t.features.intro}</p>
+    <div class="section-head centered" data-reveal>
+      <p class="eyebrow">{t.features.eyebrow}</p>
+      <h2 class="section-title" id="features-title">{t.features.title}</h2>
+      <p class="section-intro">{t.features.intro}</p>
+    </div>
 
-    <div class="story" data-story>
-      <ol class="steps">
-        {features.map((feature, index) => (
-          <li class="step" data-step={index} style={`--hue: var(--hue-${feature.hue})`}>
-            <div class="text">
-              <span class="swatch" aria-hidden="true"></span>
-              <h3>{t.features.items[feature.key].title}</h3>
-              <p>{t.features.items[feature.key].text}</p>
+    <ol class="rows">
+      {features.map((feature, index) => {
+        const item = t.features.items[feature.key];
+        return (
+          <li class="row" style={`--hue: var(--hue-${feature.hue})`} data-flip={index % 2 === 1 ? '' : undefined}>
+            <div class="text" data-reveal>
+              <p class="label">
+                <span class="glyph" style="--size: 30px"><Icon name={feature.icon} /></span>
+                {item.label}
+              </p>
+              <h3>{item.title}</h3>
+              <p class="body">{item.text}</p>
               <span class="status" data-kind={feature.status}>{t.status[feature.status]}</span>
+              <div class="why">
+                <p class="why-label">{t.features.whyLabel}</p>
+                <p>{item.why}</p>
+              </div>
             </div>
-            <div class="inline-shot window">
-              <Screen name={feature.screen} alt={t.features.items[feature.key].alt} sizes={sizes} widths={[640, 960, 1320]} />
+            <div class="media" data-reveal style="--delay: 1">
+              <div class="halo" aria-hidden="true"></div>
+              <div class="window shot" data-tilt data-tall={feature.screen.startsWith('settings') ? '' : undefined}>
+                <Screen name={feature.screen} alt={item.alt} sizes="(min-width: 1024px) 680px, 92vw" widths={[640, 960, 1320, 1920]} />
+              </div>
             </div>
           </li>
-        ))}
-      </ol>
-
-      <div class="stage-frame">
-        <div class="sticky">
-          <div class="window frame">
-            {features.map((feature, index) => (
-              <div class="slide" data-slide={index} data-active={index === 0 ? '' : undefined} data-tall={feature.screen.startsWith('settings') ? '' : undefined}>
-                <Screen name={feature.screen} alt={t.features.items[feature.key].alt} sizes={sizes} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+        );
+      })}
+    </ol>
   </div>
 </section>
 
 <style>
-  .story {
-    position: relative;
-    margin-top: clamp(3rem, 2rem + 4vw, 6rem);
-  }
-  .steps {
-    margin: 0;
+  .rows {
+    display: grid;
+    gap: clamp(5rem, 3rem + 7vw, 9rem);
+    margin: clamp(4rem, 3rem + 5vw, 7rem) 0 0;
     padding: 0;
     list-style: none;
   }
-  .step + .step {
-    margin-top: clamp(4rem, 3rem + 5vw, 7rem);
+  .row {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
   }
-  .swatch {
-    display: block;
-    width: 28px;
-    height: 3px;
-    border-radius: 3px;
-    background: var(--hue);
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
     margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: var(--text-2);
   }
   h3 {
     font-size: var(--step-2);
     font-weight: 650;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-    max-width: 20ch;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    max-width: 18ch;
   }
-  .text p {
+  .body {
     margin-top: 1rem;
-    max-width: 46ch;
+    max-width: 48ch;
     color: var(--text-2);
   }
-  .text .status {
+  .status {
     margin-top: 1.25rem;
   }
-  .inline-shot {
-    margin-top: 2rem;
+  .why {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    max-width: 48ch;
   }
-  .stage-frame {
-    display: none;
+  .why-label {
+    margin-bottom: 0.4rem;
+    color: var(--text-3);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
-
-  /* Wide screens: the text scrolls while one window stays in place and changes with it. */
+  .why-label::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 0.55rem;
+    border-radius: 50%;
+    background: var(--hue);
+    vertical-align: 0.05em;
+  }
+  :is(:lang(ja), :lang(ko), :lang(zh-Hans), :lang(zh-Hant)) .why-label {
+    letter-spacing: 0.04em;
+  }
+  .media {
+    position: relative;
+    perspective: 1400px;
+  }
+  /* The component's hue glows behind its screen. */
+  .halo {
+    position: absolute;
+    inset: 8% 6%;
+    border-radius: 40%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--hue) 70%, transparent), transparent);
+    opacity: var(--glow);
+    filter: blur(50px);
+  }
+  .shot {
+    --rx: 0;
+    --ry: 0;
+    --lean: 0;
+    aspect-ratio: 2640 / 1720;
+    background: var(--surface-2);
+    transform: rotateY(calc((var(--lean) + var(--ry)) * 1deg)) rotateX(calc(var(--rx) * 1deg));
+    transition: transform 0.7s var(--ease-out);
+    will-change: transform;
+  }
+  .shot[data-active] {
+    transition: transform 0.12s linear;
+  }
+  .shot[data-tall] {
+    display: grid;
+    place-items: center;
+  }
+  .shot[data-tall] :global(picture),
+  .shot[data-tall] :global(img) {
+    width: auto;
+    height: 100%;
+  }
   @media (min-width: 1024px) {
-    .story {
-      display: grid;
+    .row {
       grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: clamp(2rem, 4vw, 5rem);
+      gap: clamp(3rem, 6vw, 6rem);
     }
-    .step {
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
+    .row[data-flip] {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     }
-    .step + .step {
-      margin-top: 0;
+    .row[data-flip] .text {
+      order: 2;
     }
-    .text {
-      opacity: 0.72;
-      transition: opacity 0.6s var(--ease-out);
+    /* At rest, each window leans toward its text. */
+    .shot {
+      --lean: -7;
     }
-    .step[data-active] .text {
-      opacity: 1;
-    }
-    .inline-shot {
-      display: none;
-    }
-    .stage-frame {
-      display: block;
-    }
-    .sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: grid;
-      align-items: center;
-    }
-    .frame {
-      aspect-ratio: 2640 / 1720;
-      background: var(--surface-2);
-    }
-    .slide {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      opacity: 0;
-      transform: scale(1.015);
-      transition:
-        opacity 0.7s var(--ease-out),
-        transform 0.9s var(--ease-out);
-    }
-    .slide[data-active] {
-      opacity: 1;
-      transform: none;
-    }
-    .slide[data-tall] :global(picture) {
-      width: auto;
-      height: 100%;
-    }
-    .slide[data-tall] :global(img) {
-      width: auto;
-      height: 100%;
+    .row[data-flip] .shot {
+      --lean: 7;
     }
   }
 </style>

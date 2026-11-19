@@ -28,10 +28,13 @@ const stats = [
 ---
 <section class="open section" id="open-source" aria-labelledby="open-title">
   <div class="wrap">
-    <h2 class="section-title" id="open-title">{t.openSource.title}</h2>
-    <p class="section-intro">{t.openSource.text}</p>
+    <div class="section-head centered" data-reveal>
+      <p class="eyebrow">{t.openSource.eyebrow}</p>
+      <h2 class="section-title" id="open-title">{t.openSource.title}</h2>
+      <p class="section-intro">{t.openSource.text}</p>
+    </div>
 
-    <dl class="principles">
+    <dl class="principles" data-reveal>
       {principles.map((principle) => (
         <div>
           <dt>{principle.title}</dt>
@@ -40,7 +43,7 @@ const stats = [
       ))}
     </dl>
 
-    <div class="repo">
+    <div class="repo" data-reveal>
       <div class="repo-head">
         <Link class="button" href={repository.url}>
           <Icon name="github" />

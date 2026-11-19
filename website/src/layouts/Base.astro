@@ -47,7 +47,7 @@ const structured = page === ''
   : null;
 
 // Runs before the first paint: theme (avoids a flash) and, on the root page only, the language.
-const themeScript = `(()=>{try{const t=localStorage.getItem('isensa.theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch{}})();`;
+const themeScript = `(()=>{document.documentElement.classList.add('js');try{const t=localStorage.getItem('isensa.theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch{}})();`;
 const localeScript = isRoot
   ? `(()=>{let saved=null;try{saved=localStorage.getItem('isensa.locale')}catch{}const supported=${JSON.stringify(locales)};const match=${matchLocale.toString()};const target=supported.includes(saved)?saved:match(navigator.languages||[navigator.language||''],supported,${JSON.stringify(defaultLocale)});location.replace(${JSON.stringify(withBase(''))}+target+'/'+location.hash)})();`
   : null;
@@ -64,8 +64,8 @@ const localeScript = isRoot
     {locales.map((code) => <link rel="alternate" hreflang={localeInfo[code].tag} href={absolute(localePath(code, page))} />)}
     <link rel="alternate" hreflang="x-default" href={absolute(page === '' ? withBase('') : localePath(defaultLocale, page))} />
 
-    <meta name="theme-color" content="#f4f6f9" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
     <link rel="icon" href={withBase('favicon-32.png')} sizes="32x32" type="image/png" />

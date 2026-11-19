@@ -1,11 +1,9 @@
+import { setUpChrome } from './chrome';
 import { setUpDownload } from './download';
 import { setUpGallery } from './gallery';
-import { setUpChrome } from './chrome';
-import { setUpMedia } from './media';
-import { setUpStory } from './story';
+import { setUpMotion } from './motion';
 
 setUpChrome();
-setUpMedia();
-setUpStory();
+setUpMotion();
 setUpGallery();
 setUpDownload();

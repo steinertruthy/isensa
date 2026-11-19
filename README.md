@@ -47,6 +47,6 @@ sudo rm -f /Library/LaunchDaemons/io.github.steinertruthy.iSensa.helper.plist /L
 
 Para conferir o estado do SMC (somente leitura): `swift run --package-path Packages/iSensaKit isensa-probe smc Ftst F0Md F1Md F0Tg F0Ac F1Ac`.
 
-Site: [website/](website/README.md) (Astro, publicado no GitHub Pages). Capturas e vídeos reais: `scripts/media/capture.sh`.
+Site: [website/](website/README.md) (Astro, publicado no GitHub Pages). Capturas reais: `scripts/media/capture.sh`.
 
 Documentação: [arquitetura](docs/ARCHITECTURE.md) · [viabilidade e validação](docs/FEASIBILITY.md) · [distribuição](docs/DISTRIBUTION.md).
