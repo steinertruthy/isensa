@@ -6,6 +6,7 @@ public struct BatteryGlyph: View {
     private let isCharging: Bool
     private let tint: Color
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.sensaMotion) private var motion
     @State private var pulse = false
 
     public init(charge: Double, isCharging: Bool, tint: Color) {
@@ -44,10 +45,10 @@ public struct BatteryGlyph: View {
             }
         }
         .aspectRatio(2.1, contentMode: .fit)
-        .animation(Motion.adaptive(Motion.standard, reduceMotion: reduceMotion), value: charge)
-        .animation(Motion.adaptive(Motion.standard, reduceMotion: reduceMotion), value: isCharging)
+        .sensaAnimation(Motion.update, value: charge)
+        .sensaAnimation(value: isCharging)
         .onChange(of: isCharging, initial: true) { _, charging in
-            guard charging, !reduceMotion else {
+            guard charging, Motion.effective(motion, reduceMotion: reduceMotion) == .full else {
                 pulse = false
                 return
             }

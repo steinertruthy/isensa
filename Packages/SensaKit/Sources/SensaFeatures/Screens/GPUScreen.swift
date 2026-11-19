@@ -10,59 +10,46 @@ struct GPUScreen: View {
     var body: some View {
         let formatter = settings.formatter
         let gpu = store.snapshot.gpu
-        ScreenContainer(title: tr("GPU"), summary: gpu.map { Descriptions.cpuLoad($0.deviceUtilization) } ?? tr("Reading sensors…")) {
+        ScreenContainer(
+            title: tr("GPU"), summary: gpu.map { Descriptions.cpuLoad($0.deviceUtilization) } ?? tr("Reading sensors…"),
+            symbol: "square.stack.3d.up", hue: .gpu
+        ) {
             if let gpu {
-                HStack(alignment: .top, spacing: Spacing.large) {
-                    Card {
-                        HStack(spacing: Spacing.xLarge) {
-                            RingGauge(value: gpu.deviceUtilization, tint: .purple, lineWidth: 12) {
-                                VStack(spacing: 0) {
-                                    Text(formatter.percent(gpu.deviceUtilization)).font(Typography.metric).contentTransition(.numericText())
-                                    Text(tr("in use")).font(Typography.caption).foregroundStyle(.secondary)
-                                }
-                            }
-                            .frame(width: 130, height: 130)
-                            VStack(alignment: .leading, spacing: Spacing.small) {
-                                if let renderer = gpu.rendererUtilization { InfoRow(tr("Rendering"), value: formatter.percent(renderer)) }
-                                if let tiler = gpu.tilerUtilization { InfoRow(tr("Geometry (tiler)"), value: formatter.percent(tiler)) }
-                                if let memory = gpu.memoryInUse {
-                                    InfoRow(
-                                        tr("Memory in use"),
-                                        value: formatter.bytes(memory),
-                                        help: tr("Unified memory currently used by the GPU. On Apple silicon the CPU and GPU share the same memory.")
-                                    )
-                                }
-                            }
-                        }
-                    }
-                    if let temperature = store.snapshot.sensors?.gpuTemperature {
-                        Card(tr("Temperature"), symbol: "thermometer.medium") {
-                            Text(formatter.temperature(temperature)).font(Typography.metric).contentTransition(.numericText())
-                            Text(tr("Average of the GPU sensors")).font(Typography.caption).foregroundStyle(.secondary)
-                            ProvenanceTag(tr("Derived"))
-                        }
-                        .frame(maxWidth: 260)
-                    }
+                HeroInstrument(stats: stats(gpu, formatter: formatter)) {
+                    GaugeInstrument(fraction: gpu.deviceUtilization, hue: .gpu, value: formatter.percent(gpu.deviceUtilization), caption: tr("in use"))
                 }
                 SeriesChartCard(
-                    title: tr("Usage history"), symbol: "chart.xyaxis.line",
-                    lines: [.init(metric: .gpuUsage, label: tr("GPU"), color: .purple)],
+                    title: tr("Usage history"),
+                    lines: [.init(metric: .gpuUsage, label: tr("GPU"), color: Hue.gpu.color)],
                     range: 0...100, transform: { $0 * 100 }, format: { "\(Int($0)) %" }
                 )
                 if let cluster = store.snapshot.performance?.cluster(.gpu) {
-                    ClusterActivityCard(clusters: [cluster], formatter: formatter)
+                    ClusterActivityCard(clusters: [cluster], hue: .gpu, formatter: formatter)
                 }
                 TechnicalDetails {
                     InfoRow(tr("Model"), value: gpu.name)
-                    if let watts = store.snapshot.power?.rails[.gpu] {
-                        InfoRow(tr("GPU power"), value: formatter.watts(watts, fractionDigits: 2))
-                    }
                     if let cores = gpu.coreCount { InfoRow(tr("GPU cores"), value: "\(cores)") }
-                    InfoRow(tr("Source"), value: "IOAccelerator · PerformanceStatistics")
+                    InfoRow(tr("Source"), value: "IOAccelerator, IOReport")
                 }
             } else {
                 WaitingView()
             }
         }
+    }
+
+    private func stats(_ gpu: GPUSnapshot, formatter: MetricFormatter) -> [Stat] {
+        var stats: [Stat] = []
+        if let renderer = gpu.rendererUtilization { stats.append(Stat(tr("Rendering"), value: formatter.percent(renderer))) }
+        if let tiler = gpu.tilerUtilization { stats.append(Stat(tr("Geometry (tiler)"), value: formatter.percent(tiler))) }
+        if let memory = gpu.memoryInUse {
+            stats.append(Stat(tr("Memory in use"), value: formatter.bytes(memory), note: tr("Shared with the CPU")))
+        }
+        if let temperature = store.snapshot.sensors?.gpuTemperature {
+            stats.append(Stat(tr("Temperature"), value: formatter.temperature(temperature), note: tr("Average of the GPU sensors")))
+        }
+        if let watts = store.snapshot.power?.rails[.gpu] {
+            stats.append(Stat(tr("GPU power"), value: formatter.watts(watts, fractionDigits: 2)))
+        }
+        return stats
     }
 }

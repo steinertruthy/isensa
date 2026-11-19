@@ -6,11 +6,13 @@ import SwiftUI
 @MainActor
 final class MainWindowController: NSObject, NSWindowDelegate {
     private let environment: AppEnvironment
+    private let services: SensaServices
     private let onVisibilityChange: () -> Void
     private var window: NSWindow?
 
-    init(environment: AppEnvironment, onVisibilityChange: @escaping () -> Void) {
+    init(environment: AppEnvironment, services: SensaServices, onVisibilityChange: @escaping () -> Void) {
         self.environment = environment
+        self.services = services
         self.onVisibilityChange = onVisibilityChange
     }
 
@@ -27,11 +29,9 @@ final class MainWindowController: NSObject, NSWindowDelegate {
     }
 
     private func makeWindow() -> NSWindow {
-        // `-SensaInitialDestination <name>` opens a specific screen (UI tests, screenshots).
-        let initial = UserDefaults.standard.string(forKey: "SensaInitialDestination").flatMap(Destination.init) ?? .overview
-        let root = RootView(initialSelection: initial)
-            .environment(environment.store)
-            .environment(environment.settings)
+        let root = RootView()
+            .environment(environment.navigation)
+            .sensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
         let controller = NSHostingController(rootView: root)
         controller.sceneBridgingOptions = [.toolbars, .title]
         let window = NSWindow(contentViewController: controller)

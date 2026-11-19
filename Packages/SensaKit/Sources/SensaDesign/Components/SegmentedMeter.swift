@@ -21,7 +21,7 @@ public struct SegmentedMeter: View {
     private let segments: [Segment]
     private let total: Double
     private let showsLegend: Bool
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var revealed = false
 
     public init(segments: [Segment], total: Double, showsLegend: Bool = true) {
         self.segments = segments
@@ -36,7 +36,7 @@ public struct SegmentedMeter: View {
                     ForEach(segments) { segment in
                         RoundedRectangle(cornerRadius: 3, style: .continuous)
                             .fill(segment.color.gradient)
-                            .frame(width: max(geometry.size.width * segment.value / total - 2, 0))
+                            .frame(width: revealed ? max(geometry.size.width * segment.value / total - 2, 0) : 0)
                     }
                     Spacer(minLength: 0)
                 }
@@ -44,7 +44,8 @@ public struct SegmentedMeter: View {
             .frame(height: 12)
             .background(Color.secondary.opacity(0.12), in: RoundedRectangle(cornerRadius: 4, style: .continuous))
             .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
-            .animation(Motion.adaptive(Motion.standard, reduceMotion: reduceMotion), value: segments)
+            .sensaAnimation(Motion.update, value: segments)
+            .revealOnAppear($revealed)
             .accessibilityHidden(true)
 
             if showsLegend {

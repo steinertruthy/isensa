@@ -8,14 +8,16 @@ import SwiftUI
 final class StatusItemController: NSObject, NSPopoverDelegate {
     private let environment: AppEnvironment
     private let actions: MenuBarActions
+    private let services: SensaServices
     private let onVisibilityChange: () -> Void
     private var statusItem: NSStatusItem?
     private let popover = NSPopover()
     private var renderScheduled = false
     private var lastModel: MenuBarLabelModel?
 
-    init(environment: AppEnvironment, actions: MenuBarActions, onVisibilityChange: @escaping () -> Void) {
+    init(environment: AppEnvironment, actions: MenuBarActions, services: SensaServices, onVisibilityChange: @escaping () -> Void) {
         self.environment = environment
+        self.services = services
         self.actions = actions
         self.onVisibilityChange = onVisibilityChange
     }
@@ -37,11 +39,14 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         popover.behavior = .transient
         popover.animates = true
         popover.delegate = self
-        popover.contentViewController = NSHostingController(
+        let controller = NSHostingController(
             rootView: MenuBarPopover(actions: popoverActions)
-                .environment(environment.store)
-                .environment(environment.settings)
+                .sensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
         )
+        // The popover follows the SwiftUI content's size, so it opens at its final height instead of
+        // growing after it is shown (which pushes it above the menu bar).
+        controller.sizingOptions = [.preferredContentSize]
+        popover.contentViewController = controller
         renderLabel()
     }
 
@@ -55,6 +60,10 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
 
     func showPopover() {
         guard let button = statusItem?.button, !popover.isShown else { return }
+        if let view = popover.contentViewController?.view {
+            view.layoutSubtreeIfNeeded()
+            popover.contentSize = view.fittingSize
+        }
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         popover.contentViewController?.view.window?.makeKey()
     }

@@ -55,6 +55,5 @@ struct MenuBarSettings: View {
                     .font(.caption).foregroundStyle(.secondary)
             }
         }
-        .formStyle(.grouped)
     }
 }

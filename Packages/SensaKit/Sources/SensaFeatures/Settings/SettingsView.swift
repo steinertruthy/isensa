@@ -1,143 +1,145 @@
+import Foundation
 import SensaCore
 import SensaDesign
 import SensaMonitoring
 import SwiftUI
 
-/// Preferences window, grouped by context.
+/// Settings, organized like System Settings: hued sidebar icons, one grouped form per topic.
 public struct SettingsView: View {
-    private let launchAtLogin: LaunchAtLoginControlling
+    @Environment(MetricsStore.self) private var store
+    @State private var selection: SettingsPane?
 
-    public init(launchAtLogin: LaunchAtLoginControlling) {
-        self.launchAtLogin = launchAtLogin
+    /// `-SensaSettingsPane <name>` opens a specific pane (screenshots, UI tests).
+    public init() {
+        _selection = State(initialValue: UserDefaults.standard.string(forKey: "SensaSettingsPane").flatMap(SettingsPane.init) ?? .general)
     }
 
     public var body: some View {
-        TabView {
-            GeneralSettings(launchAtLogin: launchAtLogin)
-                .tabItem { Label(tr("General"), systemImage: "gearshape") }
-            AppearanceSettings()
-                .tabItem { Label(tr("Appearance"), systemImage: "paintbrush") }
-            MenuBarSettings()
-                .tabItem { Label(tr("Menu Bar"), systemImage: "menubar.rectangle") }
-            PrivacySettings()
-                .tabItem { Label(tr("Privacy"), systemImage: "hand.raised") }
-            AboutSettings()
-                .tabItem { Label(tr("About"), systemImage: "info.circle") }
-        }
-        .frame(width: 560)
-        .frame(minHeight: 420)
-    }
-}
-
-private struct GeneralSettings: View {
-    @Environment(AppSettings.self) private var settings
-    let launchAtLogin: LaunchAtLoginControlling
-    @State private var launchError: String?
-    @State private var launchEnabled = false
-    @State private var confirmReset = false
-
-    var body: some View {
-        @Bindable var settings = settings
-        Form {
-            Section {
-                Toggle(tr("Open at login"), isOn: Binding(get: { launchEnabled }, set: { setLaunch($0) }))
-                if launchAtLogin.requiresApproval {
-                    Text(tr("Approve Sensa in System Settings › General › Login Items.")).font(.caption).foregroundStyle(.secondary)
-                }
-                if let launchError { Text(launchError).font(.caption).foregroundStyle(.red) }
-                Toggle(tr("Hide Dock icon (menu bar only)"), isOn: $settings.hidesDockIcon)
-                Text(tr("You can always reopen Sensa from its menu bar icon.")).font(.caption).foregroundStyle(.secondary)
-            }
-            Section(tr("Greeting")) {
-                Toggle(tr("Greet me by my first name"), isOn: $settings.greetingUsesName)
-                Text(tr("Uses the name of your macOS account. It never leaves your Mac.")).font(.caption).foregroundStyle(.secondary)
-            }
-            Section(tr("Monitoring")) {
-                Picker(tr("Refresh while visible"), selection: $settings.refreshInterval) {
-                    Text(tr("Every second")).tag(1.0)
-                    Text(tr("Every 2 seconds")).tag(2.0)
-                    Text(tr("Every 5 seconds")).tag(5.0)
-                }
-                Text(tr("Sensa samples less often when its windows are hidden and on battery power, to save energy."))
-                    .font(.caption).foregroundStyle(.secondary)
-            }
-            Section {
-                Button(tr("Reset all preferences…"), role: .destructive) { confirmReset = true }
-            }
-        }
-        .formStyle(.grouped)
-        .onAppear { launchEnabled = launchAtLogin.isEnabled }
-        .confirmationDialog(tr("Reset all preferences?"), isPresented: $confirmReset) {
-            Button(tr("Reset"), role: .destructive) { settings.resetToDefaults() }
-        } message: {
-            Text(tr("Favorites, sensor names and menu bar choices will be restored to their defaults."))
-        }
-    }
-
-    private func setLaunch(_ enabled: Bool) {
-        do {
-            try launchAtLogin.setEnabled(enabled)
-            launchError = nil
-        } catch {
-            launchError = tr("macOS did not allow this change: %@", error.localizedDescription)
-        }
-        launchEnabled = launchAtLogin.isEnabled
-    }
-}
-
-private struct AppearanceSettings: View {
-    @Environment(AppSettings.self) private var settings
-
-    var body: some View {
-        @Bindable var settings = settings
-        Form {
-            Picker(tr("Appearance"), selection: $settings.appearance) {
-                Text(tr("Automatic")).tag(AppearancePreference.system)
-                Text(tr("Light")).tag(AppearancePreference.light)
-                Text(tr("Dark")).tag(AppearancePreference.dark)
-            }
-            .pickerStyle(.inline)
-            Picker(tr("Temperature"), selection: $settings.temperatureUnit) {
-                Text(tr("Celsius (°C)")).tag(TemperatureUnitPreference.celsius)
-                Text(tr("Fahrenheit (°F)")).tag(TemperatureUnitPreference.fahrenheit)
-            }
-            Toggle(tr("Always show technical details"), isOn: $settings.showsTechnicalDetails)
-        }
-        .formStyle(.grouped)
-    }
-}
-
-private struct PrivacySettings: View {
-    var body: some View {
-        Form {
-            Section {
-                Label(tr("Everything stays on your Mac."), systemImage: "lock.shield").font(Typography.headline)
-                Text(Copy.privacyStatement)
-                    .foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .formStyle(.grouped)
-    }
-}
-
-private struct AboutSettings: View {
-    @Environment(MetricsStore.self) private var store
-
-    var body: some View {
-        Form {
-            Section {
-                InfoRow(tr("Version"), value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–")
-                InfoRow(tr("Mac"), value: "\(store.profile.displayModelName) (\(store.profile.modelIdentifier))")
-                InfoRow(tr("Chip"), value: store.profile.chipName)
-                InfoRow(tr("macOS"), value: store.profile.operatingSystem)
-            }
-            Section(tr("Detected capabilities")) {
-                ForEach(store.capabilities.probedFeatures, id: \.self) { feature in
-                    InfoRow(CapabilityText.featureName(feature), value: CapabilityText.stateName(store.capabilities[feature]))
+        NavigationSplitView {
+            List(selection: $selection) {
+                ForEach(SettingsPane.groups(capabilities: store.capabilities), id: \.self) { group in
+                    Section {
+                        ForEach(group) { pane in
+                            Label { Text(pane.title) } icon: { SidebarIcon(pane.symbol, hue: pane.hue, isSelected: selection == pane) }
+                                .tag(pane)
+                                .accessibilityIdentifier("settings.\(pane.rawValue)")
+                        }
+                    }
                 }
             }
+            .navigationSplitViewColumnWidth(min: 200, ideal: 215, max: 240)
+        } detail: {
+            (selection ?? .general).view
+                .formStyle(.grouped)
+                .navigationTitle((selection ?? .general).title)
+                .sensaScreenTransition(id: selection)
         }
-        .formStyle(.grouped)
+        .frame(minWidth: 720, minHeight: 520)
+    }
+}
+
+enum SettingsPane: String, CaseIterable, Identifiable {
+    case general, appearance, sounds, overview, menuBar, monitoring, sensors, battery, fans, notifications, history, privacy, advanced, about
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .general: tr("General")
+        case .appearance: tr("Appearance")
+        case .sounds: tr("Sounds & Haptics")
+        case .overview: tr("Overview")
+        case .menuBar: tr("Menu Bar")
+        case .monitoring: tr("Monitoring & Energy")
+        case .sensors: tr("Sensors")
+        case .battery: tr("Battery")
+        case .fans: tr("Fans")
+        case .notifications: tr("Notifications")
+        case .history: tr("History")
+        case .privacy: tr("Privacy")
+        case .advanced: tr("Advanced")
+        case .about: tr("About Sensa")
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .general: "gearshape"
+        case .appearance: "paintbrush.pointed"
+        case .sounds: "speaker.wave.2"
+        case .overview: "square.grid.2x2"
+        case .menuBar: "menubar.rectangle"
+        case .monitoring: "speedometer"
+        case .sensors: "sensor"
+        case .battery: "battery.75percent"
+        case .fans: "fan"
+        case .notifications: "bell.badge"
+        case .history: "clock.arrow.circlepath"
+        case .privacy: "hand.raised"
+        case .advanced: "wrench.and.screwdriver"
+        case .about: "info.circle"
+        }
+    }
+
+    var hue: Hue {
+        switch self {
+        case .general, .advanced, .about: .neutral
+        case .appearance, .privacy: .cpu
+        case .sounds: .gpu
+        case .overview, .menuBar: .network
+        case .monitoring: .memory
+        case .sensors: .thermal
+        case .battery: .battery
+        case .fans: .fans
+        case .notifications: .storage
+        case .history: .power
+        }
+    }
+
+    /// Battery and fan panes only exist on Macs that have them.
+    static func groups(capabilities: CapabilityMap) -> [[SettingsPane]] {
+        var hardware: [SettingsPane] = [.monitoring, .sensors]
+        if capabilities.isPresent(.battery) { hardware.append(.battery) }
+        if capabilities.isPresent(.fans) { hardware.append(.fans) }
+        return [
+            [.general, .appearance, .sounds],
+            [.overview, .menuBar],
+            hardware,
+            [.notifications, .history, .privacy],
+            [.advanced, .about]
+        ]
+    }
+
+    @MainActor @ViewBuilder var view: some View {
+        switch self {
+        case .general: GeneralPane()
+        case .appearance: AppearancePane()
+        case .sounds: SoundsPane()
+        case .overview: OverviewPane()
+        case .menuBar: MenuBarSettings()
+        case .monitoring: MonitoringPane()
+        case .sensors: SensorsPane()
+        case .battery: BatteryPane()
+        case .fans: FansPane()
+        case .notifications: NotificationsPane()
+        case .history: HistoryPane()
+        case .privacy: PrivacyPane()
+        case .advanced: AdvancedPane()
+        case .about: AboutPane()
+        }
+    }
+}
+
+/// Secondary explanatory line inside a form section.
+struct Footnote: View {
+    let text: String
+
+    init(_ text: String) {
+        self.text = text
+    }
+
+    var body: some View {
+        Text(text).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
     }
 }
 

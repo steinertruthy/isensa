@@ -2,6 +2,7 @@ import XCTest
 
 /// UI tests run against clearly-labelled demo providers (`-SensaDemoMode`), so they are
 /// deterministic and never depend on the physical sensors of the machine running them.
+@MainActor
 final class SensaUITests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
@@ -9,7 +10,10 @@ final class SensaUITests: XCTestCase {
 
     private func launch(_ variant: String, extraArguments: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-SensaDemoMode", variant, "-AppleLanguages", "(en)", "-hidesDockIcon", "NO"] + extraArguments
+        app.launchArguments = [
+            "-SensaDemoMode", variant, "-AppleLanguages", "(en)", "-hidesDockIcon", "NO",
+            "-opensWindowAtLaunch", "YES", "-hasCompletedOnboarding", "YES"
+        ] + extraArguments
         app.launch()
         return app
     }
@@ -49,12 +53,77 @@ final class SensaUITests: XCTestCase {
     }
 
     func testMenuBarPopoverOpensMainWindow() {
-        // Menu-bar-only mode: no window at launch, popover opened by the launch flag.
-        let app = launch("laptopWithFans", extraArguments: ["-hidesDockIcon", "YES", "-SensaOpenPopover", "YES"])
-        let popover = app.descendants(matching: .any)["menubar.popover"]
-        XCTAssertTrue(popover.waitForExistence(timeout: 10))
+        // Menu-bar-only mode: no window at launch; the popover opens from the status item, like a person would.
+        let app = launch("laptopWithFans", extraArguments: ["-hidesDockIcon", "YES", "-opensWindowAtLaunch", "NO"])
+        let item = app.statusItems.firstMatch
+        XCTAssertTrue(item.waitForExistence(timeout: 10))
         XCTAssertFalse(app.buttons["tile.cpu"].exists, "No main window in menu-bar-only mode")
-        app.buttons["menubar.open"].click()
+        item.click()
+        let popover = app.descendants(matching: .any)["menubar.popover"]
+        XCTAssertTrue(popover.waitForExistence(timeout: 5))
+        // The whole popover must be on screen, below the menu bar.
+        let open = app.buttons["menubar.open"]
+        XCTAssertTrue(open.isHittable, "Open button must be visible: \(open.frame)")
+        XCTAssertGreaterThanOrEqual(popover.frame.minY, item.frame.minY, "Popover drawn above the menu bar: \(popover.frame)")
+        open.click()
         XCTAssertTrue(app.buttons["tile.cpu"].waitForExistence(timeout: 10))
+    }
+
+    func testSidebarCollapsesAndOpensSettings() {
+        // No launch argument for `sidebarVisible`: it would shadow the value the toggle saves.
+        let app = launch("laptopWithFans")
+        let toggle = app.buttons["toolbar.sidebar"]
+        XCTAssertTrue(toggle.waitForExistence(timeout: 10))
+        let settingsRow = app.buttons["sidebar.settings"]
+        if !settingsRow.waitForExistence(timeout: 2) { toggle.click() } // Left collapsed by an earlier run.
+        XCTAssertTrue(settingsRow.waitForExistence(timeout: 5))
+
+        toggle.click()
+        XCTAssertTrue(waitUntilGone(app.descendants(matching: .any)["sidebar.cpu"]), "Sidebar should collapse")
+        toggle.click()
+        XCTAssertTrue(app.descendants(matching: .any)["sidebar.cpu"].waitForExistence(timeout: 5))
+
+        app.typeKey("s", modifierFlags: [.command, .control]) // View › Toggle Sidebar
+        XCTAssertTrue(waitUntilGone(app.descendants(matching: .any)["sidebar.cpu"]), "⌃⌘S should collapse the sidebar")
+        app.typeKey("s", modifierFlags: [.command, .control])
+        XCTAssertTrue(settingsRow.waitForExistence(timeout: 5))
+
+        settingsRow.click()
+        XCTAssertTrue(app.descendants(matching: .any)["settings.general"].waitForExistence(timeout: 5))
+    }
+
+    private func waitUntilGone(_ element: XCUIElement, timeout: TimeInterval = 5) -> Bool {
+        let gone = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: element)
+        return XCTWaiter().wait(for: [gone], timeout: timeout) == .completed
+    }
+
+    func testOnboardingWalksThroughAndOpensSensa() {
+        let app = launch("laptopWithFans", extraArguments: ["-hasCompletedOnboarding", "NO"])
+        let next = app.buttons["onboarding.continue"]
+        XCTAssertTrue(next.waitForExistence(timeout: 10))
+        next.click() // Welcome → Your Mac
+        XCTAssertTrue(app.staticTexts["Your Mac"].waitForExistence(timeout: 5))
+        next.click() // → Menu bar
+        next.click() // → Notifications
+        XCTAssertTrue(app.staticTexts["Stay informed"].waitForExistence(timeout: 5))
+        next.click() // → Ready (notifications skipped)
+        XCTAssertTrue(app.staticTexts["You're all set"].waitForExistence(timeout: 5))
+        next.click()
+        XCTAssertTrue(app.buttons["tile.cpu"].waitForExistence(timeout: 10), "Finishing opens the overview")
+    }
+
+    func testSettingsShowsHardwarePanesOnlyWhenPresent() {
+        let app = launch("fanlessLaptop", extraArguments: ["-SensaSettingsPane", "notifications"])
+        XCTAssertTrue(app.descendants(matching: .any)["settings.notifications.enabled"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.descendants(matching: .any)["settings.battery"].exists)
+        XCTAssertFalse(app.descendants(matching: .any)["settings.fans"].exists, "A fanless Mac has no Fans pane")
+    }
+
+    func testHistoryScreenExplainsEmptyState() {
+        let app = launch("laptopWithFans", extraArguments: ["-SensaInitialDestination", "history"])
+        let header = app.descendants(matching: .any)["screen.header"]
+        XCTAssertTrue(header.waitForExistence(timeout: 10))
+        XCTAssertTrue(header.label.hasPrefix("History"))
+        XCTAssertTrue(app.staticTexts["No history yet"].waitForExistence(timeout: 10))
     }
 }

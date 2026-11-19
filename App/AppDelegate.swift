@@ -6,8 +6,18 @@ import SensaMonitoring
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let environment = AppEnvironment()
-    private lazy var mainWindow = MainWindowController(environment: environment, onVisibilityChange: { [weak self] in self?.updateDemand() })
-    private lazy var settingsWindow = SettingsWindowController(environment: environment)
+    private lazy var services = environment.services(actions: AppActions(
+        openMainWindow: { [weak self] in self?.showHistory() },
+        openSettings: { [weak self] in self?.showSettings() },
+        relaunch: { [weak self] in self?.relaunch() },
+        showOnboarding: { [weak self] in self?.showOnboarding() },
+        revealDataFolder: { Self.revealDataFolder() }
+    ))
+    private lazy var mainWindow = MainWindowController(
+        environment: environment, services: services, onVisibilityChange: { [weak self] in self?.updateDemand() }
+    )
+    private lazy var settingsWindow = SettingsWindowController(environment: environment, services: services)
+    private lazy var onboardingWindow = OnboardingWindowController(environment: environment, services: services)
     private lazy var statusItem = StatusItemController(
         environment: environment,
         actions: MenuBarActions(
@@ -15,6 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             openSettings: { [weak self] in self?.showSettings() },
             quit: { NSApp.terminate(nil) }
         ),
+        services: services,
         onVisibilityChange: { [weak self] in self?.updateDemand() }
     )
     private var systemEvents: SystemEventsObserver?
@@ -35,7 +46,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 Task { await self?.environment.engine.setOnBattery(onBattery) }
             }
         )
-        if !environment.settings.hidesDockIcon { showMainWindow() }
+        if !environment.settings.hasCompletedOnboarding && !UserDefaults.standard.bool(forKey: "SensaSkipOnboarding") {
+            showOnboarding()
+        } else if environment.settings.opensWindowAtLaunch && !environment.settings.hidesDockIcon {
+            showMainWindow()
+        }
         // Decide the initial demand before sampling starts: launching straight into the
         // menu bar must not sample at window rates until something becomes visible.
         let initialDemand = currentDemand()
@@ -48,6 +63,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if UserDefaults.standard.bool(forKey: "SensaOpenPopover") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.statusItem.showPopover() }
         }
+        // `-SensaSettingsPane <name>` opens Settings at launch (UI tests, screenshots).
+        if UserDefaults.standard.string(forKey: "SensaSettingsPane") != nil { showSettings() }
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -57,6 +74,49 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Closing the window keeps Sensa running in the menu bar.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
+
+    /// Gives pending history a moment to reach disk before quitting.
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        Task {
+            await environment.flushHistory()
+            NSApp.reply(toApplicationShouldTerminate: true)
+        }
+        return .terminateLater
+    }
+
+    // MARK: - App actions
+
+    private func showHistory() {
+        environment.navigation.selection = .history
+        showMainWindow()
+    }
+
+    private func showOnboarding() {
+        onboardingWindow.show { [weak self] in
+            guard let self, !environment.settings.hidesDockIcon else { return }
+            showMainWindow()
+        }
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    /// Restarts Sensa so a new interface language takes effect.
+    private func relaunch() {
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.createsNewApplicationInstance = true
+        let url = Bundle.main.bundleURL
+        Task {
+            await environment.flushHistory()
+            _ = try? await NSWorkspace.shared.openApplication(at: url, configuration: configuration)
+            NSApp.terminate(nil)
+        }
+    }
+
+    private static func revealDataFolder() {
+        let folder = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("Sensa", isDirectory: true)
+        try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+        NSWorkspace.shared.activateFileViewerSelecting([folder])
+    }
 
     // MARK: - Actions
 

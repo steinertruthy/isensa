@@ -17,7 +17,8 @@ public struct MenuBarActions {
     }
 }
 
-/// Popover content. Reads only cached state, so it opens instantly.
+/// Popover content: the overview in miniature, in the same visual language. Reads only cached state,
+/// so it opens instantly.
 public struct MenuBarPopover: View {
     @Environment(MetricsStore.self) private var store
     @Environment(AppSettings.self) private var settings
@@ -34,6 +35,9 @@ public struct MenuBarPopover: View {
         let formatter = settings.formatter
         let snapshot = store.snapshot
         let health = snapshot == SystemSnapshot() ? nil : HealthEvaluator().evaluate(snapshot)
+        let cells = Self.tiles.compactMap { indicator in
+            MenuBarValues.value(for: indicator, snapshot: snapshot, formatter: formatter, fanDisplay: settings.fanSpeedDisplay).map { (indicator, $0) }
+        }
         VStack(alignment: .leading, spacing: Spacing.medium) {
             header(health: health)
             if let item = health?.items.first(where: { $0.level != .normal }) {
@@ -42,15 +46,25 @@ public struct MenuBarPopover: View {
                     .foregroundStyle(item.level.tint)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: Spacing.small), GridItem(.flexible())], spacing: Spacing.small) {
-                ForEach(Self.tiles) { indicator in
-                    if let value = MenuBarValues.value(for: indicator, snapshot: snapshot, formatter: formatter) {
-                        CompactTile(indicator: indicator, value: value, symbol: MenuBarValues.symbol(for: indicator, snapshot: snapshot))
+            // Rows of two equal columns. (A `Grid` sizes columns from their ideal widths and would
+            // grow past the popover when a value such as network throughput is long.)
+            VStack(spacing: 0) {
+                ForEach(stride(from: 0, to: cells.count, by: 2).map { $0 }, id: \.self) { row in
+                    if row > 0 { Divider() }
+                    HStack(spacing: 0) {
+                        CompactCell(indicator: cells[row].0, value: cells[row].1, snapshot: snapshot)
+                        Rectangle().fill(Color(nsColor: .separatorColor)).frame(width: 0.5).padding(.vertical, Spacing.small)
+                        if row + 1 < cells.count {
+                            CompactCell(indicator: cells[row + 1].0, value: cells[row + 1].1, snapshot: snapshot)
+                        } else {
+                            Color.clear.frame(maxWidth: .infinity)
+                        }
                     }
+                    .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .surface()
             if store.isDemo { ProvenanceTag(tr("Demo data"), symbol: "theatermasks") }
-            Divider()
             footer
         }
         .padding(Spacing.large)
@@ -61,15 +75,16 @@ public struct MenuBarPopover: View {
     }
 
     private func header(health: SystemHealth?) -> some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: Spacing.xxSmall) {
+        HStack(alignment: .center, spacing: Spacing.medium) {
+            Image(systemName: (health?.level ?? .normal).symbolName)
+                .font(.system(size: 20, weight: .medium))
+                .foregroundStyle((health?.level ?? .normal).tint)
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 0) {
                 Text(store.profile.computerName ?? store.profile.displayModelName).font(Typography.headline)
                 Text(InsightText.headline(for: health)).font(Typography.caption).foregroundStyle(.secondary)
             }
-            Spacer(minLength: Spacing.small)
-            if let health {
-                StatusBadge(level: health.level, text: InsightText.levelName(health.level))
-            }
+            Spacer(minLength: 0)
         }
     }
 
@@ -77,36 +92,40 @@ public struct MenuBarPopover: View {
         HStack {
             Button(tr("Open Sensa"), action: actions.openMainWindow)
                 .buttonStyle(.borderedProminent)
-                .controlSize(.regular)
                 .keyboardShortcut("o")
                 .accessibilityIdentifier("menubar.open")
             Spacer()
-            Button(action: actions.openSettings) { Image(systemName: "gearshape") }
+            Button(action: actions.openSettings) { Image(systemName: "gearshape").frame(width: 22, height: 22) }
                 .help(tr("Settings…")).accessibilityLabel(tr("Settings…"))
                 .keyboardShortcut(",")
-            Button(action: actions.quit) { Image(systemName: "power") }
+            Button(action: actions.quit) { Image(systemName: "power").frame(width: 22, height: 22) }
                 .help(tr("Quit Sensa")).accessibilityLabel(tr("Quit Sensa"))
         }
         .buttonStyle(.borderless)
+        .controlSize(.regular)
     }
 }
 
-private struct CompactTile: View {
+private struct CompactCell: View {
     let indicator: MenuBarIndicator
     let value: String
-    let symbol: String
+    let snapshot: SystemSnapshot
 
     var body: some View {
-        VStack(alignment: .leading, spacing: Spacing.xSmall) {
-            Label(MenuBarValues.title(for: indicator), systemImage: symbol)
-                .font(Typography.caption).foregroundStyle(.secondary).lineLimit(1)
-            Text(value).font(Typography.metricSmall).contentTransition(.numericText()).lineLimit(1).minimumScaleFactor(0.7)
-            SeriesSparkline(metric: MenuBarValues.metric(for: indicator), range: MenuBarValues.range(for: indicator), tint: .accentColor)
-                .frame(height: 22)
+        let hue = MenuBarValues.hue(for: indicator)
+        VStack(alignment: .leading, spacing: Spacing.xxSmall) {
+            HStack(spacing: 5) {
+                Image(systemName: MenuBarValues.symbol(for: indicator, snapshot: snapshot))
+                    .foregroundStyle(hue.color).frame(width: 14)
+                Text(MenuBarValues.title(for: indicator)).foregroundStyle(.secondary).lineLimit(1)
+            }
+            .font(Typography.caption)
+            MetricText(value, size: .medium, minimumScale: indicator == .network ? 0.45 : 0.6)
+            SeriesSparkline(metric: MenuBarValues.metric(for: indicator), range: MenuBarValues.range(for: indicator), tint: hue.color)
+                .frame(height: 20)
         }
-        .padding(Spacing.small)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: Radius.medium, style: .continuous))
+        .padding(Spacing.medium)
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .combine)
     }
 }

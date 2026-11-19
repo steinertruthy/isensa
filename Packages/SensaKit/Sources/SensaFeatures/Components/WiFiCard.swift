@@ -7,7 +7,7 @@ struct WiFiCard: View {
     let formatter: MetricFormatter
 
     var body: some View {
-        Card(tr("Wi-Fi"), symbol: "wifi", accessory: {
+        Card(tr("Wi-Fi"), accessory: {
             if let quality = wifi.signalQuality {
                 StatusBadge(level: quality == .poor ? .attention : .normal, text: Self.name(quality))
             }

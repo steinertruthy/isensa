@@ -9,6 +9,7 @@ import PackageDescription
 ///   SensaPrivateAPI      ← undocumented interfaces (SMC, HID sensors, IOReport). Isolated on purpose.
 ///   SensaProviders       ← adapts Hardware/PrivateAPI to Core contracts
 ///   SensaMonitoring      ← sampling engine and observable store (Core only)
+///   SensaPersistence     ← local SQLite history (Core only)
 ///   SensaInsights        ← health rules (Core only)
 ///   SensaDesign          ← design system (SwiftUI, Core for semantic levels)
 ///   SensaFeatures        ← screens and view models (never imports hardware layers)
@@ -25,6 +26,7 @@ let package = Package(
         .library(name: "SensaDesign", targets: ["SensaDesign"]),
         .library(name: "SensaFeatures", targets: ["SensaFeatures"]),
         .library(name: "SensaDemo", targets: ["SensaDemo"]),
+        .library(name: "SensaPersistence", targets: ["SensaPersistence"]),
         .executable(name: "sensa-probe", targets: ["SensaProbe"])
     ],
     targets: [
@@ -52,6 +54,7 @@ let package = Package(
         ),
 
         .target(name: "SensaMonitoring", dependencies: ["SensaCore"]),
+        .target(name: "SensaPersistence", dependencies: ["SensaCore"], linkerSettings: [.linkedLibrary("sqlite3")]),
         .target(name: "SensaInsights", dependencies: ["SensaCore"]),
         .target(name: "SensaDesign", dependencies: ["SensaCore"]),
         .target(name: "SensaDemo", dependencies: ["SensaCore"]),
@@ -73,6 +76,7 @@ let package = Package(
         .testTarget(name: "SensaProvidersTests", dependencies: ["SensaProviders", "SensaCore"]),
         .testTarget(name: "SensaMonitoringTests", dependencies: ["SensaMonitoring", "SensaCore"]),
         .testTarget(name: "SensaInsightsTests", dependencies: ["SensaInsights", "SensaCore"]),
-        .testTarget(name: "SensaFeaturesTests", dependencies: ["SensaFeatures", "SensaCore", "SensaDemo", "SensaMonitoring"])
+        .testTarget(name: "SensaPersistenceTests", dependencies: ["SensaPersistence", "SensaCore"]),
+        .testTarget(name: "SensaFeaturesTests", dependencies: ["SensaFeatures", "SensaCore", "SensaDemo", "SensaMonitoring", "SensaDesign", "SensaInsights"])
     ]
 )

@@ -44,6 +44,10 @@ targets:
         product: SensaFeatures
       - package: SensaKit
         product: SensaDemo
+      - package: SensaKit
+        product: SensaInsights
+      - package: SensaKit
+        product: SensaPersistence
     info:
       path: App/Info.plist
       properties:
@@ -52,7 +56,7 @@ targets:
         CFBundleShortVersionString: "0.1.0"
         CFBundleVersion: "1"
         CFBundleDevelopmentRegion: en
-        CFBundleLocalizations: [en, pt-BR]
+        CFBundleLocalizations: [en, pt-BR, es, fr, de, it, ja, ko, zh-Hans, zh-Hant]
         LSApplicationCategoryType: public.app-category.utilities
         LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
         LSUIElement: true

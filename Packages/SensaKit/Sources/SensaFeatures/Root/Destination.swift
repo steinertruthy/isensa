@@ -1,9 +1,10 @@
 import SensaCore
+import SensaDesign
 
 /// Sidebar destinations. Each declares the capability it needs, so the sidebar
 /// adapts to the Mac (no battery on a Mac mini, no fans on a MacBook Air…).
 public enum Destination: String, Hashable, CaseIterable, Identifiable, Sendable {
-    case overview, cpu, gpu, memory, battery, thermals, fans, storage, network, sensors
+    case overview, cpu, gpu, memory, battery, thermals, fans, storage, network, sensors, history
 
     public var id: String { rawValue }
 
@@ -19,12 +20,13 @@ public enum Destination: String, Hashable, CaseIterable, Identifiable, Sendable 
         case .storage: tr("Storage")
         case .network: tr("Network")
         case .sensors: tr("Sensors")
+        case .history: tr("History")
         }
     }
 
     var symbolName: String {
         switch self {
-        case .overview: "gauge.with.dots.needle.67percent"
+        case .overview: "gauge.with.dots.needle.50percent"
         case .cpu: "cpu"
         case .gpu: "square.stack.3d.up"
         case .memory: "memorychip"
@@ -32,15 +34,30 @@ public enum Destination: String, Hashable, CaseIterable, Identifiable, Sendable 
         case .thermals: "thermometer.medium"
         case .fans: "fan"
         case .storage: "internaldrive"
-        case .network: "network"
+        case .network: "arrow.up.arrow.down"
         case .sensors: "sensor"
+        case .history: "clock.arrow.circlepath"
+        }
+    }
+
+    var hue: Hue {
+        switch self {
+        case .overview, .sensors, .history: .neutral
+        case .cpu: .cpu
+        case .gpu: .gpu
+        case .memory: .memory
+        case .battery: .battery
+        case .thermals: .thermal
+        case .fans: .fans
+        case .storage: .storage
+        case .network: .network
         }
     }
 
     /// Feature that must be present on this Mac for the destination to appear.
     var requiredFeature: Feature? {
         switch self {
-        case .overview: nil
+        case .overview, .history: nil
         case .cpu: .cpuUsage
         case .gpu: .gpuUsage
         case .memory: .memory
@@ -62,7 +79,7 @@ public enum Destination: String, Hashable, CaseIterable, Identifiable, Sendable 
         case .overview: .summary
         case .cpu, .gpu, .memory, .battery, .storage, .network: .components
         case .thermals, .fans: .thermal
-        case .sensors: .advanced
+        case .sensors, .history: .advanced
         }
     }
 

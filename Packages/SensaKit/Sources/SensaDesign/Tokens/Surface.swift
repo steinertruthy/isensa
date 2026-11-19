@@ -18,9 +18,11 @@ private struct SurfaceModifier: ViewModifier {
         switch style {
         case .content:
             content
-                .background(shape.fill(Color(nsColor: .controlBackgroundColor).opacity(colorScheme == .dark ? 0.55 : 1)))
-                .overlay(shape.strokeBorder(Color(nsColor: .separatorColor).opacity(0.5), lineWidth: 0.5))
-                .shadow(color: .black.opacity(colorScheme == .dark ? 0 : 0.04), radius: 6, y: 2)
+                // Light: white panel lifted by a hairline and a whisper of shadow.
+                // Dark: a slightly raised fill; shadows read as dirt on dark backgrounds.
+                .background(shape.fill(colorScheme == .dark ? Color.white.opacity(0.055) : Color(nsColor: .controlBackgroundColor)))
+                .overlay(shape.strokeBorder(Color(nsColor: .separatorColor).opacity(colorScheme == .dark ? 0.6 : 0.45), lineWidth: 0.5))
+                .shadow(color: .black.opacity(colorScheme == .dark ? 0 : 0.035), radius: 3, y: 1)
         case .floating:
             if #available(macOS 26, *) {
                 content.glassEffect(.regular, in: shape)

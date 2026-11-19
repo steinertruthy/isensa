@@ -1,10 +1,14 @@
 import SensaCore
+import SensaDesign
 import SensaMonitoring
 
 /// Value, symbol, series and title for each menu bar indicator. Shared by the status item,
 /// the popover and the settings list, so every place shows the same thing.
 enum MenuBarValues {
-    static func value(for indicator: MenuBarIndicator, snapshot: SystemSnapshot, formatter: MetricFormatter, decimals: Int = 0) -> String? {
+    static func value(
+        for indicator: MenuBarIndicator, snapshot: SystemSnapshot, formatter: MetricFormatter,
+        decimals: Int = 0, fanDisplay: FanSpeedDisplay = .rpm
+    ) -> String? {
         switch indicator {
         case .cpuUsage: snapshot.cpu.map { formatter.percent($0.totalUsage, fractionDigits: decimals) }
         case .cpuTemperature: snapshot.sensors?.cpuTemperature.map { formatter.temperature($0, fractionDigits: decimals) }
@@ -14,7 +18,7 @@ enum MenuBarValues {
         case .memoryPressure: snapshot.memory?.pressureFraction.map { formatter.percent($0, fractionDigits: decimals) }
         case .battery: snapshot.battery.map { formatter.percent($0.charge) }
         case .power: snapshot.sensors?.systemPower.map { formatter.watts($0, fractionDigits: decimals) }
-        case .fans: snapshot.sensors?.fans.map(\.currentRPM).max().map { formatter.rpm($0) }
+        case .fans: snapshot.sensors?.fans.max { $0.currentRPM < $1.currentRPM }.map { FanFormatting.value($0, display: fanDisplay, formatter: formatter) }
         case .network: snapshot.network.map { "↓\(formatter.rate($0.downloadRate ?? 0)) ↑\(formatter.rate($0.uploadRate ?? 0))" }
         }
     }
@@ -25,10 +29,23 @@ enum MenuBarValues {
         case .cpuTemperature, .gpuTemperature: "thermometer.medium"
         case .gpuUsage: "square.stack.3d.up"
         case .memoryUsed, .memoryPressure: "memorychip"
-        case .battery: snapshot?.battery.map(DashboardTiles.batterySymbol) ?? "battery.75percent"
+        case .battery: snapshot?.battery.map(DashboardModel.batterySymbol) ?? "battery.75percent"
         case .power: "bolt"
         case .fans: "fan"
         case .network: "arrow.up.arrow.down"
+        }
+    }
+
+    static func hue(for indicator: MenuBarIndicator) -> Hue {
+        switch indicator {
+        case .cpuUsage: .cpu
+        case .cpuTemperature, .gpuTemperature: .thermal
+        case .gpuUsage: .gpu
+        case .memoryUsed, .memoryPressure: .memory
+        case .battery: .battery
+        case .power: .power
+        case .fans: .fans
+        case .network: .network
         }
     }
 

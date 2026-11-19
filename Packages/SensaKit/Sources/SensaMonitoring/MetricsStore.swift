@@ -16,6 +16,7 @@ public final class MetricsStore {
     @ObservationIgnored private var series: [MetricID: MetricSeries] = [:]
     @ObservationIgnored private let seriesCapacity: Int
     @ObservationIgnored private var consumer: Task<Void, Never>?
+    @ObservationIgnored private var readingObservers: [@MainActor ([Reading]) -> Void] = []
 
     public init(profile: HardwareProfile, staticCapabilities: [Feature: CapabilityState] = [:], isDemo: Bool = false, seriesCapacity: Int = 120) {
         self.profile = profile
@@ -34,6 +35,12 @@ public final class MetricsStore {
         }
     }
 
+    /// Called after each fragment is applied, with its (demo-tagged) readings — used by history
+    /// recording and alert evaluation, which must see every sample, not just what views render.
+    public func addReadingObserver(_ observer: @escaping @MainActor ([Reading]) -> Void) {
+        readingObservers.append(observer)
+    }
+
     public func stop() {
         consumer?.cancel()
         consumer = nil
@@ -43,13 +50,16 @@ public final class MetricsStore {
         switch event {
         case let .fragment(fragment):
             fragment.apply(to: &snapshot)
+            var published: [Reading] = []
             for reading in fragment.readings {
                 // Demo and production providers never mix, so in demo mode every value is tagged as demo.
                 let tagged = isDemo
                     ? Reading(metric: reading.metric, value: reading.value, unit: reading.unit, timestamp: reading.timestamp, provenance: .demo)
                     : reading
                 series(for: tagged.metric, unit: tagged.unit).append(tagged)
+                published.append(tagged)
             }
+            readingObservers.forEach { $0(published) }
         case let .capability(feature, state):
             if capabilities[feature] != state { capabilities[feature] = state }
         }

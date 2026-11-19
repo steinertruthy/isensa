@@ -1,0 +1,523 @@
+0|%@ von %@ verfügbar
+1|%@ auf dem Startvolume verfügbar.
+2|%@ frei
+3|Noch %@. Schließe das Netzteil an, um weiterzuarbeiten.
+4|Noch %@
+5|%@ Systemprozesse gehören anderen Benutzern und sind nicht enthalten.
+6|%@ mit %@ Arbeitsspeicher
+7|%@, %@.
+8|1 Tag
+9|1 Stunde
+10|1 Minute
+11|15 Minuten
+12|2 Minuten
+13|24 Stunden
+14|30 Tage
+15|30 Minuten
+16|30 Sekunden
+17|4 Stunden
+18|5 Minuten
+19|7 Tage
+20|90 Tage
+21|Einige Punkte verdienen deine Aufmerksamkeit.
+22|Ein leichtes Tippen, wenn du einen Favoriten markierst oder eine Aktion bestätigst – auf Force Touch-Trackpads.
+23|Über Sensa
+24|Netzteil
+25|Zu Favoriten hinzufügen
+26|Erweitert
+27|Benachrichtigen bei
+28|Hinweise
+29|Alle Gruppen
+30|Erlaube den Helfer von Sensa unter „Systemeinstellungen“ › „Allgemein“ › „Anmeldeobjekte“.
+31|Technische Details immer anzeigen
+32|Animationen
+33|Erscheinungsbild
+34|Erscheinungsbild, Menüleiste, Hinweise, Favoriten und alle anderen Einstellungen werden auf die Standardwerte zurückgesetzt.
+35|Genehmigung erforderlich
+36|Genehmige Sensa unter „Systemeinstellungen“ › „Allgemein“ › „Anmeldeobjekte“.
+37|Apps
+38|Architektur
+39|Achtung
+40|Automatisch
+41|Verfügbar
+42|Der verfügbare Speicherplatz umfasst löschbaren Speicher, den macOS automatisch freigeben kann – wie im Finder.
+43|Verfügbare Reserve
+44|Durchschnitt
+45|Durchschnitt %@, Spitze %@
+46|Durchschnittliche Anzahl laufender oder auf die CPU wartender Aufgaben.
+47|Durchschnitt der identifizierten Sensoren
+48|Durchschnitt der Sensoren der CPU-Kerne
+49|Durchschnitt der GPU-Sensoren
+50|Durchschnittliche Geschwindigkeit bei Aktivität, berechnet aus der Zeit an jedem Betriebspunkt.
+51|Zurück
+52|Band
+53|Batterie
+54|Batteriehinweise findest du unter „Einstellungen“ › „Batterie“.
+55|Batterie geladen
+56|Batterie bis zu einem Wert geladen
+57|Batterie schwach
+58|Batterie schwach (%@). Schließe das Netzteil an.
+59|Batterie warm
+60|Batterie, Speicher und Netzwerk
+61|Wird der Batterie entnommen
+62|Standardmäßig folgt Sensa der Sprachreihenfolge unter „Systemeinstellungen“ › „Allgemein“ › „Sprache & Region“.
+63|CPU
+64|CPU-Frequenz
+65|CPU-Leistung
+66|CPU-Temperatur
+67|CPU-Temperatur bei diesem Modell nicht identifiziert
+68|CPU-Auslastung
+69|CSV (Tabellen)
+70|Zwischengespeicherte Dateien
+71|Abbrechen
+72|Kapazität
+73|Mobilfunk
+74|Celsius (°C)
+75|Zum Ändern der Lüftergeschwindigkeit wird der privilegierte Helfer von Sensa benötigt, den macOS nur für Apps installiert, die mit einer Apple Developer ID signiert sind. Die Überwachung funktioniert weiter und dein Mac bleibt unter der automatischen Steuerung von Apple.
+76|Kanal
+77|Kanalbreite
+78|Ladung
+79|Ladezyklen
+80|Wird geladen
+81|Ladegrenzen werden von macOS verwaltet. Auf Apple Silicon-Notebooks mit aktuellem macOS kannst du sie unter „Systemeinstellungen“ › „Batterie“ festlegen.
+82|Chip
+83|Wähle aus, was du im Blick behalten möchtest. Du kannst das jederzeit in den Einstellungen ändern.
+84|Löschen
+85|Favoriten und Namen löschen?
+86|Favoriten und Namen löschen …
+87|Taktfrequenz
+88|Taktfrequenzen und Leistung pro Komponente
+89|Daten werden gesammelt …
+90|Komponenten
+91|Komprimiert
+92|Zustand
+93|Bedingung muss andauern
+94|Verbunden über %@.
+95|Angeschlossen, wird nicht geladen
+96|Fortfahren
+97|Steuerung
+98|Kühlung
+99|Kern %@: %@
+100|Kerne
+101|Kritisch
+102|Kritische Temperatur: macOS drosselt die Leistung stark.
+103|Kritisch – Leistung stark gedrosselt
+104|Stromstärke
+105|Dunkel
+106|Daten
+107|Gelesene Daten
+108|Löschen
+109|Verlauf löschen …
+110|Gesamten Verlauf löschen?
+111|Demodaten
+112|Abgeleitet
+113|Nennkapazität
+114|Details
+115|Erkannte Funktionen
+116|Festplattenaktivität
+117|Darstellung
+118|Download
+119|Zum Neuordnen ziehen. Ohne aktivierte Anzeigen zeigt Sensa nur sein Symbol.
+120|Effizienzkerne
+121|Verbrauchte Lebensdauer laut Laufwerk
+122|Energie
+123|Geschätzt
+124|Ethernet
+125|Alle 10 Sekunden
+126|Alle 2 Sekunden
+127|Alle 3 Sekunden
+128|Alle 5 Sekunden
+129|Jede Sekunde
+130|Alles bleibt auf deinem Mac
+131|Alles bleibt auf deinem Mac.
+132|Ausgezeichnetes Signal
+133|Experimentell
+134|Experimentelle Funktionen lesen nicht dokumentierte macOS-Schnittstellen und können sich mit macOS-Updates ändern.
+135|Export fehlgeschlagen
+136|Exportieren …
+137|Extern
+138|Fahrenheit (°F)
+139|Ausreichendes Signal
+140|Lüfter %@
+141|Lüftersteuerung
+142|Die Lüftersteuerung ist gesperrt
+143|Lüfter
+144|Die Lüfter dieses Mac stehen vollständig still, wenn keine Kühlung nötig ist. Das ist normal.
+145|Favoriten
+146|Fließt in die Batterie
+147|Frei
+148|Bei Bedarf sofort freigegeben
+149|Voll
+150|Volle Ladekapazität
+151|Voll in %@
+152|Vollständig geladen
+153|GPU
+154|GPU-Kerne
+155|GPU-Leistung
+156|GPU-Temperatur
+157|GPU-Auslastung
+158|Informationen werden gesammelt …
+159|Allgemein
+160|Geometrie (Tiler)
+161|Guten Tag
+162|Guten Abend
+163|Guten Morgen
+164|Gutes Signal
+165|Diagramm
+166|Mit meinem Vornamen begrüßen
+167|Begrüßung
+168|Gruppe
+169|Haptisches Feedback auf dem Trackpad
+170|Haptik
+171|Zustand
+172|So geht es deinem Mac heute Nachmittag.
+173|So geht es deinem Mac heute Abend.
+174|So startet dein Mac in den Tag.
+175|Dock-Symbol ausblenden (nur Menüleiste)
+176|Hohe CPU-Temperatur
+177|Hoher Speicherdruck
+178|Höher ist besser; über 25 dB ist die Verbindung stabil.
+179|Verlauf
+180|Der Verlauf bleibt erhalten. Lösche ihn unter „Einstellungen“ › „Verlauf“.
+181|Der Verlauf ist pausiert
+182|Heiß
+183|Heiß – macOS reduziert die Leistung
+184|Stunde
+185|Identifizierung
+186|In der Menüleiste
+187|Umfasst Display, SSD und alles andere laut SMC.
+188|Anzeigen
+189|Abgeleitet, nicht geprüft
+190|Installiert
+191|Intern
+192|Was dieser Mac nicht hat, etwa eine Batterie oder Lüfter, wird nie angezeigt.
+193|JSON
+194|Verlauf behalten für
+195|Wird %@ auf diesem Mac gespeichert.
+196|Schlüssel
+197|Sprache
+198|Anordnung
+199|Hell
+200|Wenig ausgelastet
+201|Verbindungsgeschwindigkeit
+202|Durchschnittslast (1, 5, 15 Min.)
+203|Verlauf wird geladen …
+204|Loopback
+205|Batterie schwach
+206|Wenig Speicherplatz
+207|Manuell
+208|Max.
+209|Maximale Kapazität im Vergleich zum Neuzustand
+210|Medienfehler
+211|Arbeitsspeicher
+212|Arbeitsspeicher (DRAM)
+213|Belegter Speicher
+214|Der Arbeitsspeicher wird normal verwaltet
+215|Speicherdruck
+216|Der Speicherdruck ist kritisch
+217|Der Speicherdruck ist kritisch. macOS hat wenig freien Arbeitsspeicher.
+218|Der Speicherdruck ist erhöht
+219|Der Speicherdruck ist erhöht. Das Beenden ungenutzter Apps kann helfen.
+220|Der Speicherdruck ist hoch
+221|Speicher, den das System im RAM halten muss.
+222|Belegter Arbeitsspeicher
+223|Menüleiste
+224|Methode
+225|Min.
+226|Modell
+227|Mäßig ausgelastet
+228|Überwachung & Energie
+229|Bewegung
+230|Name
+231|Netzwerk
+232|Netzwerk: %@
+233|Neural Engine
+234|Höchstens einmal alle 30 Minuten pro Hinweis
+235|Keine aktive Netzwerkverbindung.
+236|Keine Hinweise in diesem Zeitraum.
+237|Keine Lüfterdaten
+238|Noch kein Verlauf
+239|Keine Ergebnisse
+240|Keine Sensoren
+241|Rauschen
+242|Normal
+243|Nicht jetzt
+244|Nicht geprüft
+245|Nicht mit einem WLAN verbunden.
+246|Auf diesem Mac nicht vorhanden
+247|Nicht vorhanden
+248|Nicht unterstützt
+249|Mitteilungen
+250|Mitteilungen sind aktiviert
+251|Mitteilungen für Sensa sind in den Systemeinstellungen deaktiviert.
+252|OK
+253|Aus
+254|Ein
+255|Batteriebetrieb
+256|Eine Dezimalstelle
+257|Nur %@ des Startvolumes sind frei. Lösche nicht mehr benötigte Dateien oder verschiebe sie auf ein anderes Laufwerk.
+258|Nur wenn eine Bedingung andauert
+259|Verlauf öffnen
+260|Sensa öffnen
+261|Sensa bei der Anmeldung öffnen
+262|Systemeinstellungen öffnen
+263|Original: %@ · %@
+264|Andere
+265|Übersicht
+266|Spitze
+267|Prozent des Bereichs
+268|„Prozent des Bereichs“ zeigt die aktuelle Drehzahl zwischen Minimum und Maximum des Lüfters.
+269|Leistung
+270|Leistung / Effizienz
+271|Leistungskerne
+272|Zeitraum
+273|Berechtigungen
+274|Toneffekte abspielen
+275|Positiv beim Laden, negativ beim Entladen.
+276|Leistung
+277|Netzteil
+278|Leistung pro Komponente
+279|Energieverbrauch
+280|Einschaltzyklen
+281|Energiefluss
+282|Betriebsstunden
+283|Genauigkeit
+284|Einstellungen und Verlauf
+285|Der Speicherdruck zeigt, ob macOS sich anstrengen muss, um Arbeitsspeicher freizugeben. Voller Speicher bei niedrigem Druck ist normal: macOS füllt den RAM mit Caches, damit dein Mac schneller ist.
+286|Anhören
+287|Datenschutz
+288|Prozess %@
+289|Prozesse
+290|Prozessor
+291|Sensa beenden
+292|Bereich %@ – %@
+293|Rohe Maximalkapazität
+294|Lesen
+295|Über nicht dokumentierte Schnittstellen gelesen (SMC, HID). Experimentell.
+296|Sensoren werden gelesen …
+297|Empfangen
+298|Verlauf aufzeichnen
+299|Aufgezeichnete Messwerte und Hinweise werden von diesem Mac entfernt. Dies kann nicht widerrufen werden.
+300|„Bewegung reduzieren“ ist in den Systemeinstellungen aktiviert, daher verwendet Sensa kurze Überblendungen statt Bewegung.
+301|Reduziert
+302|„Reduziert“ ersetzt Bewegung durch kurze Überblendungen. „Aus“ zeigt Änderungen sofort.
+303|Im Batteriebetrieb seltener aktualisieren
+304|Aktualisierungsrate
+305|Aktualisieren, wenn nur die Menüleiste sichtbar ist
+306|Verbleibende Ladung
+307|Aus Favoriten entfernen
+308|Sensor umbenennen
+309|Umbenannte Sensoren
+310|Umbenennen …
+311|Rendering
+312|Höchstens wiederholen alle
+313|Von macOS gemeldet
+314|Problem gemeldet
+315|Autorisierung erforderlich
+316|Zurücksetzen
+317|Alle Einstellungen zurücksetzen …
+318|Alle Einstellungen zurücksetzen?
+319|Jetzt neu starten
+320|Original wiederherstellen
+321|Umdrehungen pro Minute
+322|SMART-Quelle
+323|SSD-Zustand
+324|SSD-Zustandswarnung
+325|SSD meldet ein Problem
+326|SSD-Temperatur
+327|Sichern
+328|Sensoren suchen
+329|Sieh dir an, wie sich dein Mac verhält.
+330|Sieh auf einen Blick, wie es deinem Mac geht: Temperaturen, Arbeitsspeicher, Batterie, Lüfter und mehr – in klaren Worten erklärt.
+331|Test senden
+332|Mitteilungen senden
+333|Senden
+334|Sensa pausiert auch, während dein Mac im Ruhezustand ist, und arbeitet bei ausgeschaltetem Display langsamer. Prozesslisten, Taktfrequenzen und WLAN-Details werden nur gelesen, wenn ein Fenster oder das Menüleistenfenster geöffnet ist.
+335|Sensa kann dich informieren, wenn dein Mac heiß wird, der Speicherdruck steigt, das Volume fast voll oder die Batterie schwach ist.
+336|Sensa sendet keine Messwerte, Kennungen oder sonstigen Daten an Server. Es gibt keine versteckte Telemetrie. Die Netzwerküberwachung liest nur Bytezähler und untersucht niemals den Datenverkehr.
+337|Sensa befindet sich jetzt in deiner Menüleiste. Öffne es jederzeit, um zu sehen, wie es deinem Mac geht.
+338|Sensa speichert eine Woche lang eine Zusammenfassung pro Minute, danach eine pro Stunde. Ältere Daten werden automatisch gelöscht.
+339|Sensa benötigt keine besonderen Berechtigungen, um deinen Mac zu überwachen. Es fragt nur nach Mitteilungen – und nur, wenn du sie aktivierst.
+340|Sensa benennt Sensoren erst, nachdem sie auf einem Mac-Modell geprüft wurden. Alle Rohsensoren sind weiterhin unter „Sensoren“ verfügbar.
+341|Sensa benachrichtigt nur, wenn eine Bedingung andauert, und wartet vor einer Wiederholung – so bleiben Hinweise selten.
+342|Sensa liest nur Bytezähler und untersucht niemals deinen Datenverkehr. macOS meldet diese Zähler an Apps in 1-KB-Schritten, daher sind sehr niedrige Raten ungefähr.
+343|Sensa spielt nur einen leisen Ton ab, wenn eine Aktion abgeschlossen ist oder ein Hinweis dich braucht. Es bleibt stumm, wenn Toneffekte der Benutzeroberfläche unter „Systemeinstellungen“ › „Ton“ deaktiviert sind.
+344|Sensa zeichnet jede Minute eine Zusammenfassung auf, solange es läuft. Schau in ein paar Minuten wieder vorbei.
+345|Sensa zeigt nur, was dieser Mac wirklich hat. Nichts wird geschätzt, ohne es zu kennzeichnen.
+346|Sensa zeigt die Schätzung des Laufwerks selbst und sagt keine verbleibende Lebensdauer voraus.
+347|Sensa informiert dich, wenn etwas deine Aufmerksamkeit erfordert.
+348|Sensorliste
+349|Sensoren
+350|Sensoren erscheinen hier, sobald sie gelesen wurden.
+351|Gelesene Sensoren
+352|Sensoren erhalten wieder ihre ursprünglichen Namen und die Favoritenliste wird geleert.
+353|Sensoren reagieren nicht mehr
+354|Sensoren nicht verfügbar
+355|Einstellungen …
+356|Wollen wir nachsehen, wie es deinem Mac geht?
+357|Anteil an der maximalen Taktfrequenz
+358|Gemeinsam mit der CPU genutzt
+359|Willkommen erneut anzeigen
+360|Lüftergeschwindigkeit anzeigen als
+361|Nur Favoriten anzeigen
+362|Symbole anzeigen
+363|Im Finder zeigen
+364|In der Übersicht anzeigen
+365|Sensoren anzeigen, die Sensa nicht identifizieren kann
+366|Fenster beim Öffnen von Sensa anzeigen
+367|Zeigt Sensorquellen, Rohkapazitäten und andere erweiterte Werte auf jedem Bildschirm.
+368|Nebeneinander
+369|Signal
+370|Signal-Rausch-Verhältnis
+371|Leicht warm – ohne Auswirkung auf die Leistung
+372|Töne
+373|Töne & Haptik
+374|Quelle
+375|Belegter Speicherplatz
+376|Dreht unter automatischer Steuerung
+377|Gestapelt (kompakt)
+378|„Gestapelt“ ordnet zwei Anzeigen in einer Spalte an und benötigt etwa die halbe Breite, wenn die Menüleiste voll ist.
+379|Standard
+380|Start
+381|Startvolume fast voll
+382|Auf dem Laufenden bleiben
+383|Schritt %@ von %@
+384|Steht still – derzeit keine Kühlung nötig
+385|Speicher
+386|Unterstützt
+387|Swap
+388|Belegter Swap
+389|System
+390|Systemsprache
+391|Technische Details
+392|Temperatur
+393|Temperaturverlauf
+394|Die Temperatur liegt im erwarteten Bereich
+395|Temperatursensoren
+396|Die Temperatursensoren reagieren nicht mehr. Sensa versucht es automatisch weiter.
+397|Temperatur, Arbeitsspeicher, Speicher und Batterie liegen im erwarteten Bereich.
+398|Temperaturen
+399|Temperaturen und Lüfter werden halb so oft aktualisiert. Längere Intervalle verbrauchen weniger Energie.
+400|Vorübergehend nicht verfügbar
+401|Die CPU liegt seit einer Weile bei %@. Das Beenden anspruchsvoller Apps hilft beim Abkühlen.
+402|Die Batterie hat %@. Bewahre den Mac beim Laden an einem kühleren Ort auf.
+403|Die Batterie wird geladen – voll in etwa %@.
+404|Die Batterie wird geladen.
+405|Die Batterie hat %@ erreicht. Du kannst das Netzteil trennen.
+406|Das Volume „%@“ ist zu %@ belegt.
+407|Die interne SSD hat %@ Medienfehler registriert. Halte deine Backups aktuell.
+408|Die interne SSD meldet einen kritischen Zustand. Sichere deine Daten.
+409|Die neue Sprache gilt nach einem Neustart von Sensa.
+410|Design
+411|Thermischer Druck
+412|Thermischer Zustand
+413|Temperatur und Leistung
+414|Dieser Mac
+415|Dies ist die Einschätzung von macOS selbst. Steigt sie auf „ernst“, reduziert macOS die Leistung, um den Mac bei sicheren Temperaturen zu halten.
+416|Schwellenwert
+417|Zeitsteuerung
+418|Gesamt
+419|Gesamtleistungsaufnahme des Systems
+420|Datenverkehr
+421|Versuche eine andere Suche.
+422|Mitteilungen aktivieren
+423|Aktiviere ihn unter „Einstellungen“ › „Verlauf“, um Daten aufzuzeichnen.
+424|Aktiviere Mitteilungen unter „Einstellungen“ › „Mitteilungen“, damit diese Hinweise gesendet werden.
+425|Unter manueller Steuerung
+426|Unerwartete Abschaltungen
+427|Vereinheitlichter Speicher (von CPU und GPU gemeinsam genutzt)
+428|Einheiten
+429|Unbekannt
+430|Unbekannte Sensoren behalten ihren ursprünglichen Schlüssel. Favoriten werden immer angezeigt.
+431|Aktualisierung
+432|Upload
+433|Upload %@
+434|Auslastung
+435|Auslastungsverlauf
+436|Belegt
+437|Benutzer
+438|Verwendet den Namen deines macOS-Accounts. Er verlässt niemals deinen Mac.
+439|Höchste CPU-Auslastung
+440|Höchste Speichernutzung
+441|Wert
+442|Werte aus nicht dokumentierten Schnittstellen (SMC, HID). Minimum, Maximum und Durchschnitt beziehen sich auf die letzten zwei Minuten.
+443|Auf diesem Modell geprüft
+444|Version %@
+445|Spannung
+446|Lautstärke
+447|Volumes
+448|Warm
+449|Warme Batterie
+450|Schwaches Signal
+451|Willkommen
+452|Willkommen bei Sensa
+453|Wenn die Ladung einen Wert erreicht
+454|Wenn nur die Menüleiste sichtbar ist
+455|Wenn die Batterie warm wird
+456|Wenn die Batterie schwach ist
+457|Wenn ein Sensa-Fenster geöffnet ist
+458|Ganze Zahlen
+459|Gesamtes System
+460|WLAN
+461|WLAN-Details
+462|WLAN-Schnittstelle
+463|WLAN ist deaktiviert.
+464|Reserviert
+465|Stark ausgelastet
+466|Schreiben
+467|Insgesamt geschrieben
+468|Du verwendest %@ Arbeitsspeicher.
+469|Du kannst Sensa jederzeit über das Symbol in der Menüleiste erneut öffnen.
+470|Alles bereit
+471|Dein Mac
+472|Dein Mac ist heiß und hat die Leistung reduziert, um sich zu schützen.
+473|Dein Mac verwaltet seine Ressourcen normal.
+474|Dein Mac ist bereit für einen neuen Tag.
+475|Dein Mac wird heiß
+476|Dein Mac läuft normal.
+477|Dein Mac steuert seine Lüfter automatisch.
+478|Dein Mac braucht Aufmerksamkeit.
+479|Deine Daten
+480|Dein Startvolume ist fast voll.
+481|von %@ verfügbar
+482|belegt
+483|macOS
+484|macOS hat diese Änderung nicht zugelassen: %@
+485|macOS muss sich anstrengen, um Arbeitsspeicher freizugeben. Das Beenden ungenutzter Apps hilft.
+486|macOS empfiehlt, die Batterie überprüfen zu lassen (%@).
+487|macOS zeigt den Netzwerknamen nur Apps mit Berechtigung für Ortungsdienste.
+488|von %@, %@ der Zeit aktiv
+489|Druck
+490|Schwellenwert
+491|belegt
+492|Über Sensa
+493|Schließen
+494|Kopieren
+495|Ausschneiden
+496|Bearbeiten
+497|Vollbildmodus aktivieren
+498|Suchen
+499|Andere ausblenden
+500|Sensa ausblenden
+501|Im Dock ablegen
+502|Sensa öffnen
+503|Einsetzen
+504|Sensa beenden
+505|Wiederholen
+506|Alles auswählen
+507|Einstellungen
+508|Einstellungen …
+509|Alle einblenden
+510|Seitenleiste ein-/ausblenden
+511|Widerrufen
+512|Darstellung
+513|Fenster
+514|Zoomen
+515|CPU · Leistungskerne
+516|CPU · Effizienzkerne
+517|Batterieladestandsmesser
+518|SSD (NAND)
+519|SoC-Die (PMU)
+520|Der Verlauf wird nicht aufgezeichnet, solange Sensa Demodaten anzeigt.
+521|Einstellungen
+522|Seitenleiste ein-/ausblenden

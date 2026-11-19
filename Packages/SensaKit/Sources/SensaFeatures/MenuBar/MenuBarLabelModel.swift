@@ -25,7 +25,8 @@ public struct MenuBarLabelModel: Equatable, Sendable {
         let items: [Item] = settings.enabledMenuBarItems.compactMap { configuration in
             let indicator = configuration.indicator
             guard let text = MenuBarValues.value(
-                for: indicator, snapshot: snapshot, formatter: formatter, decimals: settings.menuBarDecimals
+                for: indicator, snapshot: snapshot, formatter: formatter,
+                decimals: settings.menuBarDecimals, fanDisplay: settings.fanSpeedDisplay
             ) else { return nil }
             let sparkline = configuration.showsSparkline
                 ? normalized(store.series(for: MenuBarValues.metric(for: indicator)).samples.suffix(sparklineLength).map(\.value),

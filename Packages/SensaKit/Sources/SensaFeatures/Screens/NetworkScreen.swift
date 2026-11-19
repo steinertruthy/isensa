@@ -10,38 +10,44 @@ struct NetworkScreen: View {
     var body: some View {
         let formatter = settings.formatter
         let network = store.snapshot.network
-        ScreenContainer(title: tr("Network"), summary: summary(network)) {
+        ScreenContainer(title: tr("Network"), summary: summary(network), symbol: "arrow.up.arrow.down", hue: .network) {
             if let network {
-                HStack(spacing: Spacing.large) {
-                    MetricTile(title: tr("Download"), symbol: "arrow.down.circle", value: formatter.rate(network.downloadRate ?? 0), caption: tr("Receiving")) {
-                        SeriesSparkline(metric: .networkDownload, tint: .cyan)
+                CellGroup {
+                    MetricCell(
+                        title: tr("Download"),
+                        symbol: "arrow.down",
+                        hue: .network,
+                        value: formatter.rate(network.downloadRate ?? 0),
+                        caption: tr("Receiving")
+                    ) {
+                        SeriesSparkline(metric: .networkDownload, tint: Hue.network.color)
                     }
-                    MetricTile(title: tr("Upload"), symbol: "arrow.up.circle", value: formatter.rate(network.uploadRate ?? 0), caption: tr("Sending")) {
-                        SeriesSparkline(metric: .networkUpload, tint: .pink)
+                    CellDivider()
+                    MetricCell(title: tr("Upload"), symbol: "arrow.up", hue: .network, value: formatter.rate(network.uploadRate ?? 0), caption: tr("Sending")) {
+                        SeriesSparkline(metric: .networkUpload, tint: Hue.network.color.opacity(0.7))
                     }
                 }
                 if let wifi = store.snapshot.wifi {
                     WiFiCard(wifi: wifi, formatter: formatter)
                 }
                 SeriesChartCard(
-                    title: tr("Traffic"), symbol: "chart.xyaxis.line",
+                    title: tr("Traffic"),
                     lines: [
-                        .init(metric: .networkDownload, label: tr("Download"), color: .cyan),
-                        .init(metric: .networkUpload, label: tr("Upload"), color: .pink)
+                        .init(metric: .networkDownload, label: tr("Download"), color: Hue.network.color),
+                        .init(metric: .networkUpload, label: tr("Upload"), color: .secondary)
                     ],
                     format: { formatter.rate($0) }
                 )
                 TechnicalDetails {
                     ForEach(addressedInterfaces(network)) { interface in
                         InfoRow(
-                            "\(interface.id) · \(kindName(interface.kind))",
+                            "\(interface.id) (\(kindName(interface.kind)))",
                             value: (interface.ipv4Addresses + interface.ipv6Addresses).joined(separator: "\n")
                         )
                     }
                     if let wifi = store.snapshot.wifi, wifi.isAssociated { WiFiCard.detailRows(wifi) }
-                    InfoRow(tr("Source"), value: "sysctl NET_RT_IFLIST2 · getifaddrs")
-                    Text(Copy.networkCountersNote)
-                        .font(Typography.caption).foregroundStyle(.secondary)
+                    InfoRow(tr("Source"), value: "sysctl NET_RT_IFLIST2, getifaddrs")
+                    Text(Copy.networkCountersNote).font(Typography.caption).foregroundStyle(.secondary)
                 }
             } else {
                 WaitingView()

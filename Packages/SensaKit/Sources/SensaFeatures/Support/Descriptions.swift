@@ -36,6 +36,16 @@ enum Descriptions {
         }
     }
 
+    /// One-word state for places where no temperature sensor is identified.
+    static func thermalShort(_ level: ThermalLevel) -> String {
+        switch level {
+        case .nominal: tr("Normal")
+        case .fair: tr("Warm")
+        case .serious: tr("Hot")
+        case .critical: tr("Critical")
+        }
+    }
+
     static func thermalLevel(_ level: ThermalLevel) -> HealthLevel {
         switch level {
         case .nominal, .fair: .normal

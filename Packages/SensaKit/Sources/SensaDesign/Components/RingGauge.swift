@@ -1,12 +1,13 @@
 import SwiftUI
 
-/// Circular progress with a soft track. Animates value changes unless Reduce Motion is on.
+/// Circular progress with a soft track. Fills from zero when it appears, then follows value changes,
+/// both per the motion preference.
 public struct RingGauge<Label: View>: View {
     private let value: Double
     private let tint: Color
     private let lineWidth: CGFloat
     private let label: Label
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var revealed = false
 
     public init(value: Double, tint: Color = .accentColor, lineWidth: CGFloat = 10, @ViewBuilder label: () -> Label) {
         self.value = value
@@ -19,11 +20,12 @@ public struct RingGauge<Label: View>: View {
         ZStack {
             Circle().stroke(tint.opacity(0.14), lineWidth: lineWidth)
             Circle()
-                .trim(from: 0, to: min(max(value, 0), 1))
+                .trim(from: 0, to: revealed ? min(max(value, 0), 1) : 0)
                 .stroke(tint.gradient, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
             label
         }
-        .animation(Motion.adaptive(Motion.standard, reduceMotion: reduceMotion), value: value)
+        .sensaAnimation(Motion.update, value: value)
+        .revealOnAppear($revealed)
     }
 }

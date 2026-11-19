@@ -10,40 +10,27 @@ struct BatteryScreen: View {
     var body: some View {
         let formatter = settings.formatter
         let battery = store.snapshot.battery
-        ScreenContainer(title: tr("Battery"), summary: battery.map { DashboardTiles.batteryCaption($0, formatter: formatter) } ?? tr("Reading sensors…")) {
+        ScreenContainer(
+            title: tr("Battery"), summary: battery.map { DashboardModel.batteryCaption($0, formatter: formatter) } ?? tr("Reading sensors…"),
+            symbol: battery.map(DashboardModel.batterySymbol) ?? "battery.75percent", hue: .battery
+        ) {
             if let battery {
-                Card {
-                    HStack(spacing: Spacing.xxLarge) {
+                HeroInstrument(stats: stats(battery, formatter: formatter)) {
+                    VStack(alignment: .leading, spacing: Spacing.small) {
                         BatteryGlyph(charge: battery.charge, isCharging: battery.state == .charging, tint: tint(battery))
-                            .frame(width: 180)
-                        VStack(alignment: .leading, spacing: Spacing.xSmall) {
-                            Text(formatter.percent(battery.charge)).font(Typography.metricLarge).contentTransition(.numericText())
-                            Label(Descriptions.chargeState(battery), systemImage: DashboardTiles.batterySymbol(battery))
-                                .font(Typography.headline)
-                            if let adapter = battery.adapter, let watts = adapter.watts {
-                                Text(tr("Power adapter: %@ W", "\(watts)")).font(Typography.callout).foregroundStyle(.secondary)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-                HStack(alignment: .top, spacing: Spacing.large) {
-                    HealthCard(battery: battery, formatter: formatter)
-                    if let power = battery.power {
-                        Card(tr("Power flow"), symbol: "bolt", accessory: { ProvenanceTag(tr("Derived")) }) {
-                            Text(formatter.watts(abs(power))).font(Typography.metric).contentTransition(.numericText())
-                            Text(power >= 0 ? tr("Flowing into the battery") : tr("Being drawn from the battery"))
-                                .font(Typography.caption).foregroundStyle(.secondary)
+                            .frame(width: 150)
+                        HStack(alignment: .firstTextBaseline, spacing: Spacing.small) {
+                            MetricText(formatter.percent(battery.charge), size: .hero, rolls: true)
+                            Text(Descriptions.chargeState(battery)).font(Typography.callout).foregroundStyle(.secondary)
                         }
                     }
                 }
                 SeriesChartCard(
-                    title: tr("Charge"), symbol: "chart.xyaxis.line",
-                    lines: [.init(metric: .batteryCharge, label: tr("Charge"), color: .green)],
+                    title: tr("Charge"),
+                    lines: [.init(metric: .batteryCharge, label: tr("Charge"), color: Hue.battery.color)],
                     range: 0...100, transform: { $0 * 100 }, format: { "\(Int($0)) %" }
                 )
-                Text(Copy.chargeLimitNote)
-                    .font(Typography.caption).foregroundStyle(.secondary)
+                Text(Copy.chargeLimitNote).font(Typography.caption).foregroundStyle(.secondary)
                 TechnicalDetails { details(battery, formatter: formatter) }
             } else {
                 WaitingView()
@@ -51,10 +38,29 @@ struct BatteryScreen: View {
         }
     }
 
+    private func stats(_ battery: BatterySnapshot, formatter: MetricFormatter) -> [Stat] {
+        var stats: [Stat] = []
+        if let health = battery.health {
+            stats.append(Stat(tr("Health"), value: formatter.percent(min(health, 1)), note: tr("Maximum capacity relative to when it was new")))
+        }
+        if let cycles = battery.cycleCount { stats.append(Stat(tr("Charge cycles"), value: formatter.integer(cycles))) }
+        if let power = battery.power {
+            stats.append(Stat(
+                tr("Power flow"), value: formatter.watts(abs(power)),
+                note: power >= 0 ? tr("Flowing into the battery") : tr("Being drawn from the battery")
+            ))
+        }
+        if let condition = battery.systemCondition {
+            stats.append(Stat(tr("Condition"), value: ["Good", "Normal"].contains(condition) ? tr("Normal") : condition, note: tr("Reported by macOS")))
+        }
+        if let watts = battery.adapter?.watts { stats.append(Stat(tr("Power adapter"), value: "\(watts) W")) }
+        return stats
+    }
+
     private func tint(_ battery: BatterySnapshot) -> Color {
         if battery.state == .discharging, battery.charge < 0.15 { return .red }
         if battery.state == .discharging, battery.charge < 0.3 { return .orange }
-        return .green
+        return Hue.battery.color
     }
 
     @ViewBuilder
@@ -64,47 +70,11 @@ struct BatteryScreen: View {
         if let raw = battery.rawMaxCapacity { InfoRow(tr("Raw maximum capacity"), value: formatter.milliampereHours(raw)) }
         if let remaining = battery.remainingCapacity { InfoRow(tr("Remaining charge"), value: formatter.milliampereHours(remaining)) }
         if let voltage = battery.voltage { InfoRow(tr("Voltage"), value: formatter.volts(voltage)) }
-        if let amperage = battery.amperage { InfoRow(
-            tr("Current"),
-            value: formatter.amperes(amperage),
-            help: tr("Positive while charging, negative while discharging.")
-        ) }
+        if let amperage = battery.amperage {
+            InfoRow(tr("Current"), value: formatter.amperes(amperage), help: tr("Positive while charging, negative while discharging."))
+        }
         if let temperature = battery.temperature { InfoRow(tr("Temperature"), value: formatter.temperature(temperature, fractionDigits: 1)) }
-        if let adapter = battery.adapter {
-            InfoRow(tr("Adapter"), value: [adapter.name, adapter.watts.map { "\($0) W" }].compactMap { $0 }.joined(separator: " · "))
-        }
-        InfoRow(tr("Source"), value: "IOPowerSources · AppleSmartBattery")
-    }
-}
-
-private struct HealthCard: View {
-    let battery: BatterySnapshot
-    let formatter: MetricFormatter
-
-    var body: some View {
-        Card(tr("Health"), symbol: "heart.text.square", accessory: {
-            if let condition = battery.systemCondition {
-                StatusBadge(level: ["Good", "Normal"].contains(condition) ? .normal : .attention, text: conditionText(condition))
-            }
-        }) {
-            if let health = battery.health {
-                Text(formatter.percent(min(health, 1))).font(Typography.metric)
-                Text(tr("Maximum capacity relative to when it was new")).font(Typography.caption).foregroundStyle(.secondary)
-            }
-            if let cycles = battery.cycleCount {
-                InfoRow(
-                    tr("Charge cycles"),
-                    value: formatter.integer(cycles),
-                    help: tr("One cycle equals using 100% of the battery's capacity, possibly across several charges.")
-                )
-            }
-        }
-    }
-
-    private func conditionText(_ condition: String) -> String {
-        switch condition {
-        case "Good", "Normal": tr("Normal")
-        default: condition
-        }
+        if let adapter = battery.adapter, let name = adapter.name { InfoRow(tr("Adapter"), value: name) }
+        InfoRow(tr("Source"), value: "IOPowerSources, AppleSmartBattery")
     }
 }

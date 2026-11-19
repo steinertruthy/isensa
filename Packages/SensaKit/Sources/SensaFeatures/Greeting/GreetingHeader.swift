@@ -7,6 +7,7 @@ import SwiftUI
 struct GreetingHeader: View {
     @Environment(AppSettings.self) private var settings
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.sensaMotion) private var motion
 
     var body: some View {
         TimelineView(.everyMinute) { context in
@@ -14,8 +15,9 @@ struct GreetingHeader: View {
             HStack(alignment: .center, spacing: Spacing.medium) {
                 Image(systemName: greeting.period.symbolName)
                     .font(.system(size: 30))
-                    .symbolRenderingMode(.multicolor)
-                    .symbolEffect(.bounce, options: .nonRepeating, value: reduceMotion ? nil : greeting.period)
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundStyle(Self.tint(greeting.period))
+                    .symbolEffect(.bounce, options: .nonRepeating, value: Motion.effective(motion, reduceMotion: reduceMotion) == .full ? greeting.period : nil)
                     .frame(width: 40)
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: Spacing.xxSmall) {
@@ -25,6 +27,14 @@ struct GreetingHeader: View {
             }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
+        }
+    }
+
+    private static func tint(_ period: DayPeriod) -> Color {
+        switch period {
+        case .morning: .orange
+        case .afternoon: Hue.power.color
+        case .evening: .indigo
         }
     }
 

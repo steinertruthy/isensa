@@ -7,7 +7,8 @@ App (composition root, AppKit lifecycle)
  ├─ SensaFeatures   telas, presenters, settings, barra de menus   (SwiftUI; nunca importa hardware)
  │   └─ SensaDesign tokens, superfícies, componentes, gráficos
  ├─ SensaMonitoring MonitoringEngine (actor) → MetricsStore (@Observable) → MetricSeries
- ├─ SensaInsights   regras de saúde puras e testáveis
+ ├─ SensaInsights   regras de saúde e AlertEngine (limiar, duração, histerese, repetição) — puros
+ ├─ SensaPersistence HistoryStore (SQLite do sistema): minuto por 7 dias → hora, retenção, CSV/JSON
  ├─ SensaProviders  provedores reais + descoberta de hardware + catálogo de sensores
  │   ├─ SensaHardware    APIs públicas (sysctl, Mach, IORegistry, IOPowerSources)
  │   └─ SensaPrivateAPI  ⚠️ SMC, HID (isolado; símbolos via dlsym) ── CSensaPrivate (layouts C)
@@ -48,6 +49,20 @@ Medido em Release no Mac15,6 (média de ~60 s):
 
 Toda leitura carrega `Provenance` (`hardware`, `system`, `derived`, `estimated`, `demo`). Sensores só recebem
 nome quando um catálogo os valida no modelo; temperaturas agregadas usam apenas mapeamentos verificados.
+
+## Serviços do app
+
+O `AppEnvironment` (composition root) cria e injeta, via `sensaEnvironment(...)`, os serviços que a interface usa
+apenas por protocolos: `HistoryReading` (SensaCore), `NotificationDelivering` e `LaunchAtLoginControlling`
+(Features), `AlertCoordinator` e `Feedback` (sons/hápticos). A navegação da janela é um `AppNavigation` observável,
+para que Ajustes e barra de menus possam abrir uma tela.
+
+## Localização
+
+10 idiomas (en, pt-BR, es, fr, de, it, ja, ko, zh-Hans, zh-Hant) em String Catalogs nativos.
+Fonte da verdade: `scripts/localization/keys.json` + um arquivo `<idioma>.txt` (`número|tradução`) por idioma;
+`build-catalogs.py` gera os `.xcstrings` e valida placeholders. O idioma pode ser escolhido em Ajustes › Geral
+(`AppleLanguages` por app, aplicado após reiniciar).
 
 ## Testes
 

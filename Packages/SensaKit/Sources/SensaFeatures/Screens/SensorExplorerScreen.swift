@@ -8,6 +8,7 @@ import SwiftUI
 struct SensorExplorerScreen: View {
     @Environment(MetricsStore.self) private var store
     @Environment(AppSettings.self) private var settings
+    @Environment(\.feedback) private var feedback
     @State private var query = ""
     @State private var group: ComponentGroup?
     @State private var favoritesOnly = false
@@ -81,6 +82,7 @@ struct SensorExplorerScreen: View {
     }
 
     private func toggleFavorite(_ id: String) {
+        feedback.perform(.selection)
         if settings.favoriteSensors.contains(id) {
             settings.favoriteSensors.remove(id)
         } else {
@@ -110,12 +112,13 @@ struct SensorRow: Identifiable, Hashable {
         let readings = store.snapshot.sensors?.sensors ?? []
         return readings
             .filter { group == nil || $0.sensor.group == group }
+            .filter { settings.showsUnknownSensors || $0.sensor.identification != .unknown || settings.favoriteSensors.contains($0.sensor.id.rawValue) }
             .map { reading in
                 let sensor = reading.sensor
                 let id = sensor.id.rawValue
                 let statistics = store.series(for: .sensor(sensor.id), unit: sensor.unit).statistics
                 func format(_ value: Double?) -> String { value.map { formatter.temperature($0, fractionDigits: 1) } ?? "–" }
-                let original = sensor.name.map { "\($0)" } ?? tr("Unknown")
+                let original = sensor.name.map(SensorNames.localized) ?? tr("Unknown")
                 return SensorRow(
                     id: id,
                     name: settings.sensorNicknames[id] ?? original,
@@ -141,6 +144,7 @@ struct SensorRow: Identifiable, Hashable {
 private struct RenameSensorSheet: View {
     @Environment(AppSettings.self) private var settings
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.feedback) private var feedback
     let row: SensorRow
     @State private var name = ""
 
@@ -170,6 +174,7 @@ private struct RenameSensorSheet: View {
         let trimmed = name.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty else { return }
         settings.sensorNicknames[row.id] = trimmed
+        feedback.perform(.confirm)
         dismiss()
     }
 }

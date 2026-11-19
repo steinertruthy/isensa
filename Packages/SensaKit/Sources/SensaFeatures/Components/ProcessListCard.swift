@@ -13,7 +13,7 @@ struct ProcessListCard: View {
     let formatter: MetricFormatter
 
     var body: some View {
-        Card(title, symbol: "list.number") {
+        Card(title) {
             if processes.isEmpty {
                 WaitingView(message: tr("Collecting data…")).frame(height: 80)
             } else {

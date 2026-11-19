@@ -4,6 +4,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 swiftlint lint --strict --quiet App Packages/SensaKit/Sources Packages/SensaKit/Tests
+# Catalogs are generated from scripts/localization/*.txt: they must match exactly.
+python3 -I scripts/localization/build-catalogs.py --check
 python3 -I scripts/check-localizations.py
 (cd Packages/SensaKit && swift build -Xswiftc -warnings-as-errors && swift test)
 xcodegen generate

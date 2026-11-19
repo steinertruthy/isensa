@@ -8,7 +8,7 @@ struct SSDHealthCard: View {
     let formatter: MetricFormatter
 
     var body: some View {
-        Card(tr("SSD health"), symbol: "internaldrive", accessory: {
+        Card(tr("SSD health"), accessory: {
             StatusBadge(level: level, text: health.reportsCriticalCondition ? tr("Reported problem") : tr("Normal"))
         }) {
             HStack(alignment: .top, spacing: Spacing.xLarge) {

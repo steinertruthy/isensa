@@ -5,20 +5,20 @@ import SwiftUI
 /// Frequency and activity of processor clusters (derived from IOReport residency).
 struct ClusterActivityCard: View {
     let clusters: [ClusterActivity]
+    let hue: Hue
     let formatter: MetricFormatter
 
     var body: some View {
-        Card(tr("Clock speed"), symbol: "speedometer", accessory: { ProvenanceTag(tr("Derived")) }) {
+        Card(tr("Clock speed"), accessory: { ProvenanceTag(tr("Derived")) }) {
             HStack(alignment: .top, spacing: Spacing.xLarge) {
                 ForEach(clusters) { cluster in
                     VStack(alignment: .leading, spacing: Spacing.xSmall) {
                         Text(Self.name(cluster.kind)).font(Typography.caption).foregroundStyle(.secondary)
-                        Text(cluster.averageFrequency.map { Self.megahertz($0, formatter) } ?? "–")
-                            .font(Typography.metricSmall).contentTransition(.numericText())
+                        MetricText(cluster.averageFrequency.map { Self.megahertz($0, formatter) } ?? "–", size: .medium)
                         if let maximum = cluster.maximumFrequency, let average = cluster.averageFrequency {
-                            ProgressView(value: min(average / maximum, 1)).tint(.blue)
+                            MeterBar(value: average / maximum, tint: cluster.kind == .efficiency ? hue.color.opacity(0.6) : hue.color)
                                 .accessibilityLabel(tr("Share of maximum clock speed"))
-                            Text(tr("of %@ · active %@", Self.megahertz(maximum, formatter), formatter.percent(cluster.activeResidency)))
+                            Text(tr("of %@, active %@ of the time", Self.megahertz(maximum, formatter), formatter.percent(cluster.activeResidency)))
                                 .font(Typography.caption).foregroundStyle(.secondary)
                         }
                     }
@@ -51,7 +51,7 @@ struct PowerRailsCard: View {
     let formatter: MetricFormatter
 
     var body: some View {
-        Card(tr("Power by component"), symbol: "bolt", accessory: { ProvenanceTag(tr("Derived")) }) {
+        Card(tr("Power by component"), accessory: { ProvenanceTag(tr("Derived")) }) {
             ForEach(PowerRail.allCases, id: \.self) { rail in
                 if let watts = power.rails[rail] {
                     InfoRow(Self.name(rail), value: formatter.watts(watts, fractionDigits: 2))

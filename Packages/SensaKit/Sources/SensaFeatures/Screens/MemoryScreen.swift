@@ -10,33 +10,52 @@ struct MemoryScreen: View {
     var body: some View {
         let formatter = settings.formatter
         let memory = store.snapshot.memory
-        ScreenContainer(title: tr("Memory"), summary: summary(memory, formatter: formatter)) {
+        ScreenContainer(title: tr("Memory"), summary: summary(memory, formatter: formatter), symbol: "memorychip", hue: .memory) {
             if let memory {
-                Card(tr("Memory pressure"), symbol: "gauge.with.needle", accessory: {
+                HeroInstrument(stats: [
+                    Stat(tr("Used"), value: formatter.bytes(memory.used)),
+                    Stat(tr("Installed"), value: formatter.bytes(memory.total)),
+                    Stat(tr("Cached files"), value: formatter.bytes(memory.cached), note: tr("Freed instantly when needed")),
+                    Stat(tr("Swap used"), value: formatter.bytes(memory.swapUsed))
+                ]) {
+                    GaugeInstrument(
+                        fraction: memory.pressureFraction ?? memory.usedFraction, hue: .memory,
+                        value: formatter.percent(memory.pressureFraction ?? memory.usedFraction), caption: tr("pressure")
+                    )
+                }
+                Card(tr("Memory pressure"), accessory: {
                     StatusBadge(level: Descriptions.memoryLevel(memory.pressure), text: Descriptions.memoryPressure(memory.pressure))
                 }) {
                     Text(Copy.memoryPressureExplanation)
                         .font(Typography.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
-                    SeriesSparkline(metric: .memoryPressure, range: 0...1, tint: Descriptions.memoryLevel(memory.pressure).tint)
-                        .frame(height: 60)
+                    SeriesSparkline(metric: .memoryPressure, range: 0...1, tint: Hue.memory.color).frame(height: 56)
                 }
-                Card(tr("Usage"), symbol: "memorychip") {
+                Card(tr("Usage")) {
                     SegmentedMeter(segments: [
-                        .init(id: "app", label: tr("Apps"), value: Double(memory.app), color: .blue, detail: formatter.bytes(memory.app)),
-                        .init(id: "wired", label: tr("Wired"), value: Double(memory.wired), color: .orange, detail: formatter.bytes(memory.wired)),
+                        .init(id: "app", label: tr("Apps"), value: Double(memory.app), color: Hue.memory.color, detail: formatter.bytes(memory.app)),
                         .init(
-                            id: "compressed",
-                            label: tr("Compressed"),
-                            value: Double(memory.compressed),
-                            color: .purple,
-                            detail: formatter.bytes(memory.compressed)
+                            id: "wired",
+                            label: tr("Wired"),
+                            value: Double(memory.wired),
+                            color: Hue.memory.color.opacity(0.65),
+                            detail: formatter.bytes(memory.wired)
                         ),
-                        .init(id: "cached", label: tr("Cached files"), value: Double(memory.cached), color: .gray, detail: formatter.bytes(memory.cached))
+                        .init(
+                            id: "compressed", label: tr("Compressed"), value: Double(memory.compressed),
+                            color: Hue.memory.color.opacity(0.4), detail: formatter.bytes(memory.compressed)
+                        ),
+                        .init(
+                            id: "cached",
+                            label: tr("Cached files"),
+                            value: Double(memory.cached),
+                            color: .secondary.opacity(0.35),
+                            detail: formatter.bytes(memory.cached)
+                        )
                     ], total: Double(memory.total))
                 }
                 SeriesChartCard(
-                    title: tr("Memory used"), symbol: "chart.xyaxis.line",
-                    lines: [.init(metric: .memoryUsed, label: tr("Used"), color: .blue)],
+                    title: tr("Memory used"),
+                    lines: [.init(metric: .memoryUsed, label: tr("Used"), color: Hue.memory.color)],
                     range: 0...Double(memory.total) / 1_073_741_824, transform: { $0 / 1_073_741_824 },
                     format: { "\(formatter.number($0, fractionDigits: 0)) GB" }
                 )
@@ -47,18 +66,15 @@ struct MemoryScreen: View {
                     )
                 }
                 TechnicalDetails {
-                    InfoRow(tr("Installed"), value: formatter.bytes(memory.total))
-                    InfoRow(tr("Used"), value: formatter.bytes(memory.used), help: tr("Apps + wired + compressed, as in Activity Monitor."))
                     InfoRow(tr("Apps"), value: formatter.bytes(memory.app))
                     InfoRow(tr("Wired"), value: formatter.bytes(memory.wired), help: tr("Memory the system must keep in RAM."))
                     InfoRow(tr("Compressed"), value: formatter.bytes(memory.compressed))
-                    InfoRow(tr("Cached files"), value: formatter.bytes(memory.cached), help: tr("Can be reclaimed instantly when apps need memory."))
                     InfoRow(tr("Free"), value: formatter.bytes(memory.free))
-                    InfoRow(tr("Swap used"), value: "\(formatter.bytes(memory.swapUsed)) / \(formatter.bytes(memory.swapTotal))")
+                    InfoRow(tr("Swap"), value: "\(formatter.bytes(memory.swapUsed)) / \(formatter.bytes(memory.swapTotal))")
                     if store.profile.chipFamily.isAppleSilicon {
                         InfoRow(tr("Architecture"), value: tr("Unified memory (shared by CPU and GPU)"))
                     }
-                    InfoRow(tr("Source"), value: "host_statistics64 · kern.memorystatus")
+                    InfoRow(tr("Source"), value: "host_statistics64, kern.memorystatus")
                 }
             } else {
                 WaitingView()
