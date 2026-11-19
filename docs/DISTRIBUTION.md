@@ -95,6 +95,6 @@ Distribuir como `.dmg` assinado e notarizado (`hdiutil create`, `codesign`, `not
 - [ ] Team ID configurado e build Release assinado com Developer ID
 - [ ] Auxiliar migrado para `SMAppService` e requisitos por Team ID
 - [ ] Notarização e grampo verificados com `spctl --assess --type execute -vv Sensa.app`
-- [ ] Controle de ventoinhas validado de novo em hardware (curva, lease, sono e despertar)
+- [ ] Controle de ventoinhas validado de novo em hardware, com o build assinado (curva, lease, sono e despertar)
 - [ ] Sparkle com appcast real e teste de atualização de uma versão para a seguinte
 - [ ] README com requisitos (macOS 14+), privacidade e como remover o auxiliar

@@ -59,9 +59,13 @@ struct CurveTests {
 @Suite("Fan control planner")
 struct PlannerTests {
     private func plan(
-        _ planner: inout FanControlPlanner, _ mode: FanMode, _ temperature: Double?, age: TimeInterval = 1, thermal: ThermalLevel? = .nominal
+        _ planner: inout FanControlPlanner, _ mode: FanMode, _ temperature: Double?, age: TimeInterval = 1, thermal: ThermalLevel? = .nominal,
+        at seconds: TimeInterval = 0
     ) -> FanPlan {
-        planner.plan(mode: mode, temperature: temperature, sampleAge: age, thermalLevel: thermal, limits: testLimits)
+        planner.plan(
+            mode: mode, temperature: temperature, sampleAge: age, thermalLevel: thermal, limits: testLimits,
+            now: Date(timeIntervalSince1970: seconds)
+        )
     }
 
     @Test func automaticAndSafetyConditionsHandControlToMacOS() {
@@ -71,7 +75,7 @@ struct PlannerTests {
         #expect(plan(&planner, .curve(.performance), 70, age: 60) == .system(.noTemperature), "Stale readings count as missing")
         #expect(plan(&planner, .fixed(fraction: 1), 70, thermal: .serious) == .system(.thermalPressure))
         #expect(plan(&planner, .fixed(fraction: 0.2), 92) == .system(.tooHotForFixedSpeed))
-        #expect(planner.plan(mode: .fixed(fraction: 1), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: []) == .system(.noLimits))
+        #expect(planner.plan(mode: .fixed(fraction: 1), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: [], now: Date()) == .system(.noLimits))
     }
 
     @Test func tooHotForFixedSpeedUsesHysteresis() {
@@ -93,7 +97,34 @@ struct PlannerTests {
         #expect(plan(&planner, .curve(.balanced), 81) == .system(.coolEnough))
         guard case .manual = plan(&planner, .curve(.balanced), 83) else { Issue.record("Should take control above 82 °C"); return }
         guard case .manual = plan(&planner, .curve(.balanced), 80) else { Issue.record("Should keep control inside the hysteresis band"); return }
-        #expect(plan(&planner, .curve(.balanced), 78) == .system(.coolEnough))
+        let delay = FanControlPlanner.quietZoneDelay
+        guard case .manual = plan(&planner, .curve(.balanced), 78, at: 10) else { Issue.record("Cool, but not for long enough"); return }
+        guard case .manual = plan(&planner, .curve(.balanced), 77, at: 10 + delay - 1) else { Issue.record("Still inside the delay"); return }
+        #expect(plan(&planner, .curve(.balanced), 77, at: 10 + delay) == .system(.coolEnough))
+        #expect(plan(&planner, .curve(.balanced), 80, at: 10 + delay + 2) == .system(.coolEnough), "Back with macOS until the edge")
+    }
+
+    @Test func steadyLoadAtTheEdgeKeepsControlInsteadOfSwitching() {
+        // Measured on an M3 Pro: with every core busy the control temperature wandered 77–83 °C.
+        var planner = FanControlPlanner()
+        let delay = FanControlPlanner.quietZoneDelay
+        guard case .manual = plan(&planner, .curve(.balanced), 82, at: 0) else { Issue.record("Takes control at the edge"); return }
+        guard case .manual = plan(&planner, .curve(.balanced), 78, at: 10) else { Issue.record("Brief dip"); return }
+        guard case .manual = plan(&planner, .curve(.balanced), 80, at: 30) else { Issue.record("Back inside the band"); return }
+        // The dip before 30 s no longer counts: the delay starts again from the next dip.
+        guard case .manual = plan(&planner, .curve(.balanced), 78, at: 40) else { Issue.record("New dip"); return }
+        guard case .manual = plan(&planner, .curve(.balanced), 78, at: 10 + delay) else { Issue.record("Timer restarted at 40 s"); return }
+        #expect(plan(&planner, .curve(.balanced), 78, at: 40 + delay) == .system(.coolEnough))
+    }
+
+    @Test func safetyHandsBackAtOnceDespiteTheQuietZoneDelay() {
+        var planner = FanControlPlanner()
+        guard case .manual = plan(&planner, .curve(.balanced), 85, at: 0) else { Issue.record("Takes control"); return }
+        #expect(plan(&planner, .curve(.balanced), 85, thermal: .serious, at: 2) == .system(.thermalPressure))
+        guard case .manual = plan(&planner, .curve(.balanced), 85, at: 4) else { Issue.record("Retakes control"); return }
+        #expect(plan(&planner, .curve(.balanced), nil, at: 6) == .system(.noTemperature))
+        guard case .manual = plan(&planner, .curve(.balanced), 85, at: 8) else { Issue.record("Retakes control"); return }
+        #expect(plan(&planner, .automatic, 85, at: 10) == .system(.userChoice))
     }
 
     @Test func curveSpeedsMoveInTenPercentStepsRoundedUp() {
@@ -328,7 +359,7 @@ struct CustomCurveTests {
     @Test func plannerUsesTheSafeVersionOfACustomCurve() {
         var planner = FanControlPlanner()
         let unsafe = FanCurve(points: [.init(40, 0.2), .init(60, 0.1)])
-        let plan = planner.plan(mode: .custom(unsafe), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: testLimits)
+        let plan = planner.plan(mode: .custom(unsafe), temperature: 70, sampleAge: 1, thermalLevel: .nominal, limits: testLimits, now: Date())
         #expect(plan == .manual([FanTarget(index: 0, rpm: 6_800), FanTarget(index: 1, rpm: 6_800)]), "Past its last point: full speed")
     }
 

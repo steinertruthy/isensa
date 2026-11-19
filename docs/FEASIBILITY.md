@@ -67,6 +67,18 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
     (~2.300 rpm) nos dois casos. Os primeiros limites (Equilibrada 65 °C, Silenciosa 75 °C) tirariam as ventoinhas
     do macOS até em uso leve; as curvas foram recalibradas: Silenciosa devolve ao macOS abaixo de 90 °C,
     Equilibrada abaixo de 82 °C, Desempenho fica em ~30% em uso leve e ~70% com todos os núcleos ocupados.
+  * **Curvas prontas após a recalibração** (mesmo dia; núcleo mais quente suavizado neste dia: 78–83 °C com
+    todos os núcleos ocupados, mais frio que na calibração):
+    * Desempenho, uso leve: assumiu em ~4 s a 30%, subiu em degraus até 60% (≈5.000 rpm) conforme a
+      temperatura de controle passava de 72 para 82 °C e segurou 60% ao esfriar (histerese); rotação real a ±2%.
+    * Equilibrada, todos os núcleos ocupados: com o macOS na maior parte dos 140 s; assumiu duas vezes ao
+      chegar a 82 °C (10%, 2.765 rpm) e devolveu ao macOS abaixo de 79 °C após 8–12 s cada vez — alternância
+      a cada ~minuto. **Corrigido** com a espera de 60 s antes de devolver: no novo teste (3 min 40 s com todos os
+      núcleos ocupados e depois sem carga), o Sensa assumiu uma vez aos 60 s, variou 0–40% (até ~4.100 rpm com a
+      temperatura de controle em 88 °C) e devolveu uma única vez, ~67 s depois de a carga acabar.
+    * Silenciosa, todos os núcleos ocupados: ficou com o macOS o tempo todo (máximo bruto 88,7 °C, suavizado
+      ~83 °C). O trecho acima de 90 °C não foi alcançado em hardware; usa o mesmo cálculo das outras curvas.
+    * Em todos os casos o retorno ao Automático deixou `Ftst = 0` e o modo 0 nas duas ventoinhas.
   * Repouso de 17 s em modo manual: as ventoinhas voltaram ao macOS e pararam; ao acordar, o Sensa retomou
     o controle sozinho.
 * **`BatteryHealth` (IOPS) é enganoso**: retorna "Check Battery" enquanto Informações do Sistema mostra

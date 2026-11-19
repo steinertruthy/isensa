@@ -151,7 +151,8 @@ public final class FanControlCoordinator {
             temperature: controlTemperature,
             sampleAge: sensors.map { now.timeIntervalSince($0.timestamp) } ?? .infinity,
             thermalLevel: store.snapshot.thermal?.level,
-            limits: limits
+            limits: limits,
+            now: now
         )
         switch next {
         case .system:

@@ -40,15 +40,24 @@ public struct FanControlPlanner: Sendable {
     /// Curve speeds move in steps of this fraction of the range (rounded up, never below the curve),
     /// so small temperature changes don't turn into a stream of hardware writes.
     public static let curveStep: Double = 0.1
+    /// While a curve controls the fans, the temperature must stay below its quiet zone's hysteresis
+    /// band this long before control goes back to macOS. Under a steady load that sits at the edge,
+    /// the first slow fan speed cools the CPU a few degrees within seconds; handing back at once would
+    /// switch between Sensa and macOS every minute.
+    public static let quietZoneDelay: TimeInterval = 60
 
     private var lastFraction: Double?
     private var inQuietZone = false
     private var tooHotForFixed = false
+    /// When the temperature last went below the quiet zone's hysteresis band while Sensa had control.
+    private var coolSince: Date?
 
     public init() {}
 
+    // Every input is a separate reading the decision depends on; grouping them would only hide that.
+    // swiftlint:disable:next function_parameter_count
     public mutating func plan(
-        mode: FanMode, temperature reading: Double?, sampleAge: TimeInterval, thermalLevel: ThermalLevel?, limits: [FanLimits]
+        mode: FanMode, temperature reading: Double?, sampleAge: TimeInterval, thermalLevel: ThermalLevel?, limits: [FanLimits], now: Date
     ) -> FanPlan {
         guard mode.isManual else { return reset(.userChoice) }
         if let thermalLevel, thermalLevel >= .serious { return reset(.thermalPressure) }
@@ -70,8 +79,11 @@ public struct FanControlPlanner: Sendable {
         case .curve, .custom:
             guard let temperature, let curve = mode.curve else { return reset(.noTemperature) }
             if let quietBelow = curve.systemControlBelow {
-                // Leave the quiet zone at its edge; return to it only well below (hysteresis).
-                inQuietZone = inQuietZone ? temperature < quietBelow : temperature < quietBelow - Self.hysteresis
+                // Leave the quiet zone at its edge; return to it only well below (hysteresis), and,
+                // when Sensa is driving the fans, only once it has stayed there for a while.
+                inQuietZone = inQuietZone
+                    ? temperature < quietBelow
+                    : isCoolEnoughToHandBack(temperature, below: quietBelow - Self.hysteresis, now: now)
                 if inQuietZone { return reset(.coolEnough) }
             }
             let rising = Self.stepped(curve.fraction(at: temperature))
@@ -80,6 +92,17 @@ public struct FanControlPlanner: Sendable {
         }
         lastFraction = fraction
         return .manual(valid.map { FanTarget(index: $0.index, rpm: $0.rpm(atFraction: fraction)) })
+    }
+
+    private mutating func isCoolEnoughToHandBack(_ temperature: Double, below limit: Double, now: Date) -> Bool {
+        guard temperature < limit else {
+            coolSince = nil
+            return false
+        }
+        guard lastFraction != nil else { return true } // macOS has the fans already: nothing to hand back.
+        let since = coolSince ?? now
+        coolSince = since
+        return now.timeIntervalSince(since) >= Self.quietZoneDelay
     }
 
     static func stepped(_ fraction: Double) -> Double {
@@ -96,6 +119,7 @@ public struct FanControlPlanner: Sendable {
 
     private mutating func reset(_ reason: SystemControlReason) -> FanPlan {
         lastFraction = nil
+        coolSince = nil
         if reason != .coolEnough { inQuietZone = false }
         if reason != .tooHotForFixedSpeed { tooHotForFixed = false }
         return .system(reason)

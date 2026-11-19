@@ -41,7 +41,11 @@ média — o calor se acumula num ponto do chip, e a média dilui um cluster que
 média 57–61 °C, núcleo mais quente 73–80 °C). Como o máximo oscila ~10 °C em segundos, o `TemperatureSmoother`
 aplica uma média móvel exponencial de constante 8 s antes do planejador: um pico de uma amostra move o valor
 ~3 °C, uma subida sustentada passa quase inteira em ~16 s. Depois disso valem os degraus de 10%, a histerese de
-3 °C e a descida máxima de 10% por atualização. A interface continua mostrando a média como "temperatura da CPU";
+3 °C e a descida máxima de 10% por atualização. Enquanto o Sensa controla, a devolução ao macOS na zona
+silenciosa só acontece depois de **60 s seguidos** abaixo da faixa de histerese: sob carga constante no limite,
+a primeira velocidade baixa esfria a CPU alguns graus em segundos, e devolver na hora alternava entre Sensa e
+macOS a cada minuto. As salvaguardas (pressão térmica, leitura ausente, escolha do usuário) continuam devolvendo
+na hora. A interface continua mostrando a média como "temperatura da CPU";
 o gráfico da curva mostra a temperatura de controle. As curvas prontas foram calibradas no M3 Pro (uso leve
 73–78 °C, todos os núcleos ocupados 83–90 °C, ambos com o macOS mantendo as ventoinhas no mínimo); ver
 [viabilidade](FEASIBILITY.md).
