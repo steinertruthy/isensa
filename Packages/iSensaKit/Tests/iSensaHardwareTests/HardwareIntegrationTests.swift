@@ -1,3 +1,4 @@
+import Foundation
 import iSensaHardware
 import iSensaPrivateAPI
 import Testing
@@ -16,7 +17,8 @@ struct HardwareIntegrationTests {
         #expect(vm.wired > 0)
     }
 
-    @Test(.enabled(if: Sysctl.int32("hw.optional.arm64") == 1))
+    // CI runners are virtual machines without an SMC.
+    @Test(.enabled(if: Sysctl.int32("hw.optional.arm64") == 1 && ProcessInfo.processInfo.environment["CI"] == nil))
     func smcExposesKeys() throws {
         let smc = try SMCConnection()
         #expect(try smc.keyCount() > 100)

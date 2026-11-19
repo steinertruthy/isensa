@@ -87,7 +87,8 @@ struct DiskUsageScannerTests {
         #expect(InstalledApps.lastActivity(bundleIdentifier: "com.example.None", library: library) == nil)
     }
 
-    @Test(.tags(.hardware)) func readsInstalledAppsOfThisMac() async {
+    // Apps someone has used: CI runners have no Spotlight history and some unreadable bundles.
+    @Test(.tags(.hardware), .enabled(if: ProcessInfo.processInfo.environment["CI"] == nil)) func readsInstalledAppsOfThisMac() async {
         let apps = await InstalledApps().apps(in: [URL(fileURLWithPath: "/Applications")])
         #expect(!apps.isEmpty)
         #expect(apps.allSatisfy { $0.size > 0 })

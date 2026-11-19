@@ -42,7 +42,8 @@ struct StorageProviderTests {
         #expect(snapshots.newestTimeMachine == Date(timeIntervalSince1970: 9))
     }
 
-    @Test(.tags(.hardware)) func readsTheStartupDiskOfThisMac() async throws {
+    // A physical Mac: CI runners boot from a virtual disk.
+    @Test(.tags(.hardware), .enabled(if: ProcessInfo.processInfo.environment["CI"] == nil)) func readsTheStartupDiskOfThisMac() async throws {
         let provider = StorageProvider()
         _ = try await provider.sample()
         try await Task.sleep(for: .milliseconds(300))
