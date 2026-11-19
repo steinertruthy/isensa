@@ -1,7 +1,7 @@
-import SensaFeatures
+import iSensaFeatures
 import UserNotifications
 
-/// Delivers alerts through Notification Center. Banners also appear while Sensa is in front.
+/// Delivers alerts through Notification Center. Banners also appear while iSensa is in front.
 @MainActor
 final class UserNotificationDelivery: NSObject, NotificationDelivering, UNUserNotificationCenterDelegate {
     private let center = UNUserNotificationCenter.current()

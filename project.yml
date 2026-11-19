@@ -1,6 +1,6 @@
-name: Sensa
+name: iSensa
 options:
-  bundleIdPrefix: app.sensa
+  bundleIdPrefix: io.github.steinertruthy
   deploymentTarget:
     macOS: "14.0"
   developmentLanguage: en
@@ -24,34 +24,34 @@ settings:
     SWIFT_EMIT_LOC_STRINGS: YES
 
 packages:
-  SensaKit:
-    path: Packages/SensaKit
+  iSensaKit:
+    path: Packages/iSensaKit
 
 targets:
-  Sensa:
+  iSensa:
     type: application
     platform: macOS
     sources:
       - path: App
     dependencies:
-      - package: SensaKit
-        product: SensaCore
-      - package: SensaKit
-        product: SensaProviders
-      - package: SensaKit
-        product: SensaMonitoring
-      - package: SensaKit
-        product: SensaFeatures
-      - package: SensaKit
-        product: SensaDemo
-      - package: SensaKit
-        product: SensaInsights
-      - package: SensaKit
-        product: SensaPersistence
-      - package: SensaKit
-        product: SensaControl
+      - package: iSensaKit
+        product: iSensaCore
+      - package: iSensaKit
+        product: iSensaProviders
+      - package: iSensaKit
+        product: iSensaMonitoring
+      - package: iSensaKit
+        product: iSensaFeatures
+      - package: iSensaKit
+        product: iSensaDemo
+      - package: iSensaKit
+        product: iSensaInsights
+      - package: iSensaKit
+        product: iSensaPersistence
+      - package: iSensaKit
+        product: iSensaControl
       # The privileged fan helper ships inside the app and is installed on request.
-      - target: SensaHelper
+      - target: iSensaHelper
         embed: true
         codeSign: false
         copy:
@@ -60,8 +60,8 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: Sensa
-        CFBundleName: Sensa
+        CFBundleDisplayName: iSensa
+        CFBundleName: iSensa
         CFBundleShortVersionString: "0.1.0"
         CFBundleVersion: "1"
         CFBundleDevelopmentRegion: en
@@ -69,14 +69,14 @@ targets:
         LSApplicationCategoryType: public.app-category.utilities
         LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
         LSUIElement: true
-        NSHumanReadableCopyright: "© 2026 Sensa"
+        NSHumanReadableCopyright: "© 2026 iSensa"
         NSPrincipalClass: NSApplication
     entitlements:
-      path: App/Sensa.entitlements
+      path: App/iSensa.entitlements
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.Sensa
-        PRODUCT_NAME: Sensa
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.steinertruthy.iSensa
+        PRODUCT_NAME: iSensa
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         GENERATE_INFOPLIST_FILE: NO
         COMBINE_HIDPI_IMAGES: YES
@@ -86,58 +86,58 @@ targets:
         script: |
           export PATH="/opt/homebrew/bin:$PATH"
           if command -v swiftlint >/dev/null; then
-            swiftlint lint --quiet --config "${SRCROOT}/.swiftlint.yml" "${SRCROOT}/App" "${SRCROOT}/Packages/SensaKit/Sources"
+            swiftlint lint --quiet --config "${SRCROOT}/.swiftlint.yml" "${SRCROOT}/App" "${SRCROOT}/Packages/iSensaKit/Sources"
           else
             echo "warning: SwiftLint not installed (brew install swiftlint)"
           fi
 
-  SensaHelper:
+  iSensaHelper:
     type: tool
     platform: macOS
     sources:
       - path: Helper
     dependencies:
-      - package: SensaKit
-        product: SensaControl
-      - package: SensaKit
-        product: SensaPrivateAPI
-      - package: SensaKit
-        product: SensaCore
+      - package: iSensaKit
+        product: iSensaControl
+      - package: iSensaKit
+        product: iSensaPrivateAPI
+      - package: iSensaKit
+        product: iSensaCore
     settings:
       base:
-        PRODUCT_NAME: app.sensa.Sensa.helper
-        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.Sensa.helper
+        PRODUCT_NAME: io.github.steinertruthy.iSensa.helper
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.steinertruthy.iSensa.helper
         GENERATE_INFOPLIST_FILE: YES
         CREATE_INFOPLIST_SECTION_IN_BINARY: YES
         SKIP_INSTALL: YES
         # The code-signing identifier the app requires when it connects to the helper.
-        OTHER_CODE_SIGN_FLAGS: "--identifier app.sensa.Sensa.helper"
+        OTHER_CODE_SIGN_FLAGS: "--identifier io.github.steinertruthy.iSensa.helper"
 
-  SensaUITests:
+  iSensaUITests:
     type: bundle.ui-testing
     platform: macOS
     sources:
       - path: UITests
     dependencies:
-      - target: Sensa
+      - target: iSensa
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.sensa.SensaUITests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.steinertruthy.iSensaUITests
         GENERATE_INFOPLIST_FILE: YES
         # With ad-hoc signing the XCTest runner cannot load a bundle under library validation.
         # (Xcode also drops it from the app while signing is ad-hoc; it applies once a Developer ID signs it.)
         ENABLE_HARDENED_RUNTIME: NO
-        TEST_TARGET_NAME: Sensa
+        TEST_TARGET_NAME: iSensa
 
 schemes:
-  Sensa:
+  iSensa:
     build:
       targets:
-        Sensa: all
-        SensaUITests: [test]
+        iSensa: all
+        iSensaUITests: [test]
     run:
       config: Debug
     test:
       config: Debug
       targets:
-        - SensaUITests
+        - iSensaUITests

@@ -1,22 +1,22 @@
-# Arquitetura — Sensa
+# Arquitetura — iSensa
 
 Clean Architecture + MVVM + protocolos + injeção por construtor. Swift 6 (strict concurrency), macOS 14+.
 
 ```
 App (composition root, AppKit lifecycle)
- ├─ SensaFeatures   telas, presenters, settings, barra de menus   (SwiftUI; nunca importa hardware)
- │   └─ SensaDesign tokens, superfícies, componentes, gráficos
- ├─ SensaMonitoring MonitoringEngine (actor) → MetricsStore (@Observable) → MetricSeries
- ├─ SensaInsights   regras de saúde e AlertEngine (limiar, duração, histerese, repetição) — puros
- ├─ SensaControl    controle de ventoinhas: curvas, validação, planejador, núcleo de segurança, protocolo XPC — puros
- ├─ SensaPersistence HistoryStore (SQLite do sistema): minuto por 7 dias → hora, retenção, CSV/JSON
- ├─ SensaProviders  provedores reais + descoberta de hardware + catálogo de sensores
- │   ├─ SensaHardware    APIs públicas (sysctl, Mach, IORegistry, IOPowerSources)
- │   └─ SensaPrivateAPI  ⚠️ SMC, HID (isolado; símbolos via dlsym) ── CSensaPrivate (layouts C)
- ├─ SensaDemo       provedores de demonstração (somente via -SensaDemoMode, sempre rotulados)
- └─ SensaCore       domínio puro: modelos, capacidades, contratos (Foundation apenas)
+ ├─ iSensaFeatures   telas, presenters, settings, barra de menus   (SwiftUI; nunca importa hardware)
+ │   └─ iSensaDesign tokens, superfícies, componentes, gráficos
+ ├─ iSensaMonitoring MonitoringEngine (actor) → MetricsStore (@Observable) → MetricSeries
+ ├─ iSensaInsights   regras de saúde e AlertEngine (limiar, duração, histerese, repetição) — puros
+ ├─ iSensaControl    controle de ventoinhas: curvas, validação, planejador, núcleo de segurança, protocolo XPC — puros
+ ├─ iSensaPersistence HistoryStore (SQLite do sistema): minuto por 7 dias → hora, retenção, CSV/JSON
+ ├─ iSensaProviders  provedores reais + descoberta de hardware + catálogo de sensores
+ │   ├─ iSensaHardware    APIs públicas (sysctl, Mach, IORegistry, IOPowerSources)
+ │   └─ iSensaPrivateAPI  ⚠️ SMC, HID (isolado; símbolos via dlsym) ── CiSensaPrivate (layouts C)
+ ├─ iSensaDemo       provedores de demonstração (somente via -iSensaDemoMode, sempre rotulados)
+ └─ iSensaCore       domínio puro: modelos, capacidades, contratos (Foundation apenas)
 
-Helper (app.sensa.Sensa.helper, root via launchd) ── SensaControl + SensaPrivateAPI (SMCFanWriter)
+Helper (io.github.steinertruthy.iSensa.helper, root via launchd) ── iSensaControl + iSensaPrivateAPI (SMCFanWriter)
 ```
 
 ## Controle de ventoinhas
@@ -41,9 +41,9 @@ média — o calor se acumula num ponto do chip, e a média dilui um cluster que
 média 57–61 °C, núcleo mais quente 73–80 °C). Como o máximo oscila ~10 °C em segundos, o `TemperatureSmoother`
 aplica uma média móvel exponencial de constante 8 s antes do planejador: um pico de uma amostra move o valor
 ~3 °C, uma subida sustentada passa quase inteira em ~16 s. Depois disso valem os degraus de 10%, a histerese de
-3 °C e a descida máxima de 10% por atualização. Enquanto o Sensa controla, a devolução ao macOS na zona
+3 °C e a descida máxima de 10% por atualização. Enquanto o iSensa controla, a devolução ao macOS na zona
 silenciosa só acontece depois de **60 s seguidos** abaixo da faixa de histerese: sob carga constante no limite,
-a primeira velocidade baixa esfria a CPU alguns graus em segundos, e devolver na hora alternava entre Sensa e
+a primeira velocidade baixa esfria a CPU alguns graus em segundos, e devolver na hora alternava entre iSensa e
 macOS a cada minuto. As salvaguardas (pressão térmica, leitura ausente, escolha do usuário) continuam devolvendo
 na hora. A interface continua mostrando a média como "temperatura da CPU";
 o gráfico da curva mostra a temperatura de controle. As curvas prontas foram calibradas no M3 Pro (uso leve
@@ -61,7 +61,7 @@ anteriores), depois `Ftst = 0`, e confirmar por leitura que nenhuma ventoinha fi
 Instalação sem Developer ID: o app gera um script (`HelperInstallScript`) executado com
 `do shell script … with administrator privileges` (o usuário digita a senha). O script copia o helper para
 `/Library/PrivilegedHelperTools`, **verifica o cdhash já no local de root** e cria o job do launchd
-(`RunAtLoad`, `KeepAlive` em falha, Mach service). O helper aceita conexões só do build do Sensa cujo
+(`RunAtLoad`, `KeepAlive` em falha, Mach service). O helper aceita conexões só do build do iSensa cujo
 cdhash está fixado no job; o app só conversa com o helper idêntico ao embutido. Com Developer ID, troca-se
 por `SMAppService` e requisitos por Team ID.
 
@@ -106,7 +106,7 @@ O `StorageProvider` junta três fontes com cadências diferentes: taxas e opera�
 aparece) e, a cada 5 minutos, o contêiner APFS (`diskutil apfs list`) e os snapshots (`tmutil`). As ferramentas
 rodam pelo `CommandRunner`: caminho absoluto, sem shell, com limite de tempo e saída lida como dados.
 
-A tendência (`StorageTrend`, SensaInsights) usa o histórico de `disk.used` (regressão linear, mínimo de 2 dias,
+A tendência (`StorageTrend`, iSensaInsights) usa o histórico de `disk.used` (regressão linear, mínimo de 2 dias,
 previsão só até 1 ano e acima de 100 MB/dia) e de `disk.ssd.written` (contador SMART, escritas por dia). O alerta
 `storageFillingFast` compara o espaço livre com o maior valor visto nos últimos 30 minutos. O teste de velocidade
 (`DiskSpeedTesting`) e o ejetar entram pelos `StorageServices`; no modo demonstração os dois são simulados.
@@ -124,13 +124,13 @@ Remoção: sempre para o Lixo (`FileManager.trashItem`), depois de uma revisão 
 remoção pode ser desfeita. A `RemovalPolicy` é conferida de novo imediatamente antes de mover cada item: só a pasta
 pessoal e os apps das pastas de Aplicativos; nunca as pastas essenciais (a própria pasta pessoal, Documentos,
 Biblioteca e suas pastas de primeiro nível…), arquivos de configuração, partes de um app, apps do sistema, o próprio
-Sensa, apps abertos (e as pastas com o nome deles) nem dados que outros apps gerenciam (Mail, Mensagens, Chaves,
+iSensa, apps abertos (e as pastas com o nome deles) nem dados que outros apps gerenciam (Mail, Mensagens, Chaves,
 bibliotecas de Fotos e Música, nuvem). Simuladores, Docker, backups de iPhone e o Lixo só ganham instruções.
 
 ## Serviços do app
 
-O `AppEnvironment` (composition root) cria e injeta, via `sensaEnvironment(...)`, os serviços que a interface usa
-apenas por protocolos: `HistoryReading` (SensaCore), `NotificationDelivering` e `LaunchAtLoginControlling`
+O `AppEnvironment` (composition root) cria e injeta, via `iSensaEnvironment(...)`, os serviços que a interface usa
+apenas por protocolos: `HistoryReading` (iSensaCore), `NotificationDelivering` e `LaunchAtLoginControlling`
 (Features), `AlertCoordinator` e `Feedback` (sons/hápticos). A navegação da janela é um `AppNavigation` observável,
 para que Ajustes e barra de menus possam abrir uma tela.
 
@@ -143,6 +143,6 @@ Fonte da verdade: `scripts/localization/keys.json` + um arquivo `<idioma>.txt` (
 
 ## Testes
 
-* `swift test` (Packages/SensaKit): 48 testes Swift Testing, incluindo integração real (`.tags(.hardware)`).
+* `swift test` (Packages/iSensaKit): 48 testes Swift Testing, incluindo integração real (`.tags(.hardware)`).
 * `xcodebuild test`: XCUITest em modo demo (perfis notebook, notebook sem ventoinha, desktop sem bateria).
 * `scripts/ci.sh`: lint estrito, cobertura de traduções pt-BR, build sem warnings, todos os testes.

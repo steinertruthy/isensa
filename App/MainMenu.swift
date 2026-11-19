@@ -34,17 +34,17 @@ enum MainMenu {
     }
 
     private static func appMenu(target: AppDelegate) -> NSMenu {
-        let menu = NSMenu(title: "Sensa")
-        menu.addItem(item(String(localized: "About Sensa"), #selector(AppDelegate.showAbout), target: target))
+        let menu = NSMenu(title: "iSensa")
+        menu.addItem(item(String(localized: "About iSensa"), #selector(AppDelegate.showAbout), target: target))
         menu.addItem(.separator())
         menu.addItem(item(String(localized: "Settings…"), #selector(AppDelegate.showSettings), ",", target: target))
-        menu.addItem(item(String(localized: "Open Sensa"), #selector(AppDelegate.showMainWindow), "0", target: target))
+        menu.addItem(item(String(localized: "Open iSensa"), #selector(AppDelegate.showMainWindow), "0", target: target))
         menu.addItem(.separator())
-        menu.addItem(item(String(localized: "Hide Sensa"), #selector(NSApplication.hide(_:)), "h"))
+        menu.addItem(item(String(localized: "Hide iSensa"), #selector(NSApplication.hide(_:)), "h"))
         menu.addItem(item(String(localized: "Hide Others"), #selector(NSApplication.hideOtherApplications(_:)), "h", modifiers: [.command, .option]))
         menu.addItem(item(String(localized: "Show All"), #selector(NSApplication.unhideAllApplications(_:))))
         menu.addItem(.separator())
-        menu.addItem(item(String(localized: "Quit Sensa"), #selector(NSApplication.terminate(_:)), "q"))
+        menu.addItem(item(String(localized: "Quit iSensa"), #selector(NSApplication.terminate(_:)), "q"))
         return menu
     }
 

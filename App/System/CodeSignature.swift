@@ -1,7 +1,7 @@
 import Foundation
 import Security
 
-/// Code-directory hashes, used to pin the app ↔ helper connection while Sensa is signed ad hoc.
+/// Code-directory hashes, used to pin the app ↔ helper connection while iSensa is signed ad hoc.
 enum CodeSignature {
     /// This running process.
     static func ownCDHash() -> String? {

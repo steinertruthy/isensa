@@ -1,13 +1,13 @@
 import AppKit
 import Foundation
-import SensaControl
-import SensaCore
-import SensaDemo
-import SensaFeatures
-import SensaInsights
-import SensaMonitoring
-import SensaPersistence
-import SensaProviders
+import iSensaControl
+import iSensaCore
+import iSensaDemo
+import iSensaFeatures
+import iSensaInsights
+import iSensaMonitoring
+import iSensaPersistence
+import iSensaProviders
 
 /// Composition root: the only place that knows concrete implementations.
 @MainActor
@@ -32,25 +32,28 @@ final class AppEnvironment {
         launchAtLogin = LaunchAtLoginService()
         feedback = FeedbackPlayer(settings: settings)
         // "cleanup" opens Storage › Free Up Space.
-        if arguments.string(forKey: "SensaInitialDestination") == "cleanup" {
+        if arguments.string(forKey: "iSensaInitialDestination") == "cleanup" {
             navigation.selection = .storage
             navigation.storagePage = .freeUpSpace
-        } else if let initial = arguments.string(forKey: "SensaInitialDestination").flatMap(Destination.init) {
+        } else if let initial = arguments.string(forKey: "iSensaInitialDestination").flatMap(Destination.init) {
             navigation.selection = initial
         }
 
-        // `-SensaDemoMode <variant>` swaps in clearly-labelled demonstration providers
+        // `-iSensaDemoMode <variant>` swaps in clearly-labelled demonstration providers
         // (UI tests, screenshots). Production and demo providers are never mixed, and demo
         // data is never written to history.
         let isDemo: Bool
-        if let variantName = arguments.string(forKey: "SensaDemoMode") {
+        if let variantName = arguments.string(forKey: "iSensaDemoMode") {
             let variant = DemoEnvironment.Variant(rawValue: variantName) ?? .laptopWithFans
             profile = DemoEnvironment.profile(variant)
             engine = MonitoringEngine(providers: DemoEnvironment.providers(for: profile))
             store = MetricsStore(profile: profile, staticCapabilities: DemoEnvironment.staticCapabilities(for: profile), isDemo: true)
             isDemo = true
         } else {
-            profile = HardwareDiscovery.discover()
+            var discovered = HardwareDiscovery.discover()
+            // For screenshots and recordings: show the model instead of a personal computer name.
+            if arguments.bool(forKey: "hidesComputerName") { discovered.computerName = nil }
+            profile = discovered
             engine = MonitoringEngine(providers: ProductionProviders.make(for: profile))
             store = MetricsStore(profile: profile, staticCapabilities: ProductionProviders.staticCapabilities(for: profile))
             isDemo = false
@@ -59,9 +62,9 @@ final class AppEnvironment {
         history = isDemo ? nil : try? HistoryStore(url: HistoryStore.defaultURL())
         if profile.fanCount > 0 {
             // Demo mode never touches the helper or the hardware.
-            // `-SensaDemoFanHelperInstalled YES` starts demo mode with the demo helper in place (screenshots).
+            // `-iSensaDemoFanHelperInstalled YES` starts demo mode with the demo helper in place (screenshots).
             let service: any FanControlService = isDemo
-                ? DemoFanControlService(installed: arguments.bool(forKey: "SensaDemoFanHelperInstalled"))
+                ? DemoFanControlService(installed: arguments.bool(forKey: "iSensaDemoFanHelperInstalled"))
                 : XPCFanControlService()
             fanControl = FanControlCoordinator(service: service, store: store, settings: settings)
         } else {
@@ -102,8 +105,8 @@ final class AppEnvironment {
         )
     }
 
-    func services(actions: AppActions) -> SensaServices {
-        SensaServices(
+    func services(actions: AppActions) -> iSensaServices {
+        iSensaServices(
             history: history, alerts: alerts, notifications: notifications, launchAtLogin: launchAtLogin,
             fanControl: fanControl, storage: storageServices, actions: actions
         )

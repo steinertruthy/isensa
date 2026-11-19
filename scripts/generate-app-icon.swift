@@ -1,4 +1,4 @@
-// Renders Sensa's app icon at every size required by the asset catalog.
+// Renders iSensa's app icon at every size required by the asset catalog.
 // Usage: swift scripts/generate-app-icon.swift App/Resources/Assets.xcassets/AppIcon.appiconset
 import AppKit
 

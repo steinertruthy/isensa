@@ -1,6 +1,6 @@
 import Foundation
-import SensaControl
-import SensaPrivateAPI
+import iSensaControl
+import iSensaPrivateAPI
 
 /// `FanHardware` on the real SMC. Remembers each fan's automatic mode value as found when the
 /// helper started (3 on M3-generation Macs, 0 on older ones) and writes it back on restore.

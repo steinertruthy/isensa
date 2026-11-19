@@ -1,8 +1,10 @@
 import AppKit
+import iSensaFeatures
 
-// AppKit lifecycle: Sensa is a menu-bar-first utility, so windows, menus and the
+// AppKit lifecycle: iSensa is a menu-bar-first utility, so windows, menus and the
 // status item are managed explicitly. SwiftUI renders all content.
 MainActor.assumeIsolated {
+    LegacyMigration.run()
     let application = NSApplication.shared
     let delegate = AppDelegate()
     application.delegate = delegate

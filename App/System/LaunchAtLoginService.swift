@@ -1,4 +1,4 @@
-import SensaFeatures
+import iSensaFeatures
 import ServiceManagement
 
 /// `SMAppService.mainApp` — the modern, sandbox-friendly login item API (macOS 13+).

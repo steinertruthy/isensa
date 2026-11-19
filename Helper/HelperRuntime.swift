@@ -1,13 +1,13 @@
 import Foundation
-import SensaControl
-import SensaPrivateAPI
+import iSensaControl
+import iSensaPrivateAPI
 
 /// Owns the helper's state. Everything mutable is touched only on `queue`.
 final class HelperRuntime: NSObject, NSXPCListenerDelegate, @unchecked Sendable {
     /// Seconds without clients or overrides before the helper exits (launchd restarts it on demand).
     static let idleExit: TimeInterval = 120
 
-    private let queue = DispatchQueue(label: "app.sensa.Sensa.helper")
+    private let queue = DispatchQueue(label: "io.github.steinertruthy.iSensa.helper")
     private let clientRequirement: String
     private let controller: FanSafetyController
     private var listener: NSXPCListener?
@@ -19,8 +19,8 @@ final class HelperRuntime: NSObject, NSXPCListenerDelegate, @unchecked Sendable 
         guard let flag = arguments.firstIndex(of: "--client-cdhash"), flag + 1 < arguments.count else { return nil }
         let hash = arguments[flag + 1]
         guard hash.count >= 40, hash.count <= 64, hash.allSatisfy(\.isHexDigit) else { return nil }
-        // Only the Sensa build that installed the helper may connect.
-        clientRequirement = "identifier \"app.sensa.Sensa\" and cdhash H\"\(hash)\""
+        // Only the iSensa build that installed the helper may connect.
+        clientRequirement = "identifier \"io.github.steinertruthy.iSensa\" and cdhash H\"\(hash)\""
         let hardware: FanHardware
         do {
             hardware = SMCFanHardware(writer: try SMCFanWriter())

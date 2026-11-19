@@ -1,7 +1,7 @@
 import AppKit
-import SensaCore
-import SensaFeatures
-import SensaMonitoring
+import iSensaCore
+import iSensaFeatures
+import iSensaMonitoring
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -55,7 +55,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 Task { await self?.environment.engine.setOnBattery(onBattery) }
             }
         )
-        if !environment.settings.hasCompletedOnboarding && !UserDefaults.standard.bool(forKey: "SensaSkipOnboarding") {
+        if !environment.settings.hasCompletedOnboarding && !UserDefaults.standard.bool(forKey: "iSensaSkipOnboarding") {
             showOnboarding()
         } else if environment.settings.opensWindowAtLaunch && !environment.settings.hidesDockIcon {
             showMainWindow()
@@ -69,12 +69,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             await environment.engine.start()
         }
         environment.fanControl?.start()
-        // `-SensaOpenPopover YES` opens the popover at launch (UI tests, screenshots).
-        if UserDefaults.standard.bool(forKey: "SensaOpenPopover") {
+        // `-iSensaOpenPopover YES` opens the popover at launch (UI tests, screenshots).
+        if UserDefaults.standard.bool(forKey: "iSensaOpenPopover") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.statusItem.showPopover() }
         }
-        // `-SensaSettingsPane <name>` opens Settings at launch (UI tests, screenshots).
-        if UserDefaults.standard.string(forKey: "SensaSettingsPane") != nil { showSettings() }
+        // `-iSensaSettingsPane <name>` opens Settings at launch (UI tests, screenshots).
+        if UserDefaults.standard.string(forKey: "iSensaSettingsPane") != nil { showSettings() }
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -82,7 +82,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-    /// Closing the window keeps Sensa running in the menu bar.
+    /// Closing the window keeps iSensa running in the menu bar.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
 
     /// Returns the fans to macOS and gives pending history a moment to reach disk before quitting.
@@ -110,7 +110,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
 
-    /// Restarts Sensa so a new interface language takes effect.
+    /// Restarts iSensa so a new interface language takes effect.
     private func relaunch() {
         let configuration = NSWorkspace.OpenConfiguration()
         configuration.createsNewApplicationInstance = true
@@ -124,7 +124,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private static func revealDataFolder() {
         let folder = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("Sensa", isDirectory: true)
+            .appendingPathComponent("iSensa", isDirectory: true)
         try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
         NSWorkspace.shared.activateFileViewerSelecting([folder])
     }

@@ -1,5 +1,5 @@
 import Foundation
-import SensaControl
+import iSensaControl
 
 /// XPC endpoint. Every call hops onto the helper's serial queue, where the safety controller lives.
 final class HelperService: NSObject, FanHelperXPC, @unchecked Sendable {

@@ -1,9 +1,9 @@
 import AppKit
 import Foundation
-import SensaControl
+import iSensaControl
 
 /// Fan control through the privileged helper, over XPC. Both ends verify each other's code signature:
-/// the helper accepts only the Sensa build that installed it, and Sensa talks only to the helper
+/// the helper accepts only the iSensa build that installed it, and iSensa talks only to the helper
 /// bundled with it.
 final class XPCFanControlService: FanControlService, @unchecked Sendable {
     let isDemo = false
@@ -47,15 +47,15 @@ final class XPCFanControlService: FanControlService, @unchecked Sendable {
 
     func install() async throws {
         guard let helperHash = bundledHelperHash, let clientHash = ownHash else {
-            throw FanControlFailure(String(localized: "This copy of Sensa is missing its fan helper or code signature."))
+            throw FanControlFailure(String(localized: "This copy of iSensa is missing its fan helper or code signature."))
         }
         let script = try HelperInstallScript.install(bundledHelper: bundledHelperPath, helperCDHash: helperHash, clientCDHash: clientHash)
-        try await runAsAdministrator(script, prompt: String(localized: "Sensa wants to install its fan helper."))
+        try await runAsAdministrator(script, prompt: String(localized: "iSensa wants to install its fan helper."))
         resetConnection()
     }
 
     func uninstall() async throws {
-        try await runAsAdministrator(HelperInstallScript.uninstall(), prompt: String(localized: "Sensa wants to remove its fan helper."))
+        try await runAsAdministrator(HelperInstallScript.uninstall(), prompt: String(localized: "iSensa wants to remove its fan helper."))
         resetConnection()
     }
 

@@ -21,7 +21,7 @@
 20|90 jours
 21|Quelques points méritent votre attention.
 22|Un léger retour lorsque vous ajoutez un favori ou confirmez une action, sur les trackpads Force Touch.
-23|À propos de Sensa
+23|À propos de iSensa
 24|Adaptateur
 25|Ajouter aux favoris
 26|Avancé
@@ -32,7 +32,7 @@
 31|Animations
 32|Apparence
 33|L’apparence, la barre des menus, les alertes, les favoris et toutes les autres préférences reprennent leurs valeurs par défaut.
-34|Autorisez Sensa dans Réglages Système › Général › Ouverture.
+34|Autorisez iSensa dans Réglages Système › Général › Ouverture.
 35|Apps
 36|Architecture
 37|Attention
@@ -58,7 +58,7 @@
 57|Batterie chaude
 58|Batterie, stockage et réseau
 59|Prélevée sur la batterie
-60|Par défaut, Sensa suit l’ordre des langues de Réglages Système › Général › Langue et région.
+60|Par défaut, iSensa suit l’ordre des langues de Réglages Système › Général › Langue et région.
 61|CPU
 62|Fréquence du CPU
 63|Consommation du CPU
@@ -114,7 +114,7 @@
 113|Activité du disque
 114|Affichage
 115|Réception
-116|Faites glisser pour réorganiser. Si aucun indicateur n’est activé, Sensa n’affiche que son icône.
+116|Faites glisser pour réorganiser. Si aucun indicateur n’est activé, iSensa n’affiche que son icône.
 117|Cœurs d’efficacité
 118|Endurance consommée, selon l’estimation du disque
 119|Énergie
@@ -245,7 +245,7 @@
 244|Non pris en charge
 245|Notifications
 246|Les notifications sont activées
-247|Les notifications de Sensa sont désactivées dans Réglages Système.
+247|Les notifications de iSensa sont désactivées dans Réglages Système.
 248|OK
 249|Désactivé
 250|Activé
@@ -254,8 +254,8 @@
 253|Seulement %@ du disque de démarrage est libre. Supprimez les fichiers inutiles ou déplacez-les vers un autre disque.
 254|Seulement si une condition persiste
 255|Ouvrir l’historique
-256|Ouvrir Sensa
-257|Ouvrir Sensa à l’ouverture de session
+256|Ouvrir iSensa
+257|Ouvrir iSensa à l’ouverture de session
 258|Ouvrir Réglages Système
 259|Original : %@ · %@
 260|Autre
@@ -285,7 +285,7 @@
 284|Processus %@
 285|Processus
 286|Processeur
-287|Quitter Sensa
+287|Quitter iSensa
 288|Plage %@ – %@
 289|Capacité maximale brute
 290|Lecture
@@ -294,7 +294,7 @@
 293|Réception
 294|Enregistrer l’historique
 295|Les mesures et alertes enregistrées seront supprimées de ce Mac. Cette action est irréversible.
-296|Réduire les animations est activé dans Réglages Système : Sensa utilise donc de courts fondus au lieu de mouvements.
+296|Réduire les animations est activé dans Réglages Système : iSensa utilise donc de courts fondus au lieu de mouvements.
 297|Réduit
 298|Réduit remplace le mouvement par de courts fondus. Désactivé affiche les changements immédiatement.
 299|Actualiser moins souvent sur batterie
@@ -328,20 +328,20 @@
 327|Envoyer un test
 328|Envoyer des notifications
 329|Envoi
-330|Sensa se met aussi en pause pendant la veille du Mac et ralentit écran éteint. Les listes de processus, les fréquences et les détails Wi-Fi ne sont lus que lorsqu’une fenêtre ou le panneau de la barre des menus est ouvert.
-331|Sensa peut vous prévenir lorsque votre Mac chauffe, que la mémoire est sous pression, que le disque est presque plein ou que la batterie est faible.
-332|Sensa n’envoie aucune mesure, aucun identifiant ni aucune autre donnée à des serveurs. Aucune télémétrie cachée. La surveillance réseau lit uniquement des compteurs d’octets et n’inspecte jamais le trafic.
-333|Sensa est maintenant dans votre barre des menus. Ouvrez-le à tout moment pour voir comment va votre Mac.
-334|Sensa conserve un résumé par minute pendant une semaine, puis un par heure. Les données plus anciennes sont supprimées automatiquement.
-335|Sensa n’a besoin d’aucune autorisation particulière pour surveiller votre Mac. Il ne demande que l’autorisation d’envoyer des notifications, et seulement lorsque vous les activez.
-336|Sensa ne nomme les capteurs qu’après les avoir validés sur un modèle de Mac. Tous les capteurs bruts restent disponibles dans Capteurs.
-337|Sensa ne vous prévient que lorsqu’une condition persiste, puis attend avant de répéter : les alertes restent rares.
-338|Sensa lit uniquement des compteurs d’octets et n’inspecte jamais votre trafic. macOS fournit ces compteurs aux apps par paliers de 1 Ko : les très faibles débits sont donc approximatifs.
-339|Sensa joue un son discret uniquement lorsqu’une action se termine ou qu’une alerte requiert votre attention. Il reste silencieux si les effets sonores de l’interface sont désactivés dans Réglages Système › Son.
-340|Sensa enregistre un résumé chaque minute pendant son fonctionnement. Revenez dans quelques minutes.
-341|Sensa n’affiche que ce que ce Mac possède réellement. Rien n’est estimé sans le préciser.
-342|Sensa affiche l’estimation du disque lui-même et ne prédit pas la durée de vie restante.
-343|Sensa vous préviendra lorsque quelque chose requiert votre attention.
+330|iSensa se met aussi en pause pendant la veille du Mac et ralentit écran éteint. Les listes de processus, les fréquences et les détails Wi-Fi ne sont lus que lorsqu’une fenêtre ou le panneau de la barre des menus est ouvert.
+331|iSensa peut vous prévenir lorsque votre Mac chauffe, que la mémoire est sous pression, que le disque est presque plein ou que la batterie est faible.
+332|iSensa n’envoie aucune mesure, aucun identifiant ni aucune autre donnée à des serveurs. Aucune télémétrie cachée. La surveillance réseau lit uniquement des compteurs d’octets et n’inspecte jamais le trafic.
+333|iSensa est maintenant dans votre barre des menus. Ouvrez-le à tout moment pour voir comment va votre Mac.
+334|iSensa conserve un résumé par minute pendant une semaine, puis un par heure. Les données plus anciennes sont supprimées automatiquement.
+335|iSensa n’a besoin d’aucune autorisation particulière pour surveiller votre Mac. Il ne demande que l’autorisation d’envoyer des notifications, et seulement lorsque vous les activez.
+336|iSensa ne nomme les capteurs qu’après les avoir validés sur un modèle de Mac. Tous les capteurs bruts restent disponibles dans Capteurs.
+337|iSensa ne vous prévient que lorsqu’une condition persiste, puis attend avant de répéter : les alertes restent rares.
+338|iSensa lit uniquement des compteurs d’octets et n’inspecte jamais votre trafic. macOS fournit ces compteurs aux apps par paliers de 1 Ko : les très faibles débits sont donc approximatifs.
+339|iSensa joue un son discret uniquement lorsqu’une action se termine ou qu’une alerte requiert votre attention. Il reste silencieux si les effets sonores de l’interface sont désactivés dans Réglages Système › Son.
+340|iSensa enregistre un résumé chaque minute pendant son fonctionnement. Revenez dans quelques minutes.
+341|iSensa n’affiche que ce que ce Mac possède réellement. Rien n’est estimé sans le préciser.
+342|iSensa affiche l’estimation du disque lui-même et ne prédit pas la durée de vie restante.
+343|iSensa vous préviendra lorsque quelque chose requiert votre attention.
 344|Liste des capteurs
 345|Capteurs
 346|Les capteurs apparaissent ici dès qu’ils sont lus.
@@ -359,8 +359,8 @@
 358|Afficher les icônes
 359|Afficher dans le Finder
 360|Afficher dans la vue d’ensemble
-361|Afficher les capteurs que Sensa ne peut pas identifier
-362|Afficher la fenêtre à l’ouverture de Sensa
+361|Afficher les capteurs que iSensa ne peut pas identifier
+362|Afficher la fenêtre à l’ouverture de iSensa
 363|Affiche les sources des capteurs, les capacités brutes et d’autres valeurs avancées sur chaque écran.
 364|Côte à côte
 365|Signal
@@ -390,7 +390,7 @@
 389|Historique de température
 390|La température est dans la plage attendue
 391|Capteurs de température
-392|Les capteurs de température ne répondent plus. Sensa réessaie automatiquement.
+392|Les capteurs de température ne répondent plus. iSensa réessaie automatiquement.
 393|La température, la mémoire, le stockage et la batterie sont dans les valeurs attendues.
 394|Températures
 395|Les températures et les ventilateurs s’actualisent deux fois moins souvent. Des intervalles plus longs consomment moins d’énergie.
@@ -403,7 +403,7 @@
 402|Le disque « %@ » est plein à %@.
 403|Le SSD interne a enregistré %@ erreurs de support. Gardez vos sauvegardes à jour.
 404|Le SSD interne signale un état critique. Sauvegardez vos données.
-405|La nouvelle langue s’appliquera au redémarrage de Sensa.
+405|La nouvelle langue s’appliquera au redémarrage de iSensa.
 406|Thème
 407|Pression thermique
 408|État thermique
@@ -446,12 +446,12 @@
 445|Batterie chaude
 446|Signal faible
 447|Bienvenue
-448|Bienvenue dans Sensa
+448|Bienvenue dans iSensa
 449|Lorsque la charge atteint un niveau
 450|Lorsque seule la barre des menus est visible
 451|Lorsque la batterie chauffe
 452|Lorsque la batterie est faible
-453|Lorsqu’une fenêtre de Sensa est ouverte
+453|Lorsqu’une fenêtre de iSensa est ouverte
 454|Nombres entiers
 455|Système entier
 456|Wi-Fi
@@ -463,7 +463,7 @@
 462|Écriture
 463|Écrits au cours de sa vie
 464|Vous utilisez %@ de mémoire.
-465|Vous pouvez toujours rouvrir Sensa depuis son icône dans la barre des menus.
+465|Vous pouvez toujours rouvrir iSensa depuis son icône dans la barre des menus.
 466|Tout est prêt
 467|Votre Mac
 468|Votre Mac est chaud et a réduit ses performances pour se protéger.
@@ -485,7 +485,7 @@
 484|pression
 485|seuil
 486|utilisé
-487|À propos de Sensa
+487|À propos de iSensa
 488|Fermer
 489|Copier
 490|Couper
@@ -493,11 +493,11 @@
 492|Passer en plein écran
 493|Rechercher
 494|Masquer les autres
-495|Masquer Sensa
+495|Masquer iSensa
 496|Placer dans le Dock
-497|Ouvrir Sensa
+497|Ouvrir iSensa
 498|Coller
-499|Quitter Sensa
+499|Quitter iSensa
 500|Rétablir
 501|Tout sélectionner
 502|Réglages
@@ -513,7 +513,7 @@
 512|Jauge de la batterie
 513|SSD (NAND)
 514|Puce du SoC (PMU)
-515|L’historique n’est pas enregistré lorsque Sensa affiche des données de démonstration.
+515|L’historique n’est pas enregistré lorsque iSensa affiche des données de démonstration.
 516|Réglages
 517|Afficher/masquer la barre latérale
 518|Équilibré
@@ -539,21 +539,21 @@
 538|Supprimer
 539|Supprimer l’assistant…
 540|Supprimer l’assistant des ventilateurs ?
-541|Sensa contrôle les ventilateurs : %@.
-542|Sensa n’arrête jamais un ventilateur et ne dépasse jamais ses limites. Si Sensa se ferme ou ne répond plus, ou si votre Mac devient trop chaud, les ventilateurs repassent en automatique en 10 secondes au plus.
+541|iSensa contrôle les ventilateurs : %@.
+542|iSensa n’arrête jamais un ventilateur et ne dépasse jamais ses limites. Si iSensa se ferme ou ne répond plus, ou si votre Mac devient trop chaud, les ventilateurs repassent en automatique en 10 secondes au plus.
 543|Vitesse
 544|L’assistant des ventilateurs ne répond pas
 545|L’assistant des ventilateurs doit être mis à jour
 546|Les ventilateurs repassent en automatique et macOS demande votre mot de passe pour supprimer l’assistant.
-547|Cette copie de Sensa n’est pas signée avec un Apple Developer ID : l’assistant s’installe donc avec une demande de mot de passe plutôt que via Réglages Système. Après une recompilation de Sensa, l’assistant doit être mis à jour.
+547|Cette copie de iSensa n’est pas signée avec un Apple Developer ID : l’assistant s’installe donc avec une demande de mot de passe plutôt que via Réglages Système. Après une recompilation de iSensa, l’assistant doit être mis à jour.
 548|Trop chaud pour une vitesse fixe inférieure au maximum : macOS contrôle les ventilateurs.
 549|Mettre à jour l’assistant…
 550|Votre Mac est sous pression thermique : macOS contrôle les ventilateurs.
 551|macOS contrôle les ventilateurs.
-552|Sensa souhaite installer son assistant des ventilateurs.
-553|Sensa souhaite supprimer son assistant des ventilateurs.
+552|iSensa souhaite installer son assistant des ventilateurs.
+553|iSensa souhaite supprimer son assistant des ventilateurs.
 554|L’assistant des ventilateurs n’a pas répondu à temps.
-555|Il manque à cette copie de Sensa son assistant des ventilateurs ou sa signature de code.
+555|Il manque à cette copie de iSensa son assistant des ventilateurs ou sa signature de code.
 556|Le retour des ventilateurs en automatique a signalé un problème. S’ils continuent de tourner vite, redémarrez votre Mac.
 557|Passage des ventilateurs en contrôle manuel…
 558|Le contrôleur des ventilateurs n’a pas accepté la modification : macOS garde le contrôle des ventilateurs.
@@ -623,7 +623,7 @@
 622|L’espace purgeable contient des caches, des instantanés locaux et des fichiers iCloud conservés sur ce Mac. macOS le libère de lui-même quand une app a besoin de place : le Finder le compte donc comme disponible.
 623|Lecture…
 624|Récupération
-625|Sensa a besoin de deux jours d’historique pour estimer une tendance.
+625|iSensa a besoin de deux jours d’historique pour estimer une tendance.
 626|Les instantanés enregistrent le disque à un instant donné, pour Time Machine ou une mise à jour de macOS. macOS les supprime automatiquement quand l’espace vient à manquer.
 627|Espace
 628|Test de vitesse
@@ -645,7 +645,7 @@
 644|Avant que le disque soit plein
 645|Virtuel
 646|Écrit un fichier temporaire de 2 Go sur le disque choisi puis le relit, sans passer par le cache mémoire. Le fichier est supprimé à la fin du test. Chaque test use un peu le SSD : ne le lancez qu’en cas de besoin.
-647|C’est l’écriture qui use un SSD. Apple ne publie pas l’endurance de ses disques : Sensa affiche donc le rythme et l’usure indiquée par le disque lui-même, pas une durée de vie restante.
+647|C’est l’écriture qui use un SSD. Apple ne publie pas l’endurance de ses disques : iSensa affiche donc le rythme et l’usure indiquée par le disque lui-même, pas une durée de vie restante.
 648|Écriture…
 649|Écrit sur le SSD par jour
 650|Le disque de démarrage est un conteneur APFS partagé par plusieurs volumes. Ils puisent tous dans le même espace libre : aucun n’a de taille fixe.
@@ -711,16 +711,16 @@
 710|Supprimer…
 711|Supprimer une app supprime aussi les fichiers de support qu’elle a laissés dans votre bibliothèque, après votre vérification.
 712|Vérifier…
-713|Sensa ne supprime que des éléments de votre dossier personnel et des apps des dossiers Applications.
-714|Sensa ne lit que les noms et tailles des fichiers de votre dossier personnel et des dossiers Applications. macOS peut demander l’autorisation avant que Sensa examine le bureau, Documents, Téléchargements ou les données d’autres apps.
+713|iSensa ne supprime que des éléments de votre dossier personnel et des apps des dossiers Applications.
+714|iSensa ne lit que les noms et tailles des fichiers de votre dossier personnel et des dossiers Applications. macOS peut demander l’autorisation avant que iSensa examine le bureau, Documents, Téléchargements ou les données d’autres apps.
 715|Afficher
 716|Simulateurs
-717|Certains dossiers sont protégés par macOS : leur taille n’est pas comptée. Pour les inclure, accordez à Sensa l’accès complet au disque dans Réglages Système › Confidentialité et sécurité. Sensa ne lit que les tailles, jamais le contenu.
+717|Certains dossiers sont protégés par macOS : leur taille n’est pas comptée. Pour les inclure, accordez à iSensa l’accès complet au disque dans Réglages Système › Confidentialité et sécurité. iSensa ne lit que les tailles, jamais le contenu.
 718|Suggestions
 719|L’analyse n’a pas pu se terminer : %@
 720|Cette app fait partie de macOS.
 721|Contient des réglages dont dépendent les apps et macOS.
-722|C’est Sensa lui-même.
+722|C’est iSensa lui-même.
 723|Cet élément fait partie d’une app. Supprimez plutôt l’app entière.
 724|Corbeille
 725|Annuler
@@ -738,8 +738,8 @@
 737|Aucune trace d’utilisation
 738|Page
 739|Toujours dans la corbeille.
-740|Sensa veut placer « %@ » dans la corbeille.
-741|Sensa veut remettre « %@ » en place.
+740|iSensa veut placer « %@ » dans la corbeille.
+741|iSensa veut remettre « %@ » en place.
 742|Moyenne du processeur
 743|Mesurée dans le disque
 744|Indiquée par le disque (SMART)

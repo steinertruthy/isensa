@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -I
-"""Fails when a tr("…") key used in SensaFeatures — or a String(localized:) key in the app — is
+"""Fails when a tr("…") key used in iSensaFeatures — or a String(localized:) key in the app — is
 missing a translation for any shipped language in its String Catalog.
 
 Usage: scripts/check-localizations.py [--list-missing LANG] [--dump-keys]
@@ -12,7 +12,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LANGUAGES = ["pt-BR", "es", "fr", "de", "it", "ja", "ko", "zh-Hans", "zh-Hant"]
 TARGETS = [
-    (ROOT / "Packages/SensaKit/Sources/SensaFeatures", ROOT / "Packages/SensaKit/Sources/SensaFeatures/Resources/Localizable.xcstrings",
+    (ROOT / "Packages/iSensaKit/Sources/iSensaFeatures", ROOT / "Packages/iSensaKit/Sources/iSensaFeatures/Resources/Localizable.xcstrings",
      re.compile(r'\btr\("((?:[^"\\]|\\.)*)"')),
     (ROOT / "App", ROOT / "App/Resources/Localizable.xcstrings",
      re.compile(r'String\(localized: "((?:[^"\\]|\\.)*)"')),

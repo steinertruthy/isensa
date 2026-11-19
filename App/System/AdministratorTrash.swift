@@ -1,7 +1,7 @@
 import AppKit
-import SensaControl
-import SensaCore
-import SensaProviders
+import iSensaControl
+import iSensaCore
+import iSensaProviders
 
 /// Moves items to the Trash like Finder: without a password when macOS allows it, and with the
 /// administrator password — asked by macOS, typed by the person — for items another user owns
@@ -14,7 +14,7 @@ struct AdministratorTrash: FileTrashing {
             return try await base.moveToTrash(url)
         } catch where Self.isPermissionError(error) {
             let destination = Self.trashDestination(for: url)
-            let prompt = String(format: String(localized: "Sensa wants to move “%@” to the Trash."), url.lastPathComponent)
+            let prompt = String(format: String(localized: "iSensa wants to move “%@” to the Trash."), url.lastPathComponent)
             try await Self.move(url, to: destination, prompt: prompt)
             return destination
         }
@@ -24,7 +24,7 @@ struct AdministratorTrash: FileTrashing {
         do {
             try await base.putBack(trashed, to: original)
         } catch where Self.isPermissionError(error) {
-            let prompt = String(format: String(localized: "Sensa wants to put “%@” back."), original.lastPathComponent)
+            let prompt = String(format: String(localized: "iSensa wants to put “%@” back."), original.lastPathComponent)
             try await Self.move(trashed, to: original, prompt: prompt)
         }
     }

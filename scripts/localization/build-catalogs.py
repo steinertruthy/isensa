@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -I
-"""Builds Sensa's String Catalogs from numbered translation files.
+"""Builds iSensa's String Catalogs from numbered translation files.
 
 Inputs (this folder):
   keys.json          — ordered [["F"|"A", english key], ...] (F = interface, A = app menus)
@@ -19,7 +19,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 LANGUAGES = ["pt-BR", "es", "fr", "de", "it", "ja", "ko", "zh-Hans", "zh-Hant"]
 OUTPUTS = {
-    "F": ROOT / "Packages/SensaKit/Sources/SensaFeatures/Resources/Localizable.xcstrings",
+    "F": ROOT / "Packages/iSensaKit/Sources/iSensaFeatures/Resources/Localizable.xcstrings",
     "A": ROOT / "App/Resources/Localizable.xcstrings",
 }
 PLACEHOLDER = re.compile(r"%(?:\d+\$)?@")

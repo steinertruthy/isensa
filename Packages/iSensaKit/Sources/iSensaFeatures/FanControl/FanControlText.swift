@@ -1,0 +1,107 @@
+// swiftlint:disable line_length
+// Fan control prose lives here so the card stays readable and translators find it in one place.
+
+import iSensaControl
+
+/// User-facing wording for fan control states.
+enum FanControlText {
+    static func modeTitle(_ kind: FanModeKind) -> String {
+        switch kind {
+        case .automatic: tr("Automatic")
+        case .fixed: tr("Fixed speed")
+        case .curve: tr("Curve")
+        }
+    }
+
+    static func curveTitle(_ choice: FanCurveChoice) -> String {
+        switch choice {
+        case .quiet: tr("Quiet")
+        case .balanced: tr("Balanced")
+        case .performance: tr("Performance")
+        case .custom: tr("Custom")
+        }
+    }
+
+    static func curveDescription(_ choice: FanCurveChoice, curve: FanCurve, formatter: MetricFormatter) -> String {
+        let quietBelow = formatter.temperature(curve.systemControlBelow ?? 0)
+        let fullSpeed = formatter.temperature(curve.points.first { $0.fraction >= 1 }?.celsius ?? 100)
+        return switch choice {
+        case .quiet: tr("Leaves the fans to macOS below %@, then speeds up gently.", quietBelow)
+        case .balanced: tr("Leaves the fans to macOS below %@, then follows the temperature.", quietBelow)
+        case .performance: tr("Keeps the fans running and reaches full speed at %@.", fullSpeed)
+        case .custom where curve.systemControlBelow != nil:
+            tr("Your curve leaves the fans to macOS below %1$@ and reaches full speed at %2$@.", quietBelow, fullSpeed)
+        case .custom: tr("Your curve reaches full speed at %@.", fullSpeed)
+        }
+    }
+
+    static func systemReason(_ reason: SystemControlReason) -> String {
+        switch reason {
+        case .userChoice: tr("macOS is controlling the fans.")
+        case .coolEnough: tr("Cool enough: macOS is controlling the fans, which may stop.")
+        case .noTemperature: tr("No recent temperature reading, so macOS is controlling the fans.")
+        case .thermalPressure: tr("Your Mac is under thermal pressure, so macOS is controlling the fans.")
+        case .tooHotForFixedSpeed: tr("Too hot for a fixed speed below maximum, so macOS is controlling the fans.")
+        case .noLimits: tr("Fan limits are unavailable, so macOS is controlling the fans.")
+        }
+    }
+
+    static func problem(_ problem: FanControlProblem) -> String {
+        switch problem {
+        case .notApplied: tr("The fan controller did not accept the change, so macOS keeps control of the fans.")
+        case .installFailed: tr("The helper could not be installed.")
+        case .removeFailed: tr("The helper could not be removed.")
+        case .restoreFailed: tr("Returning the fans to automatic reported a problem. If they keep running fast, restart your Mac.")
+        }
+    }
+
+    static var safety: String {
+        tr("iSensa never stops a fan or goes beyond its limits. If iSensa quits or stops responding, or your Mac gets too hot, the fans return to automatic within 10 seconds.")
+    }
+
+    static var helperExplanation: String {
+        tr("Changing fan speeds needs a small helper that runs with administrator rights. macOS asks for your password to install it. Monitoring works without it.")
+    }
+
+    static var unsignedNote: String {
+        tr("This copy of iSensa is not signed with an Apple Developer ID, so the helper is installed with a password prompt instead of System Settings. Rebuilding iSensa requires updating the helper.")
+    }
+}
+
+// swiftlint:enable line_length
+
+/// Mode choices shown in the picker (the fixed speed and preset are kept separately).
+enum FanModeKind: String, CaseIterable, Identifiable {
+    case automatic, fixed, curve
+
+    var id: String { rawValue }
+
+    init(_ mode: FanMode) {
+        switch mode {
+        case .automatic: self = .automatic
+        case .fixed: self = .fixed
+        case .curve, .custom: self = .curve
+        }
+    }
+}
+
+/// The curve picker's choices: the presets plus the user's own curve.
+enum FanCurveChoice: Hashable, CaseIterable, Identifiable {
+    case quiet, balanced, performance, custom
+
+    var id: Self { self }
+
+    init?(_ mode: FanMode) {
+        switch mode {
+        case let .curve(preset): self = Self.choices[preset] ?? .balanced
+        case .custom: self = .custom
+        case .automatic, .fixed: return nil
+        }
+    }
+
+    var preset: FanCurve.Preset? {
+        Self.choices.first { $0.value == self }?.key
+    }
+
+    private static let choices: [FanCurve.Preset: FanCurveChoice] = [.quiet: .quiet, .balanced: .balanced, .performance: .performance]
+}

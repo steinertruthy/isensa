@@ -1,16 +1,16 @@
 import AppKit
-import SensaFeatures
+import iSensaFeatures
 import SwiftUI
 
 /// Owns the main window. Reports visibility changes so sampling adapts (occluded = slower).
 @MainActor
 final class MainWindowController: NSObject, NSWindowDelegate {
     private let environment: AppEnvironment
-    private let services: SensaServices
+    private let services: iSensaServices
     private let onVisibilityChange: () -> Void
     private var window: NSWindow?
 
-    init(environment: AppEnvironment, services: SensaServices, onVisibilityChange: @escaping () -> Void) {
+    init(environment: AppEnvironment, services: iSensaServices, onVisibilityChange: @escaping () -> Void) {
         self.environment = environment
         self.services = services
         self.onVisibilityChange = onVisibilityChange
@@ -31,18 +31,18 @@ final class MainWindowController: NSObject, NSWindowDelegate {
     private func makeWindow() -> NSWindow {
         let root = RootView()
             .environment(environment.navigation)
-            .sensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
+            .iSensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
         let controller = NSHostingController(rootView: root)
         controller.sceneBridgingOptions = [.toolbars, .title]
         let window = NSWindow(contentViewController: controller)
-        window.title = "Sensa"
+        window.title = "iSensa"
         window.styleMask = [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView]
         window.toolbarStyle = .unified
         window.isReleasedWhenClosed = false
         window.identifier = NSUserInterfaceItemIdentifier("main")
         window.setContentSize(NSSize(width: 1_120, height: 760))
         window.center()
-        window.setFrameAutosaveName("SensaMainWindow")
+        window.setFrameAutosaveName("iSensaMainWindow")
         window.delegate = self
         return window
     }

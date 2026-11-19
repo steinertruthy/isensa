@@ -1,6 +1,6 @@
-# Design — Sensa
+# Design — iSensa
 
-Sensa should feel like a precision instrument made by the same people who made macOS: calm chrome,
+iSensa should feel like a precision instrument made by the same people who made macOS: calm chrome,
 exact numbers, and color that only ever means *data* or *state*.
 
 ## Tokens

@@ -1,6 +1,6 @@
-# Distribuição — Sensa
+# Distribuição — iSensa
 
-Hoje o Sensa é assinado **ad hoc** (sem Team ID). Ele roda neste Mac e o controle de ventoinhas funciona,
+Hoje o iSensa é assinado **ad hoc** (sem Team ID). Ele roda neste Mac e o controle de ventoinhas funciona,
 mas não pode ser distribuído: o Gatekeeper bloqueia apps sem Developer ID em outros Macs, e cada build muda
 o cdhash fixado no auxiliar. Este guia lista o que muda quando houver uma conta Apple Developer.
 
@@ -19,8 +19,8 @@ ENABLE_HARDENED_RUNTIME: YES
 OTHER_CODE_SIGN_FLAGS: --timestamp
 ```
 
-* O alvo `SensaUITests` pode voltar a usar Hardened Runtime (hoje desligado só por causa da assinatura ad hoc).
-* O auxiliar (`SensaHelper`) é assinado com o mesmo Team ID e mantém `--identifier app.sensa.Sensa.helper`.
+* O alvo `iSensaUITests` pode voltar a usar Hardened Runtime (hoje desligado só por causa da assinatura ad hoc).
+* O auxiliar (`iSensaHelper`) é assinado com o mesmo Team ID e mantém `--identifier io.github.steinertruthy.iSensa.helper`.
 * Nenhum entitlement novo é necessário: o app não é sandboxed e não usa JIT nem bibliotecas de terceiros.
 
 ## 2. Auxiliar de ventoinhas: de senha de administrador para `SMAppService`
@@ -28,8 +28,8 @@ OTHER_CODE_SIGN_FLAGS: --timestamp
 Com Developer ID, a instalação passa a ser a da Apple: o usuário aprova o auxiliar em
 Ajustes do Sistema › Geral › Itens de Início, sem script de shell.
 
-1. Mover o plist do launchd para o bundle, em `Contents/Library/LaunchDaemons/app.sensa.Sensa.helper.plist`,
-   com `BundleProgram` = `Contents/Library/LaunchServices/app.sensa.Sensa.helper`, `MachServices`,
+1. Mover o plist do launchd para o bundle, em `Contents/Library/LaunchDaemons/io.github.steinertruthy.iSensa.helper.plist`,
+   com `BundleProgram` = `Contents/Library/LaunchServices/io.github.steinertruthy.iSensa.helper`, `MachServices`,
    `RunAtLoad` e `KeepAlive` (`SuccessfulExit = false`) — os mesmos valores de `HelperInstallScript.launchDaemon`,
    **sem** `--client-cdhash`.
 2. Instalar com `SMAppService.daemon(plistName:)` → `register()`; tratar `.requiresApproval` abrindo
@@ -37,37 +37,37 @@ Ajustes do Sistema › Geral › Itens de Início, sem script de shell.
    Remover com `unregister()`; o auxiliar recebe SIGTERM e devolve as ventoinhas ao automático.
 3. Trocar os requisitos de assinatura fixados por cdhash por requisitos de Team ID, que sobrevivem a
    atualizações:
-   * no auxiliar: `anchor apple generic and identifier "app.sensa.Sensa" and certificate leaf[subject.OU] = "<TEAM_ID>"`;
-   * no app: o mesmo, com `identifier "app.sensa.Sensa.helper"`.
+   * no auxiliar: `anchor apple generic and identifier "io.github.steinertruthy.iSensa" and certificate leaf[subject.OU] = "<TEAM_ID>"`;
+   * no app: o mesmo, com `identifier "io.github.steinertruthy.iSensa.helper"`.
 4. Remover `HelperInstallScript` e o caminho `NSAppleScript` de `XPCFanControlService`; manter o
    `FanSafetyController` e o `SMCFanWriter` sem mudanças — a segurança não depende do método de instalação.
-5. Migração: na primeira execução da versão assinada, se existir `/Library/LaunchDaemons/app.sensa.Sensa.helper.plist`
+5. Migração: na primeira execução da versão assinada, se existir `/Library/LaunchDaemons/io.github.steinertruthy.iSensa.helper.plist`
    instalado pelo script, pedir para removê-lo (uma última vez com senha) antes de registrar o novo.
 
 ## 3. Notarização
 
 ```bash
-xcodebuild -project Sensa.xcodeproj -scheme Sensa -configuration Release -archivePath build/Sensa.xcarchive archive
+xcodebuild -project iSensa.xcodeproj -scheme iSensa -configuration Release -archivePath build/iSensa.xcarchive archive
 ```
 
 ```bash
-xcodebuild -exportArchive -archivePath build/Sensa.xcarchive -exportOptionsPlist scripts/ExportOptions.plist -exportPath build/export
+xcodebuild -exportArchive -archivePath build/iSensa.xcarchive -exportOptionsPlist scripts/ExportOptions.plist -exportPath build/export
 ```
 
 ```bash
-ditto -c -k --keepParent build/export/Sensa.app build/Sensa.zip
+ditto -c -k --keepParent build/export/iSensa.app build/iSensa.zip
 ```
 
 ```bash
-xcrun notarytool submit build/Sensa.zip --keychain-profile sensa-notary --wait
+xcrun notarytool submit build/iSensa.zip --keychain-profile isensa-notary --wait
 ```
 
 ```bash
-xcrun stapler staple build/export/Sensa.app
+xcrun stapler staple build/export/iSensa.app
 ```
 
 `ExportOptions.plist`: `method = developer-id`, `teamID = <TEAM_ID>`, `signingStyle = manual`.
-O perfil `sensa-notary` é criado uma vez com `xcrun notarytool store-credentials` (senha específica de app).
+O perfil `isensa-notary` é criado uma vez com `xcrun notarytool store-credentials` (senha específica de app).
 Distribuir como `.dmg` assinado e notarizado (`hdiutil create`, `codesign`, `notarytool`, `stapler`).
 
 ## 4. Atualizações (Sparkle 2)
@@ -94,7 +94,7 @@ Distribuir como `.dmg` assinado e notarizado (`hdiutil create`, `codesign`, `not
 
 - [ ] Team ID configurado e build Release assinado com Developer ID
 - [ ] Auxiliar migrado para `SMAppService` e requisitos por Team ID
-- [ ] Notarização e grampo verificados com `spctl --assess --type execute -vv Sensa.app`
+- [ ] Notarização e grampo verificados com `spctl --assess --type execute -vv iSensa.app`
 - [ ] Controle de ventoinhas validado de novo em hardware, com o build assinado (curva, lease, sono e despertar)
 - [ ] Sparkle com appcast real e teste de atualização de uma versão para a seguinte
 - [ ] README com requisitos (macOS 14+), privacidade e como remover o auxiliar

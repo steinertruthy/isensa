@@ -1,5 +1,5 @@
 import AppKit
-import SensaFeatures
+import iSensaFeatures
 
 /// Draws the menu bar label with AppKit. A template image lets macOS tint it for any menu
 /// bar appearance; the drawing handler renders lazily at whatever scale the screen needs.
@@ -53,7 +53,7 @@ enum StatusItemRenderer {
 
     private static func fallbackImage() -> NSImage {
         let configuration = NSImage.SymbolConfiguration(pointSize: 14, weight: .regular)
-        let image = NSImage(systemSymbolName: MenuBarLabelModel.fallbackSymbol, accessibilityDescription: "Sensa")?
+        let image = NSImage(systemSymbolName: MenuBarLabelModel.fallbackSymbol, accessibilityDescription: "iSensa")?
             .withSymbolConfiguration(configuration) ?? NSImage()
         image.isTemplate = true
         return image

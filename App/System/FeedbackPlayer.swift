@@ -1,5 +1,5 @@
 import AppKit
-import SensaFeatures
+import iSensaFeatures
 
 /// Turns feedback events into subtle system sounds and trackpad haptics, honouring the
 /// user's preferences and macOS' own "Play user interface sound effects" setting.

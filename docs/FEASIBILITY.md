@@ -1,4 +1,4 @@
-# Viabilidade técnica — Sensa
+# Viabilidade técnica — iSensa
 
 Validado em **MacBook Pro 14" Nov 2023 (`Mac15,6`), Apple M3 Pro, macOS 26.6.2** em 2026-11-18.
 
@@ -26,9 +26,9 @@ Validado em **MacBook Pro 14" Nov 2023 (`Mac15,6`), Apple M3 Pro, macOS 26.6.2**
 | Wi-Fi | CoreWLAN | Sim | Localização (só nome da rede) | ✅ RSSI, ruído, taxa, canal, padrão |
 | Limite de carga | Ajuste nativo do macOS 26 | — | — | ➖ Não implementado de propósito |
 
-## Validação de sensores (sensa-probe)
+## Validação de sensores (isensa-probe)
 
-`swift run --package-path Packages/SensaKit sensa-probe smc T F P` e `sensa-probe hid` despejam todas as chaves.
+`swift run --package-path Packages/iSensaKit isensa-probe smc T F P` e `isensa-probe hid` despejam todas as chaves.
 Mapeamentos marcados como **verificados** foram confirmados por teste diferencial:
 
 * Carga de CPU (11 threads, 25 s): chaves `Tp*` +8–11 °C, `Te*` +6–9 °C, `Tg*` +5 °C.
@@ -42,8 +42,8 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
 
 * **Modo das ventoinhas no automático, neste Mac**: `F{n}Md = 3` (com `F{n}St = 3`) quando o macOS as mantém
   paradas, e `F{n}Md = 0` (com `F{n}St = 5`) quando ele as faz girar — observado em 19/11 sem nenhuma escrita
-  do Sensa (ventoinhas ligaram sob carga do CI e ficaram no mínimo, 2.317 rpm, enquanto o Mac esfriava).
-  Só `1` significa manual; o Sensa trata qualquer outro valor como automático.
+  do iSensa (ventoinhas ligaram sob carga do CI e ficaram no mínimo, 2.317 rpm, enquanto o Mac esfriava).
+  Só `1` significa manual; o iSensa trata qualquer outro valor como automático.
 * **Escrita de modo manual no M3 Pro (macOS 26) devolve `0x82` na primeira tentativa** — o `thermalmonitord`
   mantém as ventoinhas em modo de sistema (3). Sequência adotada: tentar `F{n}Md = 1`; se `0x82`, gravar
   `Ftst = 1` e repetir a cada 1 s por até 12 s (a liberação leva ~3–6 s segundo outros projetos).
@@ -77,12 +77,12 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
     * Equilibrada, todos os núcleos ocupados: com o macOS na maior parte dos 140 s; assumiu duas vezes ao
       chegar a 82 °C (10%, 2.765 rpm) e devolveu ao macOS abaixo de 79 °C após 8–12 s cada vez — alternância
       a cada ~minuto. **Corrigido** com a espera de 60 s antes de devolver: no novo teste (3 min 40 s com todos os
-      núcleos ocupados e depois sem carga), o Sensa assumiu uma vez aos 60 s, variou 0–40% (até ~4.100 rpm com a
+      núcleos ocupados e depois sem carga), o iSensa assumiu uma vez aos 60 s, variou 0–40% (até ~4.100 rpm com a
       temperatura de controle em 88 °C) e devolveu uma única vez, ~67 s depois de a carga acabar.
     * Silenciosa, todos os núcleos ocupados: ficou com o macOS o tempo todo (máximo bruto 88,7 °C, suavizado
       ~83 °C). O trecho acima de 90 °C não foi alcançado em hardware; usa o mesmo cálculo das outras curvas.
     * Em todos os casos o retorno ao Automático deixou `Ftst = 0` e o modo 0 nas duas ventoinhas.
-  * Repouso de 17 s em modo manual: as ventoinhas voltaram ao macOS e pararam; ao acordar, o Sensa retomou
+  * Repouso de 17 s em modo manual: as ventoinhas voltaram ao macOS e pararam; ao acordar, o iSensa retomou
     o controle sozinho.
 * **`BatteryHealth` (IOPS) é enganoso**: retorna "Check Battery" enquanto Informações do Sistema mostra
   Condition: Normal. Usa-se `BatteryHealthCondition` (vazio = normal).
@@ -94,7 +94,7 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
   os clusters atingem exatamente o máximo da tabela (2748/4056/1380 MHz), o que valida o mapeamento.
   Estados fora da tabela desativam a frequência em vez de serem estimados.
 * **Contadores de rede são truncados para apps:** o macOS entrega `ifi_ibytes/obytes` com 32 bits e passos de
-  1 KiB (en0: `netstat` = 397.879.015.395 B; Sensa = 2.742.023.168 = valor mod 2³² arredondado a 1024).
+  1 KiB (en0: `netstat` = 397.879.015.395 B; iSensa = 2.742.023.168 = valor mod 2³² arredondado a 1024).
   Por isso o cálculo de taxa trata a volta em 4 GiB e os totais desde a inicialização não são exibidos.
   Túneis (`utun*`) não entram na soma para não contar o tráfego de VPN duas vezes.
 * **SMART no Apple silicon:** a capacidade fica no `IOEmbeddedNVMeBlockDevice`, não no controlador, e o
@@ -109,7 +109,7 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
 * **`volumeIsEncrypted` não indica o FileVault:** é falso em `/` (o volume de sistema selado) com o FileVault ligado.
   O estado vem do volume de dados em `diskutil apfs list -plist` (`FileVault = true`), conferido com `fdesetup status`.
 * **Contêiner APFS:** 494 GB compartilhados por Sistema (16,6 GB), Dados (429 GB), Preboot (16,3 GB), VM (14 GB:
-  swap e imagem de repouso), Recuperação e Atualização. `diskutil` responde em ~0,1 s sem privilégios; o Sensa
+  swap e imagem de repouso), Recuperação e Atualização. `diskutil` responde em ~0,1 s sem privilégios; o iSensa
   consulta a cada 5 minutos e uma vez por volume montado.
 * **Snapshots:** `tmutil listlocalsnapshots /` lista os do grupo de volumes, inclusive os de atualização do macOS
   (`com.apple.os.update-…`; 3 neste Mac, nenhum do Time Machine). O tamanho de cada um não é informado sem privilégios.

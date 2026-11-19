@@ -1,5 +1,5 @@
 import AppKit
-import SensaFeatures
+import iSensaFeatures
 import SwiftUI
 
 /// Status item drawn by `StatusItemRenderer` (AppKit, template image), plus a native
@@ -8,14 +8,14 @@ import SwiftUI
 final class StatusItemController: NSObject, NSPopoverDelegate {
     private let environment: AppEnvironment
     private let actions: MenuBarActions
-    private let services: SensaServices
+    private let services: iSensaServices
     private let onVisibilityChange: () -> Void
     private var statusItem: NSStatusItem?
     private let popover = NSPopover()
     private var renderScheduled = false
     private var lastModel: MenuBarLabelModel?
 
-    init(environment: AppEnvironment, actions: MenuBarActions, services: SensaServices, onVisibilityChange: @escaping () -> Void) {
+    init(environment: AppEnvironment, actions: MenuBarActions, services: iSensaServices, onVisibilityChange: @escaping () -> Void) {
         self.environment = environment
         self.services = services
         self.actions = actions
@@ -29,7 +29,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         item.button?.target = self
         item.button?.action = #selector(togglePopover(_:))
         item.button?.imagePosition = .imageOnly
-        item.button?.setAccessibilityLabel("Sensa")
+        item.button?.setAccessibilityLabel("iSensa")
         statusItem = item
 
         var popoverActions = actions
@@ -41,7 +41,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         popover.delegate = self
         let controller = NSHostingController(
             rootView: MenuBarPopover(actions: popoverActions)
-                .sensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
+                .iSensaEnvironment(store: environment.store, settings: environment.settings, feedback: environment.feedback.feedback, services: services)
         )
         // The popover follows the SwiftUI content's size, so it opens at its final height instead of
         // growing after it is shown (which pushes it above the menu bar).
