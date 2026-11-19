@@ -12,8 +12,14 @@ public enum ProductionProviders {
             ThermalStateProvider(),
             SensorProvider(profile: profile),
             StorageProvider(),
-            NetworkProvider()
+            NetworkProvider(),
+            ProcessProvider(),
+            WiFiProvider()
         ]
+        // IOReport frequency/energy data exists only on Apple silicon.
+        if profile.chipFamily.isAppleSilicon {
+            providers += [PerformanceProvider(), EnergyProvider()] as [any MetricProvider]
+        }
         if profile.hasBattery { providers.append(BatteryProvider()) }
         return providers
     }

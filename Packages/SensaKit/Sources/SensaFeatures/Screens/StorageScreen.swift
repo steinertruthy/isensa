@@ -36,10 +36,13 @@ struct StorageScreen: View {
                             .font(Typography.caption).foregroundStyle(.secondary)
                     }
                 }
+                if let health = storage.ssdHealth {
+                    SSDHealthCard(health: health, formatter: formatter)
+                }
                 SeriesChartCard(
                     title: tr("Disk activity"), symbol: "chart.xyaxis.line",
                     lines: [.init(metric: .diskRead, label: tr("Read"), color: .green), .init(metric: .diskWrite, label: tr("Write"), color: .indigo)],
-                    transform: { $0 / 1_048_576 }, format: { "\(formatter.number($0, fractionDigits: 1)) MB/s" }
+                    format: { formatter.rate($0) }
                 )
                 TechnicalDetails {
                     InfoRow(tr("Read"), value: formatter.rate(storage.readRate ?? 0))
@@ -47,6 +50,7 @@ struct StorageScreen: View {
                     ForEach(storage.volumes) { volume in
                         InfoRow(volume.name, value: volume.mountPoint)
                     }
+                    if let health = storage.ssdHealth { SSDHealthCard.detailRows(health, formatter: formatter) }
                     InfoRow(tr("Source"), value: "URLResourceValues · IOBlockStorageDriver")
                     Text(tr("Available space includes purgeable space macOS can free automatically, as shown in Finder."))
                         .font(Typography.caption).foregroundStyle(.secondary)

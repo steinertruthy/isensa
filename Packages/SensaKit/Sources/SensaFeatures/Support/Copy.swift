@@ -14,6 +14,10 @@ enum Copy {
         tr("Changing fan speeds requires Sensa's privileged helper, which macOS only installs for apps signed with an Apple Developer ID. Monitoring keeps working, and your Mac stays under Apple's automatic control.")
     }
 
+    static var networkCountersNote: String {
+        tr("Sensa only reads byte counters. It never inspects your traffic. macOS reports these counters to apps in 1 KB steps, so very low rates are approximate.")
+    }
+
     static var privacyStatement: String {
         tr("Sensa does not send metrics, identifiers or any other data to servers. There is no hidden telemetry. Network monitoring reads byte counters only and never inspects traffic.")
     }

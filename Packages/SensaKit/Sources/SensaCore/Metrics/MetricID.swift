@@ -32,6 +32,9 @@ public extension MetricID {
     static let batteryTemperature = MetricID("battery.temperature")
 
     static let systemPower = MetricID("power.system")
+    static func power(_ rail: PowerRail) -> MetricID { MetricID("power.\(rail.rawValue)") }
+    static func frequency(_ cluster: ClusterActivity.Kind) -> MetricID { MetricID("frequency.\(cluster.rawValue)") }
+    static let wifiSignal = MetricID("network.wifi.rssi")
 
     static let cpuTemperature = MetricID("temperature.cpu")
     static let gpuTemperature = MetricID("temperature.gpu")

@@ -10,6 +10,9 @@ public enum Insight: Hashable, Sendable {
     case batteryCharging(charge: Double, minutesToFull: Int?)
     case batteryServiceRecommended(condition: String)
     case storageNearlyFull(volume: String, usedFraction: Double)
+    /// The SSD itself reports a critical condition (NVMe critical warning or spare below threshold).
+    case ssdCriticalWarning
+    case ssdMediaErrors(count: UInt64)
 }
 
 public struct InsightItem: Hashable, Sendable, Identifiable {

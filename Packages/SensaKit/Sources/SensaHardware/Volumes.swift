@@ -16,14 +16,16 @@ public enum Volumes {
     private static let keys: [URLResourceKey] = [
         .volumeNameKey, .volumeUUIDStringKey, .volumeTotalCapacityKey,
         .volumeAvailableCapacityForImportantUsageKey, .volumeAvailableCapacityKey,
-        .volumeIsInternalKey, .volumeIsRemovableKey, .volumeIsBrowsableKey, .volumeIsRootFileSystemKey
+        .volumeIsInternalKey, .volumeIsRemovableKey, .volumeIsBrowsableKey, .volumeIsRootFileSystemKey, .volumeIsReadOnlyKey
     ]
 
     public static func mounted() -> [VolumeRecord] {
         let urls = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: keys, options: [.skipHiddenVolumes]) ?? []
         return urls.compactMap { url in
+            // Read-only volumes (mounted installer disk images, recovery) have no meaningful free space.
             guard let values = try? url.resourceValues(forKeys: Set(keys)),
                   values.volumeIsBrowsable != false,
+                  values.volumeIsReadOnly != true || values.volumeIsRootFileSystem == true,
                   let total = values.volumeTotalCapacity, total > 0 else { return nil }
             let important = values.volumeAvailableCapacityForImportantUsage.map { UInt64(max($0, 0)) }
             let plain = values.volumeAvailableCapacity.map { UInt64(max($0, 0)) }

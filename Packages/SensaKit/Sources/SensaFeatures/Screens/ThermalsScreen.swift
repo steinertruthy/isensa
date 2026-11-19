@@ -37,6 +37,9 @@ struct ThermalsScreen: View {
                         message: tr("Sensa only names sensors after validating them on a Mac model. All raw sensors are still available in Sensors.")
                     )
                 }
+                if let power = store.snapshot.power, !power.rails.isEmpty {
+                    PowerRailsCard(power: power, systemPower: sensors.systemPower, formatter: formatter)
+                }
                 SeriesChartCard(
                     title: tr("Temperature history"), symbol: "chart.xyaxis.line",
                     lines: [.init(metric: .cpuTemperature, label: tr("CPU"), color: .orange), .init(metric: .gpuTemperature, label: tr("GPU"), color: .purple)],

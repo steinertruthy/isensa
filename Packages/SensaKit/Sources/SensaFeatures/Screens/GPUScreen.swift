@@ -49,8 +49,14 @@ struct GPUScreen: View {
                     lines: [.init(metric: .gpuUsage, label: tr("GPU"), color: .purple)],
                     range: 0...100, transform: { $0 * 100 }, format: { "\(Int($0)) %" }
                 )
+                if let cluster = store.snapshot.performance?.cluster(.gpu) {
+                    ClusterActivityCard(clusters: [cluster], formatter: formatter)
+                }
                 TechnicalDetails {
                     InfoRow(tr("Model"), value: gpu.name)
+                    if let watts = store.snapshot.power?.rails[.gpu] {
+                        InfoRow(tr("GPU power"), value: formatter.watts(watts, fractionDigits: 2))
+                    }
                     if let cores = gpu.coreCount { InfoRow(tr("GPU cores"), value: "\(cores)") }
                     InfoRow(tr("Source"), value: "IOAccelerator · PerformanceStatistics")
                 }

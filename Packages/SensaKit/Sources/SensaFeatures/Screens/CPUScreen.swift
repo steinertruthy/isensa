@@ -48,7 +48,16 @@ struct CPUScreen: View {
                     lines: [.init(metric: .cpuUsage, label: tr("Total"), color: .blue), .init(metric: .cpuSystemUsage, label: tr("System"), color: .red)],
                     range: 0...100, transform: { $0 * 100 }, format: { "\(Int($0)) %" }
                 )
+                if let clusters = store.snapshot.performance?.clusters.filter({ $0.kind != .gpu }), !clusters.isEmpty {
+                    ClusterActivityCard(clusters: clusters, formatter: formatter)
+                }
                 CoreGrid(cores: cpu.cores, formatter: formatter)
+                if let processes = store.snapshot.processes {
+                    ProcessListCard(
+                        title: tr("Using the most CPU"), processes: processes.topByCPU, ranking: .cpu,
+                        inaccessibleCount: processes.inaccessibleCount, formatter: formatter
+                    )
+                }
                 TechnicalDetails {
                     let profile = store.profile
                     InfoRow(tr("Processor"), value: profile.chipName)
@@ -64,7 +73,10 @@ struct CPUScreen: View {
                             help: tr("Average number of tasks running or waiting for the CPU.")
                         )
                     }
-                    InfoRow(tr("Source"), value: "host_processor_info")
+                    if let watts = store.snapshot.power?.rails[.cpu] {
+                        InfoRow(tr("CPU power"), value: formatter.watts(watts, fractionDigits: 2))
+                    }
+                    InfoRow(tr("Source"), value: "host_processor_info · IOReport")
                 }
             } else {
                 WaitingView()

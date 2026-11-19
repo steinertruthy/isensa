@@ -65,9 +65,21 @@ public struct HealthEvaluator: Sendable {
         return items
     }
 
+    /// Only the drive's own SMART flags drive SSD insights — no lifetime extrapolation.
+    private func ssdItems(_ health: SSDHealth?) -> [InsightItem] {
+        guard let health else { return [] }
+        if health.reportsCriticalCondition {
+            return [InsightItem(insight: .ssdCriticalWarning, level: .critical, component: .storage)]
+        }
+        if health.mediaErrors > 0 {
+            return [InsightItem(insight: .ssdMediaErrors(count: health.mediaErrors), level: .attention, component: .storage)]
+        }
+        return []
+    }
+
     private func storageItems(_ storage: StorageSnapshot?) -> [InsightItem] {
         guard let storage else { return [] }
-        return storage.volumes
+        return ssdItems(storage.ssdHealth) + storage.volumes
             .filter { $0.isInternal && $0.usedFraction >= thresholds.storageAttention }
             .map { volume in
                 let level: HealthLevel = volume.usedFraction >= thresholds.storageCritical ? .critical : .attention

@@ -11,6 +11,8 @@ public struct NetworkInterfaceInfo: Sendable, Hashable, Identifiable {
     public let isActive: Bool
     public let ipv4Addresses: [String]
     public let ipv6Addresses: [String]
+    /// Raw byte counters as macOS exposes them to apps: truncated to 32 bits and 1 KiB steps
+    /// (observed on macOS 26). Only meaningful as deltas — never display them as totals.
     public let totalReceived: UInt64
     public let totalSent: UInt64
 

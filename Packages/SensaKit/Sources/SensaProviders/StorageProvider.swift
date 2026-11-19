@@ -12,6 +12,9 @@ public actor StorageProvider: MetricProvider {
     private let volumeRefreshInterval: TimeInterval
     private var cachedVolumes: (date: Date, volumes: [VolumeInfo])?
     private var previous: (date: Date, counters: BlockStorageCounters)?
+    /// SMART data changes slowly; reading it every few minutes is plenty.
+    private let healthRefreshInterval: TimeInterval = 300
+    private var cachedHealth: (date: Date, health: SSDHealth?)?
 
     public init(volumeRefreshInterval: TimeInterval = 30) {
         self.volumeRefreshInterval = volumeRefreshInterval
@@ -30,7 +33,26 @@ public actor StorageProvider: MetricProvider {
             over: now.timeIntervalSince($0.date)
         ) }
         previous = (now, counters)
-        return StorageSnapshot(timestamp: now, volumes: volumes(now: now), readRate: rates?.first, writeRate: rates?.second)
+        return StorageSnapshot(
+            timestamp: now, volumes: volumes(now: now), readRate: rates?.first, writeRate: rates?.second, ssdHealth: health(now: now)
+        )
+    }
+
+    private func health(now: Date) -> SSDHealth? {
+        if let cachedHealth, now.timeIntervalSince(cachedHealth.date) < healthRefreshInterval { return cachedHealth.health }
+        let health = NVMeHealthReader.read().map(Self.health)
+        cachedHealth = (now, health)
+        return health
+    }
+
+    static func health(_ log: NVMeHealthLog) -> SSDHealth {
+        SSDHealth(
+            criticalWarning: log.criticalWarning, temperature: log.temperatureCelsius,
+            availableSpare: log.availableSpare, availableSpareThreshold: log.availableSpareThreshold,
+            percentageUsed: log.percentageUsed, bytesRead: log.bytesRead, bytesWritten: log.bytesWritten,
+            powerOnHours: log.powerOnHours, powerCycles: log.powerCycles,
+            unsafeShutdowns: log.unsafeShutdowns, mediaErrors: log.mediaErrors
+        )
     }
 
     private func volumes(now: Date) -> [VolumeInfo] {
@@ -49,11 +71,22 @@ public actor StorageProvider: MetricProvider {
     }
 }
 
-/// Byte counter → bytes/second, tolerant of counter resets (e.g. a disk ejected).
+/// Byte counter → bytes/second.
+///
+/// Handles two counter behaviours: 32-bit wrap-around (macOS gives unprivileged apps interface
+/// byte counters truncated to 32 bits, observed on macOS 26 / Mac15,6) and resets (a disk
+/// ejected, an interface recreated), which yield 0 instead of a bogus spike.
 enum RateCalculator {
     static func rates(from old: (UInt64, UInt64), to new: (UInt64, UInt64), over interval: TimeInterval) -> (first: Double, second: Double)? {
         guard interval > 0 else { return nil }
-        func rate(_ a: UInt64, _ b: UInt64) -> Double { b >= a ? Double(b - a) / interval : 0 }
-        return (rate(old.0, new.0), rate(old.1, new.1))
+        return (Double(delta(old.0, new.0)) / interval, Double(delta(old.1, new.1)) / interval)
+    }
+
+    static func delta(_ old: UInt64, _ new: UInt64) -> UInt64 {
+        if new >= old { return new - old }
+        let range = UInt64(UInt32.max) + 1
+        // A 32-bit counter that wrapped once: the old value sat in the top part of the range.
+        if old < range, new < range, old - new > range / 2 { return range - old + new }
+        return 0
     }
 }

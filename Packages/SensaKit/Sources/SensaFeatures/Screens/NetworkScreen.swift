@@ -20,13 +20,16 @@ struct NetworkScreen: View {
                         SeriesSparkline(metric: .networkUpload, tint: .pink)
                     }
                 }
+                if let wifi = store.snapshot.wifi {
+                    WiFiCard(wifi: wifi, formatter: formatter)
+                }
                 SeriesChartCard(
                     title: tr("Traffic"), symbol: "chart.xyaxis.line",
                     lines: [
                         .init(metric: .networkDownload, label: tr("Download"), color: .cyan),
                         .init(metric: .networkUpload, label: tr("Upload"), color: .pink)
                     ],
-                    transform: { $0 / 1_048_576 }, format: { "\(formatter.number($0, fractionDigits: 1)) MB/s" }
+                    format: { formatter.rate($0) }
                 )
                 TechnicalDetails {
                     ForEach(addressedInterfaces(network)) { interface in
@@ -34,13 +37,10 @@ struct NetworkScreen: View {
                             "\(interface.id) · \(kindName(interface.kind))",
                             value: (interface.ipv4Addresses + interface.ipv6Addresses).joined(separator: "\n")
                         )
-                        InfoRow(
-                            tr("Received / sent since boot"),
-                            value: "\(formatter.fileBytes(interface.totalReceived)) / \(formatter.fileBytes(interface.totalSent))"
-                        )
                     }
+                    if let wifi = store.snapshot.wifi, wifi.isAssociated { WiFiCard.detailRows(wifi) }
                     InfoRow(tr("Source"), value: "sysctl NET_RT_IFLIST2 · getifaddrs")
-                    Text(tr("Sensa only reads byte counters. It never inspects your traffic."))
+                    Text(Copy.networkCountersNote)
                         .font(Typography.caption).foregroundStyle(.secondary)
                 }
             } else {

@@ -18,6 +18,10 @@ public struct SystemSnapshot: Sendable, Equatable {
     public var sensors: SensorSnapshot?
     public var storage: StorageSnapshot?
     public var network: NetworkSnapshot?
+    public var performance: PerformanceSnapshot?
+    public var power: PowerSnapshot?
+    public var processes: ProcessSnapshot?
+    public var wifi: WiFiSnapshot?
 
     public init() {}
 }

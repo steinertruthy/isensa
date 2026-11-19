@@ -40,6 +40,12 @@ struct MemoryScreen: View {
                     range: 0...Double(memory.total) / 1_073_741_824, transform: { $0 / 1_073_741_824 },
                     format: { "\(formatter.number($0, fractionDigits: 0)) GB" }
                 )
+                if let processes = store.snapshot.processes {
+                    ProcessListCard(
+                        title: tr("Using the most memory"), processes: processes.topByMemory, ranking: .memory,
+                        inaccessibleCount: processes.inaccessibleCount, formatter: formatter
+                    )
+                }
                 TechnicalDetails {
                     InfoRow(tr("Installed"), value: formatter.bytes(memory.total))
                     InfoRow(tr("Used"), value: formatter.bytes(memory.used), help: tr("Apps + wired + compressed, as in Activity Monitor."))

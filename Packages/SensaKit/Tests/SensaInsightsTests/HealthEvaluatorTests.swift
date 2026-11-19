@@ -109,3 +109,30 @@ struct HealthEvaluatorTests {
         #expect(levels == levels.sorted(by: >))
     }
 }
+
+@Suite("SSD insights")
+struct SSDInsightTests {
+    private func storage(warning: UInt8, mediaErrors: UInt64) -> SystemSnapshot {
+        var snapshot = SystemSnapshot()
+        let health = SSDHealth(
+            criticalWarning: warning, temperature: nil, availableSpare: 100, availableSpareThreshold: 10, percentageUsed: 3,
+            bytesRead: 0, bytesWritten: 0, powerOnHours: 0, powerCycles: 0, unsafeShutdowns: 0, mediaErrors: mediaErrors
+        )
+        snapshot.storage = StorageSnapshot(timestamp: Date(), volumes: [], readRate: nil, writeRate: nil, ssdHealth: health)
+        return snapshot
+    }
+
+    @Test func healthyDriveIsNormal() {
+        #expect(HealthEvaluator().evaluate(storage(warning: 0, mediaErrors: 0)).isAllNormal)
+    }
+
+    @Test func driveWarningIsCritical() {
+        #expect(HealthEvaluator().evaluate(storage(warning: 4, mediaErrors: 0)).level == .critical)
+    }
+
+    @Test func mediaErrorsNeedAttention() {
+        let health = HealthEvaluator().evaluate(storage(warning: 0, mediaErrors: 2))
+        #expect(health.level == .attention)
+        #expect(health.items.first?.insight == .ssdMediaErrors(count: 2))
+    }
+}

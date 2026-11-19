@@ -25,6 +25,10 @@ struct InsightText {
             tr("macOS recommends checking the battery (%@).", condition)
         case let .storageNearlyFull(volume, fraction):
             tr("The disk “%@” is %@ full.", volume, formatter.percent(fraction))
+        case .ssdCriticalWarning:
+            tr("The internal SSD reports a critical condition. Back up your data.")
+        case let .ssdMediaErrors(count):
+            tr("The internal SSD has recorded %@ media errors. Keep your backups current.", formatter.integer(Int(clamping: count)))
         }
     }
 

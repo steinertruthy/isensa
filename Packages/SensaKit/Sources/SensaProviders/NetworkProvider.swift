@@ -19,13 +19,16 @@ public actor NetworkProvider: MetricProvider {
     public func sample() async throws -> any SnapshotFragment {
         let now = Date()
         let interfaces = NetworkCounters.interfaces().map(Self.interface)
-        let counted = interfaces.filter { $0.kind != .loopback && $0.isActive }
+        // Physical links only: tunnels (utun, VPNs) and peer-to-peer links re-carry the same traffic.
+        let counted = interfaces.filter { $0.isActive && Self.physicalKinds.contains($0.kind) }
         let received = counted.reduce(UInt64(0)) { $0 &+ $1.totalReceived }
         let sent = counted.reduce(UInt64(0)) { $0 &+ $1.totalSent }
         let rates = previous.flatMap { RateCalculator.rates(from: ($0.received, $0.sent), to: (received, sent), over: now.timeIntervalSince($0.date)) }
         previous = (now, received, sent)
         return NetworkSnapshot(timestamp: now, interfaces: interfaces, downloadRate: rates?.first, uploadRate: rates?.second)
     }
+
+    static let physicalKinds: Set<NetworkInterfaceKind> = [.wifi, .ethernet, .cellular]
 
     static func interface(_ counters: InterfaceCounters) -> NetworkInterfaceInfo {
         NetworkInterfaceInfo(

@@ -15,8 +15,12 @@ Validado em **MacBook Pro 14" Nov 2023 (`Mac15,6`), Apple M3 Pro, macOS 26.6.2**
 | Ventoinhas (escrita) | SMC via helper root | **Privada** | Root + Developer ID | 🔒 Bloqueado (sem Team ID) |
 | Armazenamento | `URLResourceValues`, `IOBlockStorageDriver` | Sim/Registry | — | ✅ Disponível |
 | Rede | `NET_RT_IFLIST2` (`if_data64`) | Sim | — | ✅ Disponível |
-| Frequências, energia por trilho | IOReport | **Privada** | — | ⏳ Etapa 3 (pendente) |
-| SMART NVMe | `IONVMeSMARTInterface` | Registry | — | ⏳ Pendente |
+| Frequências CPU/GPU | IOReport (residência) × tabelas DVFS do `pmgr` | **Privada** | — | 🧪 Verificado: E 2748, P 4056, GPU 1380 MHz sob carga |
+| Energia por componente | IOReport `Energy Model` | **Privada** | — | 🧪 CPU 6,5 W (carga CPU), GPU 13,4 W (carga Metal) |
+| Top processos | `libproc` (`proc_pid_rusage`) | Sim | — | ✅ CPU e memória; ~1/3 dos processos (outros usuários) inacessíveis |
+| Energia por processo | `ri_billed_energy` | Sim | — | ❌ Sempre 0 no macOS 26 — não exibido |
+| SMART NVMe | `IONVMeSMARTInterface` (header público) | Sim | — | ✅ 1 % usado, 100 % de reserva, 690 h |
+| Wi-Fi | CoreWLAN | Sim | Localização (só nome da rede) | ✅ RSSI, ruído, taxa, canal, padrão |
 | Limite de carga | Ajuste nativo do macOS 26 | — | — | ➖ Não implementado de propósito |
 
 ## Validação de sensores (sensa-probe)
@@ -39,8 +43,23 @@ Os sensores HID `PMU tdie*` não responderam à carga de CPU e ficam como "infer
   Condition: Normal. Usa-se `BatteryHealthCondition` (vazio = normal).
 * As ventoinhas ficam em 0 rpm em repouso — o app explica isso como comportamento normal.
 
+## Achados da Etapa 3
+
+* **Estados de desempenho:** os nomes `V<n>P<m>` (CPU) e `P<n>` (GPU) indexam a tabela DVFS. Sob carga total,
+  os clusters atingem exatamente o máximo da tabela (2748/4056/1380 MHz), o que valida o mapeamento.
+  Estados fora da tabela desativam a frequência em vez de serem estimados.
+* **Contadores de rede são truncados para apps:** o macOS entrega `ifi_ibytes/obytes` com 32 bits e passos de
+  1 KiB (en0: `netstat` = 397.879.015.395 B; Sensa = 2.742.023.168 = valor mod 2³² arredondado a 1024).
+  Por isso o cálculo de taxa trata a volta em 4 GiB e os totais desde a inicialização não são exibidos.
+  Túneis (`utun*`) não entram na soma para não contar o tráfego de VPN duas vezes.
+* **SMART no Apple silicon:** a capacidade fica no `IOEmbeddedNVMeBlockDevice`, não no controlador, e o
+  plug-in precisa permanecer vivo durante a leitura.
+* **Volumes somente leitura** (imagens de instalação montadas) foram removidos da lista de capacidade.
+
 ## Distribuição
 
 A App Sandbox bloqueia o user client `AppleSMCClient` → **Mac App Store inviável** para o produto completo.
-Caminho: Developer ID + Hardened Runtime + notarização + atualização via Sparkle. O helper privilegiado
+Caminho: Developer ID + Hardened Runtime + notarização + atualização via Sparkle.
+`ENABLE_HARDENED_RUNTIME` já está ativo no `project.yml`, mas com assinatura ad-hoc o Xcode o desativa
+("Disabling hardened runtime with ad-hoc codesigning"); ele só vale de fato com a assinatura Developer ID. O helper privilegiado
 (`SMAppService.daemon` + XPC com `setCodeSigningRequirement`) só registra com assinatura Developer ID.

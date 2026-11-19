@@ -30,8 +30,10 @@ let package = Package(
     targets: [
         .target(name: "SensaCore"),
 
+        .target(name: "CSensaHardware", linkerSettings: [.linkedFramework("IOKit"), .linkedFramework("CoreFoundation")]),
         .target(
             name: "SensaHardware",
+            dependencies: ["CSensaHardware"],
             linkerSettings: [.linkedFramework("IOKit")]
         ),
 

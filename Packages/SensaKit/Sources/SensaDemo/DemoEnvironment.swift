@@ -51,7 +51,10 @@ public enum DemoEnvironment {
     }
 
     public static func providers(for profile: HardwareProfile) -> [any MetricProvider] {
-        var providers: [any MetricProvider] = [cpu(profile), gpu(), memory(profile), thermal(), sensors(profile), storage(), network()]
+        var providers: [any MetricProvider] = [
+            cpu(profile), gpu(), memory(profile), thermal(), sensors(profile), storage(), network(),
+            performance(), power(), processes(), wifi()
+        ]
         if profile.hasBattery { providers.append(battery()) }
         return providers
     }
@@ -138,6 +141,54 @@ public enum DemoEnvironment {
                 cpuTemperature: cpuTemperature,
                 gpuTemperature: cpuTemperature - 4,
                 systemPower: 8 + 10 * wave(t, period: 20, base: 0.4, amplitude: 0.3)
+            )
+        }
+    }
+
+    private static func performance() -> any MetricProvider {
+        DemoProvider(id: "demo.performance", feature: .cpuFrequency, tier: .medium) { t in
+            PerformanceSnapshot(timestamp: Date(), clusters: [
+                ClusterActivity(
+                    kind: .efficiency,
+                    averageFrequency: 1_200 + 800 * wave(t, period: 12, base: 0.5, amplitude: 0.5),
+                    maximumFrequency: 2_400,
+                    activeResidency: 0.3
+                ),
+                ClusterActivity(
+                    kind: .performance,
+                    averageFrequency: 2_000 + 1_000 * wave(t, period: 9, base: 0.5, amplitude: 0.5),
+                    maximumFrequency: 4_000,
+                    activeResidency: 0.15
+                ),
+                ClusterActivity(kind: .gpu, averageFrequency: 600, maximumFrequency: 1_400, activeResidency: 0.2)
+            ])
+        }
+    }
+
+    private static func power() -> any MetricProvider {
+        DemoProvider(id: "demo.power", feature: .powerConsumption, tier: .medium) { t in
+            PowerSnapshot(timestamp: Date(), rails: [
+                .cpu: 1 + 3 * wave(t, period: 9, base: 0.4, amplitude: 0.4), .gpu: 0.8, .memory: 0.4, .neuralEngine: 0
+            ])
+        }
+    }
+
+    private static func processes() -> any MetricProvider {
+        DemoProvider(id: "demo.processes", feature: .processes, tier: .medium) { _ in
+            let list = [
+                ProcessUsage(id: 101, name: "Demo Browser", cpu: 0.24, memory: 1_400_000_000),
+                ProcessUsage(id: 102, name: "Demo Editor", cpu: 0.11, memory: 800_000_000),
+                ProcessUsage(id: 103, name: "Demo Music", cpu: 0.04, memory: 300_000_000)
+            ]
+            return ProcessSnapshot(timestamp: Date(), topByCPU: list, topByMemory: list, processCount: 420, inaccessibleCount: 150)
+        }
+    }
+
+    private static func wifi() -> any MetricProvider {
+        DemoProvider(id: "demo.wifi", feature: .wifiDetails, tier: .medium) { _ in
+            WiFiSnapshot(
+                timestamp: Date(), interfaceName: "en0", isPoweredOn: true, networkName: "Demo Network", rssi: -52, noise: -92,
+                transmitRate: 1_200, channel: 36, band: .ghz5, channelWidthMHz: 80, phyMode: "802.11ax (Wi-Fi 6)"
             )
         }
     }

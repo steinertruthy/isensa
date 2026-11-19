@@ -90,7 +90,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: app.sensa.SensaUITests
         GENERATE_INFOPLIST_FILE: YES
         # With ad-hoc signing the XCTest runner cannot load a bundle under library validation.
-        # The app itself keeps the Hardened Runtime.
+        # (Xcode also drops it from the app while signing is ad-hoc; it applies once a Developer ID signs it.)
         ENABLE_HARDENED_RUNTIME: NO
         TEST_TARGET_NAME: Sensa
 

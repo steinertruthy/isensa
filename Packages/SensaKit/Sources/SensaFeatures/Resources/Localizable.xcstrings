@@ -32,6 +32,16 @@
         }
       }
     },
+    "%@ system processes belong to other users and are not included.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ processos do sistema pertencem a outros usuários e não estão incluídos."
+          }
+        }
+      }
+    },
     "%@, %@.": {
       "localizations": {
         "pt-BR": {
@@ -232,6 +242,16 @@
         }
       }
     },
+    "Available spare": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reserva disponível"
+          }
+        }
+      }
+    },
     "Average": {
       "localizations": {
         "pt-BR": {
@@ -282,6 +302,26 @@
         }
       }
     },
+    "Average speed while active, from the time spent at each operating point.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade média enquanto ativo, calculada pelo tempo gasto em cada ponto de operação."
+          }
+        }
+      }
+    },
+    "Band": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Banda"
+          }
+        }
+      }
+    },
     "Battery": {
       "localizations": {
         "pt-BR": {
@@ -328,6 +368,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Frequência da CPU"
+          }
+        }
+      }
+    },
+    "CPU power": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energia da CPU"
           }
         }
       }
@@ -422,6 +472,26 @@
         }
       }
     },
+    "Channel": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canal"
+          }
+        }
+      }
+    },
+    "Channel width": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Largura do canal"
+          }
+        }
+      }
+    },
     "Charge": {
       "localizations": {
         "pt-BR": {
@@ -468,6 +538,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Chip"
+          }
+        }
+      }
+    },
+    "Clock speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequência"
           }
         }
       }
@@ -602,6 +682,16 @@
         }
       }
     },
+    "Data read": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dados lidos"
+          }
+        }
+      }
+    },
     "Demo data": {
       "localizations": {
         "pt-BR": {
@@ -682,6 +772,16 @@
         }
       }
     },
+    "Endurance used, as estimated by the drive": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durabilidade consumida, segundo a estimativa da própria unidade"
+          }
+        }
+      }
+    },
     "Estimated": {
       "localizations": {
         "pt-BR": {
@@ -742,6 +842,16 @@
         }
       }
     },
+    "Excellent signal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinal excelente"
+          }
+        }
+      }
+    },
     "Experimental": {
       "localizations": {
         "pt-BR": {
@@ -768,6 +878,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fahrenheit (°F)"
+          }
+        }
+      }
+    },
+    "Fair signal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinal razoável"
           }
         }
       }
@@ -912,6 +1032,16 @@
         }
       }
     },
+    "GPU power": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energia da GPU"
+          }
+        }
+      }
+    },
     "GPU usage": {
       "localizations": {
         "pt-BR": {
@@ -978,6 +1108,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bom dia"
+          }
+        }
+      }
+    },
+    "Good signal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinal bom"
           }
         }
       }
@@ -1072,6 +1212,16 @@
         }
       }
     },
+    "Higher is better; above 25 dB is a solid connection.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quanto maior, melhor; acima de 25 dB a conexão é estável."
+          }
+        }
+      }
+    },
     "Hot — macOS is reducing performance": {
       "localizations": {
         "pt-BR": {
@@ -1088,6 +1238,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Identificação"
+          }
+        }
+      }
+    },
+    "Includes display, SSD and everything else, as reported by the SMC.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inclui tela, SSD e todo o resto, conforme informado pelo SMC."
           }
         }
       }
@@ -1162,6 +1322,16 @@
         }
       }
     },
+    "Link speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Velocidade do link"
+          }
+        }
+      }
+    },
     "Load average (1, 5, 15 min)": {
       "localizations": {
         "pt-BR": {
@@ -1222,12 +1392,32 @@
         }
       }
     },
+    "Media errors": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erros de mídia"
+          }
+        }
+      }
+    },
     "Memory": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Memória"
+          }
+        }
+      }
+    },
+    "Memory (DRAM)": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória (DRAM)"
           }
         }
       }
@@ -1392,6 +1582,26 @@
         }
       }
     },
+    "Network: %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rede: %@"
+          }
+        }
+      }
+    },
+    "Neural Engine": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neural Engine"
+          }
+        }
+      }
+    },
     "No active network connection.": {
       "localizations": {
         "pt-BR": {
@@ -1432,6 +1642,16 @@
         }
       }
     },
+    "Noise": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruído"
+          }
+        }
+      }
+    },
     "Normal": {
       "localizations": {
         "pt-BR": {
@@ -1448,6 +1668,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Não verificado"
+          }
+        }
+      }
+    },
+    "Not connected to a Wi-Fi network.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não conectado a uma rede Wi-Fi."
           }
         }
       }
@@ -1602,6 +1832,16 @@
         }
       }
     },
+    "Power by component": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energia por componente"
+          }
+        }
+      }
+    },
     "Power consumption": {
       "localizations": {
         "pt-BR": {
@@ -1612,12 +1852,32 @@
         }
       }
     },
+    "Power cycles": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciclos de energia"
+          }
+        }
+      }
+    },
     "Power flow": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Fluxo de energia"
+          }
+        }
+      }
+    },
+    "Power-on hours": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horas ligado"
           }
         }
       }
@@ -1638,6 +1898,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Privacidade"
+          }
+        }
+      }
+    },
+    "Process %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Processo %@"
           }
         }
       }
@@ -1722,16 +1992,6 @@
         }
       }
     },
-    "Received / sent since boot": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recebido / enviado desde a inicialização"
-          }
-        }
-      }
-    },
     "Receiving": {
       "localizations": {
         "pt-BR": {
@@ -1802,6 +2062,16 @@
         }
       }
     },
+    "Reported problem": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problema relatado"
+          }
+        }
+      }
+    },
     "Requires authorization": {
       "localizations": {
         "pt-BR": {
@@ -1848,6 +2118,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Restaurar original"
+          }
+        }
+      }
+    },
+    "SMART source": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonte SMART"
+          }
+        }
+      }
+    },
+    "SSD health": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saúde do SSD"
+          }
+        }
+      }
+    },
+    "SSD temperature": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura do SSD"
           }
         }
       }
@@ -1922,12 +2222,12 @@
         }
       }
     },
-    "Sensa only reads byte counters. It never inspects your traffic.": {
+    "Sensa only reads byte counters. It never inspects your traffic. macOS reports these counters to apps in 1 KB steps, so very low rates are approximate.": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Sensa lê apenas contadores de bytes. Ele nunca inspeciona seu tráfego."
+            "value": "O Sensa lê apenas contadores de bytes e nunca inspeciona seu tráfego. O macOS informa esses contadores aos apps em passos de 1 KB, então taxas muito baixas são aproximadas."
           }
         }
       }
@@ -1938,6 +2238,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "O Sensa coleta dados com menos frequência quando suas janelas estão ocultas e na bateria, para economizar energia."
+          }
+        }
+      }
+    },
+    "Sensa shows the drive's own estimate and does not predict a remaining lifespan.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Sensa mostra a estimativa da própria unidade e não prevê a vida útil restante."
           }
         }
       }
@@ -1992,12 +2302,42 @@
         }
       }
     },
+    "Share of maximum clock speed": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proporção da frequência máxima"
+          }
+        }
+      }
+    },
     "Show favorites only": {
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Mostrar apenas favoritos"
+          }
+        }
+      }
+    },
+    "Signal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinal"
+          }
+        }
+      }
+    },
+    "Signal-to-noise ratio": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relação sinal-ruído"
           }
         }
       }
@@ -2038,6 +2378,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Girando sob controle automático"
+          }
+        }
+      }
+    },
+    "Standard": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padrão"
           }
         }
       }
@@ -2192,6 +2542,26 @@
         }
       }
     },
+    "The internal SSD has recorded %@ media errors. Keep your backups current.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O SSD interno registrou %@ erros de mídia. Mantenha seus backups em dia."
+          }
+        }
+      }
+    },
+    "The internal SSD reports a critical condition. Back up your data.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O SSD interno relata uma condição crítica. Faça backup dos seus dados."
+          }
+        }
+      }
+    },
     "Thermal pressure": {
       "localizations": {
         "pt-BR": {
@@ -2268,6 +2638,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sob controle manual"
+          }
+        }
+      }
+    },
+    "Unexpected shutdowns": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desligamentos inesperados"
           }
         }
       }
@@ -2372,6 +2752,26 @@
         }
       }
     },
+    "Using the most CPU": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usando mais CPU"
+          }
+        }
+      }
+    },
+    "Using the most memory": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usando mais memória"
+          }
+        }
+      }
+    },
     "Value": {
       "localizations": {
         "pt-BR": {
@@ -2422,6 +2822,26 @@
         }
       }
     },
+    "Weak signal": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinal fraco"
+          }
+        }
+      }
+    },
+    "Whole system": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema inteiro"
+          }
+        }
+      }
+    },
     "Wi-Fi": {
       "localizations": {
         "pt-BR": {
@@ -2438,6 +2858,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Detalhes do Wi-Fi"
+          }
+        }
+      }
+    },
+    "Wi-Fi interface": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interface Wi-Fi"
+          }
+        }
+      }
+    },
+    "Wi-Fi is turned off.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Wi-Fi está desligado."
           }
         }
       }
@@ -2468,6 +2908,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Escrita"
+          }
+        }
+      }
+    },
+    "Written over its lifetime": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gravados ao longo da vida útil"
           }
         }
       }
@@ -2598,6 +3048,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "O macOS recomenda verificar a bateria (%@)."
+          }
+        }
+      }
+    },
+    "macOS shows the network name only to apps with Location Services permission.": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O macOS só mostra o nome da rede para apps com permissão de Serviços de Localização."
+          }
+        }
+      }
+    },
+    "of %@ · active %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "de %@ · ativo %@"
+          }
+        }
+      }
+    },
+    "threshold": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "limite"
           }
         }
       }

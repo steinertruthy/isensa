@@ -35,12 +35,15 @@ public struct StorageSnapshot: SnapshotFragment, Equatable {
     /// Bytes per second across all block storage drivers. `nil` on the first sample.
     public let readRate: Double?
     public let writeRate: Double?
+    /// SMART log of the internal SSD, when the drive exposes it.
+    public let ssdHealth: SSDHealth?
 
-    public init(timestamp: Date, volumes: [VolumeInfo], readRate: Double?, writeRate: Double?) {
+    public init(timestamp: Date, volumes: [VolumeInfo], readRate: Double?, writeRate: Double?, ssdHealth: SSDHealth? = nil) {
         self.timestamp = timestamp
         self.volumes = volumes
         self.readRate = readRate
         self.writeRate = writeRate
+        self.ssdHealth = ssdHealth
     }
 
     public var rootVolume: VolumeInfo? { volumes.first(where: \.isRoot) }
